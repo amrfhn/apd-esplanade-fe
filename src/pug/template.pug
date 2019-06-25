@@ -1,0 +1,18 @@
+//- include mixins/image.pug
+
+doctype html
+html(
+  lang="en"
+)
+  include layout/head.pug
+
+  body
+    block header
+
+    main.offset-menu
+      block content
+
+    block footer
+          
+    //- include components/blog-search.pug
+    include layout/scripts.pug
