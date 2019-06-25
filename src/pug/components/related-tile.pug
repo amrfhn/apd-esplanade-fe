@@ -1,1 +1,8 @@
-h1 You may also like
+.row 
+    .col-12.pb-4 
+        h2.font-weight-bold.text-uppercase You may also like
+
+    - const cards = [1, 2, 3]
+    each card in cards 
+        .card-tile.col-12.col-md-4.pb-4
+            +cardTile('/detail.html','https://via.placeholder.com/310x195', card)
