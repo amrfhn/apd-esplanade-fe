@@ -4,6 +4,25 @@ block header
     include ../layout/header.pug
 
 block content
+    .container-fluid.py-5 
+        .row
+            .col-12.col-md-6.thumbnail-holder
+                
+            .col-12.col-md-6.px-md-5
+                .px-md-4.h-100.d-flex.justify-content-center.flex-column
+                    p.m-2.card-text.font-12.font-weight-bold DANCE | MUSIC | FILM
+                    h1.font-weight-bolder.text-uppercase A French Toast To Ballet
+                    p.font-16 Seven things to know about Paris Opera Ballet to impress your mates Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, cumque illo? Delectus non, itaque ducimus a, illo quidem similique enim officia praesentium amet nihil error aliquid atque magni, ut sapiente!
+                    p Publish date: 19 April 2019
+                    p Last updated date: 23 April 2019
+                    div
+                        button(type="button").btn.btn-outline-primary Read more
+
     .container
-    
         include ../components/related-tile.pug
+
+    .container-fluid
+        include ../components/newsletter.pug
+
+block footer 
+    include ../layout/footer.pug

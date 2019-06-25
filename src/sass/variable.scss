@@ -99,7 +99,7 @@ $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
 $font-weight-bold:            700 !default;
-$font-weight-bolder:          bolder !default;
+$font-weight-bolder:          900 !default;
 
 //font-size
 .font-220{ font-size: 220px; }
@@ -133,3 +133,17 @@ $font-weight-bolder:          bolder !default;
 .font-10{ font-size: 10px; }
 
 p {font-size: 14px}
+
+//button
+.btn {
+  border-radius: 0 !important;
+  padding: 0.8rem 3.75rem !important;
+  font-weight: bold !important;
+  border: 1.5px solid !important;
+  text-transform: uppercase;
+}
+
+.btn-outline-light {
+  color: $white;
+  border-color: $white
+}

@@ -15,3 +15,9 @@ block content
                     each card in cards 
                         .card-tile.col-12.col-md-6.pb-4
                             +cardTile('/detail.html','https://via.placeholder.com/310x195', card)
+
+block footer
+    .container-fluid
+        .row
+            .col-12.col-md-6.p-0
+                include ../layout/footer.pug
