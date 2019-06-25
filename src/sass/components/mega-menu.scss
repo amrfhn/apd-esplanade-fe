@@ -55,13 +55,47 @@
 }
 
 .mm-wrapper{
-    position: relative;
-    top: 80px;
+    position: fixed;
+    left: -1px;
+    height: 100%;
+    width:210px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 999;
 
+    .close-btn-x {
+        position: relative;
+        padding: .5%;
+        border: none;
+        font-size: 35px;
+        left: 10px;
+        cursor: pointer;
+        top: -6px;
+        font-weight: 500;
+        $font-family-sans-serif: 'Montserrat', sans-serif!default;
+        
+        cursor: pointer;
+        &:hover {
+            color: darken(#fff, 80%);
+        }
+    
+        
+        &.close-box {
+            padding: 6px 14px 9px 14px;
+            background-color: #ccc; 
+            &:hover {
+                background-color: darken(#ccc, 10%); 
+            }
+        }
+    }
     .mm-content{
         
-        p.mm-text{
-
+        p.menu-text{
+            font-size: 9px;
+            letter-spacing: .4px;
+            line-height: 9px;
+            padding: 0.5rem 1rem;
         }
 
         .mm-content-item{
@@ -69,11 +103,14 @@
 
             ul{
                 font-size: 1.5rem;
-                list-style:none;
+                list-style-type: none;
                 margin-left: 0;
 
                 li{
-                    // width: 20%;
+                    font-size: 14px;
+                    line-height: 14px;
+                    padding-left: 0;
+                    margin-left: 0;
                 }
             }
 
