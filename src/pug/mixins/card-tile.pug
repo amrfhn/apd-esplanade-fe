@@ -1,0 +1,16 @@
+mixin cardTile(link, img, title)
+    .card
+        a(href=link) 
+            img.card-img-top(src=img)
+        
+        .border.border-top-0.text-left 
+            span.p-1.px-3.bg-primary.text-white.font-12.text-uppercase listen
+
+            .card-body.pt-0.text-center
+                p.m-2.card-text.font-12.font-weight-bold MUSIC
+
+                .card-title.text-primary
+                    a(href=link) 
+                        h5.font-weight-bold=title
+
+                p.card-text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis id cupiditate reprehenderit eveniet provident excepturi sunt error incidunt praesentium, expedita aliquid eos quasi non mollitia, quaerat at! Qui, provident aliquid.     

@@ -1,7 +1,17 @@
-    
-
-main
-    h1.test Hello Worldsas tes tes tes 
+extends ../template.pug   
 
 block header 
     include ../layout/header.pug
+
+block content 
+    .container-fluid
+        .row
+            .col-12.col-md-6
+                h1 carousel
+
+            .col-12.col-md-6
+                .row   
+                    - const cards = [1, 2, 3, 4, 5]
+                    each card in cards 
+                        .card-tile.col-12.col-md-6.pb-4
+                            +cardTile('/detail.html','https://via.placeholder.com/310x195', card)

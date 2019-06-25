@@ -1,8 +1,8 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const fs = require('fs')
-
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const fs = require('fs');
 
 function generateHtmlPlugins(templateDir) {
     // Read files in template directory
@@ -23,7 +23,7 @@ function generateHtmlPlugins(templateDir) {
 
 const htmlPlugins = generateHtmlPlugins('./src/pug/pages')
 
-const config = {
+module.exports = {
     entry: {
         app: './src/js/main.js'
     },
@@ -32,12 +32,15 @@ const config = {
         filename: "bundle.js",
     },
     devServer: {
+        writeToDisk: true,
         port: 3000,
+        contentBase: './dist',
         historyApiFallback: {
             index: 'index.html'
         },
     },
     plugins: [
+        new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
@@ -47,7 +50,16 @@ const config = {
         rules: [
             {
                 test: /\.pug$/,
-                use: [{loader: "pug-loader", options: {pretty: true}}]
+                use: [{ loader: "pug-loader", options: { pretty: true } }]
+            },
+            {
+                test: /\.m?js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
             },
             {
                 test: /\.(s*)css$/,
@@ -55,11 +67,11 @@ const config = {
             }
         ]
     },
-
     watch: true
 };
-module.exports = (env, argv) => {
-    if (argv.mode === 'development') { }
-    if (argv.mode === 'production') { }
-    return config;
-}   
+
+// module.exports = (env, argv) => {
+//     if (argv.mode === 'development') { }
+//     if (argv.mode === 'production') { }
+//     return config;
+// }   
