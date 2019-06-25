@@ -25,7 +25,7 @@ const htmlPlugins = generateHtmlPlugins('./src/pug/pages')
 
 const config = {
     entry: {
-        app: './src/js/app.js'
+        app: './src/js/main.js'
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -33,6 +33,9 @@ const config = {
     },
     devServer: {
         port: 3000,
+        historyApiFallback: {
+            index: 'index.html'
+        },
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -52,13 +55,11 @@ const config = {
             }
         ]
     },
-    resolve: {
-        extensions: ['scss']
-    },
+
     watch: true
 };
 module.exports = (env, argv) => {
     if (argv.mode === 'development') { }
     if (argv.mode === 'production') { }
     return config;
-}
+}   
