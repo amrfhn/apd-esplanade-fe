@@ -57,14 +57,6 @@ module.exports = {
                 test: /\.pug$/,
                 use: [{ loader: "pug-loader", options: { pretty: true } }]
             },
-            // {
-            //     test: /\.js$/,
-            //     exclude: /node_modules/,
-            //     loader: "eslint-loader",
-            //     options: {
-            //         // eslint options (if necessary)
-            //     }
-            // },
             {
                 test: /\.m?js$/,
                 use: {
@@ -72,6 +64,23 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-env']
                     }
+                }
+            },
+
+            {
+                test: /\.(ttf|woff|woff2|eot)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'assets/fonts/'
+                }
+            },
+            {
+                test: /\.(svg|gif|img|png)$/,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                    outputPath: 'assets/img/'
                 }
             },
             {
@@ -86,9 +95,3 @@ module.exports = {
     },
     watch: true
 };
-
-// module.exports = (env, argv) => {
-//     if (argv.mode === 'development') { }
-//     if (argv.mode === 'production') { }
-//     return config;
-// }   
