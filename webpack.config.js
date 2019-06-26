@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -44,6 +45,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ].concat(htmlPlugins),
     module: {
@@ -52,6 +57,14 @@ module.exports = {
                 test: /\.pug$/,
                 use: [{ loader: "pug-loader", options: { pretty: true } }]
             },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     loader: "eslint-loader",
+            //     options: {
+            //         // eslint options (if necessary)
+            //     }
+            // },
             {
                 test: /\.m?js$/,
                 use: {
@@ -69,7 +82,7 @@ module.exports = {
                 test: /\.scss/,
                 loader: 'import-glob-loader'
             }
-        ]
+        ],
     },
     watch: true
 };

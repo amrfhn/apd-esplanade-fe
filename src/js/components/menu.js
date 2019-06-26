@@ -6,4 +6,3 @@ $(function() {
     $('.close-btn-x').on('click', function(){
         $('.mm-wrapper').removeClass('active');
     })
-});
