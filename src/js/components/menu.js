@@ -6,3 +6,11 @@ $(function() {
     $('.close-btn-x').on('click', function(){
         $('.mm-wrapper').removeClass('active');
     })
+
+    $('#searchBar').modal({
+        backdrop: false,
+        show: false,
+        focus: false
+    });
+
+});

@@ -59,6 +59,43 @@
         background: #fff;
         height: 100%;
         width: 100%;
+        
+        .side-nav-wrapper{
+            height: 100%;
+
+            .nav-tabs{
+                height: 100%;
+                .nav-item{
+                    margin: auto 0;
+                    .nav-link{
+                        font-size: 14px;
+                        line-height: 16px;
+                        font-weight: 800;
+                        color: #9b9b9b;
+                        border: none;
+                        &.active{
+                            color: #000;
+                            text-decoration: underline;
+
+                        }
+                    }
+                }
+                li:nth-child(1){
+                    border-right: 1px solid #9b9b9b;
+                }
+            }
+
+            .search{
+                
+                .btn-search{
+                    float: right;
+                    position: relative;
+                    top: -45px;
+                    left: -25px;
+                    cursor: pointer;
+                }
+            }
+        }
     }
 }
 

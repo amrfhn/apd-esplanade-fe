@@ -1,0 +1,43 @@
+mixin header(navbar)
+    header
+        .container-fluid
+            .nav-bar-wrapper
+                .row
+                    .col-12.col-md-6
+                        .nav-bar.left
+                            button#hamb.hamb
+                                #rect1.showRect
+                                #rect2.showRect 
+                                #rect3.showRect 
+                                p.menu-text MENU
+
+                    .col-12.col-md-6
+                        .nav-bar.right
+                            .side-nav-wrapper
+                                //- set TRUE for side-nav or blank for back button
+                                if navbar= navbar 
+                                    .nav.nav-tabs#navTab
+                                        li.nav-item
+                                            a.nav-link.active(href="") EXPLORE THE ARTS
+                                        li.nav-item
+                                            a.nav-link(href="") KNOW THE ARTISTS
+
+                                    .search
+                                        button.btn-search#btnSearch(type="button" data-toggle="modal" data-target="#searchBar")
+                                            img.search-icon(src="/images/search-left.png")
+                                        
+                                        .modal.fade.in#searchBar(tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true")
+                                            .modal-dialog(role="document")
+                                                .modal-content
+                                                    .modal-body
+                                                        img.search-left(src="")
+                                                        input.form-control.search-field(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default")
+                                                        p asdkajsdkjs
+
+
+                                else
+                                    a.back-btn(href="javascript:history.go(-1)") Back
+                    
+                        
+            .row
+                include ../components/mega-menu.pug
