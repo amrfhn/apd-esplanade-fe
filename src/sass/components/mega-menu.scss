@@ -1,22 +1,21 @@
 .nav-bar-wrapper{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    background-color: transparent;
+    background-color: #000;
+    // border-bottom: 1px solid #fff;
+    z-index: 100; 
     .nav-bar{
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100%;
-        background-color: transparent;
-        background-color: #000;
-        // border-bottom: 1px solid #fff;
-        z-index: 100; 
-                    
-            
+        
         .hamb{
             position: relative; 
             float: left;
             width: 37px;
             height: 40px;
             padding: .5%;
-            margin: 10px 1%;
+            margin: 10px 10%;
             box-sizing: border-box;
             background-color: #000;
             border: none;
@@ -58,21 +57,27 @@
     position: fixed;
     left: -1px;
     height: 100%;
-    width:210px;
     background: #fff;
     border: 1px solid #ccc;
     padding: 10px;
     z-index: 999;
+    width: 210px;
+    opacity: 0;
+    display: none;
+
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition:  all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 
     .close-btn-x {
         position: relative;
         padding: .5%;
         border: none;
         font-size: 35px;
-        left: 10px;
+        left: 5px;
         cursor: pointer;
         top: -6px;
-        font-weight: 500;
         $font-family-sans-serif: 'Montserrat', sans-serif!default;
         
         cursor: pointer;
@@ -101,19 +106,35 @@
         .mm-content-item{
             
 
-            ul{
+            ul.nav{
                 font-size: 1.5rem;
                 list-style-type: none;
                 margin-left: 0;
+                border-bottom: .5px solid rgba(0, 0, 0, .5);
 
-                li{
+                li.nav-item{
+                    margin-bottom: 10px;
                     font-size: 14px;
                     line-height: 14px;
                     padding-left: 0;
                     margin-left: 0;
+                    
+                    &.active{
+                        font-weight: 800;
+                    }
                 }
             }
 
         }
     }
+}
+
+.active{
+    opacity: 1;
+    display: block;
+}
+
+.second-side-nav{
+    background:#fff;
+    z-index: 100000;
 }
