@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -44,6 +45,10 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].css',
             chunkFilename: '[id].css'
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ].concat(htmlPlugins),
     module: {
@@ -72,10 +77,6 @@ module.exports = {
             {
                 test: /\.(s*)css$/,
                 use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader']
-            },
-            {
-                test: /\.js/,
-                loader: 'import-glob-loader'
             },
             {
                 test: /\.scss/,
