@@ -4,17 +4,18 @@ block header
     +header(true)
 
 block content 
-    .container-fluid
-        .row
+    
+    .container-fluid.no-gutters.pl-md-0
+        .row.no-gutters
             .col-12.col-md-6
-                h1 carousel
+                .thumbnail-holder
+                    h1 carousel here
 
             .col-12.col-md-6.pt-5
-                .row.pt-5   
-                    - const cards = [1, 2, 3, 4, 5]
-                    each card in cards 
-                        .card-tile.col-12.col-md-6.pb-4
-                            +cardTile('/detail.html','https://via.placeholder.com/310x195', card)
+                - const cards = [1, 2, 3, 4, 5]
+                each card in cards 
+                    .card-tile.col-12.col-md-6.pb-4
+                        +cardTile('/detail.html','https://via.placeholder.com/310x195', card)
 
 block footer
     .container-fluid

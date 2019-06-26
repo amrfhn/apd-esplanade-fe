@@ -1,0 +1,7 @@
+mixin sprite(id, width, height, fill)
+    if !height
+        height = width
+
+    svg(class="svg-icon" height=height width=width, fill=fill )
+        use(xlink:href=`images/svg/sprite-symbol.svg#${id}`)
+

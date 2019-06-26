@@ -12,6 +12,7 @@ import './index.js'
 
 /* Components
 // ::::::::::::: */
+import './components/image-carousel.js'
 import './components/video-carousel.js'
 import './components/test.js'
 import './components/menu.js'

@@ -1,17 +1,17 @@
 mixin header(navbar)
     header
         .container-fluid
-            .nav-bar-wrapper
+            .nav-bar-wrapper.navbar-fixed-top
                 .row
-                    .col-12.col-md-6
-                        .nav-bar.left
+                    .col-12.col-md-6.no-gutters.pl-0.pr-0
+                        .nav-bar.navbar-fixed-top.left
                             button#hamb.hamb
                                 #rect1.showRect
                                 #rect2.showRect 
                                 #rect3.showRect 
                                 p.menu-text MENU
 
-                    .col-12.col-md-6
+                    .col-12.col-md-6.no-gutters.pl-0.pr-0
                         .nav-bar.right
                             .side-nav-wrapper
                                 //- set TRUE for side-nav or blank for back button

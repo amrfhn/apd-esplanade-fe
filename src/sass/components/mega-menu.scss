@@ -4,7 +4,7 @@
     right: 0;
     width: 100%;
     background-color: transparent;
-    background-color: #000;
+    // background-color: #000;
     // border-bottom: 1px solid #fff;
     z-index: 100; 
     .nav-bar{
@@ -58,7 +58,7 @@
     .right{
         background: #fff;
         height: 100%;
-        width: 100%;
+        margin-left: -8px;
         
         .side-nav-wrapper{
             height: 100%;
