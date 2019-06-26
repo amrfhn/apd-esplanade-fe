@@ -30,10 +30,15 @@
   "dependencies": {
     "bootstrap": "^4.3.1",
     "clean-webpack-plugin": "^3.0.0",
+<<<<<<< HEAD
+    "import-glob-loader": "^1.1.0",
+    "sass": "^1.21.0"
+=======
     "eslint-loader": "^2.1.2",
     "import-glob-loader": "^1.1.0",
     "jquery": "^3.4.1",
     "sass": "^1.21.0",
     "slick-carousel": "^1.8.1"
+>>>>>>> f457540d1610395da4c936adf5ead52b0d5d75f0
   }
 }

@@ -15,7 +15,7 @@
             width: 37px;
             height: 40px;
             padding: .5%;
-            margin: 10px 10%;
+            margin: 10px 0px 10px 40px;
             box-sizing: border-box;
             background-color: #000;
             border: none;
@@ -50,6 +50,15 @@
                 outline: none;
             }
         }
+
+        
+    }
+    .left{
+    }
+    .right{
+        background: #fff;
+        height: 100%;
+        width: 100%;
     }
 }
 
@@ -61,7 +70,7 @@
     border: 1px solid #ccc;
     padding: 10px;
     z-index: 999;
-    width: 210px;
+    width: 240px;
     opacity: 0;
     display: none;
 
@@ -75,7 +84,7 @@
         padding: .5%;
         border: none;
         font-size: 35px;
-        left: 5px;
+        margin-left: 40px;
         cursor: pointer;
         top: -6px;
         $font-family-sans-serif: 'Montserrat', sans-serif!default;
@@ -101,6 +110,8 @@
             letter-spacing: .4px;
             line-height: 9px;
             padding: 0.5rem 1rem;
+            margin-left: 24px;
+
         }
 
         .mm-content-item{
@@ -117,8 +128,8 @@
                     font-size: 14px;
                     line-height: 14px;
                     padding-left: 0;
-                    margin-left: 0;
-                    
+                    margin-left: 24px;
+
                     &.active{
                         font-weight: 800;
                     }
