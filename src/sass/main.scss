@@ -1,6 +1,15 @@
+/* Variables
+// ::::::::::::: */
 @import 'variable.scss';
+
+/* Bootstrap
+// ::::::::::::: */
 @import "node_modules/bootstrap/scss/bootstrap";
-@import 'elements/link.scss';
-@import 'components/mega-menu.scss';
-@import 'components/video.scss';
-@import 'components/card-tile.scss'
+
+/* Elements
+// ::::::::::::: */
+@import 'elements/*';
+
+/* Components
+// ::::::::::::: */
+@import 'components/*';
