@@ -8,12 +8,13 @@
 
 /* Slick
 // ::::::::::::: */
-@import "node_modules/slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
 
 /* Elements
 // ::::::::::::: */
-@import 'elements/*';
+@import 'elements/**/*';
 
 /* Components
 // ::::::::::::: */
-@import 'components/*';
+@import 'components/**/*';

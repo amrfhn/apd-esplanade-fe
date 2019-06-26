@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $('.video-carousel').slick({
-        slidesToShow: 2,
-        slidesToScroll: 3
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true
     });
 })
