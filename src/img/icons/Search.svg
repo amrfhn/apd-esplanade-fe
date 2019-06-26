@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="29px" height="29px" viewBox="0 0 29 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icons/Search</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Search" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M29,27.0003535 L27.0003535,29 L21,23.0010606 L22.9996465,21 L29,27.0003535 Z M11.5,20 C6.81366667,20 3,16.18775 3,11.5 C3,6.81366667 6.81366667,3 11.5,3 C16.1863333,3 20,6.81366667 20,11.5 C20,16.18775 16.1863333,20 11.5,20 L11.5,20 Z M11.5,0 C5.149125,0 0,5.149125 0,11.5 C0,17.850875 5.149125,23 11.5,23 C17.850875,23 23,17.850875 23,11.5 C23,5.149125 17.850875,0 11.5,0 L11.5,0 Z" id="search_left-[#1504]" fill="#000000"></path>
+    </g>
+</svg>

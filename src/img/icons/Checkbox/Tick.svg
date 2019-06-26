@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icons/Checkbox/Tick</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Checkbox/Tick" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M2,18 L18,18 L18,2 L2,2 L2,18 Z M0,20 L20,20 L20,0 L0,0 L0,20 Z" id="minus-[#1514]-copy" fill="#000000"></path>
+        <polygon id="Path" fill="#000000" points="9.444 13.748 5.908 10.212 7.322 8.798 9.444 10.92 13.687 6.677 15.101 8.091 9.445 13.748 9.444 13.747"></polygon>
+    </g>
+</svg>

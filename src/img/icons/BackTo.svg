@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icons/BackTo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/BackTo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M8.271,9.958 L12.942,14.906 L14.396,13.544 L11.968,11 L20,11 L20,9 L11.968,9 L14.396,6.408 L12.942,5.06 L8.271,9.958 Z M10,20 L0,20 L0,0 L10,0 L10,4 L8,4 L8,2 L2,2 L2,18 L8,18 L8,16 L10,16 L10,20 Z" id="arrow_in_left-[#387]" fill="#FFFFFF"></path>
+    </g>
+</svg>
