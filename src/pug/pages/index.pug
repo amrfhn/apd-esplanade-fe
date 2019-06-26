@@ -5,17 +5,19 @@ block header
 
 block content 
     
-    .container-fluid.no-gutters.pl-md-0
+    .container-fluid.no-gutters.p-md-0
         .row.no-gutters
             .col-12.col-md-6
                 .thumbnail-holder
                     h1 carousel here
 
-            .col-12.col-md-6.pt-5
-                - const cards = [1, 2, 3, 4, 5]
-                each card in cards 
-                    .card-tile.col-12.col-md-6.pb-4
-                        +cardTile('/detail.html','https://via.placeholder.com/310x195', card)
+            .col-12.col-md-6.pt-5.p-md-4
+                .row.pt-5   
+                    - const cards = [1, 2, 3, 4, 5]
+                    each card in cards 
+                        .card-tile.col-12.col-md-6.pb-4
+                            +cardTile('/detail.html','https://via.placeholder.com/310x195', card)
+
 
 block footer
     .container-fluid
