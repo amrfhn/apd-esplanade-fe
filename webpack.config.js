@@ -52,6 +52,14 @@ module.exports = {
                 test: /\.pug$/,
                 use: [{ loader: "pug-loader", options: { pretty: true } }]
             },
+            // {
+            //     test: /\.js$/,
+            //     exclude: /node_modules/,
+            //     loader: "eslint-loader",
+            //     options: {
+            //         // eslint options (if necessary)
+            //     }
+            // },
             {
                 test: /\.m?js$/,
                 use: {
@@ -64,8 +72,16 @@ module.exports = {
             {
                 test: /\.(s*)css$/,
                 use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader']
+            },
+            {
+                test: /\.js/,
+                loader: 'import-glob-loader'
+            },
+            {
+                test: /\.scss/,
+                loader: 'import-glob-loader'
             }
-        ]
+        ],
     },
     watch: true
 };

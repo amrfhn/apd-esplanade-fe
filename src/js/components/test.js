@@ -1,3 +1,4 @@
 $( document ).ready(function() {
-    alert( "ready!" );
+    console.log('jquery', $)
+    window.test = $
 });
