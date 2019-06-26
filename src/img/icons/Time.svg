@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icons/Time</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Time" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M16,12 L9,12 L9,5 L11,5 L11,10 L16,10 L16,12 Z M10,18 C5.589,18 2,14.411 2,10 C2,5.589 5.589,2 10,2 C14.411,2 18,5.589 18,10 C18,14.411 14.411,18 10,18 L10,18 Z M0,10 C0,15.523 4.477,20 10,20 C15.523,20 20,15.523 20,10 C20,4.477 15.523,0 10,0 C4.477,0 0,4.477 0,10 Z" id="clock-[#1317]" fill="#FFFFFF"></path>
+    </g>
+</svg>

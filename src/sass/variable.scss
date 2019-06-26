@@ -101,6 +101,12 @@ $font-weight-normal:          400 !default;
 $font-weight-bold:            700 !default;
 $font-weight-bolder:          900 !default;
 
+//header
+h1, h2, h3, h4, h5 {
+  font-weight: bold!important;
+  text-transform: uppercase
+}
+
 //font-size
 .font-220{ font-size: 220px; }
 .font-180{ font-size: 180px; }
@@ -147,3 +153,4 @@ p {font-size: 14px}
   color: $white;
   border-color: $white
 }
+

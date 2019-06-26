@@ -10,13 +10,44 @@ block content
                 
             .col-12.col-md-6.px-md-5
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
-                    p.m-2.card-text.font-12.font-weight-bold DANCE | MUSIC | FILM
-                    h1.font-weight-bolder.text-uppercase A French Toast To Ballet
+                    p.card-text.font-12.font-weight-bold 
+                        a(href="#") DANCE | 
+                        a(href="#") MUSIC | 
+                        a(href="#") FILM
+                    h1.font-weight-bolder A French Toast To Ballet
                     p.font-16 Seven things to know about Paris Opera Ballet to impress your mates Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, cumque illo? Delectus non, itaque ducimus a, illo quidem similique enim officia praesentium amet nihil error aliquid atque magni, ut sapiente!
                     p Publish date: 19 April 2019
                     p Last updated date: 23 April 2019
                     div
-                        button(type="button").btn.btn-outline-primary Read more
+                        a(href="#content")
+                            button(type="button").btn.btn-outline-primary Read more
+
+    .container
+        .row
+            .col-12.col-md-6
+                .d-flex
+                    div
+                        p.font-12 Time to read: 15 minutes
+                
+            .col-12.col-md-6.text-align-left
+                        ul
+                            li.d-inline-flex 1
+                            li.d-inline-flex 2
+                            li.d-inline-flex 3
+            
+        .row.pb-5
+            .col
+                h1.font-weight-bold.text-uppercase There's no stopping the tour de force of ballet.
+                p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta temporibus quaerat officia suscipit adipisci deleniti reiciendis molestiae vel nobis iste, dolore enim impedit ab quibusdam minima libero cumque pariatur dolores!
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente nostrum rerum itaque ducimus ex quis fugiat quia enim repellendus dignissimos debitis soluta quam molestiae, dolore est placeat asperiores quos earum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo autem ipsum, similique excepturi facere, illo ullam nemo dicta nihil aspernatur dolor voluptatem voluptas aliquam dolorum quaerat qui maiores minima porro.
+                br
+                h5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quas! Nulla, iste neque. Quia, ad rem deserunt dicta facere autem sint voluptas quae sequi accusantium voluptatibus at quos modi beatae?
+
+        .row.pb-5
+            .col
+                +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
+
+                include ../components/video-carousel.pug
 
     .container
         include ../components/related-tile.pug

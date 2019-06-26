@@ -5,9 +5,10 @@ import '../sass/main.scss'
 import 'slick-carousel'
 import './vendor/2-ellipsis.min.js'
 
+import './index.js'
+
 /* Components
 // ::::::::::::: */
-import './components/test.js'
+import './components/video-carousel.js'
 import './components/menu.js'
-
 
