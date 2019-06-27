@@ -21,6 +21,7 @@ import './index.js'
 // ::::::::::::: */
 import './components/image-carousel.js'
 import './components/video-carousel.js'
+import './components/tabs-filter.js'
 import './components/test.js'
 import './components/menu.js'
 
