@@ -7,7 +7,7 @@ $(function () {
         
         var i = (currentSlide ? currentSlide : 0) + 1;
         
-        $slideCount.text('0'+i + '/' + '02');
+        $slideCount.text('0'+i + '/' + slick.slideCount);
     });
 
     $('.carousel-banner').slick({

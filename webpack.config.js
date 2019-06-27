@@ -3,6 +3,7 @@ const webpack = require('webpack')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const fs = require('fs');
 
 function generateHtmlPlugins(templateDir) {
@@ -50,6 +51,9 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         })
+        // new SpriteLoaderPlugin({
+        //     plainSprite:true
+        // })
     ].concat(htmlPlugins),
     module: {
         rules: [
@@ -83,6 +87,14 @@ module.exports = {
                     outputPath: 'assets/img/'
                 }
             },
+            // {
+            //     test: /\.svg(\?.*)?$/,
+            //     loader: 'svg-sprit-loader',
+            //     options: {
+            //         extract: true,
+            //         publicPath: 'assets/img/'
+            //     }
+            // },
             {
                 test: /\.(s*)css$/,
                 use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader']

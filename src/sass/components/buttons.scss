@@ -1,0 +1,13 @@
+.btn{
+    background-color: transparent;
+    padding: 10px 15px;
+
+    &.btn-primary{
+        color:#fff;
+        border:1px solid #fff;
+        &:hover{
+            background-color: #fff;
+            color: #000;
+        }
+    }   
+}
