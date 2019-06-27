@@ -8,8 +8,19 @@ block content
     .container-fluid.no-gutters.p-md-0
         .row.no-gutters
             .col-12.col-md-6
-                .thumbnail-holder
-                    h1 carousel here
+                .carousel-banner-wrapper
+                    .carousel-banner
+                        .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
+                            +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
+
+
+                        .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
+                            +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
+
+                                
+
+                    .slide-count-wrap
+                                
 
             .col-12.col-md-6.pt-5.p-md-4
                 .row.pt-5   
