@@ -1,0 +1,99 @@
+.carousel-banner-wrapper{
+    position: fixed;
+    width: 50%;
+    
+    .carousel-banner{
+        
+        .banner-bg{
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            .banner-text{
+                padding: 75px;
+                h2.title{
+                    color: #fff;
+                    font-size: 48px;
+                    line-height: 48px;
+                    font-weight: 96px;
+                    font-style: normal;
+                    letter-spacing: 1.9px; 
+                }
+
+                p.description{
+                    color: #fff;
+                    font-size: 16px;
+                    line-height: 16pxpx;
+                    font-weight: normal;
+                    font-style: normal;
+                    letter-spacing: .6px; 
+                }
+            }
+            .pos-mid{
+                margin-top: 25%;
+            }
+            .pos-top{
+                margin-top:0;
+            }
+            .pos-bot{
+                margin-top:45%;
+            }
+        }
+    }
+    
+    .slide-count-wrap{
+        position: absolute;
+        top: 83%;
+        left: 20%;
+        font-size: 16px;
+        line-height: 12px;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: .6px;
+    }
+    
+    .slick-dots {
+        position: absolute;
+        bottom: 0;
+        list-style: none;
+        display: block;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        top: 85%;
+        left: -35%;
+        width: 100%;
+        
+        li{
+            margin: 0 2px;
+            
+            button{
+                border: 1px solid #fff;
+                background: transparent;
+                display: block;
+                height: 10px;
+                width: 10px;
+                outline: none;
+                border-radius: 0;
+                line-height: 0px;
+                font-size: 0px;
+                color: transparent;
+                padding: 5px;
+                cursor: pointer;
+                
+                &:before{
+                    display: none;
+                }
+            }
+        }
+
+        .slick-active{
+            
+            button{
+                background:#fff;
+            }
+
+        }
+    }
+}
+
