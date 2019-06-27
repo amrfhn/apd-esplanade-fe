@@ -1,6 +1,9 @@
 mixin cardTile(link, img, title)
     .card
-        a(href=link) 
+        a(href=link).position-relative
+            .position-absolute.bg-primary.w-100(style="height:100px")
+                img(src="./img/icons/Youtube.svg" alt="Kiwi standing on oval")
+
             img.card-img-top(src=img)
         
         .border.border-top-0.text-left 

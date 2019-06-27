@@ -2,6 +2,11 @@
     border: none !important;
     border-radius: none !important;
 
+    .card-img-top {
+        height: 195px;
+        object-fit: cover;
+    }
+
     .card-body {
         a {
             &:hover {
