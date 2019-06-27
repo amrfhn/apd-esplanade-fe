@@ -25,12 +25,12 @@ $(function(){
     });
 
     //Video thumbnail
-    const iframe =  $('iframe:first');
-    const iframe_src = iframe.attr('src');
-    const youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
+    // const iframe =  $('iframe:first');
+    // const iframe_src = iframe.attr('src');
+    // const youtube_video_id = iframe_src.match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/).pop();
 
-    if(youtube_video_id.length == 11){
-        var video_thumbnail = $('<img src="//img.youtube.com/vi/'+youtube_video_id+'/0.jpg">');
-        $(body).append(video_thumbnail);        
-    }
+    // if(youtube_video_id.length == 11){
+    //     var video_thumbnail = $('<img src="//img.youtube.com/vi/'+youtube_video_id+'/0.jpg">');
+    //     $(body).append(video_thumbnail);        
+    // }
 })
