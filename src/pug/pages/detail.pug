@@ -4,11 +4,11 @@ block header
     +header()
 
 block content
-    .container-fluid.py-5 
+    .container-fluid
         .row
             .col-12.col-md-6.thumbnail-holder
                 
-            .col-12.col-md-6.px-md-5
+            .col-12.col-md-6.px-md-5.py-5 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
                     p.card-text.font-12.font-weight-bold 
                         a(href="#") DANCE | 
@@ -22,8 +22,14 @@ block content
                         a(href="#content")
                             button(type="button").btn.btn-outline-primary Read more
 
+    .container-fluid.p-0
+        .row.pb-5.no-gutters
+            .col
+                .progress.bg-white(style='height: 10px; border-radius: 0')
+                    .progress-bar.bg-info(role='progressbar' aria-valuenow="25" aria-valuemin='0' style='width: 25%;')
+
     .container
-        .row
+        .row.pb-4
             .col-12.col-md-6
                 .d-flex
                     div
@@ -34,7 +40,7 @@ block content
                             li.d-inline-flex 1
                             li.d-inline-flex 2
                             li.d-inline-flex 3
-            
+        
         .row.pb-5
             .col
                 h1.font-weight-bold.text-uppercase There's no stopping the tour de force of ballet.
@@ -49,7 +55,7 @@ block content
 
                 include ../components/video-carousel.pug
 
-    .container
+    .container-fluid
         include ../components/related-tile.pug
 
     .container-fluid

@@ -1,6 +1,12 @@
 import '../sass/main.scss'
 // import '../img/icons'
 
+/* Assets */
+// var req = require.context("../img/icons", false, /.*\.svg$/);
+// req.keys().forEach(function(key){
+//     req(key);
+// });
+
 /* Vendor
 // ::::::::::::: */
 import 'slick-carousel'
@@ -18,8 +24,3 @@ import './components/video-carousel.js'
 import './components/test.js'
 import './components/menu.js'
 
-
-var req = require.context("../img/icons/" , false, /.*\.svg$/);
-req.keys().forEach(function(key){
-    req(key);
-});

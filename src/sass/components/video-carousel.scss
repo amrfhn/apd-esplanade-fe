@@ -1,0 +1,13 @@
+.thumbnail {
+    height: 200px; 
+
+    .thumbnail-overlay {
+        height: 200px;
+        opacity: .6;
+    } 
+
+    img {
+        object-fit: cover;
+        height: 200px
+    }
+}
