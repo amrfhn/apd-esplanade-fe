@@ -1,13 +1,20 @@
 .btn{
-    background-color: transparent;
     padding: 10px 15px;
+
+    transition: all 0.3s ease-in-out;
 
     &.btn-primary{
         color:#fff;
+        background-color: transparent;
+
         border:1px solid #fff;
         &:hover{
             background-color: #fff;
             color: #000;
+            border:1px solid #fff;
         }
+    }
+    &:hover{
+        border:1px solid #fff;
     }   
 }

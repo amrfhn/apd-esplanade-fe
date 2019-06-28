@@ -1,6 +1,12 @@
 .carousel-banner-wrapper{
-    position: fixed;
-    width: 50%;
+    position: relative;
+    width: 100%;
+    
+    @media(min-width:768px){
+        position: fixed;
+        width: 50%;
+    }
+    
     
     .carousel-banner{
         
@@ -10,7 +16,11 @@
             background-repeat: no-repeat;
 
             .banner-text{
-                padding: 75px;
+                padding: 30px;
+                
+                @media(min-width:768px){
+                    padding: 75px;
+                }
                 h2.title{
                     color: #fff;
                     font-size: 48px;
@@ -23,10 +33,11 @@
                 p.description{
                     color: #fff;
                     font-size: 16px;
-                    line-height: 16pxpx;
+                    line-height: 22px;
                     font-weight: normal;
                     font-style: normal;
-                    letter-spacing: .6px; 
+                    padding-right: 30px;
+                    letter-spacing: .6px;
                 }
             }
             .pos-mid{
@@ -43,13 +54,17 @@
     
     .slide-count-wrap{
         position: absolute;
-        top: 83%;
+        top: 90%;
         left: 20%;
         font-size: 16px;
-        line-height: 12px;
+        line-height: 25px;
         font-weight: 600;
         color: #fff;
         letter-spacing: .6px;
+
+        @media (min-width:768px){
+            top: 86%;
+        }
     }
     
     .slick-dots {
@@ -60,7 +75,7 @@
         text-align: center;
         padding: 0;
         margin: 0;
-        top: 85%;
+        top: 89%;
         left: -35%;
         width: 100%;
         

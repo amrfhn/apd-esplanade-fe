@@ -1,14 +1,16 @@
 .nav-bar-wrapper{
-    position: fixed;
+    position: relative;
     top: 0;
     right: 0;
     width: 100%;
-    background-color: transparent;
-    // background-color: #000;
-    // border-bottom: 1px solid #fff;
+    background: linear-gradient(rgba(130, 130, 130, 0.5), rgba(255, 255, 255, 0));
     z-index: 100; 
+
+    @media(min-width:768px){
+        position: fixed;
+    }
     .nav-bar{
-        
+        height: 63px;
         .hamb{
             position: relative; 
             float: left;
@@ -53,8 +55,16 @@
 
         
     }
-    .left{
+
+    .scrolled{
+        background-color: #000;
+        transition: background-color 200ms linear;
     }
+
+    .logo-wrapper{
+        margin: 10px 30px;
+    }
+    
     .right{
         background: #fff;
         height: 100%;
@@ -107,6 +117,7 @@
     border: 1px solid #ccc;
     padding: 10px;
     z-index: 999;
+    top: 0;
     width: 240px;
     opacity: 0;
     display: none;

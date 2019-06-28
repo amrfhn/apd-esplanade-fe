@@ -1,6 +1,6 @@
 mixin header(navbar)
     header
-        .container-fluid
+        .container-fluid.no-gutters.pl-0.pr-0
             .nav-bar-wrapper.navbar-fixed-top
                 .row
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
@@ -10,9 +10,18 @@ mixin header(navbar)
                                 #rect2.showRect 
                                 #rect3.showRect 
                                 p.menu-text MENU
+                            
+                            .d-flex
+                                .logo-wrapper
+                                    a.logo-link(href="#") Logo
+                                        img.logo(src="")
+
+                                .logo-wrapper
+                                    a.logo-link(href="#") Text logo
+                                        img.logo(src="")
 
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
-                        .nav-bar.right
+                        .nav-bar.right.d-none.d-md-block
                             .side-nav-wrapper
                                 //- set TRUE for side-nav or blank for back button
                                 if navbar= navbar 
@@ -36,7 +45,8 @@ mixin header(navbar)
 
 
                                 else
-                                    a.back-btn(href="javascript:history.go(-1)") Back
+                                    .nav.back
+                                        a.back-btn(href="javascript:history.go(-1)") Back
                     
                         
             .row
