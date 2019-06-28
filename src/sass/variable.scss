@@ -145,8 +145,12 @@ p {font-size: 14px}
   border-radius: 0 !important;
   padding: 0.8rem 3.75rem !important;
   font-weight: bold !important;
-  border: 1.5px solid !important;
+  border: 1.5px solid ;
   text-transform: uppercase;
+  &:focus{
+    box-shadow: none !important;
+    outline: 0 !important;
+  }
 }
 
 .btn-outline-light {
