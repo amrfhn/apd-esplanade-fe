@@ -13,12 +13,12 @@ mixin header(navbar)
                             
                             .d-flex
                                 .logo-wrapper
-                                    a.logo-link(href="#") Logo
-                                        img.logo(src="")
+                                    a.logo-link(href="https://www.esplanade.com/")
+                                        img.logo(src="./assets/img/logo/White/Esplanade.svg")
 
                                 .logo-wrapper
-                                    a.logo-link(href="#") Text logo
-                                        img.logo(src="")
+                                    a.logo-link(href="/")
+                                        img.logo(src="./assets/img/logo/White/Offstage.svg")
 
                             
 
@@ -48,7 +48,8 @@ mixin header(navbar)
                             .modal-dialog(role="document")
                                 .modal-content
                                     .modal-body.d-flex.align-items-center
-                                        img.search-left.px-3(src="./assets/img/icons/Search/Black.svg")
+                                        button.btn.btn-submit-search(type="submit")
+                                            img.search-left.px-3(src="./assets/img/icons/Search/Black.svg")
                                         input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
                                         button.close-btn-search.px-3(data-dismiss="modal") X
                                         

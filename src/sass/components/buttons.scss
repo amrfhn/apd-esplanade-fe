@@ -7,7 +7,7 @@
     &.btn-primary{
         color:#fff;
         background-color: transparent;
-
+        padding: 0.8rem 3.75rem;
         border:1px solid #fff;
         &:hover{
             background-color: #fff;
@@ -18,13 +18,13 @@
 
     &.btn-outline-primary{
         border: 1px solid;
+        padding: 0.8rem 3.75rem 
     }
 
     &.btn-back{
         font-weight: bold;
         font-size: 14px;
         line-height: 14px;
-        margin-left: -45px;
         border: none;
         margin-top: 10px;
 
@@ -32,6 +32,9 @@
             outline: 0;
             box-shadow: none;
         }
+    }
+    .btn-submit-search{
+        
     }
 }
 

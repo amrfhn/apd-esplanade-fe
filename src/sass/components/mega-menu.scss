@@ -10,7 +10,7 @@
         position: fixed;
     }
     .nav-bar{
-        height: 63px;
+        height: 68px;
         .hamb{
             position: relative; 
             float: left;
@@ -50,6 +50,13 @@
             
             &:focus{
                 outline: none;
+            }
+        }
+        .logo-wrapper{
+            .logo-link{
+                img.logo{
+                    width:80%;
+                }
             }
         }
 
@@ -148,8 +155,19 @@
             line-height: 9px;
             padding: 0.5rem 1rem;
             margin-left: 6px;
+            font-weight: bold;
 
         }
+        .link-wrapper{
+            margin: 10px 0;
+            a.menu-link{
+                font-size: 9px;
+                line-height: 9px;
+                padding: 0.5rem 1rem;
+                margin-left: 6px;
+            }
+        }
+        
 
         .mm-content-item{
             
