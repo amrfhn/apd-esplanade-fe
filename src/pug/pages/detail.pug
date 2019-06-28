@@ -29,17 +29,20 @@ block content
                     .progress-bar.bg-info(role='progressbar' aria-valuenow="25" aria-valuemin='0' style='width: 25%;')
 
     .container
-        .row.pb-4
+        .row.pb-5
             .col-12.col-md-6
-                .d-flex
-                    div
-                        p.font-12 Time to read: 15 minutes
+                .d-flex.align-items-md-center
+                    .pr-3
+                        img(src='./assets/img/icons/Book.svg')
+                    p.p-0.m-0 Time to read: 15 minutes
                 
             .col-12.col-md-6.text-align-left
-                        ul
-                            li.d-inline-flex 1
-                            li.d-inline-flex 2
-                            li.d-inline-flex 3
+                .d-flex.justify-content-md-end
+                    - const icons = ["./assets/img/icons/Social/Facebook.svg", "./assets/img/icons/Social/Whatsapp.svg", "./assets/img/icons/Social/Mail.svg", "./assets/img/icons/Social/GooglePlus.svg", "./assets/img/icons/Social/Likes.svg"]
+                    
+                    each icon in icons
+                        a(href="#").pl-3
+                            img(src=icon height="25px")
         
         .row.pb-5
             .col
@@ -54,7 +57,7 @@ block content
                 +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
 
                 .video-carousel
-                    - const videos = [1, 2, 3, 4, 5,6]
+                    - const videos = [1, 2, 3]
                     each video in videos 
                         +videoCarousel('https://www.youtube.com/embed/zpOULjyy-n8')
 
@@ -64,7 +67,13 @@ block content
                             +videoCarouselNav('https://via.placeholder.com/310x195')
 
                     .slide-count-wrap
-
+                    
+        //- One Image Component
+        +images('1', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
+        //- Two Images Component
+        +images('2', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
+        //- Three Images Component
+        +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
 
     .container-fluid
         include ../components/related-tile.pug

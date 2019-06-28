@@ -1,11 +1,25 @@
-.tabs-filter {
-  /* space between thumbnail*/
-  /* the slides */
+.tab-filter {
+
   .slick-slide {
-    margin: 0 20px;
+    a {
+      color: #9b9b9b !important;   
+      
+      &:focus {
+        outline: none;
+        color: $primary !important;
+        text-decoration: underline !important;
+      }
+    }
+
   }
-  /* the parent */
-  .slick-list {
-    margin: 0 -20px;
+  // .slick-current {
+  //   a {
+  //     color: $primary !important;
+  //     text-decoration: underline;
+  //   }
+  // }
+  .slick-disabled {
+    display: none !important;
+    transform: all .2s
   }
 }
