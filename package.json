@@ -38,6 +38,7 @@
     "jquery": "^3.4.1",
     "sass": "^1.21.0",
     "slick-carousel": "^1.8.1",
-    "svg-sprite-loader": "^4.1.6"
+    "svg-sprite-loader": "^4.1.6",
+    "util": "^0.12.0"
   }
 }

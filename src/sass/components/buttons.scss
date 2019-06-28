@@ -18,3 +18,13 @@
         border:1px solid #fff;
     }   
 }
+
+.btn-search{
+    background: transparent;
+    border: none;
+    outline: 0;
+
+    &:focus{
+        outline:none;
+    }
+}

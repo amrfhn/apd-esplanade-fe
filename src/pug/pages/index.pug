@@ -28,11 +28,14 @@ block content
                     .col-1.pt-3
                         img.w-75(src='./assets/img/icons/FilterWithNotifications.svg')
 
-                .row.pt-3 
+                .row.pt-3.tab-content
                     - const cards = [1, 2, 3, 4, 5]
                     each card in cards 
-                        .card-tile.col-12.col-md-6.pb-4
+                        .card-tile.col-12.col-md-6.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
                             +cardTile('./assets/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
+                    
+                        .card-tile.col-12.col-md-6.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
+                            +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195/#000000', card)
 
 
 block footer

@@ -25,15 +25,15 @@ mixin header(navbar)
                             .side-nav-wrapper
                                 //- set TRUE for side-nav or blank for back button
                                 if navbar= navbar 
-                                    .nav.nav-tabs#navTab
+                                    ul.nav.nav-tabs#navTab(role="tablist")
                                         li.nav-item
-                                            a.nav-link.active(href="") EXPLORE THE ARTS
+                                            a.nav-link.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
                                         li.nav-item
-                                            a.nav-link(href="") KNOW THE ARTISTS
+                                            a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
 
                                     .search
                                         button.btn-search#btnSearch(type="button" data-toggle="modal" data-target="#searchBar")
-                                            img.search-icon(src="/img/icons/search/black.svg")
+                                            img.search-icon(src="./assets/img/icons/Search/Black.svg")
                                         
                                         .modal.fade.in#searchBar(tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true")
                                             .modal-dialog(role="document")
