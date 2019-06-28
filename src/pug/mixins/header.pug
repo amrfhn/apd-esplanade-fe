@@ -31,23 +31,24 @@ mixin header(navbar)
                                         li.nav-item
                                             a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
 
-                                    .search
+                                    
+
+                                else
+                                    .nav.back.d-flex
+                                        a.btn.btn-back.font-14(href="javascript:history.go(-1)") < Back
+
+                                .search
                                         button.btn-search#btnSearch(type="button" data-toggle="modal" data-target="#searchBar")
                                             img.search-icon(src="./assets/img/icons/Search/Black.svg")
                                         
                                         .modal.fade.in#searchBar(tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true")
                                             .modal-dialog(role="document")
                                                 .modal-content
-                                                    .modal-body
-                                                        img.search-left(src="")
-                                                        input.form-control.search-field(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default")
-                                                        p asdkajsdkjs
-
-
-                                else
-                                    .nav.back
-                                        a.back-btn(href="javascript:history.go(-1)") Back
-                    
+                                                    .modal-body.d-flex.align-items-center
+                                                        img.search-left.px-3(src="./assets/img/icons/Search/Black.svg")
+                                                        input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
+                                                        button.close-btn-search.px-3(data-dismiss="modal") X
+                                        
                         
             .row
                 include ../components/mega-menu.pug

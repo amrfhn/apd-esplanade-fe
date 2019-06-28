@@ -1,0 +1,40 @@
+.side-nav-wrapper{
+    .search{
+
+        .modal{
+            top: -5%;
+            left:27%;
+            .modal-dialog{
+                max-width: 660px;
+                
+                .modal-content{
+                    height: 90px;
+
+                    .modal-body{
+
+                        input[type=text] {
+                            border:none;
+                        }
+                        .form-control{
+
+                            font-size: 14px;
+                            line-height: 14px;
+                            &:focus{
+                                box-shadow: none;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+                
+        .btn-search{
+            float: right;
+            position: relative;
+            top: -45px;
+            left: -25px;
+            cursor: pointer;
+        }
+    }
+}

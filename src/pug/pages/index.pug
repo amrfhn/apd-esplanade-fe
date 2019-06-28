@@ -19,10 +19,18 @@ block content
 
                     .slide-count-wrap
             
-                           
+            .col-12.d-md-none
+                .nav-bar
+                    .side-nav-wrapper
+                        ul.nav.nav-tabs#navTab(role="tablist")
+                            li.nav-item
+                                a.nav-link.font-14.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                            li.nav-item
+                                a.nav-link.font-14(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
+                        hr.divider
 
-            .col-12.col-md-6.pt-5.p-md-4
-                .row.pt-5  
+            .col-12.col-md-6.pt-md-5.p-md-4
+                .row.pt--md-5  
                     .col-11.pt-3
                         include ../components/tabs-filter.pug
                     .col-1.pt-3
@@ -33,9 +41,9 @@ block content
                     each card in cards 
                         .card-tile.col-12.col-md-6.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
                             +cardTile('./assets/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
-                    
+                
                         .card-tile.col-12.col-md-6.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
-                            +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195/#000000', card)
+                            +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
 
 
 block footer

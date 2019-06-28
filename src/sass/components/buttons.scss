@@ -2,6 +2,7 @@
     padding: 10px 15px;
 
     transition: all 0.3s ease-in-out;
+    border: none;
 
     &.btn-primary{
         color:#fff;
@@ -14,9 +15,20 @@
             border:1px solid #fff;
         }
     }
-    &:hover{
-        border:1px solid #fff;
-    }   
+    &.btn-back{
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 14px;
+        margin-left: -45px;
+        border: none;
+        margin-top: 10px;
+
+        &:focus{
+            outline: 0;
+            box-shadow: none;
+        }
+
+    }
 }
 
 .btn-search{
@@ -28,3 +40,15 @@
         outline:none;
     }
 }
+
+.close-btn-search{
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    
+
+    &:focus{
+        outline: 0;
+    }
+}
+
