@@ -15,6 +15,11 @@
             border:1px solid #fff;
         }
     }
+
+    &.btn-outline-primary{
+        border: 1px solid;
+    }
+
     &.btn-back{
         font-weight: bold;
         font-size: 14px;
@@ -27,7 +32,6 @@
             outline: 0;
             box-shadow: none;
         }
-
     }
 }
 

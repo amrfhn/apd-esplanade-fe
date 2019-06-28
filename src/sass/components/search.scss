@@ -1,40 +1,50 @@
-.side-nav-wrapper{
-    .search{
 
-        .modal{
+.search{
+
+    .modal{
+        top: 0;
+        left: 0;
+        @media(min-width:768px){
             top: -5%;
             left:27%;
-            .modal-dialog{
+        }
+
+        .modal-dialog{
+            max-width: 100%;
+            margin-left: -8px;
+
+            @media(min-width:768px){
                 max-width: 660px;
-                
-                .modal-content{
-                    height: 90px;
+                margin: 0;
+            }
+            
+            .modal-content{
+                height: 90px;
 
-                    .modal-body{
+                .modal-body{
 
-                        input[type=text] {
-                            border:none;
-                        }
-                        .form-control{
-
-                            font-size: 14px;
-                            line-height: 14px;
-                            &:focus{
-                                box-shadow: none;
-                            }
-                        }
-                        
+                    input[type=text] {
+                        border:none;
                     }
+                    .form-control{
+
+                        font-size: 14px;
+                        line-height: 14px;
+                        &:focus{
+                            box-shadow: none;
+                        }
+                    }
+                    
                 }
             }
         }
-                
-        .btn-search{
-            float: right;
-            position: relative;
-            top: -45px;
-            left: -25px;
-            cursor: pointer;
-        }
+    }
+            
+    .btn-search{
+        position: absolute;
+        right: 20px;
+        top: -50px;
     }
 }
+
+

@@ -20,6 +20,9 @@ mixin header(navbar)
                                     a.logo-link(href="#") Text logo
                                         img.logo(src="")
 
+                            
+
+
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
                         .nav-bar.right.d-none.d-md-block
                             .side-nav-wrapper
@@ -37,17 +40,17 @@ mixin header(navbar)
                                     .nav.back.d-flex
                                         a.btn.btn-back.font-14(href="javascript:history.go(-1)") < Back
 
-                                .search
-                                        button.btn-search#btnSearch(type="button" data-toggle="modal" data-target="#searchBar")
-                                            img.search-icon(src="./assets/img/icons/Search/Black.svg")
-                                        
-                                        .modal.fade.in#searchBar(tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true")
-                                            .modal-dialog(role="document")
-                                                .modal-content
-                                                    .modal-body.d-flex.align-items-center
-                                                        img.search-left.px-3(src="./assets/img/icons/Search/Black.svg")
-                                                        input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
-                                                        button.close-btn-search.px-3(data-dismiss="modal") X
+                .search.position-relative
+                        button.btn-search#btnSearch(type="button" data-toggle="modal" data-target="#searchBar")
+                            img.search-icon(src="./assets/img/icons/Search/Black.svg")
+                        
+                        .modal.fade.in#searchBar(tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true")
+                            .modal-dialog(role="document")
+                                .modal-content
+                                    .modal-body.d-flex.align-items-center
+                                        img.search-left.px-3(src="./assets/img/icons/Search/Black.svg")
+                                        input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
+                                        button.close-btn-search.px-3(data-dismiss="modal") X
                                         
                         
             .row
