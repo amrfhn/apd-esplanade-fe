@@ -1,0 +1,9 @@
+mixin videoCarousel(videoLink) 
+    div.embed-responsive.embed-responsive-16by9
+        iframe.embed-responsive-item(src=videoLink)
+            
+mixin videoCarouselNav(videoThumbnail) 
+    .thumbnail-wrapper.position-relative
+        .thumbnail-overlay.position-absolute.bg-primary.w-100.d-flex.justify-content-center.align-content-center
+            img(src='./assets/img/icons/Youtube.svg' alt="Kiwi standing on oval").video-icon.float-right.p-3
+        img.video-thumbnail(src=videoThumbnail).w-100

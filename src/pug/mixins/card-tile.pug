@@ -1,8 +1,8 @@
-mixin cardTile(link, img, title)
+mixin cardTile(icon, link, img, title)
     .card
         a(href=link).position-relative
-            .position-absolute.bg-primary.w-100(style="height:100px")
-                img(src="./img/icons/Youtube.svg" alt="Kiwi standing on oval")
+            .position-absolute.w-100
+                img(src=icon alt="Kiwi standing on oval").float-right.p-3
 
             img.card-img-top(src=img)
         

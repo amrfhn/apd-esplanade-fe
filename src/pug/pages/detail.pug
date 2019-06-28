@@ -20,9 +20,9 @@ block content
                     p Last updated date: 23 April 2019
                     div
                         a(href="#content")
-                            button(type="button").btn.btn-outline-primary Read more
+                            button(type="button").read-more.btn.btn-outline-primary Read more
 
-    .container-fluid.p-0
+    .container-fluid.p-0#content
         .row.pb-5.no-gutters
             .col
                 .progress.bg-white(style='height: 10px; border-radius: 0')
@@ -53,7 +53,18 @@ block content
             .col
                 +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
 
-                include ../components/video-carousel.pug
+                .video-carousel
+                    - const videos = [1, 2, 3, 4, 5,6]
+                    each video in videos 
+                        +videoCarousel('https://www.youtube.com/embed/zpOULjyy-n8')
+
+                .video-carousel-nav-wrappper
+                    .video-carousel-nav
+                        each video in videos 
+                            +videoCarouselNav('https://via.placeholder.com/310x195')
+
+                    .slide-count-wrap
+
 
     .container-fluid
         include ../components/related-tile.pug
