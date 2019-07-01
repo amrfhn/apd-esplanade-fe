@@ -11,30 +11,30 @@ mixin header(navbar)
                                 #rect3.showRect 
                                 p.menu-text MENU
                             
-                            .d-flex.logo-container
+                            a.logo-link(href="/").d-flex.logo-container
                                 .logo-wrapper
-                                    a.logo-link(href="/")
-                                        img.logo(src="./assets/img/logo/White/Esplanade.svg")
+                                    img.logo.w-75(src="./assets/img/logo/White/Esplanade.svg")
 
                                 .logo-wrapper
-                                    a.logo-link(href="/")
-                                        img.logo(src="./assets/img/logo/White/Offstage.svg")
+                                    img.logo.w-75(src="./assets/img/logo/White/Offstage.svg")
 
                             
 
 
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
                         .nav-bar.right.d-none.d-md-block
-                            .side-nav-wrapper
+                            .side-nav-wrapper.px-4
                                 //- set TRUE for side-nav or blank for back button
                                 if navbar= navbar 
                                     ul.nav.nav-tabs#navTab(role="tablist")
                                         li.nav-item
-                                            a.nav-link.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                                            a.nav-link.pl-0.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
                                         li.nav-item
                                             a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-
                                     
+                                    hr.my-0
+
+  
 
                                 else
                                     .nav.back.d-flex

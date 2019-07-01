@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="36px" height="37px" viewBox="0 0 36 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
-    <title>Icons/Filter with Notifications</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Icons/Filter-with-Notifications" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M27,21.05 L27,8 L24,8 L24,21.05 L21,21.05 L21,23.95 L24,23.95 L24,37 L27,37 L27,23.95 L30,23.95 L30,21.05 L27,21.05 Z M17,8 L14,8 L14,13.8 L11,13.8 L11,16.7 L14,16.7 L14,37 L17,37 L17,16.7 L20,16.7 L20,13.8 L17,13.8 L17,8 Z M6,21.05 L9,21.05 L9,23.95 L6,23.95 L6,37 L3,37 L3,23.95 L0,23.95 L0,21.05 L3,21.05 L3,8 L6,8 L6,21.05 Z" id="option_bar_settings-[#1401]" fill="#000000"></path>
-        <circle id="Oval" fill="#E02020" cx="32" cy="4" r="4"></circle>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 36 37" style="enable-background:new 0 0 36 37;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#E02020;}
+</style>
+<title>Icons/Filter with Notifications</title>
+<desc>Created with Sketch.</desc>
+<path class="st0" d="M27,21V8h-3v13h-3v2.9h3v13h3v-13h3V21H27z M17,8h-3v5.8h-3v2.9h3V37h3V16.7h3v-2.9h-3V8z M6,21h3v2.9H6v13H3
+	v-13H0V21h3V8h3V21z"/>
+<circle id="Oval" class="st1" cx="32" cy="4" r="4"/>
 </svg>

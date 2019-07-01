@@ -4,7 +4,6 @@ block header
     +header(true)
 
 block content 
-    
     .container-fluid.no-gutters.p-0
         .row.no-gutters
             .col-12.col-md-6
@@ -18,32 +17,34 @@ block content
                             +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
 
                     .slide-count-wrap
-            
-            .col-12.d-md-none
-                .nav-bar
-                    .side-nav-wrapper
-                        ul.nav.nav-tabs#navTab(role="tablist")
-                            li.nav-item
-                                a.nav-link.font-14.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
-                            li.nav-item
-                                a.nav-link.font-14(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-                        hr.divider
+
 
             .col-12.col-md-6.pt-md-5.p-md-4
-                .row.pt-md-5  
-                    .col-11.pt-3
-                        include ../components/tabs-filter.pug
-                    .col-1.pt-3
-                        img.w-75(src='./assets/img/icons/FilterWithNotifications.svg')
+                .container-fluid
+                    .row.d-md-none.px-4
+                        .nav-bar.w-100
+                            .side-nav-wrapper
+                                ul.nav.nav-tabs.pt-md-0#navTab(role="tablist")
+                                    li.nav-item
+                                        a.nav-link.font-14.active.pl-0(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                                    li.nav-item
+                                        a.nav-link.font-14(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
+                                hr.mb-0
+                    .row.px-4.pt-md-4.align-items-center
+                        .col-11.p-0.pt-4.d-flex.justify-content-start
+                            include ../components/tabs-filter.pug
+                        .col-1.p-0.pt-4.d-flex.justify-content-end
+                            img(src='./assets/img/icons/Filter.svg' width="25px")
 
-                .row.pt-3.tab-content
-                    - const cards = [1, 2, 3, 4, 5]
-                    each card in cards 
-                        .card-tile.col-12.col-md-6.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
-                            +cardTile('./assets/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
-                
-                        .card-tile.col-12.col-md-6.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
-                            +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
+
+                    .row.p-3.p-md-0.pt-md-3.tab-content
+                        - const cards = [1, 2, 3, 4, 5];
+                        each card in cards 
+                            .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
+                                +cardTile('./assets/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
+                    
+                            .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
+                                +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
 
 
 block footer
