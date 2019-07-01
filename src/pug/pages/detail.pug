@@ -34,7 +34,7 @@ block content
         .row.no-gutters
             include ../components/progress-bar.pug
 
-    .container
+    .container#readSection
         .row.py-5
             .col-12.col-md-6
                 .d-flex.align-items-md-center
@@ -73,6 +73,7 @@ block content
                             +videoCarouselNav('https://via.placeholder.com/310x195')
 
                     .slide-count-wrap
+                    
                     
         //- One Image Component
         +images('1', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')

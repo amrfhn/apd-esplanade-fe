@@ -1,7 +1,11 @@
 $(function (){
-    
+    var $readSection = $('#readSection')
+    var $containerOffset = $readSection.offset().top - window.innerHeight;
+    var $scrollOffset = $(document).scrollTop();
+
+
     var getMax = function(){
-        return $(document).height() - $(window).height();
+        return $('#readSection').height() - $(window).height();
     }
     
     var getValue = function(){
