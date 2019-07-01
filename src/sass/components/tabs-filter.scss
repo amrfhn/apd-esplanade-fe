@@ -2,6 +2,11 @@
   width: 80%;
   margin: auto;
   // padding: 10px 10px;
+
+  .slick-disabled {
+    opacity: 0; 
+    transform: all .2s
+  }
   
   @media(min-width: 768px){
     width:550px;
@@ -33,10 +38,6 @@
       //     text-decoration: underline;
       //   }
       // }
-      .slick-disabled {
-        display: none !important;
-        transform: all .2s
-      }
     
       .slick-next{
         top:12px;

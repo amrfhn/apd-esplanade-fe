@@ -31,4 +31,9 @@ $(function(){
         autoplaySpeed: 2000,
         focusOnSelect: true
     });
+
+    $('.video-carousel-nav').on("click", function(e){ 
+        var slideClicked = $(this).find(".slick-current").attr("data-slick-index"); 
+        alert(slideClicked); 
+    });
 })

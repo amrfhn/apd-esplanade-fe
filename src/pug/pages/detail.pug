@@ -6,7 +6,15 @@ block header
 block content
     .container-fluid
         .row
-            .col-12.col-md-6.thumbnail-holder
+            .col-12.col-md-6.px-0
+                //- Trigger Modal
+                div.video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
+                    .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
+                        img(src='./assets/img/icons/Youtube.svg' alt="thumbnail" width="15%").video-icon.float-right.p-3
+                    .thumbnail-holder
+
+                
+            +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
                 
             .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.py-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
@@ -57,7 +65,7 @@ block content
                 +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
 
                 .video-carousel
-                    - const videos = ['https://www.youtube.com/embed/FdnOqThfNzc', 'https://www.youtube.com/embed/zpOULjyy-n8', "https://www.youtube.com/embed/XW5cOaBM68o"]
+                    - const videos = ['https://www.youtube.com/embed/FdnOqThfNzc', 'https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o']
                     each video in videos 
                         +videoCarousel(video)
 
