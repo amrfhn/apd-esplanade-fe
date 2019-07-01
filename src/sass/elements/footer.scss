@@ -1,4 +1,6 @@
-.sticky-footer {
-    position: fixed;
-    bottom: 0
+@media (min-width:768){ 
+    .sticky-footer {
+        position: fixed;
+        bottom: 0
+    }    
 }

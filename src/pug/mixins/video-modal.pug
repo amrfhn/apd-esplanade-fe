@@ -4,9 +4,8 @@ mixin videoModal(videoLink)
             .modal-content
                 .modal-header
                     button.close(type="button" data-dismiss="modal" aria-label="Close")
-                        <span aria-hidden="true">
+                        span(aria-hidden="true")
                             img(src="./assets/img/icons/Close/White.svg")
-                        </span>
                 .modal-body
                     #video.embed-responsive.embed-responsive-16by9.mb-3
                         iframe.embed-responsive-item(src=videoLink)    

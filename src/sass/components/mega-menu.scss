@@ -69,7 +69,7 @@
             }
        
             .logo-wrapper{
-                margin: 10px;
+                margin: 10px 0;
                 .logo-link{
                     img.logo{
                         width:70%;
@@ -224,7 +224,7 @@
 // Mobile Nav Tabs
 .side-nav-wrapper{
     .nav{
-        padding: 5px;
+        // padding: 5px;
         flex-wrap: nowrap;
     
         @media (min-width:768px){

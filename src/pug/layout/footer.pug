@@ -1,11 +1,17 @@
 footer.py-2.bg-primary
     .container-fluid
-        .d-flex.justify-content-between 
-            div.text-white.text-uppercase.font-10 
-                span &copy; 2019 The Esplanade CO LTD 
-                span.px-3 | 
-                span Data Protection Policy
+        .row.py-3.py-md-0.text-white.text-uppercase.text-center.text-md-left.font-10.align-items-center
+            .col-12.col-md-6.d-md-flex
+                .pb-2.pb-md-0 &copy; 2019 The Esplanade CO LTD 
+                .d-none.d-md-inline-flex.px-3 | 
+                br.d-block.d-md-none
+                .pb-2.pb-md-0 Data Protection Policy
 
-            div.text-uppercase.font-10 
-                a(href='www.esplanade.com').text-white Esplanade.com
+            .col.px-5
+                hr.d-md-none.bg-white
+
+            .col-12.col-md-4.text-md-right
+                a(href='www.esplanade.com').d-flex.align-items-center.justify-content-center.justify-content-md-end
+                    img(src="./assets/img/icons/BackTo.svg").pr-2
+                    .text-white Esplanade.com
 
