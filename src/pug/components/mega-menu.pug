@@ -1,5 +1,6 @@
 #slide-down.mm-wrapper
-    a.close-btn-x X
+    a.close-btn-x
+        img.close-icon(src="./assets/img/icons/Close.svg")
     .mm-content
         
         p.menu-text EXPLORE THE ARTS:
@@ -18,24 +19,27 @@
                     a.nav-link(href="#") VISUAL ARTS
                 li.nav-item 
                     a.nav-link(href="#") LITERARY ARTS
-                li.nav-item 
+                li.nav-item.mb-3
                     a.nav-link(href="#") FILM
 
         .seperator
 
-        .mm-content-item
+        .mm-content-item.mt-3
             ul.nav.d-block
                 li.nav-item
                     a.nav-link(href="#") FOR SCHOOLS
-                li.nav-item 
+                li.nav-item.mb-3
                     a.nav-link(href="#") FOR RESEARCH
 
         .seperator
 
-        .social-icon
-            img.logo-icon(src="./assets/img/icons/Social/Facebook.svg")
-            .logo-icon
-            .logo-icon
+        .social-icon.d-flex
+            a.social-link(href="#")
+                img.soc-icon(src="./assets/img/icons/Social/Facebook.svg")
+            a.social-link(href="#")
+                img.soc-icon(src="./assets/img/icons/Social/Youtube.svg")
+            a.social-link(href="#")
+                img.soc-icon(src="./assets/img/icons/Social/Instagram.svg")
         
         .link-wrapper
             a(href="#").menu-link SIGN UP FOR NEWSLETTER

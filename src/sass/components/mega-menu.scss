@@ -25,7 +25,7 @@
             box-sizing: border-box;
             background-color: transparent;
             border: none;
-            z-index: 9999;
+            z-index: 999;
             
             #rect1, #rect2, #rect3 {
                 position: relative;
@@ -69,7 +69,11 @@
             }
        
             .logo-wrapper{
-                margin: 10px;
+                margin: 10px 0;
+
+                @media(min-width:768px){
+                    margin: 10px;
+                }
                 .logo-link{
                     img.logo{
                         width:70%;
@@ -207,6 +211,19 @@
                 }
             }
 
+        }
+
+        .social-icon{
+            margin-left: 18px;
+            margin-top: 1rem;
+            margin-bottom:1rem;
+            
+            a.social-link{
+                margin-right: 11px;
+                img.soc-icon{
+                    height: 20px;
+                }
+            }
         }
     }
 }

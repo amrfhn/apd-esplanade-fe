@@ -4,6 +4,7 @@
     .modal{
         top: 0;
         left: 0;
+        z-index: 99999;
         @media(min-width:768px){
             top: 0%;
             left: 50%;
@@ -11,7 +12,7 @@
 
         .modal-dialog{
             max-width: 100%;
-            margin-left: -8px;
+            // margin-left: -8px;
 
             @media(min-width:768px){
                 max-width: 683px;
@@ -42,7 +43,7 @@
             
     .btn-search{
         position: absolute;
-        right: 20px;
+        right: 44px;
         top: -50px;
     }
 }
