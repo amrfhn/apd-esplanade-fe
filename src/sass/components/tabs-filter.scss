@@ -4,20 +4,20 @@
     a {
       color: #9b9b9b !important;   
       
-      &:focus {
-        outline: none;
-        color: $primary !important;
-        text-decoration: underline !important;
-      }
+      // &:focus {
+      //   outline: none;
+      //   color: $primary !important;
+      //   text-decoration: underline !important;
+      // }
     }
 
   }
-  // .slick-current {
-  //   a {
-  //     color: $primary !important;
-  //     text-decoration: underline;
-  //   }
-  // }
+  .slick-current {
+    a {
+      color: $primary !important;
+      text-decoration: underline;
+    }
+  }
   .slick-disabled {
     display: none !important;
     transform: all .2s
