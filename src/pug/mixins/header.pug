@@ -11,7 +11,7 @@ mixin header(navbar)
                                 #rect3.showRect 
                                 p.menu-text MENU
                             
-                            .d-flex
+                            .d-flex.logo-container
                                 .logo-wrapper
                                     a.logo-link(href="https://www.esplanade.com/")
                                         img.logo(src="./assets/img/logo/White/Esplanade.svg")
@@ -38,7 +38,9 @@ mixin header(navbar)
 
                                 else
                                     .nav.back.d-flex
-                                        a.btn.btn-back.font-14(href="javascript:history.go(-1)") < Back
+                                        a.btn.btn-back.font-14(href="javascript:history.go(-1)")
+                                            img(src='./assets/img/icons/Previous.svg') 
+                                            span.ml-4 Back
 
                 .search.position-relative
                         button.btn-search#btnSearch(type="button" data-toggle="modal" data-target="#searchBar")

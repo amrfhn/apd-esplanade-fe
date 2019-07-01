@@ -11,6 +11,10 @@
     }
     .nav-bar{
         height: 68px;
+        
+        @media(min-width: 768px){
+            height: 75px;
+        }
         .hamb{
             position: relative; 
             float: left;
@@ -52,15 +56,30 @@
                 outline: none;
             }
         }
-        .logo-wrapper{
-            .logo-link{
-                img.logo{
-                    width:80%;
+        .logo-container{
+            align-items: center;
+            position: relative;
+            justify-content: center;
+            left: -35px;
+
+            @media(min-width:768px){
+                left: 37px;
+                justify-content: flex-start;
+            }
+       
+            .logo-wrapper{
+                margin: 10px;
+                .logo-link{
+                    img.logo{
+                        width:100%;
+
+                        @media(min-width: 768px){
+                            width: 90%;
+                        }
+                    }
                 }
             }
         }
-
-        
     }
 
     .scrolled{
@@ -68,10 +87,6 @@
         transition: background-color 200ms linear;
     }
 
-    .logo-wrapper{
-        margin: 10px 30px;
-    }
-    
     .right{
         background: #fff;
         // height: 100%;
