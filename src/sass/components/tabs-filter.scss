@@ -19,11 +19,11 @@
         a {
           color: #9b9b9b !important;   
           
-          &:focus {
-            outline: none;
-            color: $primary !important;
-            text-decoration: underline !important;
-          }
+          // &:focus {
+          //   outline: none;
+          //   color: $primary !important;
+          //   text-decoration: underline !important;
+          // }
         }
 
       }
@@ -55,5 +55,4 @@
       }
     }
   }
-
 }

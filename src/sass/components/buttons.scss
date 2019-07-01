@@ -2,7 +2,7 @@
     padding: 10px 15px;
 
     transition: all 0.3s ease-in-out;
-    border: none;
+    // border: none;
 
     &.btn-primary{
         color:#fff;
@@ -18,7 +18,7 @@
 
     &.btn-outline-primary{
         border: 1px solid;
-        padding: 0.8rem 3.75rem 
+        padding: 0.8rem 3.75rem;
     }
 
     &.btn-back{

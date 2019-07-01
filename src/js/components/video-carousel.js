@@ -14,7 +14,13 @@ $(function(){
         slidesToScroll: 1,
         arrows: false,
         fade: true,
-        asNavFor: '.video-carousel-nav'
+        asNavFor: '.video-carousel-nav',
+        responsive: [
+            {
+                breakpoint: 767, 
+                settings: 'unslick'
+            }
+        ]
     });
     $('.video-carousel-nav').slick({
         slidesToShow: 3,
@@ -23,7 +29,6 @@ $(function(){
         dots: true,
         autoplay: true,
         autoplaySpeed: 2000,
-        focusOnSelect: true,
-        infinite: true
+        focusOnSelect: true
     });
 })
