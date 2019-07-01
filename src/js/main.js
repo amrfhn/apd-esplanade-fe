@@ -24,4 +24,6 @@ import './components/video-carousel.js'
 import './components/tabs-filter.js'
 import './components/test.js'
 import './components/menu.js'
+import './components/progress-bar.js'
+
 
