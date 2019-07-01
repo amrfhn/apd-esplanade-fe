@@ -23,16 +23,18 @@ mixin header(navbar)
 
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
                         .nav-bar.right.d-none.d-md-block
-                            .side-nav-wrapper
+                            .side-nav-wrapper.px-4
                                 //- set TRUE for side-nav or blank for back button
                                 if navbar= navbar 
                                     ul.nav.nav-tabs#navTab(role="tablist")
                                         li.nav-item
-                                            a.nav-link.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                                            a.nav-link.pl-0.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
                                         li.nav-item
                                             a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-
                                     
+                                    hr.my-0
+
+  
 
                                 else
                                     .nav.back.d-flex

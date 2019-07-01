@@ -13,37 +13,37 @@ block content
                             +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
 
 
-                        //- .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
-                        //-     +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
+                        .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
+                            +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
 
-                    //- .slide-count-wrap
+                    .slide-count-wrap
 
 
             .col-12.col-md-6.pt-md-5.p-md-4
                 .container-fluid
-                    .row.d-md-none
+                    .row.d-md-none.px-4
                         .nav-bar.w-100
                             .side-nav-wrapper
-                                ul.nav.nav-tabs.pt-3.pt-md-0#navTab(role="tablist")
+                                ul.nav.nav-tabs.pt-md-0#navTab(role="tablist")
                                     li.nav-item
-                                        a.nav-link.font-14.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                                        a.nav-link.font-14.active.pl-0(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
                                     li.nav-item
                                         a.nav-link.font-14(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-                                hr
-                    .row.pt-md-4.align-items-center
-                        .col-11.pt-3
+                                hr.mb-0
+                    .row.px-4.pt-md-4.align-items-center
+                        .col-11.p-0.pt-4.d-flex.justify-content-start
                             include ../components/tabs-filter.pug
-                        .col-1.p-0.pt-3
+                        .col-1.p-0.pt-4.d-flex.justify-content-end
                             img(src='./assets/img/icons/Filter.svg' width="25px")
 
 
                     .row.p-3.p-md-0.pt-md-3.tab-content
-                        - const cards = [1, 2, 3, 4, 5]
+                        - const cards = [1, 2, 3, 4, 5];
                         each card in cards 
-                            .card-tile.col-12.col-md-6.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
+                            .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
                                 +cardTile('./assets/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
                     
-                            .card-tile.col-12.col-md-6.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
+                            .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
                                 +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
 
 
