@@ -44,7 +44,13 @@
     .btn-search{
         position: absolute;
         right: 44px;
-        top: -50px;
+        top: -118px;
+
+        @media(min-width:769px){
+            top: -53px;
+        }
+       
+        
     }
 }
 

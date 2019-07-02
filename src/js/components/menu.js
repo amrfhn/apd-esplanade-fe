@@ -31,6 +31,16 @@ $(function() {
             $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
         }
       });
+      
 
+    // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+
+    // if(width <= 768){
+    //     console.log(width);
+    //     $('.search-icon').attr('src', './assets/img/icons/Search/White.svg');
+    // }
+    // else{
+    //     $('.search-icon').attr('src', './assets/img/icons/Search/Black.svg');
+    // }
 
 });
