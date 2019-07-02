@@ -19,6 +19,7 @@ block content
 
                         .slide-count-wrap
 
+
             .col-12.col-md-6.pt-md-5.p-md-4
                 .container-fluid
                     .row.d-md-none.px-4
@@ -30,12 +31,11 @@ block content
                                     li.nav-item
                                         a.nav-link.font-14(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
                                 hr.mb-0
-                    .row.px-4.pt-md-4.align-items-center
-                        
-                        .col-11.p-0.pt-4.d-flex.justify-content-start
-                            include ../components/tabs-filter.pug
+                    .row.pr-3.pt-md-4.align-items-center
+                        .col-11.pt-4.px-0
+                            include ../components/genre-tabs.pug
                             
-                        .col-1.p-0.pt-4.d-flex.justify-content-end
+                        .col-1.pt-4
                             img(src='./assets/img/icons/Filter.svg' width="25px")
 
 

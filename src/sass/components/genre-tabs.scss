@@ -17,6 +17,7 @@
     -webkit-overflow-scrolling: touch;
     /* We don't want internal inline elements to wrap */
     white-space: nowrap;
+
     /* If JS present, let's hide the default scrollbar */
     .js & {
         /* Make an auto-hiding scroller for the 3 people using a IE */
@@ -26,6 +27,14 @@
             display: none;
         }
     }
+
+    /* Make an auto-hiding scroller for the 3 people using a IE */
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    /* Remove the default scrollbar for WebKit implementations */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
 	/* positioning context for advancers */
 	position: relative;
 	// Crush the whitespace here
@@ -46,19 +55,25 @@
 	text-decoration: none;
 	color: #888;
 	// Reset the font size
-	font-size: 1.2rem;
-	font-family: -apple-system, sans-serif;
+	font-size: 14px;
+	// font-family: -apple-system, sans-serif;
 	display: inline-flex;
 	align-items: center;
 	min-height: 44px;
-	border: 1px solid transparent;
-	padding: 0 11px;
-	& + & {
-		border-left-color: #eee;
-	}
+    border: 1px solid transparent;
+    font-weight: bold;
+	padding: 0 14px;
+	// & + & {
+	// 	border-left-color: #eee;
+	// }
 	&[aria-selected="true"] {
-		color: #111;
-	}
+        color: $primary;
+        
+    }
+
+    &:first-child {
+        padding-left: 0px;
+    }
 }
 
 .pn-Advancer {
