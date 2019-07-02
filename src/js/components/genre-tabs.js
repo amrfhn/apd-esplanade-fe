@@ -144,6 +144,8 @@ $(function(){
         if (color) {
             pnIndicator.style.backgroundColor = color;
         }
+        var pnProductNavLink = $('.pn-ProductNav_Link')
+        console.log(pnProductNavLink.width)
     }
     
     function determineOverflow(content, container) {
