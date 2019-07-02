@@ -55,4 +55,18 @@ $(function() {
         $('#searchBar').removeClass('active');
     })
 
+    // var fixSideTab = $('.side-nav-wrapper').offset().top;
+
+    // $(document).on('scroll', function() {
+    
+    //     if($(this).scrollTop() >= fixSideTab && !$(".side-nav-wrapper").hasClass("fixedBar")){
+    //        $(".side-nav-wrapper").addClass("fixedBar");
+    //     }
+        
+    //     if($(this).scrollTop() <= fixSideTab && $(".side-nav-wrapper").hasClass("fixedBar")){
+    //         $(".side-nav-wrapper").removeClass("fixedBar");
+    //     }
+        
+    //   });
+
 });

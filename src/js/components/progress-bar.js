@@ -5,7 +5,7 @@ $(function (){
 
 
     var getMax = function(){
-        return $('#readSection').height() - $(window).height();
+        return $('#readSection').height() + $('#summary').height() - $('#related-tile').height() - $('#newsletter').height();
     }
     
     var getValue = function(){
@@ -72,6 +72,7 @@ $(function (){
         if($(this).scrollTop() <= fixProgress && $("#progressBar").hasClass("fixedbar")){
             $("#progressBar").removeClass("fixedbar");
         }
+
       });
 
 });
