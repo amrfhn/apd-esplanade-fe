@@ -27,5 +27,7 @@ import './components/genre-tabs.js'
 import './components/test.js'
 import './components/menu.js'
 import './components/progress-bar.js'
+import './components/filter-menu.js'
+
 
 

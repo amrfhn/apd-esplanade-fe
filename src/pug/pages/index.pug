@@ -4,6 +4,7 @@ block header
     +header(true)
 
 block content 
+    
     .container-fluid.no-gutters.p-0
         .row.no-gutters
             .col-12.col-md-6
@@ -36,7 +37,10 @@ block content
                             include ../components/genre-tabs.pug
                             
                         .col-1.px-0.px-lg-3.pt-4
-                            img(src='./assets/img/icons/Filter.svg' width="25px")
+                            a.filter(style="cursor:pointer;")
+                                img(src='./assets/img/icons/Filter.svg' style="width:23px;")
+                    .row
+                        include ../components/filter-menu.pug
 
 
                     .row.p-3.p-md-0.pt-md-3.tab-content

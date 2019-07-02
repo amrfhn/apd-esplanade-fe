@@ -1,0 +1,68 @@
+.filter-menu-wrapper
+    a.close-filter
+        img.close-icon(src="./assets/img/icons/Close.svg")
+    
+    .fm-content.mt-5
+        
+        p.menu-text BROWSE BY:
+
+        .fm-content-item.mb-4
+            .browse-by.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="" id="forEveryone")
+                label.custom-control-label(for="forEveryone") For EVERYONE
+
+            .browse-by.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="" id="forParents")
+                label.custom-control-label(for="forParents") FOR PARENTS
+
+            .browse-by.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="" id="forKids")
+                label.custom-control-label(for="forKids") FOR KIDS
+
+
+        p.menu-text CONTENT TYPES:
+
+        .fm-content-item.mb-4
+            .content-types.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="" id="watch")
+                label.custom-control-label(for="watch") WATCH
+
+            .content-types.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="" id="read")
+                label.custom-control-label(for="read") READ
+
+            .content-types.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="" id="listen")
+                label.custom-control-label(for="listen") LISTEN
+            
+
+        p.menu-text SORT BY:
+            
+        .fm-content-item.mb-4
+            .sort-by.custom-radio.custom-control
+                input.custom-control-input(type="radio" data-key="" name="sort" id="mostRecent")
+                label.custom-control-label(for="mostRecent") MOST RECENT
+            .sort-by.custom-radio.custom-control
+                input.custom-control-input(type="radio" data-key="" name="sort" id="trending")
+                label.custom-control-label(for="trending") TRENDING
+
+
+        p.menu-text TIME TAKEN:
+
+        .fm-content-item.mb-4
+            .time-taken.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" id="five-min")
+                label.custom-control-label(for="five-min") < 5 MINUTES
+
+            .time-taken.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" id="ten-min")
+                label.custom-control-label(for="ten-min") 10 MINUTES
+
+            .time-taken.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" id="fifteen-min")
+                label.custom-control-label(for="fifteen-min") > 15 MINUTES
+
+        div
+            button(type="submit" value="submit").submit-filter.btn.btn-outline-primary Apply Filter
+            
+        

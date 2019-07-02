@@ -1,12 +1,5 @@
 .tab-filter-wrapper{
-  width: 80%;
-  margin: auto;
-  // padding: 10px 10px;
-
-  .slick-disabled {
-    opacity: 0; 
-    transform: all .2s
-  }
+  width: 90%;
   
   @media(min-width: 768px){
     width:550px;
@@ -23,35 +16,43 @@
       .slick-slide {
         a {
           color: $gray !important;   
-          
-          // &:focus {
-          //   outline: none;
-          //   color: $primary !important;
-          //   text-decoration: underline !important;
-          // }
         }
+      }
+    }
 
-      }
-      // .slick-current {
-      //   a {
-      //     color: $primary !important;
-      //     text-decoration: underline;
-      //   }
-      // }
+    .slick-disabled {
+      opacity: 0; 
+      transform: all .2s
+    }
     
-      .slick-next{
-        top:12px;
-        right: 15px;
-        @media(min-width:768px){
-          right: -25px;
+    @media(min-width: 768px){
+      width:500px;
+      justify-content:space-evenly;
+    }
+    .tab-filter {
+      .slide-category{
+        .slick-list{
+          width: 100%;
+          margin: 0 30px;
+          @media(min-width:768px){
+            margin: 0;
+          }
         }
-      }
-      .slick-prev{
-        top:12px;
-        padding: 0 5px;
-        left: -2px;
-        @media(min-width:768px){
+        .slick-slide {
+          a {
+            color: #9b9b9b !important;   
+          }
+        }
+      
+        img.next-tabs{
+          display: none;
+          right: -25px;
+          top:12px;
+        }
+        img.prev-tabs{
           left: -25px;
+          top:12px;
+          padding: 0 5px;
         }
       }
     }
