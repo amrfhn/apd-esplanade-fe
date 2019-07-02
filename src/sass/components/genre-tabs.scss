@@ -63,7 +63,7 @@
   min-height: 30px;
   border: 1px solid transparent;
   font-weight: bold;
-  margin: 0 14px;
+  padding: 0 14px;
   // & + & {
   // 	border-left-color: #eee;
   // }
@@ -71,9 +71,6 @@
     color: $primary;
   }
 
-  &:first-child {
-    margin-left: 0px;
-  }
 }
 
 .pn-Advancer {
