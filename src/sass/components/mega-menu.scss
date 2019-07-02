@@ -119,6 +119,32 @@
             }
         }
     }
+    .hide-sidenav{
+        display:none;
+
+        @media(min-width:768px){
+            display: block;
+        }
+    }
+    .search{
+
+        .btn-search{
+            img.search-icon-mobile{
+                display: block;
+
+                @media(min-width:768px){
+                    display: none;
+                }
+            }
+            img.search-icon{
+                display: none;
+
+                @media(min-width:769px){
+                    display: block;
+                }
+            }
+        }
+    }
 }
 
 .mm-wrapper{
