@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     
-    @media(min-width:768px){
+    @include media-breakpoint-up(md) {
         position: fixed;
         width: 50%;
     }

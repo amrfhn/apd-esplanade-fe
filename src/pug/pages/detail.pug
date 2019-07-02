@@ -11,10 +11,30 @@ block content
                 
             .col-12.col-md-6.px-0
                 //- Trigger Modal
-                div.video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
-                    .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
-                        img(src='./assets/img/icons/Youtube.svg' alt="thumbnail" width="90px").video-icon.float-right.p-3
-                    .thumbnail-holder
+
+                //- Hero Banner with Video Modal
+                +heroBanner('./assets/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false)
+
+                //- Hero Banner with Video Modal
+                //- +heroBanner('./assets/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, true)      
+                
+            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.py-4.mt-2 
+                .px-md-4.h-100.d-flex.justify-content-center.flex-column
+                    p.card-text.font-12.font-weight-bold 
+                        a(href="#") DANCE | 
+                        a(href="#") MUSIC | 
+                        a(href="#") FILM
+                    h1.font-weight-bolder A French Toast To Ballet
+                    p.font-16 Seven things to know about Paris Opera Ballet to impress your mates Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, cumque illo? Delectus non, itaque ducimus a, illo quidem similique enim officia praesentium amet nihil error aliquid atque magni, ut sapiente!
+                    p Publish date: 19 April 2019
+                    p Last updated date: 23 April 2019
+                    div
+                        a(href="#content")
+                            button(type="button").read-more.btn.btn-outline-primary Read more
+        .row                
+            .col-12.col-md-6.px-0
+                //- Hero Banner with Video Modal
+                +heroBanner('./assets/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, true)      
                 
             .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.py-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
@@ -35,7 +55,7 @@ block content
             include ../components/progress-bar.pug
 
     .container#readSection
-        .row.py-5
+        .row.py-5.flex-column-reverse.flex-md-row
             .col-12.col-md-6
                 .d-flex.align-items-md-center
                     .pr-3
@@ -43,11 +63,11 @@ block content
                     p.p-0.m-0 Time to read: 15 minutes
                 
             .col-12.col-md-6.text-align-left
-                .d-flex.justify-content-md-end
+                .d-flex.justify-content-md-end.pb-4
                     - const icons = ["./assets/img/icons/Social/Facebook.svg", "./assets/img/icons/Social/Whatsapp.svg", "./assets/img/icons/Social/Mail.svg", "./assets/img/icons/Social/GooglePlus.svg", "./assets/img/icons/Social/Likes.svg"]
                     
                     each icon in icons
-                        a(href="#").pl-3
+                        a(href="#").pr-3.pr-md-0.pl-md-3
                             img(src=icon height="25px")
         
         .row.pb-5

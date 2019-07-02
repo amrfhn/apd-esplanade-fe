@@ -1,0 +1,10 @@
+mixin heroBanner(icon, imgSrc, video, image)
+    if video
+        //- Trigger Modal
+        .video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
+            .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
+                img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
+            .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover")    
+    
+    if image
+        .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover")    

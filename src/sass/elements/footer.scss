@@ -1,4 +1,4 @@
-@media (min-width:768px){ 
+@include media-breakpoint-up(md) {
     .sticky-footer {
         position: fixed;
         bottom: 0

@@ -7,16 +7,17 @@ block content
     .container-fluid.no-gutters.p-0
         .row.no-gutters
             .col-12.col-md-6
-                .carousel-banner-wrapper
-                    .carousel-banner
-                        .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
-                            +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
+                .position-relative
+                    .carousel-banner-wrapper
+                        .carousel-banner
+                            .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
+                                +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
 
 
-                        .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
-                            +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
+                            .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/#000000');")
+                                +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
 
-                    .slide-count-wrap
+                        .slide-count-wrap
 
 
             .col-12.col-md-6.pt-md-5.p-md-4
@@ -31,8 +32,10 @@ block content
                                         a.nav-link.font-14(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
                                 hr.mb-0
                     .row.px-4.pt-md-4.align-items-center
+                        
                         .col-11.p-0.pt-4.d-flex.justify-content-start
                             include ../components/tabs-filter.pug
+                            
                         .col-1.p-0.pt-4.d-flex.justify-content-end
                             img(src='./assets/img/icons/Filter.svg' width="25px")
 
