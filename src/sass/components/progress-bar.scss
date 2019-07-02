@@ -40,7 +40,7 @@
     .fixedbar {
         position: fixed;
         left: 0px;
-        top: 66px;
+        top: 0;
         z-index: 99999999999;
 
         @media(min-width: 768px){

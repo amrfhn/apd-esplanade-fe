@@ -1,5 +1,4 @@
 .nav-bar-wrapper{
-    position: fixed;
     top: 0;
     right: 0;
     width: 100%;
@@ -173,7 +172,6 @@
         margin-left: 18px;
         cursor: pointer;
         top: -6px;
-        $font-family-sans-serif: 'Montserrat', sans-serif!default;
         
         cursor: pointer;
         &:hover {

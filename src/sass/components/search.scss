@@ -1,45 +1,92 @@
 
 .search{
 
-    .modal{
-        top: 0;
-        left: 0;
-        z-index: 99999;
+
+    .search-bar{
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: -1px 1px rgba(218, 218, 218, .5);
+
+        width: 95%;
+        height: 125px;
+        
+        position: absolute;
+        right:9px;
+        top: -265px;
+        z-index: 999999;
+
+        transition: 1s ease-in-out;
+
+
+
         @media(min-width:768px){
-            top: 0%;
-            left: 50%;
+            width: 645px;
+            right:-5px;
+            top: -217px;
+            margin: 0;
+
         }
 
-        .modal-dialog{
-            max-width: 100%;
-            // margin-left: -8px;
+        input[type=text] {
+            border:none;
+        }
+        .form-control{
 
-            @media(min-width:768px){
-                max-width: 683px;
-                margin: 0;
-            }
-            
-            .modal-content{
-                height: 90px;
-
-                .modal-body{
-
-                    input[type=text] {
-                        border:none;
-                    }
-                    .form-control{
-
-                        font-size: 14px;
-                        line-height: 14px;
-                        &:focus{
-                            box-shadow: none;
-                        }
-                    }
-                    
-                }
+            font-size: 14px;
+            line-height: 14px;
+            &:focus{
+                box-shadow: none;
             }
         }
     }
+
+    .active{
+        top:-145px;
+        @media (min-width:768px){
+            top:-90px;
+        }
+    }
+
+    // .modal{
+    //     top: 0;
+    //     left: 0;
+    //     z-index: 99999;
+    //     @media(min-width:768px){
+    //         top: 0%;
+    //         left: 50%;
+    //     }
+
+    //     .modal-dialog{
+    //         max-width: 100%;
+    //         // margin-left: -8px;
+
+    //         @media(min-width:768px){
+    //             max-width: 683px;
+    //             margin: 0;
+    //         }
+            
+    //         .modal-content{
+    //             height: 90px;
+
+    //             .modal-body{
+
+    //                 input[type=text] {
+    //                     border:none;
+    //                 }
+    //                 .form-control{
+
+    //                     font-size: 14px;
+    //                     line-height: 14px;
+    //                     &:focus{
+    //                         box-shadow: none;
+    //                     }
+    //                 }
+                    
+    //             }
+    //         }
+    //     }
+    // }
             
     .btn-search{
         position: absolute;
@@ -53,5 +100,6 @@
         
     }
 }
+
 
 

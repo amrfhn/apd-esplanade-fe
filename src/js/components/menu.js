@@ -43,4 +43,16 @@ $(function() {
     //     $('.search-icon').attr('src', './assets/img/icons/Search/Black.svg');
     // }
 
+
+    var $btnSearch = $('#btnSearch');
+    var $closeSearch = $('#closeSearch');
+
+
+    $btnSearch.on('click', function(){
+        $('#searchBar').toggleClass('active');
+    })
+    $closeSearch.on('click', function(){
+        $('#searchBar').removeClass('active');
+    })
+
 });
