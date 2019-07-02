@@ -158,3 +158,18 @@ p {font-size: 14px}
   border-color: $white;
   border: 1.5px solid 
 }
+
+.custom-control-input:checked~.custom-control-label::before{
+    color: #000;
+    background-color: #fff !important;
+    background-size: contain;
+    border:none;
+    background-image: url('../img/icons/Checkbox/Tick.svg');
+    outline: 0;
+
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before{
+  background-image: none;
+  background-color: #000 !important;
+  border:1px solid #000;
+}

@@ -16,7 +16,7 @@
         top: -265px;
         z-index: 999999;
 
-        transition: 1s ease-in-out;
+        transition: .5s ease-in-out;
 
 
 
@@ -42,7 +42,7 @@
     }
 
     .active{
-        top:-145px;
+        top:-70px;
         @media (min-width:768px){
             top:-90px;
         }
@@ -91,7 +91,7 @@
     .btn-search{
         position: absolute;
         right: 44px;
-        top: -118px;
+        top: -50px;
 
         @media(min-width:769px){
             top: -53px;

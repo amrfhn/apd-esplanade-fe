@@ -22,25 +22,25 @@ mixin header(navbar)
 
 
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
-                        .nav-bar.right#navbarRight
-                            .side-nav-wrapper.px-4
-                                //- set TRUE for side-nav or blank for back button
-                                if navbar= navbar 
-                                    ul.nav.nav-tabs#navTab(role="tablist")
-                                        li.nav-item
-                                            a.nav-link.pl-0.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
-                                        li.nav-item
-                                            a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-                                    
-                                    hr.my-0
+                        .row.px-4.d-md-block.d-none
+                            .nav-bar.right#navbarRight
+                                .side-nav-wrapper.px-4
+                                    //- set TRUE for side-nav or blank for back button
+                                    if navbar= navbar 
+                                        ul.nav.nav-tabs#navTab(role="tablist")
+                                            li.nav-item
+                                                a.nav-link.pl-0.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                                            li.nav-item
+                                                a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
+                                        
+                                        hr.my-0
 
-  
 
-                                else
-                                    .nav.back.d-flex.d-xs-none.d-sm-none.d-md-block
-                                        a.btn.btn-back.font-14(href="javascript:history.go(-1)")
-                                            img(src='./assets/img/icons/Previous.svg') 
-                                            span.ml-4 Back
+                                    else
+                                        .nav.back.d-flex.d-xs-none.d-sm-none.d-md-block
+                                            a.btn.btn-back.font-14(href="javascript:history.go(-1)")
+                                                img(src='./assets/img/icons/Previous.svg') 
+                                                span.ml-4 Back
 
                 .search.position-relative
                         button.btn-search#btnSearch(type="button")
