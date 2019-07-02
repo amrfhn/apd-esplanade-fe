@@ -84,7 +84,7 @@
     }
 
     .scrolled{
-        background-color: #000;
+        background-color: $primary;
         transition: background-color 200ms linear;
     }
 
@@ -104,17 +104,16 @@
                         font-size: 14px;
                         line-height: 16px;
                         font-weight: 800;
-                        color: #9b9b9b;
+                        color: $gray;
                         border: none;
                         &.active{
-                            color: #000;
+                            color: $primary;
                             text-decoration: underline;
-
                         }
                     }
                 }
                 li:nth-child(1){
-                    border-right: 1px solid #9b9b9b;
+                    border-right: 1px solid $gray;
                 }
             }
         }
@@ -273,17 +272,17 @@
     ul.nav-tabs{
         border:none;
         li:nth-child(1){
-            border-right: 1px solid #9b9b9b;
+            border-right: 1px solid $gray;
         }
         .nav-item{
     
             .nav-link{
                 font-weight: bold;
-                color: #9b9b9b;
+                color: $gray;
                 border: none;
     
                 &.active{
-                    color: #000;
+                    color: $primary;
                     font-weight: bold;
                     text-decoration: underline;
     
