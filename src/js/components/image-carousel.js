@@ -14,7 +14,9 @@ $(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        dots: true
+        autoplay: 1000,
+        dots: true,
+        focusOnSelect: true
     });
 
 });
