@@ -102,12 +102,14 @@
                     .nav-link{
                         font-size: 14px;
                         line-height: 16px;
-                        font-weight: 800;
+                        font-weight: bold;
                         color: $gray;
                         border: none;
+                        border-bottom: 3px solid transparent;
                         &.active{
                             color: $primary;
-                            text-decoration: underline;
+                            border-bottom: 3px solid $primary;
+                            transition: all .2s
                         }
                     }
                 }
@@ -226,8 +228,11 @@
                     margin-left: 6px;
 
                     &.active{
-                        font-weight: 800;
+                        font-weight: bold;
+                        border-bottom: 3px solid $primary
                     }
+                    
+
                 }
             }
 
@@ -280,12 +285,13 @@
                 font-weight: bold;
                 color: $gray;
                 border: none;
-    
+                border-bottom: 3px solid transparent;
+
                 &.active{
                     color: $primary;
                     font-weight: bold;
-                    text-decoration: underline;
-    
+                    border-bottom: 3px solid $primary;
+                    transition: all .2s
                 }
             }
         }

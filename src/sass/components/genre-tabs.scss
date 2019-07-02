@@ -3,129 +3,132 @@
 // }
 
 .pn-ProductNav_Wrapper {
-	position: relative;
-	padding: 0 11px;
-	box-sizing: border-box;
+  position: relative;
+  padding: 0 11px;
+  box-sizing: border-box;
 }
 
 .pn-ProductNav {
-    /* Make this scrollable when needed */
-    overflow-x: auto;
-    /* We don't want vertical scrolling */
-    overflow-y: hidden;
-    /* For WebKit implementations, provide inertia scrolling */
-    -webkit-overflow-scrolling: touch;
-    /* We don't want internal inline elements to wrap */
-    white-space: nowrap;
+  /* Make this scrollable when needed */
+  overflow-x: auto;
+  /* We don't want vertical scrolling */
+  overflow-y: hidden;
+  /* For WebKit implementations, provide inertia scrolling */
+  -webkit-overflow-scrolling: touch;
+  /* We don't want internal inline elements to wrap */
+  white-space: nowrap;
 
-    /* If JS present, let's hide the default scrollbar */
-    .js & {
-        /* Make an auto-hiding scroller for the 3 people using a IE */
-        -ms-overflow-style: -ms-autohiding-scrollbar;
-        /* Remove the default scrollbar for WebKit implementations */
-        &::-webkit-scrollbar {
-            display: none;
-        }
-    }
-
+  /* If JS present, let's hide the default scrollbar */
+  .js & {
     /* Make an auto-hiding scroller for the 3 people using a IE */
     -ms-overflow-style: -ms-autohiding-scrollbar;
     /* Remove the default scrollbar for WebKit implementations */
     &::-webkit-scrollbar {
-        display: none;
+      display: none;
     }
+  }
 
-	/* positioning context for advancers */
-	position: relative;
-	// Crush the whitespace here
-	font-size: 0;
+  /* Make an auto-hiding scroller for the 3 people using a IE */
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* Remove the default scrollbar for WebKit implementations */
+  &::-webkit-scrollbar {
+    -webkit-appearance: none;
+    display: none;
+  }
+
+  /* positioning context for advancers */
+  position: relative;
+  // Crush the whitespace here
+  font-size: 0;
 }
 
 .pn-ProductNav_Contents {
-	float: left;
-	transition: transform .2s ease-in-out;
-	position: relative;
+  float: left;
+  transition: transform 0.2s ease-in-out;
+  position: relative;
 }
 
 .pn-ProductNav_Contents-no-transition {
-	transition: none;
+  transition: none;
 }
 
 .pn-ProductNav_Link {
-	text-decoration: none;
-	color: $gray;
-	// Reset the font size
-	font-size: 14px;
-	// font-family: -apple-system, sans-serif;
-	display: inline-flex;
-	align-items: center;
-	min-height: 44px;
-    border: 1px solid transparent;
-    font-weight: bold;
-	margin: 0 14px;
-	// & + & {
-	// 	border-left-color: #eee;
-	// }
-	&[aria-selected="true"] {
-        color: $primary;
-        
-    }
+  text-decoration: none;
+  color: $gray;
+  // Reset the font size
+  font-size: 14px;
+  // font-family: -apple-system, sans-serif;
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  border: 1px solid transparent;
+  font-weight: bold;
+  padding: 0 14px;
+  // & + & {
+  // 	border-left-color: #eee;
+  // }
+  &[aria-selected="true"] {
+    color: $primary;
+  }
 
-    &:first-child {
-        margin-left: 0px;
-    }
 }
 
 .pn-Advancer {
-	/* Reset the button */
-	appearance: none;
-	background: transparent;
-	padding: 0;
-	border: 0;
-	&:focus {
-		outline: 0;
-	}
-	&:hover {
-		cursor: pointer;
-	}
-	/* Now style it as needed */
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	/* Set the buttons invisible by default */
-	opacity: 0;
-	transition: opacity .3s;
+  /* Reset the button */
+  appearance: none;
+  background: transparent;
+  padding: 0;
+  border: 0;
+  &:focus {
+    outline: 0;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  /* Now style it as needed */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  /* Set the buttons invisible by default */
+  display: none;
+  transition: all 0.2s;
 }
 
 .pn-Advancer_Left {
-	left: 0;
-	[data-overflowing="both"] ~ &,
-	[data-overflowing="left"] ~ & {
-		opacity: 1;
-	}
+  left: 0;
+  [data-overflowing="both"] ~ &,
+  [data-overflowing="left"] ~ & {
+    @media (min-width: 1024px) {
+      display: block !important;
+      transition: all 0.2s;
+    }
+  }
 }
 
 .pn-Advancer_Right {
-	right: 0;
-	[data-overflowing="both"]  ~ &,
-	[data-overflowing="right"] ~ & {
-		opacity: 1;
-	}
+  right: 0;
+  [data-overflowing="both"] ~ &,
+  [data-overflowing="right"] ~ & {
+    @media (min-width: 1024px) {
+      display: block !important;
+      transition: all 0.2s;
+    }
+  }
 }
 
 .pn-Advancer_Icon {
-	width: 20px;
-	height: 44px;
-	fill: #bbb;
+  width: 20px;
+  height: 44px;
+  fill: #bbb;
 }
 
 .pn-ProductNav_Indicator {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	height: 4px;
-	width: 100px;
-	background-color: transparent;
-	transform-origin: 0 0;
-	transition: transform .2s ease-in-out, background-color .2s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100px;
+  background-color: transparent;
+  transform-origin: 0 0;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }

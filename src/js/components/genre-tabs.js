@@ -137,13 +137,15 @@ $(function(){
         var container = pnProductNavContents.getBoundingClientRect().left;
         var distance = textPosition.left - container;
          var scroll = pnProductNavContents.scrollLeft;
-        pnIndicator.style.transform = "translateX(" + (distance + scroll) + "px) scaleX(" + textPosition.width * 0.01 + ")";
+        pnIndicator.style.transform = "translateX(" + ((distance + 14) + scroll) + "px) scaleX(" + (textPosition.width - 14 * 2) * 0.01 + ")";
         // count = count += 100;
         // pnIndicator.style.transform = "translateX(" + count + "px)";
         
         if (color) {
             pnIndicator.style.backgroundColor = color;
         }
+        var pnProductNavLink = $('.pn-ProductNav_Link')
+        console.log(distance)
     }
     
     function determineOverflow(content, container) {

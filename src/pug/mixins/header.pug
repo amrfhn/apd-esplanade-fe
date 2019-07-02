@@ -27,13 +27,11 @@ mixin header(navbar)
                                 .side-nav-wrapper.px-3
                                     //- set TRUE for side-nav or blank for back button
                                     if navbar= navbar 
-                                        ul.nav.nav-tabs#navTab(role="tablist")
+                                        ul.nav.nav-tabs#navTab.mx-2.border-bottom(role="tablist")
                                             li.nav-item
-                                                a.nav-link.pl-0.active(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
+                                                a.nav-link.active.p-0.mr-2.mr-lg-3.ml-0.pb-1(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
                                             li.nav-item
-                                                a.nav-link(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-                                        
-                                        hr.my-0
+                                                a.nav-link.p-0.m-2.m-lg-3.pb-1(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
 
 
                                     else
