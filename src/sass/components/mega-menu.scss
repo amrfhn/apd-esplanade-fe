@@ -116,6 +116,7 @@
                 }
             }
         }
+        
     }
     .hide-sidenav{
         display:none;
@@ -259,6 +260,7 @@
 
 // Mobile Nav Tabs
 .side-nav-wrapper{
+    position: relative;
     .nav{
         // padding: 5px;
         flex-wrap: nowrap;
@@ -291,4 +293,7 @@
     .divider{
         width: 90%;
     }
+}
+.fixedBar{
+    position: fixed;
 }

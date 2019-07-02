@@ -9,7 +9,7 @@
         box-shadow: -1px 1px rgba(218, 218, 218, .5);
 
         width: 95%;
-        height: 125px;
+        height: 90px;
         
         position: absolute;
         right:9px;
@@ -44,7 +44,7 @@
     .active{
         top:-70px;
         @media (min-width:768px){
-            top:-90px;
+            top:-77px;
         }
     }
 

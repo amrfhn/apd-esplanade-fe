@@ -4,7 +4,7 @@ block header
     +header()
 
 block content
-    .container-fluid
+    .container-fluid#summary
         .row
             .col-12
                 +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
@@ -102,10 +102,10 @@ block content
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
 
-    .container-fluid
+    .container-fluid#related-tile
         include ../components/related-tile.pug
 
-    .container-fluid
+    .container-fluid#newsletter
         include ../components/newsletter.pug
 
 block footer 
