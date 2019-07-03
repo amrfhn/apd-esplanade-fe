@@ -267,6 +267,10 @@
 // Mobile Nav Tabs
 .side-nav-wrapper{
     position: relative;
+    position: relative;
+    background: #fff;
+    width: 100%;
+
     .nav{
         // padding: 5px;
         flex-wrap: nowrap;
@@ -304,4 +308,6 @@
 }
 .fixedBar{
     position: fixed;
+    top: 0px;
+    z-index: 999999999999999;
 }
