@@ -58,6 +58,7 @@ module.exports = {
         // }),
         new CopyPlugin([
             { from: './src/img', to: './assets/img' },
+            { from: './src/fonts', to: './assets/fonts' },
         ]),
     ].concat(htmlPlugins),
     module: {
