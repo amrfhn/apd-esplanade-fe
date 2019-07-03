@@ -53,10 +53,11 @@
 }
 
 .pn-ProductNav_Link {
+  font-family:  $font-proxima-bold;
   text-decoration: none;
   color: $gray;
   // Reset the font size
-  font-size: 14px;
+  font-size: 16px;
   // font-family: -apple-system, sans-serif;
   display: inline-flex;
   align-items: center;

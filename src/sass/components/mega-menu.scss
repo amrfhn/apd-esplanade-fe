@@ -100,7 +100,8 @@
                 .nav-item{
                     margin: auto 0;
                     .nav-link{
-                        font-size: 14px;
+                        font-family: $font-proxima-bold;
+                        font-size: 16px;
                         line-height: 16px;
                         font-weight: bold;
                         color: $gray;
@@ -282,6 +283,7 @@
         .nav-item{
     
             .nav-link{
+                font-family: $font-proxima-bold;
                 font-weight: bold;
                 color: $gray;
                 border: none;

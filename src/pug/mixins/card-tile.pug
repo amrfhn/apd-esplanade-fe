@@ -6,14 +6,14 @@ mixin cardTile(icon, link, img, title)
 
             img.card-img-top(src=img)
         
-        .border.border-top-0.text-left 
-            span.p-1.px-3.bg-primary.text-white.font-12.text-uppercase listen
+        .border.border-top-0.text-left.position-relative 
+            span.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute listen
 
-            .card-body.pt-0.text-center
+            .card-body.text-center
                 p.m-2.card-text.font-12.font-weight-bold MUSIC
 
                 .card-title.text-primary
                     a(href=link) 
-                        h5.font-weight-bold="Event Title "+title
+                        h5.font-weight-bolder="Event Title "+title
 
                 p.card-text.clamp-3 Lorem ipsum dolor sit, amet cdsdsd onsecastetur adipisicing elit. Perspiciatis id cupiditate reprehenderit eveniet provident excepturi sunt error incidunt praesentium, expedita aliquid eos quasi non mollitia, quaerat at! Qui, provident aliquid.  

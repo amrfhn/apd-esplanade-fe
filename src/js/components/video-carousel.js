@@ -27,8 +27,8 @@ $(function(){
         slidesToScroll: 1,
         asNavFor: '.video-carousel',
         dots: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
         focusOnSelect: true
     });
 
