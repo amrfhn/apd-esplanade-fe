@@ -132,3 +132,9 @@
   transform-origin: 0 0;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
+
+.sticky{
+  position: fixed;
+  z-index: 9999999999;
+  top: 0;
+}
