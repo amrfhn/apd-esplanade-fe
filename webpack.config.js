@@ -52,10 +52,6 @@ module.exports = {
             $: 'jquery',
             jQuery: 'jquery'
         }),
-        // // new SpriteLoaderPlugin({
-        // //     plainSprite:true
-        // // })
-        // }),
         new CopyPlugin([
             // { from: './src/img', to: './assets/img' },
             // { from: './src/fonts', to: './assets/fonts' },
@@ -80,7 +76,6 @@ module.exports = {
                     }
                 }
             },
-
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 loader: 'file-loader',
@@ -97,14 +92,6 @@ module.exports = {
                     outputPath: 'assets/img/'
                 }
             },
-            // {
-            //     test: /\.svg(\?.*)?$/,
-            //     loader: 'svg-sprit-loader',
-            //     options: {
-            //         extract: true,
-            //         publicPath: 'assets/img/'
-            //     }
-            // },
             {
                 test: /\.(s*)css$/,
                 use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader', 'sass-loader']

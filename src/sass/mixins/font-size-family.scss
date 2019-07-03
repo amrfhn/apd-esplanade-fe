@@ -1,0 +1,26 @@
+@mixin font-proxima-black {
+    font-family: $font-proxima-black;
+}
+@mixin font-proxima-bold {
+    font-family: $font-proxima-bold;
+    font-weight: normal;
+}
+@mixin font-proxima-extrabold {
+    font-family: $font-proxima-extrabold;
+}
+@mixin font-proxima-light {
+    font-family: $font-proxima-light;
+}
+@mixin font-proxima-medium {
+    font-family: $font-proxima-medium;
+}
+@mixin font-proxima-semibold {
+    font-family: $font-proxima-semibold;
+}
+@mixin font-proxima-thin {
+    font-family: $font-proxima-thin;
+}
+@mixin font-proxima-regular {
+    font-family: $font-proxima-regular;
+}
+
