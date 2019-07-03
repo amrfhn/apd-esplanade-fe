@@ -32,7 +32,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "bundle.js",
+        filename: "./assets/microsites/offstage/js/bundle.js",
     },
     devServer: {
         writeToDisk: true,
@@ -57,8 +57,12 @@ module.exports = {
         // // })
         // }),
         new CopyPlugin([
-            { from: './src/img', to: './assets/img' },
-            { from: './src/fonts', to: './assets/fonts' },
+            // { from: './src/img', to: './assets/img' },
+            // { from: './src/fonts', to: './assets/fonts' },
+            // { from: './js/json', to: './assets/data' },
+            { from: './src/img', to: './assets/microsites/offstage/img' },
+            { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
+            { from: './js/json', to: './assets/microsites/offstage/data'},
         ]),
     ].concat(htmlPlugins),
     module: {

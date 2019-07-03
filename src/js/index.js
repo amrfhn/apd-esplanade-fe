@@ -19,7 +19,22 @@ $(document).ready(function(){
         $('html, body').animate({
             scrollTop: $('#content').offset().top
         }, 500);
-    });    
+    }); 
+    
+    
+
+
+    $.ajax({
+        type: "GET",
+        url: "./assets/js/json/sample.json",
+        dataType: "json",
+        data: JSON.stringify(obj),
+        contentType: "application/json",
+    }).done(function(data){
+        console.log(data);
+    }).fail(function(){
+        
+    })
 })
 
 

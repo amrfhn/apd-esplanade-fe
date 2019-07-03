@@ -34,11 +34,12 @@ block content
 
                     .row.pr-3.pt-md-4.align-items-center
                         .col-11.pl-3.pt-4.px-md-0
-                            include ../components/genre-tabs.pug
+                            .genre-tabs-container#sticky
+                                include ../components/genre-tabs.pug
                             
                         .col-1.px-0.px-lg-3.pt-4
                             a.filter(style="cursor:pointer;")
-                                img(src='./assets/img/icons/Filter.svg' style="width:23px;")
+                                img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
                     .row
                         include ../components/filter-menu.pug
 
@@ -47,10 +48,10 @@ block content
                         - const cards = [1, 2, 3, 4, 5];
                         each card in cards 
                             .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
-                                +cardTile('./assets/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
+                                +cardTile('./assets/microsites/offstage/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
                     
                             .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
-                                +cardTile('./assets/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
+                                +cardTile('./assets/microsites/offstage/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
 
 
 block footer

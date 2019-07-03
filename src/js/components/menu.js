@@ -37,10 +37,10 @@ $(function () {
 
     // if(width <= 768){
     //     console.log(width);
-    //     $('.search-icon').attr('src', './assets/img/icons/Search/White.svg');
+    //     $('.search-icon').attr('src', './assets/microsites/offstage/img/icons/Search/White.svg');
     // }
     // else{
-    //     $('.search-icon').attr('src', './assets/img/icons/Search/Black.svg');
+    //     $('.search-icon').attr('src', './assets/microsites/offstage/img/icons/Search/Black.svg');
     // }
 
 
@@ -56,7 +56,7 @@ $(function () {
     })
 
     var fixSideTab = $('#mobileNavTab').offset().top;
-    var stickyGenre = $('#stickyToo').offset(top) - fixSideTab;
+    // var stickyGenre = $('#sticky').offset().top ;
 
     $(document).on('scroll', function (e) {
 
@@ -71,22 +71,16 @@ $(function () {
         }
 
 
-        if ($(this).scrollTop() >= stickyGenre && !$("#stickyToo").hasClass("sticky")) {
-            $("#stickyToo").addClass("sticky");
+        if ($(this).scrollTop() >= stickyGenre && !$("#sticky").hasClass("sticky")) {
+            $("#sticky").addClass("sticky");
             console.log("triger")
         }
 
-        if ($(this).scrollTop() < stickyGenre && $("#stickyToo").hasClass("sticky")) {
-            $("#stickyToo").removeClass("sticky");
+        if ($(this).scrollTop() < stickyGenre && $("#sticky").hasClass("sticky")) {
+            $("#sticky").removeClass("sticky");
             console.log("not")
         }
 
     });
-
-    // $(window).on('scroll', function (event) {
-    //     var scroll = $(window).scrollTop();
-
-
-    // });
 
 });

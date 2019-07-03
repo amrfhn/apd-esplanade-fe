@@ -166,14 +166,6 @@ $(function(){
         }
     }
     
-    /**
-     * @fileoverview dragscroll - scroll area by dragging
-     * @version 0.0.8
-     * 
-     * @license MIT, see https://github.com/asvd/dragscroll
-     * @copyright 2015 asvd <heliosframework@gmail.com> 
-     */
-    
     
     (function (root, factory) {
         if (typeof define === 'function' && define.amd) {
