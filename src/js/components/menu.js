@@ -1,18 +1,18 @@
-$(function() {
-    $('#hamb').on('click', function(){
+$(function () {
+    $('#hamb').on('click', function () {
         $('.mm-wrapper').addClass('active');
     })
 
-    $('.close-btn-x').on('click', function(){
+    $('.close-btn-x').on('click', function () {
         $('.mm-wrapper').removeClass('active');
     })
 
     var $megaMenu = $('.mm-wrapper');
 
-    if($megaMenu.hasClass('active')){
+    if ($megaMenu.hasClass('active')) {
         console.log("active")
-        $('body').css('position','fixed');
-        $('body').css('overflow','hidden');
+        $('body').css('position', 'fixed');
+        $('body').css('overflow', 'hidden');
 
     }
 
@@ -27,11 +27,11 @@ $(function() {
 
         var $navTabs = $('#navTab');
 
-        if(!$navTabs.hasClass('nav-tabs')){
+        if (!$navTabs.hasClass('nav-tabs')) {
             $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
         }
-      });
-      
+    });
+
 
     // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
@@ -48,25 +48,33 @@ $(function() {
     var $closeSearch = $('#closeSearch');
 
 
-    $btnSearch.on('click', function(){
+    $btnSearch.on('click', function () {
         $('#searchBar').toggleClass('active');
     })
-    $closeSearch.on('click', function(){
+    $closeSearch.on('click', function () {
         $('#searchBar').removeClass('active');
     })
 
-    // var fixSideTab = $('.side-nav-wrapper').offset().top;
+    var fixSideTab = $('#mobileNavTab').offset().top;
 
-    // $(document).on('scroll', function() {
-    
-    //     if($(this).scrollTop() >= fixSideTab && !$(".side-nav-wrapper").hasClass("fixedBar")){
-    //        $(".side-nav-wrapper").addClass("fixedBar");
-    //     }
-        
-    //     if($(this).scrollTop() <= fixSideTab && $(".side-nav-wrapper").hasClass("fixedBar")){
-    //         $(".side-nav-wrapper").removeClass("fixedBar");
-    //     }
-        
-    //   });
+    $(document).on('scroll', function (e) {
+
+        if ($(this).scrollTop() >= fixSideTab && !$("#mobileNavTab").hasClass("fixedBar")) {
+            $("#mobileNavTab").addClass("fixedBar");
+            console.log("triger")
+        }
+
+        if ($(this).scrollTop() < fixSideTab && $("#mobileNavTab").hasClass("fixedBar")) {
+            $("#mobileNavTab").removeClass("fixedBar");
+            console.log("not")
+        }
+
+    });
+
+    // $(window).on('scroll', function (event) {
+    //     var scroll = $(window).scrollTop();
+
+
+    // });
 
 });
