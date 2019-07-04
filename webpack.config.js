@@ -58,7 +58,7 @@ module.exports = {
             // { from: './js/json', to: './assets/data' },
             { from: './src/img', to: './assets/microsites/offstage/img' },
             { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
-            { from: './js/json', to: './assets/microsites/offstage/data'},
+            { from: './src/js/data', to: './assets/microsites/offstage/data'},
         ]),
     ].concat(htmlPlugins),
     module: {

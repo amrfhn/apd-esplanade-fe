@@ -20,87 +20,122 @@ $(function () {
             scrollTop: $('#content').offset().top
         }, 500);
     });
-
-
-    // var params = {
-    //     "browse": "ddygsyfs",
-    //     "contentType": "uydsgfysgfys",
-    //     "timeTaken": "ssfgsdyfg",
-    //     "sort": "trending"
-    // }
-
-    // console.log($.param(params))
-    // var host = "http://dev.esplanade.growthopsapp.com";
-
-    // var reqOne = $.ajax({
-    //     type: "GET",
-    //     url: host + "/sitecore/api/offstage/articles" + ,
-    //     // url: host + "/eta/" + genre + "/" + pageNumber + "/" + pageLimit,
-    //     // data: $.param(params),
-    //     // cache: false,
-    //     dataType: "json"
-    // }).done(function(data){
-    //     console.log(data);
-    // }).fail(function(){
-    //     // alert('Fail')
-    // })
-
-
 })
 
 
 
-var filterComponent = (function($) {
 
-    var context = {
-        articles: [],
-        filters: [],
-        totalPages: 10,
-        pageSize: 6,
-        currPage: 1,
-        $el: null
-    }
+// var filterComponent = (function($) {
 
-    var initialize = function() {
+//     var context = {
+//         articles: [],
+//         filters: [],
+//         totalPages: 10,
+//         category: "eta",
+//         genre: "all",
+//         pageSize: 6,
+//         currPage: 1,
+//         $el: null
+//     }
 
-        // bind all the event listeners
-        $(".filter-item").click(function(e) {
-
-            var category = $(e.currentTarget).data("category");
-            context.category = category;
-
-        })
-    }
-
-    var changeCategory = function() {
-
-    }
-
+//     var params = {
+//         "browse": "",
+//         "contentType": "",
+//         "timeTaken": "",
+//         "sort": ""
+//     }
     
 
-    // DOM is ready and jQuery is loadedx
-    $(function() {
+//     var initialize = function() {
 
-        context.$el = $(".filter-component");
+//         // bind all the event listeners
+//         $(".nav-link").on("click", function(e) {
+//             alert('click')
+//             var category = $(e.currentTarget).data("category");
+//             context.category = category;
 
-        var reqOne = $.ajax({
+//             console.log(category)
+//             fetchData();
+//         })
 
-        })
+//         $(".pn-ProductNav_Link").on("click", function(e) {
+//             var genre = $(e.currentTarget).data("key");
+//             context.genre = genre;
 
-        var reqTwo = $.ajax({
+//             console.log(genre)
+//             fetchData();
+//         })
+        
+//     }
 
-        })
+//     var changeCategory = function() {
 
-        $.when(reqOne, reqTwo)
-        .done(function(data) {
-            context.articles = data[0].articles;
-            context.filters = data[1];
+//     }
 
-            initialize();
-        })
-    })
+//     function fetchData(){
+//         var host = "http://dev.esplanade.growthopsapp.com";
+//         var url = host + "/sitecore/api/offstage/articles/" + context.category + '/' + context.genre + '/' + context.currPage + '/' + context.pageSize
 
-    return {
-        context
-    }
-})(jQuery);
+//         $.ajax({
+//             type: "GET",
+//             url: url,
+//             dataType: "json",
+//             data: $.param(params),
+//         }).done(function(data) {
+//             // context.articles = data[0].articles;
+//             // context.filters = data[1];
+//             console.log(data)
+//             console.log(context.$el)
+//             if (data.length > 0) {
+//                 for(var i=0; i < data.length; i++){
+//                     params.browse = data[i].BrowseById
+//                     params.contentType = data[i].ContentTypeById
+//                     params.timeTaken = data[i].TimeTakenById
+//                     params.sort = data[i].PublishDate                    
+//                 }
+//             }
+
+//             console.log(params)
+            
+//         })
+//     }
+    
+
+//     // DOM is ready and jQuery is loadedx
+//     $(function() {
+
+//         context.$el = $(".genre-tabs-container");
+//         initialize();
+//         fetchData();
+
+//         // var reqOne = $.ajax({
+//         //     type: "GET",
+//         //     url: url,
+//         //     dataType: "json",
+//         //     data: $.param(params),
+//         // })
+
+//         // var reqTwo = $.ajax({
+
+//         // })
+
+//         // $.when(reqOne, reqTwo)
+//         // .done(function(data) {
+//         //     // context.articles = data[0].articles;
+//         //     // context.filters = data[1];
+//         //     console.log(data[0][0])
+//         //     console.log(context.$el)
+
+//         //     params.browse = data[0][0].BrowseById
+//         //     params.contentType = data[0][0].ContentTypeById
+//         //     params.timeTaken = data[0][0].TimeTakenById
+//         //     params.sort = data[0][0].PublishDate
+//         //     console.log(params)
+//         //     initialize();
+//         // })
+//     })
+
+//     return {
+//         context
+//     }
+// })(jQuery);
