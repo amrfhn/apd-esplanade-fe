@@ -38,19 +38,8 @@ block content
                         .row.pr-3.pt-md-4.align-items-center
                             .col-11.pl-3.pt-4.px-md-0
                                 .genre-tabs-container#sticky
-                                    .pn-ProductNav_Wrapper
-                                        nav#pnProductNav.pn-ProductNav
-                                            #pnProductNavContents.pn-ProductNav_Contents
-                                                a(href='#' v-for="genre in genres" :data-key="genre.key" :aria-selected='genre.selected' @click="filterGenre(genre.key)").pn-ProductNav_Link {{genre.name}}
-                                                span#pnIndicator.pn-ProductNav_Indicator
+                                    include ../components/genre-tabs.pug
 
-                                        button(type="button")#pnAdvancerLeft.pn-Advancer.pn-Advancer_Left.px-3.bg-white
-                                            img(src="./assets/microsites/offstage/img/icons/Previous.svg")
-
-                                        button(type="button")#pnAdvancerRight.pn-Advancer.pn-Advancer_Right.px-3.bg-white
-                                            img(src="./assets/microsites/offstage/img/icons/Next.svg")
-
-                                
                             .col-1.px-0.px-lg-3.pt-4
                                 a.filter(style="cursor:pointer;")
                                     img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")

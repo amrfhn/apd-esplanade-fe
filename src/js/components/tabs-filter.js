@@ -38,7 +38,7 @@ $(function () {
                 data.genre = e
                 // alert('click')
                 console.log(data.genre);
-                fetchData();
+                this.fetchData();
             },
             fetchData: function () {
                 var host = "http://dev.esplanade.growthopsapp.com";
