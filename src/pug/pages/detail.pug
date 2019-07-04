@@ -37,7 +37,7 @@ block content
             include ../components/progress-bar.pug
 
     .container#readSection
-        .row.py-5.flex-column-reverse.flex-md-row
+        .row.py-5.flex-column-reverse.flex-md-row.align-items-baseline                
             .col-12.col-md-6
                 .d-flex.align-items-md-center
                     .pr-3
@@ -45,12 +45,30 @@ block content
                     p.p-0.m-0 Time to read: 15 minutes
                 
             .col-12.col-md-6.text-align-left
-                .d-flex.justify-content-md-end.pb-4
+                .d-flex.justify-content-md-end.pb-4.align-items-center
                     - const icons = ["./assets/microsites/offstage/img/icons/Social/Facebook.svg", "./assets/microsites/offstage/img/icons/Social/Whatsapp.svg", "./assets/microsites/offstage/img/icons/Social/Mail.svg", "./assets/microsites/offstage/img/icons/Social/GooglePlus.svg", "./assets/microsites/offstage/img/icons/Social/Likes.svg"]
                     
                     each icon in icons
-                        a(href="#").pr-3.pr-md-0.pl-md-3
+                        a(href="#").pr-3.px-md-0.px-md-2
                             img(src=icon height="25px")
+
+                    select.ml-3.w-auto.custom-select.d-none.d-md-flex(name="")
+                        option(value='1' selected) EN
+                        option(value='2') CH
+                        option(value='3') ML
+                        option(value='4') TA
+            
+            .col-12.d-md-none
+                ul#pills-tab.nav.nav-pills.pb-4(role='tablist')
+                    li.nav-item 
+                        a#pills-home-tab.nav-link.active EN
+                    li.nav-item 
+                        a#pills-home-tab.nav-link.active CH
+                    li.nav-item 
+                        a#pills-home-tab.nav-link.active ML
+                    li.nav-item 
+                        a#pills-home-tab.nav-link.active TA
+          
         
         .row.pb-5
             .col
@@ -72,7 +90,7 @@ block content
                 .video-carousel-nav-wrappper.d-none.d-md-block
                     .video-carousel-nav
                         each video in videos 
-                            +videoCarouselNav('https://via.placeholder.com/310x195')
+                            +videoCarouselNav(video)
 
                     .slide-count-wrap
                     

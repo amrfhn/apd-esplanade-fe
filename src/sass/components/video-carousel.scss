@@ -1,4 +1,8 @@
 .video-carousel-nav-wrappper {
+  iframe {
+    pointer-events: none;
+  }
+
   .slide-count-wrap {
     position: absolute;
     bottom: 1.4%;
@@ -13,6 +17,7 @@
   /* space between thumbnail*/ 
   /* the slides */
   .slick-slide {
+    cursor: pointer;
     margin: 0 10px;
   }
   /* the parent */
