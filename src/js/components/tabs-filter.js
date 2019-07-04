@@ -30,24 +30,28 @@ $(function () {
         mounted: function () {
             console.log("call api");
             //call hafifi api
+            this.fetchData();
 
-            var host = "http://dev.esplanade.growthopsapp.com";
-            var url = host + "/sitecore/api/offstage/articles/" + data.category + '/' + data.genre + '/' + data.currPage + '/' + data.pageSize
-
-            $.ajax({
-                type: "GET",
-                url: url,
-                dataType: "json",
-                data: $.param(params)
-            }).done(function(data) {
-                console.log(data)
-            })
         },
         methods: {
             filterGenre: function (e) {
                 data.genre = e
                 // alert('click')
-                console.log(data.genre)
+                console.log(data.genre);
+                fetchData();
+            },
+            fetchData: function () {
+                var host = "http://dev.esplanade.growthopsapp.com";
+                var url = host + "/sitecore/api/offstage/articles/" + data.category + '/' + data.genre + '/' + data.currPage + '/' + data.pageSize
+    
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    dataType: "json",
+                    data: $.param(params)
+                }).done(function(data) {
+                    console.log(data)
+                })
             }
         }
     })

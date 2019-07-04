@@ -1,17 +1,24 @@
 .card {
-    border: none !important;
-    border-radius: none !important;
+  border: none !important;
+  border-radius: none !important;
 
-    .card-img-top {
-        height: 195px;
-        object-fit: cover;
-    }
+  .icon {
+    border-radius: 50px;
+    -webkit-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.5);
+  }
 
-    .card-body {
-        a {
-            &:hover {
-                text-decoration: none;
-            }
-        }
+  .card-img-top {
+    height: 195px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
     }
+  }
 }
