@@ -20,6 +20,29 @@ $(function () {
             scrollTop: $('#content').offset().top
         }, 500);
     });
+
+    // var params = {
+    //     "browse": "ddygsyfs",
+    //     "contentType": "uydsgfysgfys",
+    //     "timeTaken": "ssfgsdyfg",
+    //     "sort": "trending"
+    // }
+
+    // console.log($.param(params))
+    // var host = "http://dev.esplanade.growthopsapp.com";
+
+    // var reqOne = $.ajax({
+    //     type: "GET",
+    //     url: host + "/sitecore/api/offstage/articles" + ,
+    //     // url: host + "/eta/" + genre + "/" + pageNumber + "/" + pageLimit,
+    //     // data: $.param(params),
+    //     // cache: false,
+    //     dataType: "json"
+    // }).done(function(data){
+    //     console.log(data);
+    // }).fail(function(){
+    //     // alert('Fail')
+    // })
 })
 
 

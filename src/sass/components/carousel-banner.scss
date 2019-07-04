@@ -16,7 +16,7 @@
             background-repeat: no-repeat;
             background-position: center;
 
-            .banner-text{
+            .banner-content{
                 padding: 30px;
                 
                 @media(min-width:768px){
@@ -40,6 +40,39 @@
                     padding-right: 30px;
                     letter-spacing: .6px;
                 }
+
+                .arrows-wrapper{
+                    .custom-btn{
+                        border: 0;
+                        background: none;
+                        padding: 10px 5px;
+
+                        img.cus-control{
+                            width: 100%;
+                            position: relative;
+                            top: 0;
+                            left: 0;
+                            background: none;
+                        }
+                    }
+                }
+
+                .slide-count-wrap{
+                    position: relative;
+                    // top: 90%;
+                    // left: 20%;
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-weight: 600;
+                    color: #fff;
+                    letter-spacing: .6px;
+                    padding: 5px;
+            
+                    @media (min-width:768px){
+                        font-size: 18px;
+                        line-height: 18px;                    }
+                }
+
             }
             .pos-mid{
                 margin-top: 20%;
@@ -53,20 +86,7 @@
         }
     }
     
-    .slide-count-wrap{
-        position: absolute;
-        top: 90%;
-        left: 20%;
-        font-size: 16px;
-        line-height: 25px;
-        font-weight: 600;
-        color: #fff;
-        letter-spacing: .6px;
 
-        @media (min-width:768px){
-            top: 86%;
-        }
-    }
     
     .slick-dots {
         position: absolute;

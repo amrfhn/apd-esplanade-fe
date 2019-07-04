@@ -1,5 +1,12 @@
 mixin textBanner(title, description, url)
-    .banner-text&attributes(attributes)
+    .banner-content&attributes(attributes)
         h1.text-white=title
         p.description.clamp-2=description
         a.btn.btn-outline-light(href="/detail.html") FIND OUT MORE
+        .d-flex.mt-3
+            .arrows-wrapper
+                button.btn.prev-slide.custom-btn
+                    img.cus-control.a-left.control-c.prev.slick-prev.h-25(src='./assets/microsites/offstage/img/icons/Left.svg')
+                button.btn.next-slide.custom-btn
+                    img.cus-control.a-right.control-c.next.slick-next.h-25(src='./assets/microsites/offstage/img/icons/Right.svg')
+            .slide-count-wrap

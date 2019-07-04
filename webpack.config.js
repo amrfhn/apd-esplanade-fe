@@ -55,7 +55,7 @@ module.exports = {
         new CopyPlugin([
             // { from: './src/img', to: './assets/img' },
             // { from: './src/fonts', to: './assets/fonts' },
-            // { from: './js/json', to: './assets/data' },
+            { from: './src/js/data', to: './assets/microsites/offstage/data' },
             { from: './src/img', to: './assets/microsites/offstage/img' },
             { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
             { from: './src/js/data', to: './assets/microsites/offstage/data'},

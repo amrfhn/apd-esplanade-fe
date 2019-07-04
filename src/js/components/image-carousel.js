@@ -14,9 +14,12 @@ $(function () {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
-        autoplay: 1000,
-        dots: true,
-        focusOnSelect: true
+        autoplay: 1500,
+        dots: false,
+        focusOnSelect: true,
+        arrows: true,
+        prevArrow:$('.prev-slide'),
+        nextArrow:$('.next-slide')
     });
 
 });
