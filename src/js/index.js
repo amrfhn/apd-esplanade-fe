@@ -21,31 +21,6 @@ $(function () {
         }, 500);
     });
 
-
-    // var params = {
-    //     "browse": "ddygsyfs",
-    //     "contentType": "uydsgfysgfys",
-    //     "timeTaken": "ssfgsdyfg",
-    //     "sort": "trending"
-    // }
-
-    // console.log($.param(params))
-    // var host = "http://dev.esplanade.growthopsapp.com";
-
-    // var reqOne = $.ajax({
-    //     type: "GET",
-    //     url: host + "/sitecore/api/offstage/articles" + ,
-    //     // url: host + "/eta/" + genre + "/" + pageNumber + "/" + pageLimit,
-    //     // data: $.param(params),
-    //     // cache: false,
-    //     dataType: "json"
-    // }).done(function(data){
-    //     console.log(data);
-    // }).fail(function(){
-    //     // alert('Fail')
-    // })
-
-
 })
 
 
@@ -56,12 +31,15 @@ var filterComponent = (function($) {
         articles: [],
         filters: [],
         totalPages: 10,
-        pageSize: 6,
+        pageSize: 10,
         currPage: 1,
+        params: [],
         $el: null
     }
 
     var initialize = function() {
+    
+        
 
         // bind all the event listeners
         $(".filter-item").click(function(e) {
@@ -70,28 +48,76 @@ var filterComponent = (function($) {
             context.category = category;
 
         })
+        $(".filter-genre").click(function(e) {
+
+            var genre = $(e.currentTarget).data("key");
+            context.filters.genre = genre;
+            console.log("fire")
+            fireApi();
+        })
     }
 
-    var changeCategory = function() {
+    var fireApi = function() {
+        var host = "http://dev.esplanade.growthopsapp.com/sitecore/api/offstage/articles";
 
+
+        $.ajax({
+            type: "GET",
+            // url: local,
+            url: host + "/eta/" + context.filters.genre + "/" + context.currPage + "/" + context.pageSize,
+            data: $.param(context.params),
+            // cache: false,
+            dataType: "json"
+        }).done(function(data){
+            console.log(data);
+        }).fail(function(){
+            console.log("fail")
+        })
     }
 
     
 
-    // DOM is ready and jQuery is loadedx
+    // DOM is ready and jQuery is loaded
     $(function() {
+        var params = {
+            "browse": "ddygsyfs",
+            "contentType": "uydsgfysgfys",
+            "timeTaken": "ssfgsdyfg",
+            "sort": "trending"
+        }
+
+        var filter = {
+            "genre": "all",
+            "pageNumber": "1",
+            "pageLimit": "10"
+        }
+    
+        // console.log($.param(params))
+        var host = "http://dev.esplanade.growthopsapp.com/sitecore/api/offstage/articles";
+        var local = "./assets/microsites/offstage/data/sample.json"
 
         context.$el = $(".filter-component");
 
         var reqOne = $.ajax({
-
+            type: "GET",
+            // url: local,
+            url: host + "/eta/" + filter.genre + "/" + filter.pageNumber + "/" + filter.pageLimit,
+            data: $.param(params),
+            // cache: false,
+            dataType: "json"
+        }).done(function(data){
+            console.log(data);
+        }).fail(function(){
+            console.log("fail")
         })
 
-        var reqTwo = $.ajax({
 
-        })
 
-        $.when(reqOne, reqTwo)
+        // var reqTwo = $.ajax({
+
+        // })
+
+        $.when(reqOne)
         .done(function(data) {
             context.articles = data[0].articles;
             context.filters = data[1];
