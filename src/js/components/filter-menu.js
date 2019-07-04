@@ -12,6 +12,10 @@ $(function () {
         $("body").removeClass("filter-open");
     })
 
+    $('.submit-filter').on('click', function () {
+        $('html, body').animate({
+            scrollTop: $("#tilesDiv").offset().top - 80
+        }, 1500);
+    })
 
-    
 })

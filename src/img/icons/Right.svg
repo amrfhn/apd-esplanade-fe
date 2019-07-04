@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icons/Right</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Pagination/Carousel" transform="translate(-44.000000, 0.000000)">
+            <g id="Icons/Right" transform="translate(45.000000, 1.000000)">
+                <g id="Group-3">
+                    <circle id="Oval-Copy" stroke="#FFFFFF" stroke-width="2" transform="translate(17.500000, 17.500000) rotate(-180.000000) translate(-17.500000, -17.500000) " cx="17.5" cy="17.5" r="17.5"></circle>
+                    <path d="M21.8627273,26 L23,24.8752 L16.241,17.9896 L16.9618182,17.2552 L16.9577273,17.2592 L22.9631818,11.1416 L21.8430909,10 C20.183,11.6904 15.5488182,16.4112 14,17.9896 C15.1503636,19.1624 14.0286364,18.0192 21.8627273,26" id="arrow_left-[#334]-copy" fill="#FFFFFF" transform="translate(18.500000, 18.000000) rotate(-180.000000) translate(-18.500000, -18.000000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
