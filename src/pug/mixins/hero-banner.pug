@@ -1,10 +1,22 @@
-mixin heroBanner(icon, imgSrc, video, image)
-    if video
+mixin heroBanner(icon, imgSrc, video720, video720,  img720, img450)
+    if video720
         //- Trigger Modal
         .video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
             .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
                 img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
-            .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover")    
+            
+            .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")
+
+    if video450
+        //- Trigger Modal
+        .video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
+            .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
+                img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
+            
+            .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px") 
     
-    if image
-        .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover")    
+    if img720
+        .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")  
+        
+    if img450
+        .thumbnail-holder(style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px")  
