@@ -15,4 +15,4 @@
                 a(:href='filter.Url') 
                     h5.font-weight-bolder {{filter.Title}}
 
-            p.card-text.clamp-3 {{filter.Description}}
+            p.card-text(v-line-clamp:20="3") {{filter.Description}}

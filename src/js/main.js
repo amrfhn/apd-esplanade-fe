@@ -1,12 +1,6 @@
 import '../sass/main.scss'
 // import '../img/icons'
 
-/* Assets */
-// var req = require.context("../img/icons", false, /.*\.svg$/);
-// req.keys().forEach(function(key){
-//     req(key);
-// });
-
 /* Vendor
 // ::::::::::::: */
 import 'slick-carousel'

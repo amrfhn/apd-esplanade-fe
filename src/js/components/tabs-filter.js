@@ -1,4 +1,10 @@
 $(function () {
+    const VueLineClamp = window['vue-line-clamp'];
+
+    Vue.use(VueLineClamp, {
+        importCss: true
+    })
+    
     var data = {
         message: 'Hello Vue!',
         category: "eta",
@@ -22,11 +28,11 @@ $(function () {
         "timeTaken": "",
         "sort": ""
     }
-    
+
 
     var app = new Vue({
         el: '#tabs-filter',
-        data: data, 
+        data: data,
         mounted: function () {
             this.fetchData();
             console.log("called api");
@@ -41,15 +47,15 @@ $(function () {
             fetchData: function () {
                 var host = "http://dev.esplanade.growthopsapp.com";
                 var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
-                
-                var _this = this 
+
+                var _this = this
 
                 $.ajax({
                     type: "GET",
                     url: url,
                     dataType: "json",
                     data: $.param(params)
-                }).done(function(data) {
+                }).done(function (data) {
                     console.log(data)
                     _this.filters = data
                     // console.log(data.filters[1].Title)
@@ -62,49 +68,49 @@ $(function () {
     var SETTINGS = {
         navBarTravelling: false,
         navBarTravelDirection: "",
-         navBarTravelDistance: 150
+        navBarTravelDistance: 150
     }
-    
+
     var colours = "#000"
 
     document.documentElement.classList.remove("no-js");
     document.documentElement.classList.add("js");
-    
+
     // Out advancer buttons
     var pnAdvancerLeft = document.getElementById("pnAdvancerLeft");
     var pnAdvancerRight = document.getElementById("pnAdvancerRight");
     // the indicator
     var pnIndicator = document.getElementById("pnIndicator");
-    
+
     var pnProductNav = document.getElementById("pnProductNav");
     var pnProductNavContents = document.getElementById("pnProductNavContents");
-    
+
     pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
-    
+
     // Set the indicator
     moveIndicator(pnProductNav.querySelector("[aria-selected=\"true\"]"), colours);
-    
+
     // Handle the scroll of the horizontal container
     var last_known_scroll_position = 0;
     var ticking = false;
-    
+
     function doSomething(scroll_pos) {
         pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
     }
-    
-    pnProductNav.addEventListener("scroll", function() {
+
+    pnProductNav.addEventListener("scroll", function () {
         last_known_scroll_position = window.scrollY;
         if (!ticking) {
-            window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function () {
                 doSomething(last_known_scroll_position);
                 ticking = false;
             });
         }
         ticking = true;
     });
-    
-    
-    pnAdvancerLeft.addEventListener("click", function() {
+
+
+    pnAdvancerLeft.addEventListener("click", function () {
         // If in the middle of a move return
         if (SETTINGS.navBarTravelling === true) {
             return;
@@ -129,8 +135,8 @@ $(function () {
         // Now update the attribute in the DOM
         pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
     });
-    
-    pnAdvancerRight.addEventListener("click", function() {
+
+    pnAdvancerRight.addEventListener("click", function () {
         // If in the middle of a move return
         if (SETTINGS.navBarTravelling === true) {
             return;
@@ -158,10 +164,10 @@ $(function () {
         // Now update the attribute in the DOM
         pnProductNav.setAttribute("data-overflowing", determineOverflow(pnProductNavContents, pnProductNav));
     });
-    
+
     pnProductNavContents.addEventListener(
         "transitionend",
-        function() {
+        function () {
             // get the value of the transform, apply that to the current scroll position (so get the scroll pos first) and then remove the transform
             var styleOfTransform = window.getComputedStyle(pnProductNavContents, null);
             var tr = styleOfTransform.getPropertyValue("-webkit-transform") || styleOfTransform.getPropertyValue("transform");
@@ -179,34 +185,34 @@ $(function () {
         },
         false
     );
-    
+
     // Handle setting the currently active link
-    pnProductNavContents.addEventListener("click", function(e) {
+    pnProductNavContents.addEventListener("click", function (e) {
         var links = [].slice.call(document.querySelectorAll(".pn-ProductNav_Link"));
-        links.forEach(function(item) {
+        links.forEach(function (item) {
             item.setAttribute("aria-selected", "false");
         })
         e.target.setAttribute("aria-selected", "true");
         // Pass the clicked item and it's colour to the move indicator function
         moveIndicator(e.target, colours);
     });
-    
+
     // var count = 0;
     function moveIndicator(item, color) {
         var textPosition = item.getBoundingClientRect();
         var container = pnProductNavContents.getBoundingClientRect().left;
         var distance = textPosition.left - container;
-         var scroll = pnProductNavContents.scrollLeft;
+        var scroll = pnProductNavContents.scrollLeft;
         pnIndicator.style.transform = "translateX(" + ((distance + 14) + scroll) + "px) scaleX(" + (textPosition.width - 14 * 2) * 0.01 + ")";
         // count = count += 100;
         // pnIndicator.style.transform = "translateX(" + count + "px)";
-        
+
         if (color) {
             pnIndicator.style.backgroundColor = color;
         }
         var pnProductNavLink = $('.pn-ProductNav_Link')
     }
-    
+
     function determineOverflow(content, container) {
         var containerMetrics = container.getBoundingClientRect();
         var containerMetricsRight = Math.floor(containerMetrics.right);
@@ -214,7 +220,7 @@ $(function () {
         var contentMetrics = content.getBoundingClientRect();
         var contentMetricsRight = Math.floor(contentMetrics.right);
         var contentMetricsLeft = Math.floor(contentMetrics.left);
-         if (containerMetricsLeft > contentMetricsLeft && containerMetricsRight < contentMetricsRight) {
+        if (containerMetricsLeft > contentMetricsLeft && containerMetricsRight < contentMetricsRight) {
             return "both";
         } else if (contentMetricsLeft < containerMetricsLeft) {
             return "left";
@@ -224,8 +230,8 @@ $(function () {
             return "none";
         }
     }
-    
-    
+
+
     (function (root, factory) {
         if (typeof define === 'function' && define.amd) {
             define(['exports'], factory);
@@ -241,12 +247,12 @@ $(function () {
         var mouseup = 'mouseup';
         var mousedown = 'mousedown';
         var EventListener = 'EventListener';
-        var addEventListener = 'add'+EventListener;
-        var removeEventListener = 'remove'+EventListener;
+        var addEventListener = 'add' + EventListener;
+        var removeEventListener = 'remove' + EventListener;
         var newScrollX, newScrollY;
-    
+
         var dragged = [];
-        var reset = function(i, el) {
+        var reset = function (i, el) {
             for (i = 0; i < dragged.length;) {
                 el = dragged[i++];
                 el = el.container || el;
@@ -254,14 +260,14 @@ $(function () {
                 _window[removeEventListener](mouseup, el.mu, 0);
                 _window[removeEventListener](mousemove, el.mm, 0);
             }
-    
+
             // cloning into array since HTMLCollection is updated dynamically
             dragged = [].slice.call(_document.getElementsByClassName('dragscroll'));
             for (i = 0; i < dragged.length;) {
-                (function(el, lastClientX, lastClientY, pushed, scroller, cont){
+                (function (el, lastClientX, lastClientY, pushed, scroller, cont) {
                     (cont = el.container || el)[addEventListener](
                         mousedown,
-                        cont.md = function(e) {
+                        cont.md = function (e) {
                             if (!el.hasAttribute('nochilddrag') ||
                                 _document.elementFromPoint(
                                     e.pageX, e.pageY
@@ -270,24 +276,24 @@ $(function () {
                                 pushed = 1;
                                 lastClientX = e.clientX;
                                 lastClientY = e.clientY;
-    
+
                                 e.preventDefault();
                             }
                         }, 0
                     );
-    
+
                     _window[addEventListener](
-                        mouseup, cont.mu = function() {pushed = 0;}, 0
+                        mouseup, cont.mu = function () { pushed = 0; }, 0
                     );
-    
+
                     _window[addEventListener](
                         mousemove,
-                        cont.mm = function(e) {
+                        cont.mm = function (e) {
                             if (pushed) {
-                                (scroller = el.scroller||el).scrollLeft -=
-                                    newScrollX = (- lastClientX + (lastClientX=e.clientX));
+                                (scroller = el.scroller || el).scrollLeft -=
+                                    newScrollX = (- lastClientX + (lastClientX = e.clientX));
                                 scroller.scrollTop -=
-                                    newScrollY = (- lastClientY + (lastClientY=e.clientY));
+                                    newScrollY = (- lastClientY + (lastClientY = e.clientY));
                                 if (el == _document.body) {
                                     (scroller = _document.documentElement).scrollLeft -= newScrollX;
                                     scroller.scrollTop -= newScrollY;
@@ -295,17 +301,17 @@ $(function () {
                             }
                         }, 0
                     );
-                 })(dragged[i++]);
+                })(dragged[i++]);
             }
         }
-    
-          
+
+
         if (_document.readyState == 'complete') {
             reset();
         } else {
             _window[addEventListener]('load', reset, 0);
         }
-    
+
         exports.reset = reset;
     }));
 })
