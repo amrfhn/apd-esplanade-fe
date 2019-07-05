@@ -3,7 +3,7 @@
     right: 0;
     width: 100%;
     background: linear-gradient(rgba(130, 130, 130, 0.5), rgba(255, 255, 255, 0));
-    z-index: 100; 
+    z-index: 50; 
 
     @media(min-width:768px){
         position: fixed;
@@ -264,50 +264,3 @@
     z-index: 100000;
 }
 
-// Mobile Nav Tabs
-.side-nav-wrapper{
-    position: relative;
-    position: relative;
-    background: #fff;
-    width: 100%;
-
-    .nav{
-        // padding: 5px;
-        flex-wrap: nowrap;
-    
-        @media (min-width:768px){
-            flex-wrap: wrap;
-        }
-    }
-    ul.nav-tabs{
-        border:none;
-        li:nth-child(1){
-            border-right: 1px solid $gray;
-        }
-        .nav-item{
-    
-            .nav-link{
-                font-family: $font-proxima-bold;
-                font-weight: bold;
-                color: $gray;
-                border: none;
-                border-bottom: 3px solid transparent;
-
-                &.active{
-                    color: $primary;
-                    font-weight: bold;
-                    border-bottom: 3px solid $primary;
-                    transition: all .2s
-                }
-            }
-        }
-    }
-    .divider{
-        width: 90%;
-    }
-}
-.fixedBar{
-    position: fixed;
-    top: 0px;
-    z-index: 999999999999999;
-}

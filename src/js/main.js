@@ -21,6 +21,8 @@ import './components/menu.js'
 import './components/progress-bar.js'
 import './components/tabs-filter.js'
 import './components/filter-menu.js'
+import './components/category-filter.js'
+
 
 
 

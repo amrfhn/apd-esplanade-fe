@@ -14,8 +14,9 @@ $(function () {
 
     $('.submit-filter').on('click', function () {
         $('html, body').animate({
-            scrollTop: $("#tilesDiv").offset().top - 80
+            scrollTop: $("#tabs-filter").offset().top
         }, 1500);
+        console.log("lol")
     })
 
 })

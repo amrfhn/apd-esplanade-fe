@@ -56,7 +56,6 @@ $(function () {
     })
 
     var fixSideTab = $('#mobileNavTab').offset().top;
-    // var stickyGenre = $('#sticky').offset().top ;
 
     $(document).on('scroll', function (e) {
 
@@ -69,18 +68,6 @@ $(function () {
             $("#mobileNavTab").removeClass("fixedBar");
             console.log("not")
         }
-
-
-        if ($(this).scrollTop() >= stickyGenre && !$("#sticky").hasClass("sticky")) {
-            $("#sticky").addClass("sticky");
-            console.log("triger")
-        }
-
-        if ($(this).scrollTop() < stickyGenre && $("#sticky").hasClass("sticky")) {
-            $("#sticky").removeClass("sticky");
-            console.log("not")
-        }
-
     });
 
 });

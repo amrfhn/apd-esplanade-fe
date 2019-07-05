@@ -1,7 +1,7 @@
 mixin header(navbar)
     header
         .container-fluid.no-gutters.pl-0.pr-0
-            .nav-bar-wrapper.navbar-fixed-top
+            .nav-bar-wrapper.navbar-fixed-top#navScroll
                 .row.no-gutters
                     .col-12.col-md-6.no-gutters.pl-0.pr-0
                         .nav-bar.navbar-fixed-top.left
@@ -27,12 +27,7 @@ mixin header(navbar)
                                 .side-nav-wrapper.px-3
                                     //- set TRUE for side-nav or blank for back button
                                     if navbar= navbar 
-                                        ul.nav.nav-tabs#navTab.mx-2.border-bottom(role="tablist")
-                                            li.nav-item
-                                                a.nav-link.active.p-0.mr-2.mr-lg-3.ml-0.pb-1(data-toggle="tab" data-category="ela" href="#explorethearts" role="tab") EXPLORE THE ARTS
-                                            li.nav-item
-                                                a.nav-link.p-0.m-2.m-lg-3.pb-1(data-toggle="tab" data-category="kta" href="#knowtheartists" role="tab") KNOW THE ARTISTS
-
+                                        div
 
                                     else
                                         .nav.back.d-flex.d-xs-none.d-sm-none.d-md-block

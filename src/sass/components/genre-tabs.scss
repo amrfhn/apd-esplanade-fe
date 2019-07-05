@@ -136,8 +136,100 @@
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
+.genre-wrapper{
+  background-color: #fff;
+}
+
 .sticky{
   position: fixed;
   z-index: 9999999999;
-  top: 0;
+  background: #fff;
+  padding-top: 0 !important;
+  padding-bottom: 20px;
+  top: 76px;
+  width: 100%;
+  transition: all 0.2s;
+
+  @media(min-width: 768px){
+    width: 47%;
+    top: 75px;
+  }
 }
+
+
+
+#tabs-filter{
+  background-color: #fff;
+}
+
+// Mobile Nav Tabs
+.side-filter{
+  position: relative;
+  background: #fff;
+  width: 100%;
+  z-index: 100;
+
+  @media(min-width:768px){
+      width: 80%;
+  }
+
+  .nav{
+      // padding: 5px;
+      flex-wrap: nowrap;
+  
+      @media (min-width:768px){
+          flex-wrap: wrap;
+      }
+  }
+  ul.nav-tabs{
+      border-bottom:none;
+      li:nth-child(1){
+          border-right: 1px solid $gray;
+      }
+      .nav-item{
+  
+          .nav-link{
+              font-family: $font-proxima-bold;
+              font-weight: bold;
+              color: $gray;
+              border: none;
+              border-bottom: 3px solid transparent;
+
+              &.active{
+                  color: $primary;
+                  font-weight: bold;
+                  border-bottom: 3px solid $primary;
+                  transition: all .2s;
+              }
+          }
+      }
+  }
+  .divider{
+      width: 90%;
+  }
+}
+.genre-filter{
+  background-color: #fff;
+}
+.fixedBar{
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+  // background-color: #fff;
+  width: 100%;
+  transition: .5s ease-in-out;
+
+  @media(min-width:768px){
+     width: 46.5%;
+     top: unset;
+
+  }
+}
+
+
+// .tab-filter{
+
+//   #mobileNavTab{
+
+//   }
+// }
