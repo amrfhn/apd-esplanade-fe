@@ -1,5 +1,5 @@
 $(function (){
-    var $readSection = $('#readSection')
+    var $readSection = $('#readSection');
     // var $containerOffset = $readSection.offset().top - window.innerHeight;
     var $scrollOffset = $(document).scrollTop();
 
