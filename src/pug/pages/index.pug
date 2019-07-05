@@ -36,21 +36,10 @@ block content
                                             li.nav-item
                                                 a.nav-link.font-14.p-0.mx-3.pb-1(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
 
-                            .genre-wrapper.col-11.px-0.px-lg-1.pt-2.pb-3
+                            .genre-wrapper.col-11.px-0.px-lg-1.pt-2.pb-3.border-top
                                 .genre-tabs-container
-                                    .pn-ProductNav_Wrapper
-                                        nav#pnProductNav.pn-ProductNav
-                                            #pnProductNavContents.pn-ProductNav_Contents
-                                                a(href='#' v-for="genre in genres" :data-key="genre.key" :aria-selected='genre.selected' @click="filterGenre(genre.key)").pn-ProductNav_Link {{genre.name}}
-                                                span#pnIndicator.pn-ProductNav_Indicator
+                                    include ../components/genre-tabs.pug
 
-                                        button(type="button")#pnAdvancerLeft.pn-Advancer.pn-Advancer_Left.px-3.bg-white
-                                            img(src="./assets/microsites/offstage/img/icons/Previous.svg")
-
-                                        button(type="button")#pnAdvancerRight.pn-Advancer.pn-Advancer_Right.px-3.bg-white
-                                            img(src="./assets/microsites/offstage/img/icons/Next.svg")
-
-                        
                             .genre-filter.col-1.px-0.px-lg-3.pt-2.pb-3
                                 a.filter(style="cursor:pointer;")
                                     img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
@@ -59,14 +48,8 @@ block content
 
 
                         .row.p-3.p-md-0.pt-md-3.tab-content
-                            - const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-                            each card in cards 
-                                .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade.show.active#explorethearts(role="tabpanel")
-                                    +cardTile('./assets/microsites/offstage/img/icons/Youtube.svg', '/detail.html','https://via.placeholder.com/310x195', card)
-                        
-                                .card-tile.col-12.col-md-6.px-2.pb-4.tab-pane.fade#knowtheartists(role="tabpanel")
-                                    +cardTile('./assets/microsites/offstage/img/icons/Spotify.svg', '/detail.html','https://via.placeholder.com/310x195', card)
-
+                            .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters")
+                                include ../components/card-tile.pug
 
 block footer
     .container-fluid

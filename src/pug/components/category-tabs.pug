@@ -1,0 +1,32 @@
+//- .pn-ProductNav_Wrapper
+//-     nav#pnProductNav.pn-ProductNav
+//-         #pnProductNavContents.pn-ProductNav_Contents
+//-             //- a(href='#' v-for="genre in genres" :data-key="genre.key" :aria-selected='genre.selected' @click="filterGenre(genre.key)").pn-ProductNav_Link {{genre.name}}
+            
+//-             a(href='#' data-key="literyarts" @click="filterGenre()").pn-ProductNav_Link EXPLORE THE ARTS
+//-             a(href='#' data-key="literyarts" @click="filterGenre()").pn-ProductNav_Link KNOW THE ARTISTS
+
+//-             span#pnIndicator.pn-ProductNav_Indicator
+//-     button(type="button")#pnAdvancerLeft.pn-Advancer.pn-Advancer_Left.px-3
+//-         img(src="./assets/microsites/offstage/img/icons/Previous.svg")
+
+//-     button(type="button")#pnAdvancerRight.pn-Advancer.pn-Advancer_Right.px-3
+//-         img(src="./assets/microsites/offstage/img/icons/Next.svg")
+
+.category-tabs-wrapper
+    #navTab.ct-ProductNav.nav-tabs.nav
+        #ctProductNavContents.ct-ProductNav_Contents
+            a(href='#' data-key="literyarts" @click="filterGenre()").pn-ProductNav_Link EXPLORE THE ARTS
+            a(href='#' data-key="literyarts" @click="filterGenre()").ct-ProductNav_Link KNOW THE ARTISTS
+            a(href='#' data-key="literyarts" @click="filterGenre()").ct-ProductNav_Link KNOW THE ARTISTS
+            a(href='#' data-key="literyarts" @click="filterGenre()").ct-ProductNav_Link KNOW THE ARTISTS
+            a(href='#' data-key="literyarts" @click="filterGenre()").ct-ProductNav_Link KNOW THE ARTISTS
+
+
+
+            span#ctIndicator.ct-ProductNav_Indicator
+    button(type="button")#ctAdvancerLeft.ct-Advancer.ct-Advancer_Left.px-3
+        img(src="./assets/microsites/offstage/img/icons/Previous.svg")
+
+    button(type="button")#ctAdvancerRight.ct-Advancer.ct-Advancer_Right.px-3
+        img(src="./assets/microsites/offstage/img/icons/Next.svg")

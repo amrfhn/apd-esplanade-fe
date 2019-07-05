@@ -3,4 +3,44 @@ extends ../template.pug
 block header 
     +header(true)
 
-block content 
+
+block content
+
+    .container-fluid.no-gutters.p-0
+        .row.no-gutters
+            .col-12.col-md-6
+                .position-relative
+                    .carousel-banner-wrapper
+                        .carousel-banner
+                            .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
+                                +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-top")
+
+
+                            .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
+                                +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
+
+                            .banner-bg(style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
+                                +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
+
+
+
+            .col-12.col-md-6.pt-md-1.p-md-4
+                .tab-filter#tabs-filter
+                    .container-fluid
+                        .row.px-0#mobileNavTab
+                            .col-12
+                                .w-100
+                                    .side-filter
+                                        include ../components/category-tabs.pug 
+
+                            .genre-wrapper.col-11.px-0.px-lg-1.pt-2.pb-3.border-top
+                                .genre-tabs-container
+                                    include ../components/genre-tabs.pug
+
+                            .genre-filter.col-1.px-0.px-lg-3.pt-2.pb-3
+                                a.filter(style="cursor:pointer;")
+                                    img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
+
+                        .row.p-3.p-md-0.pt-md-3.tab-content
+                            .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters")
+                                include ../components/card-tile.pug

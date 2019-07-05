@@ -5,15 +5,15 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
-        genres: [
-            { name:'All', key:'all', selected: 'true'},
-            { name:'MUSIC', key:'music', selected: 'false'},
-            { name:'DANCE', key:'dance', selected: 'false'},
-            { name:'THEATRE', key:'theatre', selected: 'false'},
-            { name:'VISUAL ARTS', key:'visualarts', selected: 'false'},
-            { name:'LITERARY ARTS', key:'literaryarts', selected: 'false'},
-        ],
-        filter: []
+        // genres: [
+        //     { name:'All', key:'all', selected: 'true'},
+        //     { name:'MUSIC', key:'music', selected: 'false'},
+        //     { name:'DANCE', key:'dance', selected: 'false'},
+        //     { name:'THEATRE', key:'theatre', selected: 'false'},
+        //     { name:'VISUAL ARTS', key:'visualarts', selected: 'false'},
+        //     { name:'LITERARY ARTS', key:'literaryarts', selected: 'false'},
+        // ],
+        filters: []
     }
 
     var params = {
@@ -28,22 +28,22 @@ $(function () {
         el: '#tabs-filter',
         data: data, 
         mounted: function () {
-            console.log("call api");
-            //call hafifi api
             this.fetchData();
-
+            console.log("called api");
         },
         methods: {
             filterGenre: function (e) {
                 data.genre = e
-                // alert('click')
+
                 console.log(data.genre);
-                fetchData();
+                this.fetchData();
             },
             fetchData: function () {
                 var host = "http://dev.esplanade.growthopsapp.com";
-                var url = host + "/sitecore/api/offstage/articles/" + data.category + '/' + data.genre + '/' + data.currPage + '/' + data.pageSize
-    
+                var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
+                
+                var _this = this 
+
                 $.ajax({
                     type: "GET",
                     url: url,
@@ -51,6 +51,8 @@ $(function () {
                     data: $.param(params)
                 }).done(function(data) {
                     console.log(data)
+                    _this.filters = data
+                    // console.log(data.filters[1].Title)
                 })
             }
         }

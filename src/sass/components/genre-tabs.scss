@@ -102,6 +102,7 @@
     @media (min-width: 1024px) {
       display: block !important;
       transition: all 0.2s;
+      background: linear-gradient(to right, rgba(255,255,255,1) 63%, rgba(255,255,255,0) 100%)
     }
   }
 }
@@ -113,6 +114,7 @@
     @media (min-width: 1024px) {
       display: block !important;
       transition: all 0.2s;
+      background: linear-gradient(to left, rgba(255,255,255,1) 63%, rgba(255,255,255,0) 100%)
     }
   }
 }
@@ -165,7 +167,7 @@
   position: relative;
   background: #fff;
   width: 100%;
-  z-index: 99999;
+  z-index: 100;
 
   @media(min-width:768px){
       width: 80%;
@@ -211,17 +213,23 @@
 }
 .fixedBar{
   position: fixed;
-  // top: 20px;
+  top: 0px;
   z-index: 9999;
   // background-color: #fff;
-  width: 46.5%;
+  width: 100%;
   transition: .5s ease-in-out;
-}
 
+  @media(min-width:768px){
+     width: 46.5%;
+     top: unset;
 
-.tab-filter{
-
-  #mobileNavTab{
-    
   }
 }
+
+
+// .tab-filter{
+
+//   #mobileNavTab{
+
+//   }
+// }

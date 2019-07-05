@@ -1,4 +1,4 @@
-mixin cardTile(icon, link, img, title)
+mixin cardTile(title, link, description, img, icon)
     .card
         a(href=link).position-relative
             .position-absolute.w-100
@@ -14,6 +14,6 @@ mixin cardTile(icon, link, img, title)
 
                 .card-title.text-primary
                     a(href=link) 
-                        h5.font-weight-bolder="Event Title "+title
+                        h5.font-weight-bolder=title
 
-                p.card-text.clamp-3 Lorem ipsum dolor sit, amet cdsdsd onsecastetur adipisicing elit. Perspiciatis id cupiditate reprehenderit eveniet provident excepturi sunt error incidunt praesentium, expedita aliquid eos quasi non mollitia, quaerat at! Qui, provident aliquid.  
+                p.card-text.clamp-3=description

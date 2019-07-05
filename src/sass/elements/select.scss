@@ -1,0 +1,37 @@
+select {
+  -webkit-appearance: none;
+
+  option {
+    color: $primary;
+    background: $white;
+
+    &:hover {
+        color: $white !important;
+        background: $primary!important;
+    }
+  }
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+.custom-select {
+  font-family: $font-proxima-bold;
+  border-radius: 0;
+  border: 0;
+  background: url("/assets/microsites/offstage/img/icons/Next/White.svg") no-repeat right 0.75rem center/8px 10px;
+  background-color: $primary;
+  color: white;
+
+  &:focus {
+    outline: none !important;
+  }
+}
+
+#pills-tab {
+    .nav-item {
+        text-align: center;
+        width: calc(100vw/4.5)
+    }
+}
