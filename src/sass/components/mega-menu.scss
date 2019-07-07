@@ -65,17 +65,26 @@
             @media(min-width:768px){
                 left: 37px;
                 justify-content: flex-start;
+                
             }
        
+            
+        }
+        .logo-link{
+            padding-top: 10p;
+            padding-left: 10%;
+            @media(min-width:768px){
+                padding-left: 0;
+            }
             .logo-wrapper{
-                margin: 10px 0;
-                .logo-link{
-                    img.logo{
-                        width:70%;
+                margin-right: 20px;
+                padding-top: 10px;
 
-                        @media(min-width: 768px){
-                            width: 90%;
-                        }
+                img.logo{
+                    width: 120px;
+
+                    @media(min-width: 768px){
+                        width: 130px;
                     }
                 }
             }

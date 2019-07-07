@@ -13,10 +13,10 @@ mixin header(navbar)
                             
                             a.logo-link(href="/").d-flex.logo-container
                                 .logo-wrapper
-                                    img.logo.w-75(src="./assets/microsites/offstage/img/logo/White/Esplanade.svg")
+                                    img.logo(src="./assets/microsites/offstage/img/logo/Logo.svg")
 
-                                .logo-wrapper
-                                    img.logo.w-75(src="./assets/microsites/offstage/img/logo/White/Offstage.svg")
+                                //- .logo-wrapper
+                                //-     img.log(src="./assets/microsites/offstage/img/logo/White/Offstage.svg")
 
                             
 
@@ -27,7 +27,7 @@ mixin header(navbar)
                                 .side-nav-wrapper.px-3
                                     //- set TRUE for side-nav or blank for back button
                                     if navbar= navbar 
-                                        div
+                                        div.d-none.noSideNav
 
                                     else
                                         .nav.back.d-flex.d-xs-none.d-sm-none.d-md-block
@@ -35,7 +35,7 @@ mixin header(navbar)
                                                 img(src='./assets/microsites/offstage/img/icons/Previous.svg') 
                                                 span.font-weight-bold.ml-4 Back
 
-                .search.position-relative
+                .search.d-md-none
                         button.btn-search#btnSearch(type="button")
                             img.search-icon-mobile(src="./assets/microsites/offstage/img/icons/Search/White.svg")
                             img.search-icon(src="./assets/microsites/offstage/img/icons/Search/Black.svg")

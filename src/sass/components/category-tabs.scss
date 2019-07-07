@@ -1,137 +1,99 @@
-// * {
-// 	box-sizing: inherit;
-// }
 
-.ct-ProductNav_Wrapper {
-    position: relative;
-    padding: 0 11px;
-    box-sizing: border-box;
-  }
-  
-  .ct-ProductNav {
-    /* Make this scrollable when needed */
-    overflow-x: auto;
-    /* We don't want vertical scrolling */
-    overflow-y: hidden;
-    /* For WebKit implementations, provide inertia scrolling */
-    -webkit-overflow-scrolling: touch;
-    /* We don't want internal inline elements to wrap */
-    white-space: nowrap;
-  
-    /* If JS present, let's hide the default scrollbar */
-    .js & {
-      /* Make an auto-hiding scroller for the 3 people using a IE */
-      -ms-overflow-style: -ms-autohiding-scrollbar;
-      /* Remove the default scrollbar for WebKit implementations */
+
+.side-filter{
+  z-index: 99999999999990;
+  position: relative;
+  .tab-sliders{
+    padding:0 10px;
+    padding-left: 2px;
+    @media(min-width:768px){
+      padding:0 60px;
+      padding-left: 10px;
+    }
+    
+
+    .wrap{
+      overflow: auto;
+      width: 100%;
       &::-webkit-scrollbar {
         display: none;
       }
+      ul.nav-tabs{
+        list-style-type: none;
+        padding: 0;
+        float: left;
+        white-space: nowrap;
+        border-bottom: none;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-left: -1px;
+
+        li{
+          background: #fff;
+          // padding-right: 50px;
+          position: relative;
+          white-space: nowrap;
+          float: none;
+          font-size: 16px;
+          line-height: 10px;
+          border:none;
+          font-weight: bold;
+          text-align: center;
+          text-transform: uppercase;
+          
+          flex-grow: 1;
+          flex-basis: auto;
+          margin: -.5em 0;
+          padding: 0 1em;
+          text-align: center;
+
+          border-left: 2px solid #575656;
+          border-radius: 0;
+
+          &:first-child {
+            border-left: none;
+            padding-left: 0;
+          }
+
+          .nav-link{
+            border: none;
+            color: #ccc;
+            cursor: pointer;
+            padding: 0.5rem 0.1em;
+            margin: .5em;
+
+          }
+          .active{
+            border-bottom: 2px solid #000;
+            color: #000;
+          }
+        }
+        
+        a{
+          border-bottom: none;
+        }
+      }
+      .nav{
+        flex-wrap: nowrap;
+      }
     }
-  
-    /* Make an auto-hiding scroller for the 3 people using a IE */
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-    /* Remove the default scrollbar for WebKit implementations */
-    &::-webkit-scrollbar {
-      -webkit-appearance: none;
+    .btn-icon{
       display: none;
-    }
-  
-    /* positioning context for advancers */
-    position: relative;
-    // Crush the whitespace here
-    font-size: 0;
-  }
-  
-  .ct-ProductNav_Contents {
-    float: left;
-    transition: transform 0.2s ease-in-out;
-    position: relative;
-  }
-  
-  .ct-ProductNav_Contents-no-transition {
-    transition: none;
-  }
-  
-  .ct-ProductNav_Link {
-    font-family:  $font-proxima-bold;
-    text-decoration: none;
-    color: $gray;
-    // Reset the font size
-    font-size: 16px;
-    // font-family: -apple-system, sans-serif;
-    display: inline-flex;
-    align-items: center;
-    min-height: 30px;
-    border: 1px solid transparent;
-    font-weight: bold;
-    padding: 0 14px;
-    // & + & {
-    // 	border-left-color: #eee;
-    // }
-    &[aria-selected="true"] {
-      color: $primary;
-    }
-  
-  }
-  
-  .ct-Advancer {
-    /* Reset the button */
-    appearance: none;
-    background: transparent;
-    padding: 0;
-    border: 0;
-    &:focus {
-      outline: 0;
-    }
-    &:hover {
-      cursor: pointer;
-    }
-    /* Now style it as needed */
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    /* Set the buttons invisible by default */
-    display: none;
-    transition: all 0.2s;
-  }
-  
-  .ct-Advancer_Left {
-    left: 0;
-    [data-overflowing="both"] ~ &,
-    [data-overflowing="left"] ~ & {
-      @media (min-width: 1024px) {
-        display: block !important;
-        transition: all 0.2s;
-        background: linear-gradient(to right, rgba(255,255,255,1) 63%, rgba(255,255,255,0) 100%)
+      @media(min-width:768px){
+        position: absolute;
+        top: -9px;
+        display: block;
       }
+      
+    }
+    #goPrev {
+      left:-6%;
+    }
+    #goNext {
+      right:0;
     }
   }
-  
-  .ct-Advancer_Right {
-    right: 0;
-    [data-overflowing="both"] ~ &,
-    [data-overflowing="right"] ~ & {
-      @media (min-width: 1024px) {
-        display: block !important;
-        transition: all 0.2s;
-        background: linear-gradient(to left, rgba(255,255,255,1) 63%, rgba(255,255,255,0) 100%)
-      }
-    }
-  }
-  
-  .ct-Advancer_Icon {
-    width: 20px;
-    height: 44px;
-    fill: #bbb;
-  }
-  
-  .ct-ProductNav_Indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    width: 100px;
-    background-color: transparent;
-    transform-origin: 0 0;
-    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-  }
+}
+

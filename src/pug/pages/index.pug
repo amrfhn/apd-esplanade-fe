@@ -26,17 +26,13 @@ block content
             .col-12.col-md-6.pt-md-1.p-md-4
                 .tab-filter#tabs-filter
                     .container-fluid
-                        .row.px-0#mobileNavTab
-                            .col-12
-                                .w-100
-                                    .side-filter
-                                        ul.nav.nav-tabs.pt-md-0#navTab.py-4(role="tablist")
-                                            li.nav-item
-                                                a.nav-link.font-14.active.p-0.mr-3.ml-0.pb-1(data-toggle="tab" href="#explorethearts" role="tab") EXPLORE THE ARTS
-                                            li.nav-item
-                                                a.nav-link.font-14.p-0.mx-3.pb-1(data-toggle="tab" href="#knowtheartists" role="tab") KNOW THE ARTISTS
+                        .row.px-2.px-md-3.py-3.py-md-1#mobileNavTab
+                            .col-11.no-gutters
+                                .side-filter
+                                    include ../components/category-tabs.pug 
 
-                            .genre-wrapper.col-11.px-0.px-lg-1.pt-2.pb-3.border-top
+
+                            .genre-wrapper.col-11.px-0.px-lg-1.pt-2.pb-3.mt-4.border-top
                                 .genre-tabs-container
                                     include ../components/genre-tabs.pug
 

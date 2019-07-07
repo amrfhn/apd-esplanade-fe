@@ -32,6 +32,16 @@ $(function () {
         }
     });
 
+    // $(document).scroll(function () {
+    //     var $sideNav = $(".side-nav-wrapper").child();
+
+    //     var $noSideNav = $('.noSideNav');
+
+    //     if (!$sideNav.hasClass($noSideNav)) {
+    //         $sideNav.toggleClass('scrolled', $(this).scrollTop() > $sideNav.height());
+    //     }
+    // });
+
 
     // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
@@ -55,19 +65,23 @@ $(function () {
         $('#searchBar').removeClass('active');
     })
 
-    var fixSideTab = $('#mobileNavTab').offset().top;
+    var $fixSideTab = $('#mobileNavTab');
 
-    $(document).on('scroll', function (e) {
+    if($fixSideTab.length > 0){
+        $(document).on('scroll', function (e) {
 
-        if ($(this).scrollTop() >= fixSideTab && !$("#mobileNavTab").hasClass("fixedBar")) {
-            $("#mobileNavTab").addClass("fixedBar");
-            console.log("triger")
-        }
+            if ($(this).scrollTop() >= $fixSideTab.offset().top && !$("#mobileNavTab").hasClass("fixedBar")) {
+                $("#mobileNavTab").addClass("fixedBar");
+                console.log("triger")
+            }
+    
+            if ($(this).scrollTop() < $fixSideTab.offset().top && $("#mobileNavTab").hasClass("fixedBar")) {
+                $("#mobileNavTab").removeClass("fixedBar");
+                console.log("not")
+            }
+        });
+    }
 
-        if ($(this).scrollTop() < fixSideTab && $("#mobileNavTab").hasClass("fixedBar")) {
-            $("#mobileNavTab").removeClass("fixedBar");
-            console.log("not")
-        }
-    });
+    
 
 });

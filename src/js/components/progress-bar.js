@@ -61,19 +61,21 @@ $(function (){
 
 
 
-    var fixProgress = $('#progressBar').offset().top - 100;
+    var $fixProgress = $('#progressBar');
 
-    $(document).on('scroll', function() {
+    if($fixProgress.length>0){
+        $(document).on('scroll', function() {
     
-        if($(this).scrollTop() >= fixProgress && !$("#progressBar").hasClass("fixedbar")){
-           $("#progressBar").addClass("fixedbar");
-        }
-        
-        if($(this).scrollTop() <= fixProgress && $("#progressBar").hasClass("fixedbar")){
-            $("#progressBar").removeClass("fixedbar");
-        }
-
-      });
+            if($(this).scrollTop() >= $fixProgress.offset().top - 100 && !$("#progressBar").hasClass("fixedbar")){
+               $("#progressBar").addClass("fixedbar");
+            }
+            
+            if($(this).scrollTop() <= $fixProgress.offset().top - 100 && $("#progressBar").hasClass("fixedbar")){
+                $("#progressBar").removeClass("fixedbar");
+            }
+    
+          });
+    }
 
 });
 
