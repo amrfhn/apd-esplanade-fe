@@ -30,9 +30,4 @@ $(function () {
         });
         carouselIndex++;
     })
-
-
-    
-    
-
 });

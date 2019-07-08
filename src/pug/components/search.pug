@@ -1,0 +1,11 @@
+.search
+    button.btn-search#btnSearch(type="button")
+        img.search-icon-mobile.d-block.d-md-none(src="./assets/microsites/offstage/img/icons/Search/White.svg")
+        img.search-icon.d-none.d-md-block(src="./assets/microsites/offstage/img/icons/Search/Black.svg")
+
+    .search-bar#searchBar.d-flex.align-items-center.justify-content-center
+        button.btn.btn-submit-search(type="submit")
+            img.search-left.px-3(src="./assets/microsites/offstage/img/icons/Search/Black.svg")
+        input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
+        button.close-btn-search#closeSearch.px-3(data-dismiss="modal")
+            img.close-icon(src="./assets/microsites/offstage/img/icons/Close.svg")

@@ -15,10 +15,6 @@ mixin header(navbar)
                                 .logo-wrapper
                                     img.logo(src="./assets/microsites/offstage/img/logo/Logo.svg")
 
-                                //- .logo-wrapper
-                                //-     img.log(src="./assets/microsites/offstage/img/logo/White/Offstage.svg")
-
-                            
 
                     if navbar= navbar 
                         .col-12.col-md-6.no-gutters.pl-0.pr-0.d-none
@@ -38,29 +34,8 @@ mixin header(navbar)
                                                 img(src='./assets/microsites/offstage/img/icons/Previous.svg') 
                                                 span.font-weight-bold.ml-4 Back
 
-                .search.d-md-none
-                        button.btn-search#btnSearch(type="button")
-                            img.search-icon-mobile(src="./assets/microsites/offstage/img/icons/Search/White.svg")
-                            img.search-icon(src="./assets/microsites/offstage/img/icons/Search/Black.svg")
-
-
-                        
-                        //- .modal.fade.in#searchBar(tabindex="-1" role="dialog" aria-labelledby="search" aria-hidden="true")
-                        //-     .modal-dialog(role="document")
-                        //-         .modal-content
-                        //-             .modal-body.d-flex.align-items-center
-                        //-                 button.btn.btn-submit-search(type="submit")
-                        //-                     img.search-left.px-3(src="./assets/microsites/offstage/img/icons/Search/Black.svg")
-                        //-                 input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
-                        //-                 button.close-btn-search.px-3(data-dismiss="modal")
-                        //-                     img.close-icon(src="./assets/microsites/offstage/img/icons/Close.svg")
-
-                        .search-bar#searchBar.d-flex.align-items-center.justify-content-center
-                            button.btn.btn-submit-search(type="submit")
-                                img.search-left.px-3(src="./assets/microsites/offstage/img/icons/Search/Black.svg")
-                            input.form-control.search-field.px-3(type="text" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Search Content")
-                            button.close-btn-search#closeSearch.px-3(data-dismiss="modal")
-                                img.close-icon(src="./assets/microsites/offstage/img/icons/Close.svg")
+            .row
+                include ../components/search.pug
 
             .row
                 include ../components/mega-menu.pug
