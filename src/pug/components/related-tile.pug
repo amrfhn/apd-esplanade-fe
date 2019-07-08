@@ -1,8 +1,15 @@
-.row.px-md-5 
+.row.px-md-5.py-5.bg-light
     .col-12.pb-4 
-        h2.font-weight-bold.text-uppercase You may also like
+        h1.font-weight-bolder.text-uppercase You may also like
 
     - const cards = [1, 2, 3]
     each card in cards 
         .card-tile.col-12.col-md-4.pb-4
-            +cardTile('./assets/microsites/offstage/img/icons/Youtube.svg','/detail.html','https://via.placeholder.com/310x195', card)
+            //+cardTile('./assets/microsites/offstage/img/icons/Youtube.svg','/detail.html','https://via.placeholder.com/310x195', card)
+            a(href="")
+                .container-fluid
+                    .row
+                        .col-5(style="background: url('https://via.placeholder.com/150x90'); background-repeat: no-repeat; background-size: cover; background-position: center;")
+
+                        .col-7.py-4.bg-white
+                            h5.font-16.m-0.clamp-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eum fuga reiciendis odio laborum blanditiis soluta deleniti, modi porro unde obcaecati expedita delectus ratione iure veritatis repudiandae et? Repudiandae, rem.
