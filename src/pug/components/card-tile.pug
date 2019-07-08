@@ -1,20 +1,18 @@
 .card
     a(:href='filter.Url').position-relative
         .position-absolute.w-100
-            .icon-holder.bg-white.d-flex.float-right.align-items-center.justify-content-center.m-3
-                img(:src='filter.ContentType.Icon' alt="").icon
+            img(:src='filter.ContentType.Icon' alt="Kiwi standing on oval").icon.float-right.m-3
 
         img.card-img-top(:src='filter.Thumbnail')
     
     .border.border-top-0.text-left.position-relative 
         span.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute {{filter.ContentType.Value}}
 
-        .card-body.text-center.pt-5
-            div
-                span.genre-title.px-2.card-text.font-14.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
+        .card-body.text-center
+            p.m-2.card-text.font-12.font-weight-bold {{filter.Genres}}
 
-            .card-title.text-primary.m-0
+            .card-title.text-primary
                 a(:href='filter.Url') 
-                    h5.font-weight-bolder.m-0(v-line-clamp:20="2") {{filter.Title}}
+                    h5.font-weight-bolder {{filter.Title}}
 
             p.card-text(v-line-clamp:20="3") {{filter.Description}}

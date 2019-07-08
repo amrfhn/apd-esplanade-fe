@@ -1,14 +1,9 @@
-import VueMatchHeights from 'vue-match-heights';
-import VueLineClamp from 'vue-line-clamp';
-
 $(function () {
+    const VueLineClamp = window['vue-line-clamp'];
+
     Vue.use(VueLineClamp, {
         importCss: true
     })
-
-    Vue.use(VueMatchHeights, {
-        disabled: [768], 
-    });
 
     var data = {
         message: 'Hello Vue!',
@@ -16,6 +11,14 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
+        // genres: [
+        //     { name:'All', key:'all', selected: 'true'},
+        //     { name:'MUSIC', key:'music', selected: 'false'},
+        //     { name:'DANCE', key:'dance', selected: 'false'},
+        //     { name:'THEATRE', key:'theatre', selected: 'false'},
+        //     { name:'VISUAL ARTS', key:'visualarts', selected: 'false'},
+        //     { name:'LITERARY ARTS', key:'literaryarts', selected: 'false'},
+        // ],
         filters: []
     }
 
