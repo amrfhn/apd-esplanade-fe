@@ -281,6 +281,13 @@
   }
 }
 
+.genre-text {
+  a {
+    padding-left: 10px;
+    padding-right: 10px;
+    border-right: 2px solid $primary;
+  }
+}
 
 .genre-wrapper{
 
@@ -298,7 +305,6 @@
         padding-left: 24px;
       }
       
-  
       .wrapper{
         overflow: auto;
         width: 100%;
@@ -385,10 +391,9 @@
       #goAfter {
         right:0;
       }
+      &:last-child {
+        border-right: 0px solid $primary;      
+      }
     }
   }
 }
-
-  
-
-
