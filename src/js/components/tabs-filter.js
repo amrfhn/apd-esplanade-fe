@@ -39,9 +39,15 @@ $(function () {
         },
         methods: {
             filterGenre: function (e) {
-                data.genre = e
-                console.log(e);
+                var key = e;
+                data.genre = key
+                console.log(key);
                 console.log(data.genre);
+
+                
+                $('.carousel-banner').hide();
+                $('#'+key).show();
+
                 this.fetchData();
             },
             fetchData: function () {
