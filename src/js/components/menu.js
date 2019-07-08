@@ -23,35 +23,14 @@ $(function () {
     });
 
     $(document).scroll(function () {
-        var $nav = $(".navbar-fixed-top");
+        var $nav = $(".nav");
 
-        var $navTabs = $('#navTab');
+        var $navTabs = $('.left-wrapper');
 
-        if (!$navTabs.hasClass('nav-tabs')) {
-            $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        if ($nav.hasClass('back')) {
+            $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
         }
     });
-
-    // $(document).scroll(function () {
-    //     var $sideNav = $(".side-nav-wrapper").child();
-
-    //     var $noSideNav = $('.noSideNav');
-
-    //     if (!$sideNav.hasClass($noSideNav)) {
-    //         $sideNav.toggleClass('scrolled', $(this).scrollTop() > $sideNav.height());
-    //     }
-    // });
-
-
-    // var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-
-    // if(width <= 768){
-    //     console.log(width);
-    //     $('.search-icon').attr('src', './assets/microsites/offstage/img/icons/Search/White.svg');
-    // }
-    // else{
-    //     $('.search-icon').attr('src', './assets/microsites/offstage/img/icons/Search/Black.svg');
-    // }
 
 
     var $btnSearch = $('#btnSearch');
@@ -65,18 +44,18 @@ $(function () {
         $('#searchBar').removeClass('active');
     })
 
-    var $fixSideTab = $('#mobileNavTab');
+    var $fixSideTab = $('.navtabs-filter-wrapper');
 
     if($fixSideTab.length > 0){
         $(document).on('scroll', function (e) {
 
-            if ($(this).scrollTop() >= $fixSideTab.offset().top && !$("#mobileNavTab").hasClass("fixedBar")) {
-                $("#mobileNavTab").addClass("fixedBar");
+            if ($(this).scrollTop() >= $fixSideTab.offset().top + 100  && !$(".navtabs-filter-wrapper").hasClass("fixedBar")) {
+                $(".navtabs-filter-wrapper").addClass("fixedBar");
                 console.log("triger")
             }
     
-            if ($(this).scrollTop() < $fixSideTab.offset().top && $("#mobileNavTab").hasClass("fixedBar")) {
-                $("#mobileNavTab").removeClass("fixedBar");
+            if ($(this).scrollTop() < $fixSideTab.offset().top + 100  && $(".navtabs-filter-wrapper").hasClass("fixedBar")) {
+                $(".navtabs-filter-wrapper").removeClass("fixedBar");
                 console.log("not")
             }
         });
