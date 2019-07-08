@@ -1,16 +1,37 @@
-.pn-ProductNav_Wrapper
-    nav#pnProductNav.pn-ProductNav
-        #pnProductNavContents.pn-ProductNav_Contents
-            //- a(href='#' v-for="genre in genres" :data-key="genre.key" :aria-selected='genre.selected' @click="filterGenre(genre.key)").pn-ProductNav_Link {{genre.name}}
-            a(href='#' aria-selected="true" :data-key="genre" @click="filterGenre('all')").pn-ProductNav_Link All
-            a(href='#' data-key="music" @click="filterGenre('music')").pn-ProductNav_Link MUSIC
-            a(href='#' data-key="dance" @click="filterGenre('dance')").pn-ProductNav_Link DANCE
-            a(href='#' data-key="threatre" @click="filterGenre('theatre')").pn-ProductNav_Link THEATRE
-            a(href='#' data-key="visualarts" @click="filterGenre('visualarts')").pn-ProductNav_Link VISUAL ARTS
-            a(href='#' data-key="literyarts" @click="filterGenre(literaryarts)").pn-ProductNav_Link LITERARY ARTS
-            span#pnIndicator.pn-ProductNav_Indicator
-    button(type="button")#pnAdvancerLeft.pn-Advancer.pn-Advancer_Left.px-3
-        img(src="./assets/microsites/offstage/img/icons/Previous.svg")
+//- .pn-ProductNav_Wrapper
+//-     nav#pnProductNav.pn-ProductNav
+//-         #pnProductNavContents.pn-ProductNav_Contents
+//-             //- a(href='#' v-for="genre in genres" :data-key="genre.key" :aria-selected='genre.selected' @click="filterGenre(genre.key)").pn-ProductNav_Link {{genre.name}}
+//-             a(href='#' aria-selected="true" :data-key="genre" @click="filterGenre('all')").pn-ProductNav_Link All
+//-             a(href='#' data-key="music" @click="filterGenre('music')").pn-ProductNav_Link MUSIC
+//-             a(href='#' data-key="dance" @click="filterGenre('dance')").pn-ProductNav_Link DANCE
+//-             a(href='#' data-key="threatre" @click="filterGenre('theatre')").pn-ProductNav_Link THEATRE
+//-             a(href='#' data-key="visualarts" @click="filterGenre('visualarts')").pn-ProductNav_Link VISUAL ARTS
+//-             a(href='#' data-key="literyarts" @click="filterGenre(literaryarts)").pn-ProductNav_Link LITERARY ARTS
+//-             span#pnIndicator.pn-ProductNav_Indicator
+//-     button(type="button")#pnAdvancerLeft.pn-Advancer.pn-Advancer_Left.px-3
+//-         img(src="./assets/microsites/offstage/img/icons/Previous.svg")
 
-    button(type="button")#pnAdvancerRight.pn-Advancer.pn-Advancer_Right.px-1
-        img(src="./assets/microsites/offstage/img/icons/Next.svg")
+//-     button(type="button")#pnAdvancerRight.pn-Advancer.pn-Advancer_Right.px-1
+//-         img(src="./assets/microsites/offstage/img/icons/Next.svg")
+
+.genre-tabs
+    .wrapper
+        ul.nav.nav-tabs#genreTabs(role= "tablist")
+            li.genre-list
+                a.nav-link.active(data-toggle="tab" role="tab" aria-controls="all" aria-selected="true" id="all" :data-key="genre" @click="filterGenre('all')") All
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="music" aria-selected="true" id="music" :data-key="genre" @click="filterGenre('music')") Music
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance" :data-key="genre" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="theatre" aria-selected="true" id="theatre" :data-key="genre" @click="filterGenre('theatre')") Theatre
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="visualarts" aria-selected="true" id="visualarts" :data-key="genre" @click="filterGenre('visualarts')") Visual Arts
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="literaryarts" aria-selected="true" id="literaryarts" :data-key="genre" @click="filterGenre('literaryarts')") Literary Arts
+    button#goBack.btn.btn-default.btn-icon(type="button")
+        img.left-prev(src="./assets/microsites/offstage/img/icons/Previous.svg")
+    button#goAfter.btn.btn-default.btn-icon(type="button")
+        img.next-right(src="./assets/microsites/offstage/img/icons/Next.svg")
+
