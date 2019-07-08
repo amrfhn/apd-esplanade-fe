@@ -1,9 +1,15 @@
-$(function () {
-    const VueLineClamp = window['vue-line-clamp'];
+import VueLineClamp from 'vue-line-clamp';
+import VueMatchHeights from 'vue-match-heights'
 
+$(function () {
     Vue.use(VueLineClamp, {
         importCss: true
     })
+
+    Vue.use(VueMatchHeights, {
+        disabled: [768],
+    });
+
 
     var data = {
         message: 'Hello Vue!',
@@ -11,14 +17,6 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
-        // genres: [
-        //     { name:'All', key:'all', selected: 'true'},
-        //     { name:'MUSIC', key:'music', selected: 'false'},
-        //     { name:'DANCE', key:'dance', selected: 'false'},
-        //     { name:'THEATRE', key:'theatre', selected: 'false'},
-        //     { name:'VISUAL ARTS', key:'visualarts', selected: 'false'},
-        //     { name:'LITERARY ARTS', key:'literaryarts', selected: 'false'},
-        // ],
         filters: []
     }
 
@@ -118,7 +116,7 @@ $(function () {
             $('.nav button').fadeOut();
         }
 
-        if ($numberofListItem.length <= 2){
+        if ($numberofListItem.length <= 2) {
             $('#goPrev').css('display', 'none');
             $('#goNext').css('display', 'none');
 
