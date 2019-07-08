@@ -2,16 +2,30 @@
   border: none !important;
   border-radius: none !important;
 
-  .icon {
+  .icon-holder {
+    height: 30px;
+    width:30px;
     border-radius: 50px;
     -webkit-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.5);
     box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.5);
   }
 
+  .icon {
+    height: 20px
+  }
+
   .card-img-top {
     height: 195px;
     object-fit: cover;
+  }
+
+  .genre-title {
+    border-right: 2px solid $primary;
+
+    &:last-child {
+      border-right: 0px solid $primary;      
+    }
   }
 
   .card-body {
