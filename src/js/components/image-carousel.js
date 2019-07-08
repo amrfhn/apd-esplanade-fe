@@ -2,24 +2,37 @@ $(function () {
 
     var $imageCarousel = $('.carousel-banner');
     var $slideCount = $('.slide-count-wrap');
-
-    $imageCarousel.on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
+    var carouselIndex = 1;
+    $imageCarousel.each(function(){
         
-        var i = (currentSlide ? currentSlide : 0) + 1;
+        $(this).on('init reInit afterChange', function(event, slick, currentSlide, nextSlide){
         
-        $slideCount.text('0'+i + '/' + '0'+slick.slideCount);
-    });
+            var i = (currentSlide ? currentSlide : 0) + 1;
+            
+            $(this).find('.slide-count-wrap').text('0'+i + '/' + '0'+slick.slideCount);
 
-    $('.carousel-banner').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        autoplay: 1500,
-        dots: false,
-        focusOnSelect: true,
-        arrows: true,
-        prevArrow:$('.prev-slide'),
-        nextArrow:$('.next-slide')
-    });
+        });
+
+        if ($(this).find('.banner-bg').length < 2){
+            $(this).find('.slide-count-wrap').hide();
+        }
+
+        $('.carousel-'+carouselIndex).slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            autoplay: 1500,
+            dots: false,
+            focusOnSelect: true,
+            arrows: true,
+            prevArrow:$(this).find('.prev-slide'),
+            nextArrow:$(this).find('.next-slide')
+        });
+        carouselIndex++;
+    })
+
+
+    
+    
 
 });
