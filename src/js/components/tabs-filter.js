@@ -1,8 +1,7 @@
-import VueMatchHeights from 'vue-match-heights'
+import VueMatchHeights from 'vue-match-heights';
+import VueLineClamp from 'vue-line-clamp';
 
 $(function () {
-    const VueLineClamp = window['vue-line-clamp'];
-
     Vue.use(VueLineClamp, {
         importCss: true
     })
