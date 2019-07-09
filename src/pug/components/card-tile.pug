@@ -11,10 +11,10 @@
 
         .card-body.text-center.pt-5
             div
-                span.genre-title.px-2.card-text.font-14.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
+                span.genre-title.px-2.card-text.font-16.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
 
             .card-title.text-primary.m-0
                 a(:href='filter.Url') 
-                    h5.font-weight-bolder.m-0(v-line-clamp:20="2") {{filter.Title}}
+                    h5.font-weight-bolder.m-0.font-22(v-line-clamp:20="2") {{filter.Title}}
 
-            p.card-text(v-line-clamp:20="3") {{filter.Description}}
+            p.card-text.font-18(v-line-clamp:20="3") {{filter.Description}}

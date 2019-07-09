@@ -96,16 +96,22 @@ $(function () {
         var tabs_width = 0;
 
         var categoryLastLeft = 0;
-        var $numberofListItem = $(".list-act");
+        var $categoryListItem = $(".list-act");
+        var $genreListItem = $(".genre-list");
         var lastScrollLeft = 0;
 
 
         $('#goBack').fadeOut();
         $('#goPrev').fadeOut();
 
-        if ($numberofListItem.length <= 2) {
+        if ($categoryListItem.length <= 2) {
             $('#goPrev').css('display', 'none');
             $('#goNext').css('display', 'none');
+
+        }
+
+        if ($genreListItem.length <= 5) {
+            $('#goAfter').css('display', 'none');
 
         }
 
@@ -117,7 +123,7 @@ $(function () {
                 $('#goBack').fadeIn();
                 $('#goAfter').fadeIn();
             }        
-            else if(genreScroll <= 0){
+            if(genreScroll <= 0){
                 $('#goBack').fadeOut();
                 $('#goAfter').fadeIn();
             }
@@ -125,16 +131,15 @@ $(function () {
             lastScrollLeft = genreScroll;
         })
 
-        var $wrap = $('.wrap');
 
-        $wrap.on('scroll', function(){
+        $('.wrap').on('scroll', function(){
             var categoryScrollLeft = $('.wrap').scrollLeft();
             
             if (categoryScrollLeft > categoryLastLeft){
                 $('#goPrev').fadeIn();
                 $('#goNext').fadeIn();
             }
-            else if (categoryScrollLeft <= 0){
+            if (categoryScrollLeft <= 0){
                 $('#goPrev').fadeOut();
                 $('#goNext').fadeIn();
             }

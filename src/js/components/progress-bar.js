@@ -5,7 +5,7 @@ $(function (){
 
 
     var getMax = function(){
-        return $('#readSection').height() + $('#summary').height() - $('#related-tile').height() - $('#newsletter').height();
+        return  $('#readSection').height() + 50;
     }
     
     var getValue = function(){
@@ -47,6 +47,13 @@ $(function (){
             setWidth();
         });
     }
+
+    
+
+    // if ($('#progressBar').attr('value') !== '0'){
+    //     $('#progressBar').css('background-color', '#000');
+    //     console.log(parseInt($('#progressBar').length));
+    // }
 
 
     $('#flat').addClass("active");
