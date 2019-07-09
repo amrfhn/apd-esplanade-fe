@@ -95,32 +95,53 @@ $(function () {
         var container_width = $(".wrap").width();
         var tabs_width = 0;
 
-        var container_width_genre = $(".wrapper").width();
+        var categoryLastLeft = 0;
+        var $numberofListItem = $(".list-act");
+        var lastScrollLeft = 0;
 
 
-        var $numberofListItem = $(".list-act")
-
-        $('.nav-tabs li').each(function () {
-            tabs_width += $(this).outerWidth();
-        });
-
-        if (tabs_width > container_width) {
-            $('.nav button').fadeIn();
-        } else {
-            $('.nav button').fadeOut();
-        }
-
-        if (tabs_width > container_width_genre) {
-            $('.nav button').fadeIn();
-        } else {
-            $('.nav button').fadeOut();
-        }
+        $('#goBack').fadeOut();
+        $('#goPrev').fadeOut();
 
         if ($numberofListItem.length <= 2) {
             $('#goPrev').css('display', 'none');
             $('#goNext').css('display', 'none');
 
         }
+
+        // Hide scroll button when the scroller at the most left or right
+        $('.wrapper').on('scroll', function(){
+            var genreScroll = $('.wrapper').scrollLeft();
+            
+            if(genreScroll > lastScrollLeft){
+                $('#goBack').fadeIn();
+                $('#goAfter').fadeIn();
+            }        
+            else if(genreScroll <= 0){
+                $('#goBack').fadeOut();
+                $('#goAfter').fadeIn();
+            }
+                
+            lastScrollLeft = genreScroll;
+        })
+
+        var $wrap = $('.wrap');
+
+        $wrap.on('scroll', function(){
+            var categoryScrollLeft = $('.wrap').scrollLeft();
+            
+            if (categoryScrollLeft > categoryLastLeft){
+                $('#goPrev').fadeIn();
+                $('#goNext').fadeIn();
+            }
+            else if (categoryScrollLeft <= 0){
+                $('#goPrev').fadeOut();
+                $('#goNext').fadeIn();
+            }
+
+            categoryLastLeft = categoryScrollLeft;
+        })
+
     }
 
 })

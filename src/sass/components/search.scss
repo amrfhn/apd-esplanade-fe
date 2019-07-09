@@ -59,12 +59,13 @@
     .btn-search{
         position: absolute;
         right: 0px;
-        top: 0px;
+        top: -5px;
         z-index: 99999;
 
-        
-       
-        
+        @media(min-width: 768px){
+            top: 0;
+        }
+
     }
 }
 

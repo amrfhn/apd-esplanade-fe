@@ -290,6 +290,10 @@
     @media(min-width:768px){
       width: 520px;
     }
+    
+    @media(min-width:1440px){
+      width: 770px;
+    }
     .genre-tabs{
       // padding:0 10px;
       padding-left: 2px;
@@ -333,7 +337,7 @@
             flex-grow: 1;
             flex-basis: auto;
             margin: -.5em 0;
-            padding: 0 1em;
+            padding: 0 .5em;
             text-align: center;
   
             // border-left: 2px solid #575656;
@@ -350,6 +354,7 @@
   
             .nav-link{
               border: none;
+              text-transform: uppercase;
               color: #ccc;
               cursor: pointer;
               padding: 0.5rem 0.1em;
