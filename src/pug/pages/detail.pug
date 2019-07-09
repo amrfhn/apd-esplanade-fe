@@ -18,7 +18,7 @@ block content
                 //- Hero Banner with Video Modal
                 +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
                 
-            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.py-4.mt-2 
+            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
                     p.genre-text.font-16.font-weight-bold 
                         a(href="#") DANCE
@@ -45,7 +45,7 @@ block content
                 //- Hero Banner with Video Modal
                 +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
 
-            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.py-4.mt-2 
+            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
                     p.genre-text.font-16.font-weight-bold 
                         a(href="#") DANCE
@@ -53,37 +53,45 @@ block content
                         a(href="#") FILM
                     h1.font-weight-bolder A French Toast To Ballet
                     p Seven things to know about Paris Opera Ballet to impress your mates
-                    .d-flex.align-items-center
-                        img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
-                        p.mb-0 Publish date: 19 April 2019
-                    
-                    .d-flex.align-items-center.pt-2
-                        img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
-                        p.mb-0 Last updated date: 23 April 2019
-                    
-                    .d-flex.align-items-center.pt-2
-                        img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
-                        p.mb-0 By 
-                            span
-                                a(href="") John Doe
+
+                    .d-flex.justify-content-between.align-items-baseline
+                        .d-flex.align-items-center.pt-2
+                            img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            p.mb-0 Publish date: 19 April 2019
+                        
+                        .d-flex.align-items-center.pt-2
+                            img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            p.mb-0 Last updated date: 23 April 2019
+                        
+                        .d-flex.align-items-center.pt-2
+                            img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            p.mb-0 By 
+                                span
+                                    a(href="") John Doe
                     //- div
                     //-     a(href="#content")
                     //-         button(type="button").read-more.btn.btn-outline-primary Read more
 
+
     .container-fluid.p-0#content
         .row.no-gutters
             include ../components/progress-bar.pug
+    
+    .container-fluid.d-md-none
+        .row
+            .col 
+                hr.w-100.my-4(style="border-top: 1px solid black")
 
     .container#readSection
-        .row.py-5.flex-column-reverse.flex-md-row.align-items-baseline                
+        .row.pt-4.pt-md-5.pb-md-0.flex-column-reverse.flex-md-row.align-items-baseline             
             .col-12.col-md-6
-                .d-flex.align-items-md-center
+                .d-flex.align-items-md-center.pb-4.pb-md-0
                     .pr-3
                         img(src='./assets/microsites/offstage/img/icons/Book.svg')
                     p.p-0.m-0 Time to read: 15 minutes
                 
             .col-12.col-md-6.text-align-left
-                .d-flex.justify-content-md-end.pb-4.align-items-center    
+                .d-flex.justify-content-md-end.pb-4.pb-md-0.align-items-center    
                     each icon in ["./assets/microsites/offstage/img/icons/Social/Facebook.svg", "./assets/microsites/offstage/img/icons/Social/Whatsapp.svg", "./assets/microsites/offstage/img/icons/Social/Mail.svg", "./assets/microsites/offstage/img/icons/Social/GooglePlus.svg", "./assets/microsites/offstage/img/icons/Social/Likes.svg"]
                         a(href="#").pr-3.px-md-0.px-md-2
                             img(src=icon height="25px")
@@ -95,18 +103,14 @@ block content
                         option(value='4') TA
             
             .col-12.d-md-none
-                ul#pills-tab.nav.nav-pills.pb-4(role='tablist')
-                    li.nav-item 
-                        a#pills-home-tab.nav-link.active EN
-                    li.nav-item 
-                        a#pills-home-tab.nav-link.active CH
-                    li.nav-item 
-                        a#pills-home-tab.nav-link.active ML
-                    li.nav-item 
-                        a#pills-home-tab.nav-link.active TA
+                nav#lang-tab.nav.nav-pills.pb-4(role='tablist')
+                    a(href="").nav-link.font-weight-bold.active EN
+                    a(href="").nav-link.font-weight-bold CH
+                    a(href="").nav-link.font-weight-bold ML
+                    a(href="").nav-link.font-weight-bold TA
           
         
-        .row.pb-5
+        .row.pt-5
             .col
                 h1.font-weight-bold.text-uppercase There's no stopping the tour de force of ballet.
                 p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta temporibus quaerat officia suscipit adipisci deleniti reiciendis molestiae vel nobis iste, dolore enim impedit ab quibusdam minima libero cumque pariatur dolores!
@@ -114,11 +118,11 @@ block content
                 br
                 h5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quas! Nulla, iste neque. Quia, ad rem deserunt dicta facere autem sint voluptas quae sequi accusantium voluptatibus at quos modi beatae?
 
-        .row.pb-5
+        .row.pt-5
             .col
                 +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
 
-                .video-carousel
+                .video-carousel.pt-4
                     - const videos = ['https://www.youtube.com/embed/FdnOqThfNzc', 'https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o'];
                     each video in videos 
                         +videoCarousel(video)
@@ -137,6 +141,10 @@ block content
         +images('2', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
+
+        .row.pt-5
+            .col-12
+                include ../components/accordion.pug
 
     .container-fluid#related-tile
         include ../components/related-tile.pug

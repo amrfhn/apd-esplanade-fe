@@ -1,19 +1,19 @@
 mixin images(imageVal, caption, link1, link2, link3)
     - var image = imageVal
     if image === '1'
-        .row
+        .row.pt-4
             .col-12.pb-4 
                 img(src=link1 width='100%')
 
     else if image === '2'
-        .row
+        .row.pt-4
             .col-12.col-md-6.pb-4     
                 img.img-holder(src=link1 width='100%')
             .col-12.col-md-6.pb-4
                 img.img-holder(src=link2 width='100%')
 
     else if image === '3'
-        .row
+        .row.pt-4
             .col-12.pb-4
                 img(src=link1 width='100%')
             .col-12.col-md-6.pb-4 
