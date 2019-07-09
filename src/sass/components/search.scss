@@ -33,7 +33,6 @@
             margin: 0;
             position: absolute;
 
-
         }
 
         input[type=text] {
@@ -60,14 +59,13 @@
     .btn-search{
         position: absolute;
         right: 0px;
-        top: 0px;
+        top: -5px;
         z-index: 99999;
 
-        @media(min-width:769px){
-            // top: -53px;
+        @media(min-width: 768px){
+            top: 0;
         }
-       
-        
+
     }
 }
 
