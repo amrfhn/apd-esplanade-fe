@@ -2,4 +2,19 @@
     .card-header{
         cursor: pointer;
     }
+
+    .icon-plus {
+        width: 20px;
+        background: url('/assets/microsites/offstage/img/icons/Plus.svg');
+        height: 20px;
+        background-size: cover;        
+    }
+    
+    .icon-minus {
+        width: 20px;
+        background: url('/assets/microsites/offstage/img/icons/Minus.svg');
+        height: 4px;
+        background-size: cover;        
+    }
+
 }
