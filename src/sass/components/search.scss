@@ -33,7 +33,6 @@
             margin: 0;
             position: absolute;
 
-
         }
 
         input[type=text] {
@@ -63,9 +62,7 @@
         top: 0px;
         z-index: 99999;
 
-        @media(min-width:769px){
-            // top: -53px;
-        }
+        
        
         
     }
