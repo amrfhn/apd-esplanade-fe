@@ -3,7 +3,8 @@
         img.close-icon(src="./assets/microsites/offstage/img/icons/Close.svg")
     .mm-content
         
-        p.menu-text EXPLORE THE ARTS:
+        a(href="")
+            p.menu-text.font-16.font-weight-bold.pl-3 EXPLORE THE ARTS
 
         .mm-content-item
             ul.nav.d-block
@@ -19,19 +20,39 @@
                     a.nav-link(href="#") VISUAL ARTS
                 li.nav-item 
                     a.nav-link(href="#") LITERARY ARTS
-                li.nav-item.mb-3
-                    a.nav-link(href="#") FILM
-
-        .seperator
-
-        .mm-content-item.mt-3
-            ul.nav.d-block
                 li.nav-item
-                    a.nav-link(href="#") FOR SCHOOLS
+                    a.nav-link(href="#") FILM
                 li.nav-item.mb-3
-                    a.nav-link(href="#") FOR RESEARCH
+                    a.nav-link(href="#") GUIDES
+       
+        a(href="")
+            p.menu-text.font-16.font-weight-bold.pt-2.pb-3.border-bottom.pl-3 KNOW THE ARTISTS
 
-        .seperator
+        .pt-4
+        a(href="#schoolCategories" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="schoolCategories").mt-3.collapse-head
+            span.menu-text.font-16.pt-3.pb-3.pl-3 FOR SCHOOLS
+             
+        //- .collapse-nav.collapse.hide#schoolCategories
+        //-     .card-custom.card
+        //-         a.card-item.font-16.pb-1(href="#") PRE-SCHOOL
+        //-         a.card-item.font-16.pb-1(href="#") PRIMARY UP
+        //-         a.card-item.font-16.pb-1(href="#") TERTIARY
+
+        .pb-1
+        a(href="")
+            p.menu-text.font-16.py-2.pl-3 FOR RESEARCHERS
+        
+        a(href="")
+            p.menu-text.font-16.py-2.pl-3 FOR PARENTS
+        
+        a(href="")
+            p.menu-text.font-16.pt-2.pb-4.pl-3.border-bottom FOR KIDS
+
+        
+        .link-wrapper.pt-3
+            a(href="#").menu-link SIGN UP FOR OUR NEWSLETTER
+        .link-wrapper.pb-3
+            a(href="#").menu-link ONSTAGE (ESPLANADE.COM)
 
         .social-icon.d-flex
             a.social-link(href="#")
@@ -41,7 +62,4 @@
             a.social-link(href="#")
                 img.soc-icon(src="./assets/microsites/offstage/img/icons/Social/Instagram.svg")
         
-        .link-wrapper
-            a(href="#").menu-link SIGN UP FOR NEWSLETTER
-        .link-wrapper
-            a(href="#").menu-link BACK TO ESPLANADE.COM
+        
