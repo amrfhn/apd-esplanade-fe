@@ -1,0 +1,8 @@
+.nav-pills {
+    .nav-link {
+        border: 1px solid $primary;
+        border-radius: 0;
+        text-align: center;
+        width: calc(100vw/4.5)
+    }    
+}

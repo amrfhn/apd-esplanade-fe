@@ -1,0 +1,13 @@
+.accordion#accordionExample
+    .card   
+        a(data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 
+            .card-header#headingOne.d-flex.align-items-center.justify-content-between.bg-white.border-0
+                div
+                    p Written by:
+                    h5.mb-0 Author's Name
+                    hr.m-0.mt-4(style="width: 60px; border-top: 4px solid black")
+                div 
+                    img(src="./assets/microsites/offstage/img/icons/Next.svg")
+
+        #collapseOne.collapse.show(aria-labelledby="headingOne" data-parent="#accordionExample")
+            .card-body Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis sapiente, nostrum eum excepturi maxime delectus quam asperiores! Aliquam natus cupiditate omnis recusandae eius voluptate esse voluptatum incidunt eaque! Suscipit!
