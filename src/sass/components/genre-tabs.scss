@@ -315,7 +315,7 @@
           float: left;
           white-space: nowrap;
           border-bottom: none;
-  
+          font-family: $font-proxima-bold;
           display: flex;
           flex-direction: row;
           justify-content: space-between;
@@ -362,7 +362,7 @@
   
             }
             .active{
-              // border-bottom: 2px solid #000;
+              border-bottom: 3px solid #000;
               color: #000;
             }
           }
