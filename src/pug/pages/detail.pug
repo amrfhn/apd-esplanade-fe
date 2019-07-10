@@ -6,44 +6,47 @@ block header
 block content
     .container-fluid#summary
         //- .row
-            //- .col-12
-                +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
+        //-     //- .col-12
+        //-         +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
                 
-            .col-12.col-md-6.px-0
-                //- Trigger Modal
+        //-     .col-12.col-md-6.px-0
+        //-         //- Trigger Modal
 
-                //- Hero Banner with Video Modal
-                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, true)
+        //-         //- Hero Banner with Video Modal
+        //-         +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, true)
 
-                //- Hero Banner with Video Modal
-                //- +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
+        //-         //- Hero Banner with Video Modal
+        //-         //- +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
                 
-            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
-                .px-md-4.h-100.d-flex.justify-content-center.flex-column
-                    p.genre-text.font-16.font-weight-bold 
-                        a(href="#") DANCE
-                        a(href="#") MUSIC 
-                        a(href="#") FILM
-                    h1.font-weight-bolder A French Toast To Ballet
-                    p.clamp-2 Seven things to know about Paris Opera Ballet to impress your mates 
-                    p Publish date: 19 April 2019
-                    p Last updated date: 23 April 2019
-                    div
-                        a(href="#content")
-                            button(type="button").read-more.btn.btn-outline-primary Read more
+        //-     .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
+        //-         .px-md-4.h-100.d-flex.justify-content-center.flex-column
+        //-             p.genre-text.font-16.font-weight-bold 
+        //-                 a(href="#") DANCE
+        //-                 a(href="#") MUSIC 
+        //-                 a(href="#") FILM
+        //-             h1.font-weight-bolder A French Toast To Ballet
+        //-             p.clamp-2 Seven things to know about Paris Opera Ballet to impress your mates 
+        //-             p Publish date: 19 April 2019
+        //-             p Last updated date: 23 April 2019
+        //-             div
+        //-                 a(href="#content")
+        //-                     button(type="button").read-more.btn.btn-outline-primary Read more
 
         .row
-            //- .col-12
+            .col-12
                 +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
                 
             .col-12.col-md-6.px-0
                 //- Trigger Modal
-
+                
                 //- Hero Banner with Video Modal
-                //- +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, true, false)   
+                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, false)
 
-                //- Hero Banner with Video Modal
-                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
+                //- Hero Banner with Img 720
+                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, true, false)   
+
+                //- Hero Banner with Img 450
+                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
 
             .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
@@ -67,7 +70,7 @@ block content
                             img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
                             p.mb-0 By 
                                 span
-                                    a(href="") John Doe
+                                    a#author-name(href="#acknowledgements") John Doe
                     //- div
                     //-     a(href="#content")
                     //-         button(type="button").read-more.btn.btn-outline-primary Read more
@@ -146,9 +149,12 @@ block content
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
 
-        .row.pt-5
+        .row.py-5.border-top#acknowledgements
             .col-12
                 include ../components/accordion.pug
+
+    .container-fluid#in-the-series
+        include ../components/in-the-series.pug
 
     .container-fluid#related-tile
         include ../components/related-tile.pug

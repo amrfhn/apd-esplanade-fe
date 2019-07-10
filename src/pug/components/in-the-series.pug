@@ -1,0 +1,28 @@
+.row.px-md-5.py-5.bg-light
+    .col-12.pb-4 
+        h1.font-weight-bolder.text-uppercase In the series 
+
+    each card in [1, 2]
+        .card-tile.col-12.col-md-6.pb-4
+            a(href="")
+                .container-fluid
+                    .row
+                        .col-5(style="background: url('https://via.placeholder.com/250x150'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 150px;")
+
+                        .col-7.py-4.bg-white.d-flex.align-items-center
+                            h5.m-0.clamp-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eum fuga reiciendis odio laborum blanditiis soluta deleniti, modi porro unde obcaecati expedita delectus ratione iure veritatis repudiandae et? Repudiandae, rem.
+                        
+    each moreCards in [1, 2, 3, 4, 5]
+        .card-tile.col-12.col-md-6
+            .collapse.multi-collapse
+                a(href="")
+                    .container-fluid
+                        .row.pb-4
+                            .col-5(style="background: url('https://via.placeholder.com/250x150'); background-repeat: no-repeat; background-size: cover; background-position: center; height: 150px;")
+
+                            .col-7.py-4.bg-white.d-flex.align-items-center
+                                h5.m-0.clamp-2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos eum fuga reiciendis odio laborum blanditiis soluta deleniti, modi porro unde obcaecati expedita delectus ratione iure veritatis repudiandae et? Repudiandae, rem.
+
+
+    .col-12.pt-3.d-flex.justify-content-center
+        button.btn.btn-outline-primary(type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false") View All
