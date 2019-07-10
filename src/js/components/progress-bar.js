@@ -67,23 +67,25 @@ $(function (){
     });
 
 
-
     var $fixProgress = $('#progressBar');
+
 
     if($fixProgress.length>0){
         $(document).on('scroll', function() {
-    
-            if($(this).scrollTop() >= $fixProgress.offset().top - 100 && !$("#progressBar").hasClass("fixedbar")){
-               $("#progressBar").addClass("fixedbar");
-            }
             
-            if($(this).scrollTop() <= $fixProgress.offset().top - 100 && $("#progressBar").hasClass("fixedbar")){
-                $("#progressBar").removeClass("fixedbar");
-            }
-    
-          });
-    }
+            let scrollPos = $(this).scrollTop()
+            let menuHeight = $('.nav-bar-wrapper').height()
+            
+            console.log(scrollPos,$('.progress-wrapper').offset().top);
 
+            if(scrollPos > ($('.progress-wrapper').offset().top - menuHeight + 50)) {
+               $("#progressBar").addClass("fixedbar");
+            } else {
+                $("#progressBar").removeClass("fixedbar");
+            } 
+
+        });
+    }
 });
 
 
