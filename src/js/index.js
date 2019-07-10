@@ -18,7 +18,6 @@ $(function () {
         }, 500);
     });
 
-<<<<<<< HEAD
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
     var mobileCaption = $('.caption').attr('data-mobile-caption')
@@ -67,12 +66,10 @@ $(function () {
     //     "timeTaken": "ssfgsdyfg",
     //     "sort": "trending"
     // }
-=======
     $('.multi-collapse').on('shown.bs.collapse', function () {
         var text = $('#in-the-series button').text();
         $('#in-the-series button').text(text.replace('View All', 'View Less'));
     })
->>>>>>> 0dbfab2d8c748ae08c283d2ce2611a8fad8f78b8
 
     $('.multi-collapse').on('hidden.bs.collapse', function () {
         var text = $('#in-the-series button').text();
