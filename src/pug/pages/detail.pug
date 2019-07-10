@@ -70,7 +70,7 @@ block content
                             img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
                             p.mb-0 By 
                                 span
-                                    a(href="#acknowledgements") John Doe
+                                    a#author-name(href="#acknowledgements") John Doe
                     //- div
                     //-     a(href="#content")
                     //-         button(type="button").read-more.btn.btn-outline-primary Read more
@@ -148,6 +148,9 @@ block content
         .row.py-5.border-top#acknowledgements
             .col-12
                 include ../components/accordion.pug
+
+    .container-fluid#in-the-series
+        include ../components/in-the-series.pug
 
     .container-fluid#related-tile
         include ../components/related-tile.pug

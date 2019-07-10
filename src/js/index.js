@@ -1,8 +1,5 @@
 $(function () {
-    $(".clamp").each(function (i, element) {
-        var numLines = $(this).data("clamp-lines") || 3;
-        $clamp(element, { clamp: numLines });
-    });
+
 
     for (var i = 1; i <= 5; i++) {
         Ellipsis({
@@ -13,23 +10,21 @@ $(function () {
         });
     }
 
-    $('.read-more').click(function (e) {
+    $('#author-name').click(function (e) {
         e.preventDefault();
 
         $('html, body').animate({
-            scrollTop: $('#content').offset().top
+            scrollTop: $('#acknowledgements').offset().top
         }, 500);
     });
 
-    // Add minus icon for collapse element which is open by default
-    $(".collapse.show").each(function () {
-        $(this).prev(".card-header").find(".icon").addClass("icon-minus").removeClass("icon-plus");
-    });
+    $('.multi-collapse').on('shown.bs.collapse', function () {
+        var text = $('#in-the-series button').text();
+        $('#in-the-series button').text(text.replace('View All', 'View Less'));
+    })
 
-    //Toggle plus minus icon on show hide of collapse element
-    $(".collapse").on('show.bs.collapse', function () {
-        $(this).prev(".card-header").find(".icon").removeClass("icon-plus").addClass("icon-minus");
-    }).on('hide.bs.collapse', function () {
-        $(this).prev(".card-header").find(".icon").removeClass("icon-minus").addClass("icon-plus");
-    });
+    $('.multi-collapse').on('hidden.bs.collapse', function () {
+        var text = $('#in-the-series button').text();
+        $('#in-the-series button').text(text.replace('View Less', 'View All'));
+    })
 })
