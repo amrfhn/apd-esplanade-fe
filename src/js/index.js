@@ -1,7 +1,12 @@
 $(function () {
 
 
-    for (var i = 1; i <= 5; i++) {
+    // for (var i = 1; i <= 5; i++) {
+        
+    // }
+
+    let item = $('.clamp')
+    for(var i=1, len=$(item).length; i<len; i++){
         Ellipsis({
             className: '.clamp-' + i,
             break_word: false,
@@ -18,7 +23,6 @@ $(function () {
         }, 500);
     });
 
-<<<<<<< HEAD
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
     var mobileCaption = $('.caption').attr('data-mobile-caption')
@@ -67,12 +71,10 @@ $(function () {
     //     "timeTaken": "ssfgsdyfg",
     //     "sort": "trending"
     // }
-=======
     $('.multi-collapse').on('shown.bs.collapse', function () {
         var text = $('#in-the-series button').text();
         $('#in-the-series button').text(text.replace('View All', 'View Less'));
     })
->>>>>>> 0dbfab2d8c748ae08c283d2ce2611a8fad8f78b8
 
     $('.multi-collapse').on('hidden.bs.collapse', function () {
         var text = $('#in-the-series button').text();
