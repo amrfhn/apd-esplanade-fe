@@ -4,12 +4,10 @@
     width: 100%;
     // background: linear-gradient(rgba(130, 130, 130, 0.5), rgba(255, 255, 255, 0));
     z-index: 50; 
+    position: fixed;
 
-    @media(min-width:768px){
-        position: fixed;
-    }
     .left-wrapper{
-        background: linear-gradient(#000000, rgba(255, 255, 255, 0));
+        background: linear-gradient(rgba(0,0,0,.4), rgba(255, 255, 255, 0));
         .nav-bar{
             height: 68px;
             
@@ -175,7 +173,7 @@
     background: #fff;
     border: 1px solid #ccc;
     padding: 10px 20px;
-    z-index: 999;
+    z-index: 9999;
     top: 0;
     width: 240px;
     opacity: 0;

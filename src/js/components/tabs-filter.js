@@ -91,62 +91,62 @@ $(function () {
     check_navigation_tabs();
 
     //category tabs check outerwidth funct
-    function check_navigation_tabs() {
-        var container_width = $(".wrap").width();
-        var tabs_width = 0;
+    // function check_navigation_tabs() {
+    //     var container_width = $(".wrap").width();
+    //     var tabs_width = 0;
 
-        var categoryLastLeft = 0;
-        var $categoryListItem = $(".list-act");
-        var $genreListItem = $(".genre-list");
-        var lastScrollLeft = 0;
+    //     var categoryLastLeft = 0;
+    //     var $categoryListItem = $(".list-act");
+    //     var $genreListItem = $(".genre-list");
+    //     var lastScrollLeft = 0;
 
 
-        $('#goBack').fadeOut();
-        $('#goPrev').fadeOut();
+    //     $('#goBack').fadeOut();
+    //     $('#goPrev').fadeOut();
 
-        if ($categoryListItem.length <= 2) {
-            $('#goPrev').css('display', 'none');
-            $('#goNext').css('display', 'none');
+    //     if ($categoryListItem.length <= 2) {
+    //         $('#goPrev').css('display', 'none');
+    //         $('#goNext').css('display', 'none');
 
-        }
+    //     }
 
-        if ($genreListItem.length <= 5) {
-            $('#goAfter').css('display', 'none');
+    //     if ($genreListItem.length <= 5) {
+    //         $('#goAfter').css('display', 'none');
 
-        }
+    //     }
 
-        // Hide scroll button when the scroller at the most left or right
-        $('.wrapper').on('scroll', function(){
-            var genreScroll = $('.wrapper').scrollLeft();
+    //     // Hide scroll button when the scroller at the most left or right
+    //     $('.wrapper').on('scroll', function(){
+    //         var genreScroll = $('.wrapper').scrollLeft();
             
-            if(genreScroll > lastScrollLeft){
-                $('#goBack').fadeIn();
-                $('#goAfter').fadeIn();
-            }        
-            if(genreScroll <= 0){
-                $('#goBack').fadeOut();
-                $('#goAfter').fadeIn();
-            }
+    //         if(genreScroll > lastScrollLeft){
+    //             $('#goBack').fadeIn();
+    //             $('#goAfter').fadeIn();
+    //         }        
+    //         if(genreScroll <= 0){
+    //             $('#goBack').fadeOut();
+    //             $('#goAfter').fadeIn();
+    //         }
                 
-            lastScrollLeft = genreScroll;
-        })
+    //         lastScrollLeft = genreScroll;
+    //     })
 
 
-        $('.wrap').on('scroll', function(){
-            var categoryScrollLeft = $('.wrap').scrollLeft();
+    //     $('.wrap').on('scroll', function(){
+    //         var categoryScrollLeft = $('.wrap').scrollLeft();
             
-            if (categoryScrollLeft > categoryLastLeft){
-                $('#goPrev').fadeIn();
-                $('#goNext').fadeIn();
-            }
-            if (categoryScrollLeft <= 0){
-                $('#goPrev').fadeOut();
-                $('#goNext').fadeIn();
-            }
+    //         if (categoryScrollLeft > categoryLastLeft){
+    //             $('#goPrev').fadeIn();
+    //             $('#goNext').fadeIn();
+    //         }
+    //         if (categoryScrollLeft <= 0){
+    //             $('#goPrev').fadeOut();
+    //             $('#goNext').fadeIn();
+    //         }
 
-            categoryLastLeft = categoryScrollLeft;
-        })
+    //         categoryLastLeft = categoryScrollLeft;
+    //     })
 
-    }
+    // }
 
 })

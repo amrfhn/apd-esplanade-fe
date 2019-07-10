@@ -76,24 +76,28 @@ block content
                     //-         button(type="button").read-more.btn.btn-outline-primary Read more
 
 
-    .container-fluid.p-0#content
+    .container-fluid.p-0
         .row.no-gutters
             include ../components/progress-bar.pug
-    
+
     .container-fluid.d-md-none
         .row
             .col 
                 hr.w-100.my-4(style="border-top: 1px solid black")
 
-    .container#readSection
+    .container
         .row.pt-4.pt-md-5.pb-md-0.flex-column-reverse.flex-md-row.align-items-baseline             
             .col-12.col-md-6
                 .d-flex.align-items-md-center.pb-4.pb-md-0
                     .pr-3
                         img(src='./assets/microsites/offstage/img/icons/Book.svg')
-                    p.p-0.m-0 Time to read: 15 minutes
+                    p.p-0.pb-3.m-0 Time to read: 15 minutes
+            
                 
+
             .col-12.col-md-6.text-align-left
+                
+
                 .d-flex.justify-content-md-end.pb-4.pb-md-0.align-items-center    
                     each icon in ["./assets/microsites/offstage/img/icons/Social/Facebook.svg", "./assets/microsites/offstage/img/icons/Social/Whatsapp.svg", "./assets/microsites/offstage/img/icons/Social/Mail.svg", "./assets/microsites/offstage/img/icons/Social/GooglePlus.svg", "./assets/microsites/offstage/img/icons/Social/Likes.svg"]
                         a(href="#").pr-3.px-md-0.px-md-2
@@ -112,9 +116,9 @@ block content
                     a(href="").nav-link.font-weight-bold ML
                     a(href="").nav-link.font-weight-bold TA
           
-        
+    .container#readSection
         .row.pt-5
-            .col
+            .col-12
                 h1.font-weight-bold.text-uppercase There's no stopping the tour de force of ballet.
                 p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta temporibus quaerat officia suscipit adipisci deleniti reiciendis molestiae vel nobis iste, dolore enim impedit ab quibusdam minima libero cumque pariatur dolores!
                 p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente nostrum rerum itaque ducimus ex quis fugiat quia enim repellendus dignissimos debitis soluta quam molestiae, dolore est placeat asperiores quos earum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo autem ipsum, similique excepturi facere, illo ullam nemo dicta nihil aspernatur dolor voluptatem voluptas aliquam dolorum quaerat qui maiores minima porro.

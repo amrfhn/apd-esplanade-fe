@@ -30,4 +30,7 @@ $(function () {
         });
         carouselIndex++;
     })
+
+    $('.carousel-banner').hide();
+    $('#all').show();
 });

@@ -5,7 +5,7 @@ mixin heroBanner(icon, imgSrc, video720, video450,  img720, img450)
             .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
                 img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
             
-            .thumbnail-holder(data-desktop-image="" data-mobile-image="" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")
+            .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")
 
     if video450
         //- Trigger Modal
@@ -13,10 +13,10 @@ mixin heroBanner(icon, imgSrc, video720, video450,  img720, img450)
             .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
                 img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
             
-            .thumbnail-holder(data-desktop-image="" data-mobile-image="" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px") 
+            .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px") 
     
     if img720
-        .thumbnail-holder(data-desktop-image="" data-mobile-image="" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")  
+        .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")  
         
     if img450
-        .thumbnail-holder(data-desktop-image="" data-mobile-image="" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px")  
+        .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px")  
