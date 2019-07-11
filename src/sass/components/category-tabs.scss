@@ -93,9 +93,11 @@
     }
     #goPrev {
       left:-6%;
+      display: none;
     }
     #goNext {
       right:0;
+      display: none;
     }
   }
 }

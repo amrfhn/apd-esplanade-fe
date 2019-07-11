@@ -85,10 +85,32 @@ $(function () {
         $('.wrapper').animate({ scrollLeft: '+=100' }, 200);
     });
 
+    $('.wrapper').scroll(function(e){
+        var genreScroll = $('.wrapper').scrollLeft();
+        console.log('scroll', genreScroll);
+        
+        if($(this).scrollLeft() == 0){
+            console.log('scroll');
+            $('#goBack').css('display', 'none');
+        } 
+        if($(this).scrollLeft() > 0){
+            console.log('scroll');
+            $('#goBack').css('display', 'block');
+        }
+        if($(this).scrollLeft() == $('.wrapper').width()){
+            console.log('scroll');
+            $('#goAfter').css('display', 'none');
+        }
+    }) 
+
+    
+
     $(window).resize(function () {
         check_navigation_tabs();
     });
     check_navigation_tabs();
+
+    
 
     //category tabs check outerwidth funct
     // function check_navigation_tabs() {
@@ -116,20 +138,13 @@ $(function () {
     //     }
 
     //     // Hide scroll button when the scroller at the most left or right
-    //     $('.wrapper').on('scroll', function(){
-    //         var genreScroll = $('.wrapper').scrollLeft();
-            
-    //         if(genreScroll > lastScrollLeft){
-    //             $('#goBack').fadeIn();
-    //             $('#goAfter').fadeIn();
-    //         }        
-    //         if(genreScroll <= 0){
-    //             $('#goBack').fadeOut();
-    //             $('#goAfter').fadeIn();
-    //         }
-                
-    //         lastScrollLeft = genreScroll;
-    //     })
+        // $('.wrapper').on('scroll', function(e){
+        //     var genreScroll = $('.wrapper').scrollLeft();
+        //     console.log('scroll', genreScroll);
+        //     if($(this).scrollLeft() >= 25){
+        //         console.log('scroll');
+        //     }
+        // })
 
 
     //     $('.wrap').on('scroll', function(){

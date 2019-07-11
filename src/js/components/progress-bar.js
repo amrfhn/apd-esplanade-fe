@@ -1,6 +1,19 @@
 $(function (){
+
+    var current;
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    
+    $('.progress-wrapper').each(function () {
+        
+        if(width <= 768) {
+            current = $('.progress-wrapper.d-block');
+        } 
+        if(width > 768) {
+            current = $('.progress-wrapper.d-md-block');
+        }
+    })
+
     var $readSection = $('#readSection');
-    // var $containerOffset = $readSection.offset().top - window.innerHeight;
     var $scrollOffset = $(document).scrollTop();
 
 
@@ -20,7 +33,7 @@ $(function (){
         $(document).on('scroll', function(){
             progressBar.attr({ value: getValue() });
         });
-      
+    
         $(window).resize(function(){
             progressBar.attr({ max: getMax(), value: getValue() });
         });   
@@ -48,44 +61,33 @@ $(function (){
         });
     }
 
-    
-
-    // if ($('#progressBar').attr('value') !== '0'){
-    //     $('#progressBar').css('background-color', '#000');
-    //     console.log(parseInt($('#progressBar').length));
-    // }
 
 
     $('#flat').addClass("active");
-    $('#progressBar').addClass('flat');
-      
+    current.find("progress").addClass('flat');
+    
     $('#flat').on('click', function(){
-      $('#progressBar').removeClass().addClass('flat');
-      $('a').removeClass();
-      $(this).addClass('active');
-      $(this).preventDefault();
+        current.find("progress").removeClass().addClass('flat');
+        $('a').removeClass();
+        $(this).addClass('active');
+        $(this).preventDefault();
     });
 
 
-    var $fixProgress = $('#progressBar');
+    var $fixProgress = $('.progress-wrapper');
 
 
     if($fixProgress.length>0){
         $(document).on('scroll', function() {
             
             let scrollPos = $(this).scrollTop()
-            let menuHeight = $('.nav-bar-wrapper').height()
+            let menuHeight = $('.nav-bar-wrapper').height();
             
-            console.log(scrollPos,$('.progress-wrapper').offset().top);
-
-            if(scrollPos > ($('.progress-wrapper').offset().top - menuHeight + 50)) {
-               $("#progressBar").addClass("fixedbar");
+            if(scrollPos > (current.offset().top - menuHeight + 50)) {
+            current.find("progress").addClass("fixedbar");
             } else {
-                $("#progressBar").removeClass("fixedbar");
+                current.find("progress").removeClass("fixedbar");
             } 
-
         });
     }
 });
-
-
