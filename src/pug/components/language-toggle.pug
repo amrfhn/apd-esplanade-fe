@@ -1,0 +1,26 @@
+.select-box.ml-5
+    .select-box__current(tabindex="1")
+        .select-box__value
+            input.select-box__input(type="radio" id="ta" value="4" name="lang" checked)
+            p.select-box__input-text TA
+        .select-box__value
+            input.select-box__input(type="radio" id="ml" value="3" name="lang" checked)
+            p.select-box__input-text ML
+        .select-box__value
+            input.select-box__input(type="radio" id="ch" value="2" name="lang" checked)
+            p.select-box__input-text CH
+        .select-box__value
+            input.select-box__input(type="radio" id="en" value="1" name="lang" checked)
+            p.select-box__input-text EN
+
+        img.select-box__icon(src="./assets/microsites/offstage/img/icons/Down.svg" alt="Arrow Icon" aria-hidden="true")
+
+    ul.select-box__list
+        li
+            label.select-box__option(for="en" aria-hidden) EN
+        li
+            label.select-box__option(for="ch" aria-hidden) CH
+        li
+            label.select-box__option(for="ml" aria-hidden) ML
+        li
+            label.select-box__option(for="ta" aria-hidden) TA     
