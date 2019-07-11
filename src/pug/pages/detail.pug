@@ -153,9 +153,15 @@ block content
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
 
+    .container
+        .row
+            .col-12.px-5.py-5
+                include ../components/quote.pug
+
         .row.py-5.border-top#acknowledgements
             .col-12.p-0
                 include ../components/accordion.pug
+
 
     .container-fluid#in-the-series
         include ../components/in-the-series.pug
