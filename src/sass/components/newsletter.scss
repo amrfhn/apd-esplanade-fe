@@ -2,4 +2,9 @@
     background-repeat: no-repeat !important;
     background-size: cover !important;
     background-position: center !important;
+
+    .overlay {
+        background: $primary;
+        opacity: .7;
+    }
 }   
