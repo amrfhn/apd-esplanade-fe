@@ -1,0 +1,52 @@
+.quote-wrapper {
+    margin: 0 auto;
+    width: 100%;
+    font-family: 'Libre Baskerville', serif;   
+    text-align: center;
+
+    @media(min-width: 768px) {
+        width: 80%;
+    }
+
+    .quotation-open {
+        font-size: 140px;
+        margin: 0;
+        height: 40px;
+        font-weight: 900;
+        line-height: 0.7;
+
+        @media (min-width: 768px) {
+            font-size: 190px;
+            line-height: 0.85;
+        }
+    }
+
+    .quotation-close {
+        font-size: 140px;
+        margin: 0;
+        height: 87px;
+        line-height: 1.2;
+        font-weight: 900;
+
+        @media (min-width: 768px) {
+            line-height: .85;
+            font-size: 190px;
+        }
+    }
+
+    .quote {
+        width: 100%;
+        margin: auto;
+        font-size: 36px;    
+        line-height: 1.17;
+        letter-spacing: 1.36px;
+
+        @media (min-width: 768px) {
+            width: 85%;
+        }
+    }
+
+    .quote-caption {
+        font-size: 14px;
+    }
+}
