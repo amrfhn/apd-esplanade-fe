@@ -1,14 +1,5 @@
 $(function () {
-
-
-    for (var i = 1; i <= 5; i++) {
-        Ellipsis({
-            className: '.clamp-' + i,
-            break_word: false,
-            lines: i,
-            responsive: true
-        });
-    }
+    clampText();
 
     $('#author-name').click(function (e) {
         e.preventDefault();
@@ -60,15 +51,15 @@ $(function () {
         $('.banner-bg').css('background-image', 'url("' +carouselDesktopImage+ '")')
     }
 
-    // var params = {
-    //     "browse": "ddygsyfs",
-    //     "contentType": "uydsgfysgfys",
-    //     "timeTaken": "ssfgsdyfg",
-    //     "sort": "trending"
-    // }
+    //In the series 
     $('.multi-collapse').on('shown.bs.collapse', function () {
         var text = $('#in-the-series button').text();
         $('#in-the-series button').text(text.replace('View All', 'View Less'));
+        clampText();
+    })
+
+    $('.multi-collapse').on('show.bs.collapse', function () {
+        clampText();
     })
 
     $('.multi-collapse').on('hidden.bs.collapse', function () {
@@ -76,3 +67,15 @@ $(function () {
         $('#in-the-series button').text(text.replace('View Less', 'View All'));
     })
 })
+
+function clampText(){
+    let item = $("*[class*='clamp-']")
+    for(var i=1, len=$(item).length; i<len; i++){
+        Ellipsis({
+            className: '.clamp-' + i,
+            break_word: false,
+            lines: i,
+            responsive: true
+        });
+    }
+}
