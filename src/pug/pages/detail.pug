@@ -95,7 +95,7 @@ block content
                 .d-flex.align-items-md-center.pb-4.pb-md-0
                     .pr-3
                         img(src='./assets/microsites/offstage/img/icons/Book.svg')
-                    p.p-0.pb-3.m-0 Time to read: 15 minutes
+                    p.p-0.pb-3.pb-mb-0.m-0 Time to read: 15 minutes
             
                 
 
@@ -107,12 +107,28 @@ block content
                         a(href="#").pr-3.px-md-0.px-md-2
                             img(src=icon height="25px")
 
+
                     //- select.ml-3.w-auto.custom-select.d-none.d-md-flex(name="")
                     //-     option(value='1' selected) EN
                     //-     option(value='2') CH
                     //-     option(value='3') ML
                     //-     option(value='4') TA
-                    include ../components/language-toggle.pug
+                    #lang-toggle.pl-5
+                        multiselect(
+                            v-model="value",
+                            deselect-label="Can't remove this value",
+                            track-by="id",
+                            label="name",
+                            placeholder="Select one",
+                            :options="options",
+                            :searchable="false",
+                            :allow-empty="false"
+                            :show-labels="false"
+                        )
+                            template(slot="caret") 
+                                a.multiselect__select(tabindex="")
+                                    img(src='./assets/microsites/offstage/img/icons/Down.svg')                                 
+                    //- include ../components/language-toggle.pug
 
             
             .col-12.d-md-none
