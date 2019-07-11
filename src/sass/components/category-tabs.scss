@@ -3,12 +3,19 @@
 .side-filter{
   z-index: 99;
   position: relative;
+  width: 100%;
+
+    @media(min-width:768px){
+      width: 560px;
+    }
+    @media(min-width:1440px){
+      width: 770px;
+    }
   .tab-sliders{
     padding:0 10px;
     padding-left: 2px;
     @media(min-width:768px){
-      padding:0 60px;
-      padding-left: 10px;
+      padding:0 44px;
     }
     
 
@@ -83,21 +90,30 @@
       }
     }
     .btn-icon{
-      display: none;
       @media(min-width:768px){
         position: absolute;
-        top: -9px;
-        display: block;
+        top: -6px;
       }
       
     }
-    #goPrev {
-      left:-6%;
+    .back{
       display: none;
+    }
+    #goPrev {
+      left:0;
     }
     #goNext {
       right:0;
       display: none;
+      @media(min-width:768px){
+        display: block;
+      }
+    }
+    .arrow{
+      display:none;
+      @media(min-width:768px){
+        display: block;
+      }
     }
   }
 }

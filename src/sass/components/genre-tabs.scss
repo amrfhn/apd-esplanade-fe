@@ -94,21 +94,34 @@
         }
       }
       .btn-icon{
-        display: none;
         @media(min-width:768px){
           position: absolute;
           top: -10px;
+        }
+        
+      }
+      .prev{
+        display: none;
+      }
+      #goBack {
+        left:0;
+      }
+      #goAfter {
+        right:0;
+        display: none;
+        @media(min-width:768px){
           display: block;
         }
         
       }
-      #goBack {
-        left:0%;
-        display: none;
+
+      .show-arrow{
+        display:none;
+        @media(min-width:768px){
+          display: block;
+        }
       }
-      #goAfter {
-        right:0;
-      }
+
     }
   }
 }
