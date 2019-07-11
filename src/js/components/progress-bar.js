@@ -85,7 +85,7 @@ $(function (){
             let scrollPos = $(this).scrollTop()
             let menuHeight = $('.nav-bar-wrapper').height();
             
-            if(scrollPos > (current.offset().top - menuHeight + 50)) {
+            if(scrollPos > (current.offset().top - menuHeight)) {
             current.find("progress").addClass("fixedbar");
             } else {
                 current.find("progress").removeClass("fixedbar");

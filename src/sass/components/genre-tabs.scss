@@ -1,30 +1,10 @@
-.navtabs-filter-wrapper{
-  background: #fff;
-  position: relative;
-  transition: .2s ease-in-out;
-
-}
-.fixedBar{
-  position: fixed;
-  z-index: 299;
-  width: 100%;
-  top: 0;
-
-  
-  @media(min-width:768px){
-    width: 47%;
-    padding-top: 22px !important;
-  }
-}
-
-
 .genre-wrapper{
 
   .genre-tabs-container{
     width: 100%;
 
     @media(min-width:768px){
-      width: 520px;
+      width: 560px;
     }
     
     @media(min-width:1440px){
@@ -35,7 +15,7 @@
       padding-left: 2px;
       @media(min-width:768px){
         // padding:0 60px;
-        padding-left: 24px;
+        padding-left: 35px;
       }
       
   
@@ -117,13 +97,13 @@
         display: none;
         @media(min-width:768px){
           position: absolute;
-          top: 4px;
+          top: -10px;
           display: block;
         }
         
       }
       #goBack {
-        left:-3%;
+        left:0%;
         display: none;
       }
       #goAfter {

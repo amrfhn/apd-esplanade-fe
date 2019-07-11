@@ -5,10 +5,14 @@ $(function () {
     $('.filter').on('click', function () {
         $filterMenu.toggleClass('show-filter');
         $("body").addClass("filter-open");
+        $('.search').fadeOut();
+        
     })
 
     $('.close-filter').on('click', function () {
         $filterMenu.toggleClass('show-filter');
+        $('.search').fadeIn();
+
         $("body").removeClass("filter-open");
     })
 

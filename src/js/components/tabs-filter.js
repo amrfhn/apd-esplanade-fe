@@ -67,38 +67,52 @@ $(function () {
             }
         }
     })
+    var $filterContainer = $('.tab-filter');
+
+    if($filterContainer.length > 0){
+        $(document).on('scroll', function () {
+
+            let filterScrollPos = $(this).scrollTop();
+
+            if(filterScrollPos > ($filterContainer.offset().top)) {
+                $('.filter-bar').addClass("stick");
+            } else {
+                $('.filter-bar').removeClass("stick");
+            } 
+
+            console.log(filterScrollPos, $filterContainer.offset().top)
+
+        });
+    }
 
     //on click scroller arrow and initialize outer width func
-    $('#goPrev').click(function () {
+    $('#goPrev').on('click', function () {
         $('.wrap').animate({ scrollLeft: '-=100' }, 200);
     });
 
-    $('#goNext').click(function () {
+    $('#goNext').on('click', function () {
         $('.wrap').animate({ scrollLeft: '+=100' }, 200);
     });
 
-    $('#goBack').click(function () {
+    $('#goBack').on('click', function () {
         $('.wrapper').animate({ scrollLeft: '-=100' }, 200);
     });
 
-    $('#goAfter').click(function () {
+    $('#goAfter').on('click', function () {
         $('.wrapper').animate({ scrollLeft: '+=100' }, 200);
     });
 
-    $('.wrapper').scroll(function(e){
+    $('.wrapper').on('scroll', function(e){
         var genreScroll = $('.wrapper').scrollLeft();
         console.log('scroll', genreScroll);
         
         if($(this).scrollLeft() == 0){
-            console.log('scroll');
             $('#goBack').css('display', 'none');
         } 
         if($(this).scrollLeft() > 0){
-            console.log('scroll');
             $('#goBack').css('display', 'block');
         }
         if($(this).scrollLeft() == $('.wrapper').width()){
-            console.log('scroll');
             $('#goAfter').css('display', 'none');
         }
     }) 

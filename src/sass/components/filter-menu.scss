@@ -17,6 +17,10 @@
         right: -20%;
     }
 
+    @media(max-width:320px){
+        right: -125%;
+    }
+
     .close-filter{
         float: right;
         position: relative;

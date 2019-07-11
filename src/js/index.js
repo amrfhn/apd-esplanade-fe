@@ -24,9 +24,9 @@ $(function () {
     {   
         
         if(mobileCaption !== ""){
-            $('.banner-bg').css('background-image', 'url("' +mobileCaption+ '")')
+            $('.caption').html(mobileCaption)
         } else {
-            $('.banner-bg').css('background-image', 'url("' +desktopCaption+ '")')
+            $('.caption').html(desktopCaption)
         }
 
 
