@@ -13,6 +13,8 @@ $(function (){
         }
     })
 
+    console.log(current, width);
+
     var $readSection = $('#readSection');
     var $scrollOffset = $(document).scrollTop();
 
@@ -88,6 +90,8 @@ $(function (){
             } else {
                 current.find("progress").removeClass("fixedbar");
             } 
+
+            console.log(scrollPos, current.offset().top, menuHeight);
         });
     }
 });

@@ -103,12 +103,10 @@ $(function () {
         }
     }) 
 
-    
-
-    $(window).resize(function () {
-        check_navigation_tabs();
-    });
-    check_navigation_tabs();
+    // $(window).resize(function () {
+    //     check_navigation_tabs();
+    // });
+    // check_navigation_tabs();
 
     
 
@@ -136,32 +134,5 @@ $(function () {
     //         $('#goAfter').css('display', 'none');
 
     //     }
-
-    //     // Hide scroll button when the scroller at the most left or right
-        // $('.wrapper').on('scroll', function(e){
-        //     var genreScroll = $('.wrapper').scrollLeft();
-        //     console.log('scroll', genreScroll);
-        //     if($(this).scrollLeft() >= 25){
-        //         console.log('scroll');
-        //     }
-        // })
-
-
-    //     $('.wrap').on('scroll', function(){
-    //         var categoryScrollLeft = $('.wrap').scrollLeft();
-            
-    //         if (categoryScrollLeft > categoryLastLeft){
-    //             $('#goPrev').fadeIn();
-    //             $('#goNext').fadeIn();
-    //         }
-    //         if (categoryScrollLeft <= 0){
-    //             $('#goPrev').fadeOut();
-    //             $('#goNext').fadeIn();
-    //         }
-
-    //         categoryLastLeft = categoryScrollLeft;
-    //     })
-
-    // }
 
 })
