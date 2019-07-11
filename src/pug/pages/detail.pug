@@ -107,11 +107,13 @@ block content
                         a(href="#").pr-3.px-md-0.px-md-2
                             img(src=icon height="25px")
 
-                    select.ml-3.w-auto.custom-select.d-none.d-md-flex(name="")
-                        option(value='1' selected) EN
-                        option(value='2') CH
-                        option(value='3') ML
-                        option(value='4') TA
+                    //- select.ml-3.w-auto.custom-select.d-none.d-md-flex(name="")
+                    //-     option(value='1' selected) EN
+                    //-     option(value='2') CH
+                    //-     option(value='3') ML
+                    //-     option(value='4') TA
+                    include ../components/language-toggle.pug
+
             
             .col-12.d-md-none
                 nav#lang-tab.nav.nav-pills.pb-4(role='tablist')
