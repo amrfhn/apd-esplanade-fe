@@ -33,27 +33,30 @@ block content
 
 
 
-            .col-12.col-md-6.pt-md-1.p-md-4.px-0
-                .tab-filter#tabs-filter
-                    .container-fluid
-                        .row.px-2.px-md-0.py-3.py-md-1.mt-0.navtabs-filter-wrapper
-                            .col-11.no-gutters
-                                .side-filter
+            .col-12.col-md-6(style="z-index:9999")
+                .tab-filter.position-relative#tabs-filter
+                    .container-fluid.no-gutters.px-0
+                        .row.no-gutters.filter-bar.px-3
+
+                            .col-10.pt-4.pb-1
+                                .category-tabs-wrapper.side-filter
                                     include ../components/category-tabs.pug 
-
-
-                            .genre-wrapper.col-11.px-4.px-md-0.pt-3.pb-3.mt-4.border-top
-                                .genre-tabs-container
+                                    hr.w-100.ml-3
+                                    
+                            .col-2.d-none.d-md-block
+                            
+                            .col-11.px-2.pb-2.genre-wrapper
+                                .genre-tabs-container.pb-3
                                     include ../components/genre-tabs.pug
-
-                            .genre-filter.col-1.px-0.px-lg-3.pt-3.pb-3.mt-4
-                                a.filter(style="cursor:pointer;")
+                            .col-1.genre-filter.pb-2
+                                 a.filter(style="cursor:pointer;")
                                     img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
+
                         .row
                             include ../components/filter-menu.pug
 
 
-                        .row.p-3.p-md-0.pt-md-3.mt-3.tab-content
+                        .row.no-gutters.p-5.pt-md-3.mt-3.tab-content
                             .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
                                 include ../components/card-tile.pug
 

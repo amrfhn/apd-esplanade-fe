@@ -41,26 +41,7 @@ $(function () {
         $('#searchBar').toggleClass('active');
     })
     $closeSearch.on('click', function () {
-        $('#searchBar').removeClass('active');
+        $('#searchBar').toggleClass('active');
     })
-
-    var $fixSideTab = $('.navtabs-filter-wrapper');
-
-    if($fixSideTab.length > 0){
-        $(document).on('scroll', function (e) {
-
-            if ($(this).scrollTop() >= $fixSideTab.offset().top + 100  && !$(".navtabs-filter-wrapper").hasClass("fixedBar")) {
-                $(".navtabs-filter-wrapper").addClass("fixedBar");
-                console.log("triger")
-            }
-    
-            if ($(this).scrollTop() < $fixSideTab.offset().top + 100  && $(".navtabs-filter-wrapper").hasClass("fixedBar")) {
-                $(".navtabs-filter-wrapper").removeClass("fixedBar");
-                console.log("not")
-            }
-        });
-    }
-
-    
 
 });

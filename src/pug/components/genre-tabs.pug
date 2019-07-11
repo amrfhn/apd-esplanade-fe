@@ -1,21 +1,4 @@
-//- .pn-ProductNav_Wrapper
-//-     nav#pnProductNav.pn-ProductNav
-//-         #pnProductNavContents.pn-ProductNav_Contents
-//-             //- a(href='#' v-for="genre in genres" :data-key="genre.key" :aria-selected='genre.selected' @click="filterGenre(genre.key)").pn-ProductNav_Link {{genre.name}}
-//-             a(href='#' aria-selected="true" :data-key="genre" @click="filterGenre('all')").pn-ProductNav_Link All
-//-             a(href='#' data-key="music" @click="filterGenre('music')").pn-ProductNav_Link MUSIC
-//-             a(href='#' data-key="dance" @click="filterGenre('dance')").pn-ProductNav_Link DANCE
-//-             a(href='#' data-key="threatre" @click="filterGenre('theatre')").pn-ProductNav_Link THEATRE
-//-             a(href='#' data-key="visualarts" @click="filterGenre('visualarts')").pn-ProductNav_Link VISUAL ARTS
-//-             a(href='#' data-key="literyarts" @click="filterGenre(literaryarts)").pn-ProductNav_Link LITERARY ARTS
-//-             span#pnIndicator.pn-ProductNav_Indicator
-//-     button(type="button")#pnAdvancerLeft.pn-Advancer.pn-Advancer_Left.px-3
-//-         img(src="./assets/microsites/offstage/img/icons/Previous.svg")
-
-//-     button(type="button")#pnAdvancerRight.pn-Advancer.pn-Advancer_Right.px-1
-//-         img(src="./assets/microsites/offstage/img/icons/Next.svg")
-
-.genre-tabs
+.genre-tabs.pr-3.pr-md-4
     .wrapper
         ul.nav.nav-tabs#genreTabs(role= "tablist")
             li.genre-list
