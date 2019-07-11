@@ -53,18 +53,12 @@ $(function () {
 
     //In the series 
     $('.multi-collapse').on('shown.bs.collapse', function () {
-        var text = $('#in-the-series button').text();
-        $('#in-the-series button').text(text.replace('View All', 'View Less'));
+        $('#in-the-series button').addClass('d-none');
         clampText();
     })
 
     $('.multi-collapse').on('show.bs.collapse', function () {
         clampText();
-    })
-
-    $('.multi-collapse').on('hidden.bs.collapse', function () {
-        var text = $('#in-the-series button').text();
-        $('#in-the-series button').text(text.replace('View Less', 'View All'));
     })
 })
 
