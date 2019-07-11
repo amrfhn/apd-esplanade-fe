@@ -6,15 +6,14 @@
 
         img.card-img-top(:src='filter.Thumbnail')
     
-    .border.border-top-0.text-left.position-relative 
-        span.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute {{filter.ContentType.Value}}
+        .border.border-top-0.text-left.position-relative 
+            span.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute {{filter.ContentType.Value}}
 
-        .card-body.text-center.pt-5
-            div
-                span.genre-title.px-2.card-text.font-16.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
+            .card-body.text-center.pt-5
+                div
+                    span.genre-title.px-2.card-text.font-16.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
 
-            .card-title.text-primary.m-0
-                a(:href='filter.Url') 
+                .card-title.text-primary.m-0
                     h5.font-weight-bolder.m-0.font-22(v-line-clamp:20="2") {{filter.Title}}
 
-            p.card-text.font-18(v-line-clamp:20="3") {{filter.Description}}
+                p.card-text.font-18(v-line-clamp:20="3") {{filter.Description}}
