@@ -4,7 +4,12 @@
     width: 100%;
     // background: linear-gradient(rgba(130, 130, 130, 0.5), rgba(255, 255, 255, 0));
     z-index: 50; 
-    position: fixed;
+    // position: fixed;
+    position: absolute;
+
+    @media(min-width:768px){
+        position: fixed;
+    }
 
     .left-wrapper{
         background: linear-gradient(rgba(0,0,0,.4), rgba(255, 255, 255, 0));
