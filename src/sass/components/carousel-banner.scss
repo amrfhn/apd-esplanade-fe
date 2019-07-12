@@ -1,138 +1,134 @@
-.carousel-banner-wrapper{
-    position: relative;
-    width: 100%;
-    
-    @include media-breakpoint-up(md) {
-        position: fixed;
-        width: 50%;
-    }
-    
-    
-    .carousel-banner{
-        
-        .banner-bg{
-            height: 100vh;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
+.carousel-banner-wrapper {
+  position: relative;
+  width: 100%;
 
-            .banner-content{
-                padding: 30px;
-                
-                @media(min-width:768px){
-                    padding: 75px;
-                }
-                h2.title{
-                    color: #fff;
-                    font-size: 48px;
-                    line-height: 48px;
-                    font-weight: 96px;
-                    font-style: normal;
-                    letter-spacing: 1.9px; 
-                }
+  @include media-breakpoint-up(md) {
+    position: fixed;
+    width: 50%;
+  }
 
-                p.description{
-                    color: #fff;
-                    font-size: 18px;
-                    line-height: 22px;
-                    font-weight: normal;
-                    font-style: normal;
-                    padding-right: 30px;
-                    letter-spacing: .6px;
-                }
+  .carousel-banner {
+    .banner-bg {
+      height: 100vh;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
 
-                .arrows-wrapper{
-                    .custom-btn{
-                        border: 0;
-                        background: none;
-                        padding: 10px 5px;
-
-                        img.cus-control{
-                            width: 100%;
-                            position: relative;
-                            top: 0;
-                            left: 0;
-                            background: none;
-                        }
-                    }
-                }
-
-                .slide-count-wrap{
-                    position: relative;
-                    // top: 90%;
-                    // left: 20%;
-                    font-size: 16px;
-                    line-height: 16px;
-                    font-weight: 600;
-                    color: #fff;
-                    letter-spacing: .6px;
-                    padding: 0 5px;
-            
-                    @media (min-width:768px){
-                        font-size: 18px;
-                        line-height: 18px;                    }
-                }
-
-            }
-            .pos-mid{
-                margin-top: 20%;
-            }
-            .pos-top{
-                margin-top:8%;
-            }
-            .pos-bot{
-                margin-top:32%;
-            }
-        }
-    }
-    
-
-    
-    .slick-dots {
+      .banner-content {
         position: absolute;
+        padding: 30px;
+
+        @media (min-width: 768px) {
+          padding: 10px 75px 30px 75px;
+        }
+        h2.title {
+          color: #fff;
+          font-size: 48px;
+          line-height: 48px;
+          font-weight: 96px;
+          font-style: normal;
+          letter-spacing: 1.9px;
+        }
+
+        p.description {
+          color: #fff;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: normal;
+          font-style: normal;
+          padding-right: 30px;
+          letter-spacing: 0.6px;
+        }
+
+        .arrows-wrapper {
+          .custom-btn {
+            border: 0;
+            background: none;
+            padding: 10px 5px;
+
+            img.cus-control {
+              width: 100%;
+              position: relative;
+              top: 0;
+              left: 0;
+              background: none;
+            }
+          }
+        }
+
+        .slide-count-wrap {
+          position: relative;
+          // top: 90%;
+          // left: 20%;
+          font-size: 16px;
+          line-height: 16px;
+          font-weight: 600;
+          color: #fff;
+          letter-spacing: 0.6px;
+          padding: 0 5px;
+
+          @media (min-width: 768px) {
+            font-size: 18px;
+            line-height: 18px;
+          }
+        }
+      }
+      .pos-mid {
+        top: calc(100vh/3);
+      }
+      .pos-top {
+        top: 70px;
+      }
+      .pos-bot {
         bottom: 0;
-        list-style: none;
-        display: block;
-        text-align: left;
-        padding: 0;
-        margin: 0;
-        top: 89%;
-        padding-left: 30px;
-        width: 100%;
-        
-        li{
-            margin: 0 2px;
-            
-            button{
-                border: 1px solid #fff;
-                background: transparent;
-                display: block;
-                height: 10px;
-                width: 10px;
-                outline: none;
-                border-radius: 0;
-                line-height: 0px;
-                font-size: 0px;
-                color: transparent;
-                padding: 5px;
-                cursor: pointer;
-                
-                &:before{
-                    display: none;
-                }
-            }
-        }
-
-        .slick-active{
-            
-            button{
-                background:#fff;
-            }
-        }
-
-        @media (min-width: 768px){
-            padding-left: 71px;
-        }
+      }
     }
-}
+  }
 
+  .slick-dots {
+    position: absolute;
+    bottom: 0;
+    list-style: none;
+    display: block;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    top: 89%;
+    padding-left: 30px;
+    width: 100%;
+
+    li {
+      margin: 0 2px;
+
+      button {
+        border: 1px solid #fff;
+        background: transparent;
+        display: block;
+        height: 10px;
+        width: 10px;
+        outline: none;
+        border-radius: 0;
+        line-height: 0px;
+        font-size: 0px;
+        color: transparent;
+        padding: 5px;
+        cursor: pointer;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+
+    .slick-active {
+      button {
+        background: #fff;
+      }
+    }
+
+    @media (min-width: 768px) {
+      padding-left: 71px;
+    }
+  }
+}
