@@ -22,6 +22,7 @@ import './components/tabs-filter.js'
 import './components/filter-menu.js'
 import './components/category-filter.js'
 import './components/accordion.js'
+import './components/multiselect.js'
 
 
 
