@@ -48,6 +48,17 @@ $(function () {
 
                 this.fetchData();
             },
+            applyFilter: function () {
+                var browse;
+                $('.browse-by').each(function(){
+                    if ($(this).find('input[type=checkbox]').checked) {
+                        browse = $(this).find('input[type=checkbox]').data('key') + ',';
+                    }
+                })
+                params.browse = browse
+
+                this.fetchData();
+            },
             fetchData: function () {
                 var host = "http://dev.esplanade.growthopsapp.com";
                 var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
@@ -62,6 +73,16 @@ $(function () {
                 }).done(function (data) {
                     console.log(data)
                     _this.filters = data
+
+                    jQuery.fn.hasScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    }
+                    if (!$('.wrap').hasScrollBar()) {
+                        $('#goPrev').css('display', 'none');
+                        $('#goNext').css('display', 'none');
+                        console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
+                    }
+                    // hideMainCategoryArrow()
                     // console.log(data.filters[1].Title)
                 })
             }
@@ -114,13 +135,11 @@ $(function () {
         $('#goAfter').css('display', 'none');
     }
 
-    jQuery.fn.hasScrollBar = function () {
-        return this.get(0).scrollWidth > this.innerWidth();
-    }
-    if (!$('.wrap').hasScrollBar()) {
-        $('#goPrev').css('display', 'none');
-        $('#goNext').css('display', 'none');
-    }
+    $(function hideMainCategoryArrow() {
+        
+    })
+
+
 
     $('.wrapper').on('scroll', function (e) {
         var genreScroll = $('.wrapper').scrollLeft();
@@ -176,6 +195,6 @@ $(function () {
         catScrollLeftPrev = catScrollLeft;
     })
 
-    
+
 
 })

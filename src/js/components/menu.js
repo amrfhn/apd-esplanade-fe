@@ -44,4 +44,17 @@ $(function () {
         $('#searchBar').toggleClass('active');
     })
 
+
+    $('a.nav-link.megamenu-genre').on('click', function () {
+         $('a.nav-link.megamenu-genre').each(function () {
+             $(this).parent().removeClass('active');
+             
+         console.log($(this));
+         })
+         $(this).parent().addClass('active');
+
+         var datakey = $(this).data('key');
+         $('a#'+datakey).click();
+    })
+
 });

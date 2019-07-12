@@ -1,16 +1,19 @@
-.tab-filter{
-    .filter-bar{
-        background: #fff;
-        position: relative;
-    }
-    .stick{
-        position: fixed;
-        top: 0;
-        z-index: 999;
-        width: 100%;
+.tabfil-container{
+    z-index:9999;
+    .tab-filter{
+        .filter-bar{
+            background: #fff;
+            position: relative;
+        }
+        .stick{
+            position: fixed;
+            top: 0;
+            z-index: 999;
+            width: 100%;
 
-        @media(min-width:768px){
-            width: unset;
+            @media(min-width:768px){
+                width: unset;
+            }
         }
     }
 }
