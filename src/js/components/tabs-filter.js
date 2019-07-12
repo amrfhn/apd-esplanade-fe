@@ -49,14 +49,15 @@ $(function () {
                 this.fetchData();
             },
             applyFilter: function () {
-                var browse;
-                $('.browse-by').each(function(){
+                var browse = [];
+                $('.browse-by').find('input[type=checkbox]:checked').each(function(){
                     if ($(this).find('input[type=checkbox]:checked')){
-                        browse = $(this).data('key') + ',';
-                        console.log($(this).data('key'))
+                        browse.push($(this).data('key'));
                     }
                 })
-                params.browse = browse
+                params.browse = browse.join(',');
+
+                console.log(params.browse);
 
                 this.fetchData();
             },
