@@ -20,7 +20,6 @@ $(function () {
         $('html, body').animate({
             scrollTop: $("#tabs-filter").offset().top
         }, 1500);
-        console.log("lol")
     })
 
 })

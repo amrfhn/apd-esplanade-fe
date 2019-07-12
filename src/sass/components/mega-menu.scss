@@ -168,6 +168,11 @@
     .scrolled{
         background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));
         transition: background-color 200ms linear;
+        position: fixed;
+
+        @media(min-width: 768px){
+            position: relative;
+        }
     }
 }
 
