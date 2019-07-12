@@ -49,15 +49,37 @@ $(function () {
                 this.fetchData();
             },
             applyFilter: function () {
-                var browse;
-                $('.browse-by').each(function(){
+                var browse = [];
+                $('.browse-by').find('input[type=checkbox]:checked').each(function(){
                     if ($(this).find('input[type=checkbox]:checked')){
-                        browse = $(this).data('key') + ',';
-                        console.log($(this).data('key'))
+                        browse.push($(this).data('key'));
                     }
                 })
-                params.browse = browse
+                params.browse = browse.join(',');
 
+
+                var contentType = [];
+                $('.content-types').find('input[type=checkbox]:checked').each(function(){
+                    if ($(this).find('input[type=checkbox]:checked')){
+                        contentType.push($(this).data('key'));
+                    }
+                })
+                params.contentType = contentType.join(',');
+
+                var timeTaken = [];
+                $('.time-taken').find('input[type=checkbox]:checked').each(function(){
+                    if ($(this).find('input[type=checkbox]:checked')){
+                        timeTaken.push($(this).data('key'));
+                    }
+                })
+                params.timeTaken = timeTaken.join(',');
+
+                var $sortValue = $('[name="sort"]:checked').length>0? $('[name="sort"]:checked').val():"";
+
+                params.sort = $sortValue;
+
+                console.log(params.browse, params.contentType, params.timeTaken, params.sort);
+                
                 this.fetchData();
             },
             fetchData: function () {

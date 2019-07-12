@@ -14,7 +14,6 @@ $(function () {
     $('.thumbnail-holder').each(function() {
         var mobileImage = $(this).attr('data-mobile-image')
         var desktopImage = $(this).attr('data-desktop-image')
-        
 
         if(width <= 768)
         {  
@@ -33,8 +32,6 @@ $(function () {
     $('.banner-bg').each(function() {
         var carouselMobileImage = $(this).attr('data-mobile-image')
         var carouselDesktopImage = $(this).attr('data-desktop-image')
-    
-        console.log(carouselMobileImage);
     
         if(width <= 768)
         {  
