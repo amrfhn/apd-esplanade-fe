@@ -9,47 +9,72 @@ $(function () {
         }, 500);
     });
 
-    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;    
 
-    var mobileCaption = $('.caption').attr('data-mobile-caption')
-    var desktopCaption = $('.caption').attr('data-desktop-caption')
-    var mobileImage = $('.thumbnail-holder').attr('data-mobile-image')
-    var desktopImage = $('.thumbnail-holder').attr('data-desktop-image')
-    var carouselMobileImage = $('.banner-bg').attr('data-mobile-image')
-    var carouselDesktopImage = $('.banner-bg').attr('data-desktop-image')
-
-    console.log(carouselMobileImage);
-
-    if(width <= 768)
-    {   
+    $('.thumbnail-holder').each(function() {
+        var mobileImage = $(this).attr('data-mobile-image')
+        var desktopImage = $(this).attr('data-desktop-image')
+<<<<<<< HEAD
         
-        if(mobileCaption !== ""){
-            $('.caption').html(mobileCaption)
-        } else {
-            $('.caption').html(desktopCaption)
+=======
+
+>>>>>>> 1d01d175783e2d6d397b6d2cfdc136ab1d92dcaf
+        if(width <= 768)
+        {  
+            if(mobileImage !== ""){
+                $(this).css('background-image', 'url("' +mobileImage+ '")')
+            } else {
+                $(this).css('background-image', 'url("' +desktopImage+ '")')
+            }            
         }
-
-
-        if(mobileImage !== ""){
-            $('.banner-bg').css('background-image', 'url("' +mobileImage+ '")')
-        } else {
-            $('.banner-bg').css('background-image', 'url("' +desktopImage+ '")')
+        if(width > 768)
+        {            
+            $('.thumbnail-holder').css('background-image', 'url("' +desktopImage+ '")')
         }
+    });
 
-
-        if(carouselMobileImage !== ""){
-            $('.banner-bg').css('background-image', 'url("' +carouselMobileImage+ '")')
-        } else {
-            $('.banner-bg').css('background-image', 'url("' +carouselDesktopImage+ '")')
+    $('.banner-bg').each(function() {
+        var carouselMobileImage = $(this).attr('data-mobile-image')
+        var carouselDesktopImage = $(this).attr('data-desktop-image')
+    
+<<<<<<< HEAD
+=======
+        console.log(carouselMobileImage);
+    
+>>>>>>> 1d01d175783e2d6d397b6d2cfdc136ab1d92dcaf
+        if(width <= 768)
+        {  
+            if(carouselMobileImage !== ""){
+                $(this).css('background-image', 'url("' +carouselMobileImage+ '")')
+            } else {
+                $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
+            }
+            
         }
-        
-    }
-    if(width > 768)
-    {
-        $('.caption').html(desktopCaption);
-        $('.thumbnail-holder').css('background-image', 'url("' +desktopImage+ '")')
-        $('.banner-bg').css('background-image', 'url("' +carouselDesktopImage+ '")')
-    }
+        if(width > 768)
+        {
+            $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
+        }
+    });
+
+    $('.caption').each(function() {
+        var mobileCaption = $(this).attr('data-mobile-caption')
+        var desktopCaption = $(this).attr('data-desktop-caption')
+
+        if(width <= 768)
+        {   
+            if(mobileCaption !== ""){
+                $(this).html(mobileCaption)
+            } else {
+                $(this).html(desktopCaption)
+            }
+            
+        }
+        if(width > 768)
+        {
+            $(this).html(desktopCaption);
+        }
+    });
 
     //In the series 
     $('.multi-collapse').on('shown.bs.collapse', function () {

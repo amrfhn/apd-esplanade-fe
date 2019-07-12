@@ -51,8 +51,9 @@ $(function () {
             applyFilter: function () {
                 var browse;
                 $('.browse-by').each(function(){
-                    if ($(this).find('input[type=checkbox]').checked) {
-                        browse = $(this).find('input[type=checkbox]').data('key') + ',';
+                    if ($(this).find('input[type=checkbox]:checked')){
+                        browse = $(this).data('key') + ',';
+                        console.log($(this).data('key'))
                     }
                 })
                 params.browse = browse
@@ -100,8 +101,6 @@ $(function () {
             } else {
                 $('.filter-bar').removeClass("stick");
             }
-
-            console.log(filterScrollPos, $filterContainer.offset().top)
 
         });
     }
@@ -182,8 +181,6 @@ $(function () {
         if ($(this).scrollLeft() > 0) {
             $('#goPrev').addClass('arrow');
         }
-
-        console.log('cat left is ', $(this).scrollLeft())
 
         if (catScrollWidth - catScrollLeft - catWidth == catOffset) {
             $('#goPrev').addClass('arrow');
