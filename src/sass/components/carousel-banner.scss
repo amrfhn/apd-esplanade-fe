@@ -18,9 +18,11 @@
       .banner-content {
         position: absolute;
         padding: 30px;
+        width: 100%;
 
         @media (min-width: 768px) {
           padding: 10px 75px 30px 75px;
+          width: 90%;
         }
         h2.title {
           color: #fff;
@@ -37,7 +39,7 @@
           line-height: 22px;
           font-weight: normal;
           font-style: normal;
-          padding-right: 30px;
+        //   padding-right: 30px;
           letter-spacing: 0.6px;
         }
 

@@ -1,7 +1,7 @@
 mixin textBanner(title, description, url)
     .banner-content&attributes(attributes)
-        h2.text-white=title
-        p.description.mt-2.clamp-2=description
+        h2.text-white.clamp-2=title
+        p.description.mt-2.clamp-3=description
         a.btn.btn-outline-light.mt-2(href="/detail.html") FIND OUT MORE
         .d-flex.mt-md-5.mt-4
             .arrows-wrapper
