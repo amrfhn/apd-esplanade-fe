@@ -22,6 +22,11 @@
   .card-img-top {
     height: 195px;
     object-fit: cover;
+    border-radius: 0 !important;
+  }
+
+  .card-label {
+    left: -1px;
   }
 
   .genre-title {
