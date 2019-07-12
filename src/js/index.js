@@ -14,11 +14,8 @@ $(function () {
     $('.thumbnail-holder').each(function() {
         var mobileImage = $(this).attr('data-mobile-image')
         var desktopImage = $(this).attr('data-desktop-image')
-<<<<<<< HEAD
         
-=======
 
->>>>>>> 1d01d175783e2d6d397b6d2cfdc136ab1d92dcaf
         if(width <= 768)
         {  
             if(mobileImage !== ""){
@@ -37,11 +34,8 @@ $(function () {
         var carouselMobileImage = $(this).attr('data-mobile-image')
         var carouselDesktopImage = $(this).attr('data-desktop-image')
     
-<<<<<<< HEAD
-=======
         console.log(carouselMobileImage);
     
->>>>>>> 1d01d175783e2d6d397b6d2cfdc136ab1d92dcaf
         if(width <= 768)
         {  
             if(carouselMobileImage !== ""){
