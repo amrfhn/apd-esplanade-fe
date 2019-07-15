@@ -17,7 +17,9 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
-        filters: []
+        filters: [],
+        banners: [],
+        genreSpecificBanners: []
     }
 
     var params = {
@@ -32,20 +34,71 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
+            $('.carousel-banner').data('banners').forEach(function (item) {
+                var genreSpecificBanners = [];
+                
+                item.forEach(function(itemArray) {
+                    var contentPosition = "";
+                    switch(itemArray.Content.ContentPosition)
+                    {
+                        case "top":
+                            {
+                                contentPosition = "pos-top";
+                                break;
+                            }
+                        case "middle":
+                            {
+                                contentPosition = "pos-mid";
+                                break;
+                            }
+                        case "bottom":
+                            {
+                                contentPosition = "pos-bot";
+                                break;
+                            }
+                        default:
+                            {
+                                contentPosition = "pos-top";
+                                break;
+                            }
+                    }
+                    genreSpecificBanners.push({
+                        "desktopImage": itemArray.ThumbnailDesktop,
+                        "mobileImage": itemArray.ThumbnailMobile,
+                        "title": itemArray.Content.Title,
+                        "subTitle": itemArray.Content.SubTitle,
+                        "pageUrl": itemArray.Content.LinkToPage,
+                        "contentPosition": contentPosition,
+                    })
+                });
+
+                data.banners.push({
+                    "genre": item[0].Genre,
+                    "banners": genreSpecificBanners
+                })
+            });
+              
+            this.loadBanner('all');
             this.fetchData();
             console.log("called api");
         },
         methods: {
+            loadBanner: function (e) {
+                var genreSpecificBanners = data.banners.find(function(element) {
+                    return element.genre == e;
+                });
+                var banners = genreSpecificBanners != null ? genreSpecificBanners.banners : [];
+
+                this.genreSpecificBanners = banners;
+            },
             filterGenre: function (e) {
                 var key = e;
                 data.genre = key
-                console.log(key);
-                console.log(data.genre);
-
-
+                
                 $('.carousel-banner').hide();
                 $('#' + key).show();
 
+                this.loadBanner(key);
                 this.fetchData();
             },
             applyFilter: function () {
@@ -107,6 +160,9 @@ $(function () {
                     }
                     // hideMainCategoryArrow()
                     // console.log(data.filters[1].Title)
+
+                
+
                 })
             }
         }
@@ -198,18 +254,17 @@ $(function () {
         var catOffset = 8;
 
         if ($(this).scrollLeft() === 0) {
-            $('#goPrev').removeClass('arrow');
+            $('#goPrev').toggleClass('arrow');
         }
-        if ($(this).scrollLeft() > 0) {
+        if ($(this).scrollLeft() >= 1) {
             $('#goPrev').addClass('arrow');
-        }
+        } 
 
+        console.log($(this).scrollLeft())
         if (catScrollWidth - catScrollLeft - catWidth == catOffset) {
             $('#goPrev').addClass('arrow');
         }
-        if (catScrollLeft === 0) {
-            $('#goPrev').addClass('arrow');
-        }
+        
 
         catScrollLeftPrev = catScrollLeft;
     })
