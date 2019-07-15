@@ -1,13 +1,11 @@
 $(function () {
+    var options = [];
+    options = $('#lang-toggle').data('options');
+
     var data = {
         message: 'Hello Vue!',
         value: { name: 'EN', id: 'default' },
-        options: [
-          { name: 'EN', id: 'en' },
-          { name: 'CH', id: 'ch' },
-          { name: 'ML', id: 'ml' },
-          { name: 'TA', id: 'ta' },
-        ]
+        options: options
     }
 
     var langToggle = new Vue({
