@@ -93,12 +93,12 @@ block content
                 hr.w-100.my-4(style="border-top: 1px solid black")
 
     .container
-        .row.pt-4.pt-md-5.pb-md-0.flex-column-reverse.flex-md-row.align-items-baseline             
+        .row.pt-50.flex-column-reverse.flex-md-row.align-items-baseline             
             .col-12.col-md-6
                 .d-flex.align-items-md-center.pb-4.pb-md-0
                     .mr-3(style="width: 20px")
                         img(src='./assets/microsites/offstage/img/icons/Book.svg' width="100%")
-                    p.p-0.pb-3.pb-mb-0.m-0 Time to read: 15 minutes
+                    p.p-0.pb-3.pb-md-0.m-0 Time to read: 15 minutes
             
                 
 
@@ -145,7 +145,7 @@ block content
             
           
     .container#readSection
-        .row.pt-5
+        .row.py-25
             .col-12
                 h1.font-weight-bold.text-uppercase There's no stopping the tour de force of ballet.
                 p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta temporibus quaerat officia suscipit adipisci deleniti reiciendis molestiae vel nobis iste, dolore enim impedit ab quibusdam minima libero cumque pariatur dolores!
@@ -153,11 +153,11 @@ block content
                 br
                 h5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quas! Nulla, iste neque. Quia, ad rem deserunt dicta facere autem sint voluptas quae sequi accusantium voluptatibus at quos modi beatae?
 
-        .row.pt-5
+        .row.py-25
             .col
                 +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
 
-                .video-carousel.pt-4
+                .video-carousel.py-25
                     - const videos = ['https://www.youtube.com/embed/FdnOqThfNzc', 'https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o'];
                     each video in videos 
                         +videoCarousel(video)
@@ -177,19 +177,19 @@ block content
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
 
-        .row#mini-series.bg-light.mx-md-0 
+        .row#mini-series.bg-light.mx-md-0.my-25 
             include ../components/mini-series.pug
 
     .container
         .row
-            .col-12.px-5.py-5
+            .col-12.px-5.my-25
                 include ../components/quote.pug
 
-        .row.py-5.border-top#acknowledgements.mx-0
+        .row.pt-5.border-top#acknowledgements.mx-0.my-25
             .col-12.p-0
                 include ../components/accordion.pug
 
-        .row.py-5.border-top#tribute.mx-0
+        .row.pt-5.border-top#tribute.mx-0.my-25
             .col-12.p-0
                 include ../components/tribute.pug
 
