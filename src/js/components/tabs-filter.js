@@ -17,7 +17,8 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
-        filters: []
+        filters: [],
+        banners: []
     }
 
     var params = {
@@ -32,10 +33,26 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
+            console.log(JSON.parse(($('.carousel-banner').data('banners'))));
+
+            for (var property in $('.carousel-banner').data('banners')) {
+                if ($('.carousel-banner').data('banners').hasOwnProperty(property)){
+                    console.log(property)
+                    data.banners.push({
+                        "genre": property.Genre,
+                    })
+                }
+              }
+              
+            console.log(data.banners)
+            this.loadBanner('all');
             this.fetchData();
             console.log("called api");
         },
         methods: {
+            loadBanner: function (e) {
+                console.log(e);
+            },
             filterGenre: function (e) {
                 var key = e;
                 data.genre = key
@@ -46,6 +63,7 @@ $(function () {
                 $('.carousel-banner').hide();
                 $('#' + key).show();
 
+                this.loadBanner(key);
                 this.fetchData();
             },
             applyFilter: function () {
@@ -107,6 +125,9 @@ $(function () {
                     }
                     // hideMainCategoryArrow()
                     // console.log(data.filters[1].Title)
+
+                
+
                 })
             }
         }
@@ -198,18 +219,17 @@ $(function () {
         var catOffset = 8;
 
         if ($(this).scrollLeft() === 0) {
-            $('#goPrev').removeClass('arrow');
+            $('#goPrev').toggleClass('arrow');
         }
-        if ($(this).scrollLeft() > 0) {
+        if ($(this).scrollLeft() >= 1) {
             $('#goPrev').addClass('arrow');
-        }
+        } 
 
+        console.log($(this).scrollLeft())
         if (catScrollWidth - catScrollLeft - catWidth == catOffset) {
             $('#goPrev').addClass('arrow');
         }
-        if (catScrollLeft === 0) {
-            $('#goPrev').addClass('arrow');
-        }
+        
 
         catScrollLeftPrev = catScrollLeft;
     })
