@@ -6,7 +6,7 @@
     top: 25px;
 
     @media(min-width:768px){
-        position: absolute;
+        position: fixed;
         z-index: 99999;
     }
     .search-bar{
