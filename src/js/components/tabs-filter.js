@@ -90,6 +90,8 @@ $(function () {
                 var banners = genreSpecificBanners != null ? genreSpecificBanners.banners : [];
 
                 this.genreSpecificBanners = banners;
+
+                console.log('banners', banners)
             },
             filterGenre: function (e) {
                 var key = e;

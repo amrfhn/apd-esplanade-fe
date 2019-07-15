@@ -1,0 +1,12 @@
+#text-component {
+    a {
+        color: #00A3C9; 
+        text-decoration: underline;
+        transition: color .2s;
+
+        &:hover {
+            color: $primary;
+            transition: color .2s;
+        }
+    }
+}

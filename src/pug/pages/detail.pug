@@ -96,8 +96,8 @@ block content
         .row.pt-4.pt-md-5.pb-md-0.flex-column-reverse.flex-md-row.align-items-baseline             
             .col-12.col-md-6
                 .d-flex.align-items-md-center.pb-4.pb-md-0
-                    .pr-3
-                        img(src='./assets/microsites/offstage/img/icons/Book.svg')
+                    .mr-3(style="width: 20px")
+                        img(src='./assets/microsites/offstage/img/icons/Book.svg' width="100%")
                     p.p-0.pb-3.pb-mb-0.m-0 Time to read: 15 minutes
             
                 
@@ -189,6 +189,9 @@ block content
             .col-12.p-0
                 include ../components/accordion.pug
 
+        .row.py-5.border-top#tribute
+            .col-12.p-0
+                include ../components/tribute.pug
 
     .container-fluid#in-the-series
         include ../components/in-the-series.pug
