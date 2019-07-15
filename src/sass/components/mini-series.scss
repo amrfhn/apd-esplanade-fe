@@ -1,0 +1,23 @@
+#mini-series {
+    padding: 30px 21px; 
+
+    @media(min-width: 768px){
+        padding: 34px 41px; 
+    }
+    .series-img {
+        height: 99px;  
+
+        @media(min-width: 768px){ 
+            height: 217px;            
+        }
+    }
+
+    .title { 
+        font-size: 18px;
+        line-height: 0.92;
+
+        @media(min-width: 768px){ 
+            font-size: 36px;
+        }
+    }
+}

@@ -62,15 +62,15 @@ block content
 
                     .d-flex.justify-content-between.align-items-baseline
                         .d-flex.align-items-center.pt-2
-                            img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            img.icon-details.mr-3.mr-md-4(style="height:30px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
                             p.mb-0 Publish date: 19 April 2019
                         
                         .d-flex.align-items-center.pt-2
-                            img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            img.icon-details.mr-3.mr-md-4(style="height:30px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
                             p.mb-0 Last updated date: 23 April 2019
                         
                         .d-flex.align-items-center.pt-2
-                            img.icon-details.mr-3.mr-md-4(style="width:20px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            img.icon-details.mr-3.mr-md-4(style="height:30px;" src="./assets/microsites/offstage/img/icons/Calendar.svg")
                             p.mb-0 By 
                                 span
                                     a#author-name(href="#acknowledgements") John Doe
@@ -137,6 +137,9 @@ block content
                     a(href="").nav-link.font-weight-bold CH
                     a(href="").nav-link.font-weight-bold ML
                     a(href="").nav-link.font-weight-bold TA
+
+
+            
           
     .container#readSection
         .row.pt-5
@@ -170,6 +173,9 @@ block content
         +images('2', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
+
+        .row#mini-series.bg-light.mx-md-0 
+            include ../components/mini-series.pug
 
     .container
         .row

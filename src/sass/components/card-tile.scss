@@ -23,10 +23,11 @@
     height: 195px;
     object-fit: cover;
     border-radius: 0 !important;
+    border: 1px solid #ccc;
   }
 
   .card-label {
-    left: -1px;
+    top: -1px;
   }
 
   .genre-title {
