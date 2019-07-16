@@ -25,11 +25,15 @@
                 width: 37px;
                 height: 40px;
                 padding: .5%;
-                margin: 15px 0px 10px 40px;
+                margin: 15px 0px 10px 20px;
                 box-sizing: border-box;
                 background-color: transparent;
                 border: none;
                 z-index: 999;
+
+                @media(min-width: 768px){
+                    margin: 15px 0px 10px 40px;
+                }
                 
                 #rect1, #rect2, #rect3 {
                     position: relative;
