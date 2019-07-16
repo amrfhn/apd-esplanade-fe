@@ -7,7 +7,7 @@ mixin images(imageVal, caption, link1, link2, link3)
 
     else if image === '2'
         .row.py-25
-            .col-12.col-md-6     
+            .col-12.col-md-6.pb-25.pb-md-0     
                 img.img-holder(src=link1 width='100%')
             .col-12.col-md-6
                 img.img-holder(src=link2 width='100%')
@@ -16,7 +16,7 @@ mixin images(imageVal, caption, link1, link2, link3)
         .row.py-25
             .col-12.pb-25
                 img.img-main-holder(src=link1 width='100%')
-            .col-12.col-md-6
+            .col-12.col-md-6.pb-25.pb-md-0
                 img.img-holder(src=link2 width='100%')
             .col-12.col-md-6
                 img.img-holder(src=link3 width='100%')
