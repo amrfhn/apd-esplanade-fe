@@ -4,9 +4,14 @@ block header
     +header(true)
 
 block content 
-    
+
     .container-fluid.no-gutters.p-0
         .row.no-gutters#tabs-filter
+
+            .col-12
+                .in-between-screen
+                    .background
+
             .col-12.col-md-6
                 .position-relative
                     .carousel-banner-wrapper
@@ -34,13 +39,15 @@ block content
                                  a.filter(style="cursor:pointer;")
                                     img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
 
-                        .row
-                            include ../components/filter-menu.pug
+        
 
 
                         .row.no-gutters.p-5.pt-md-3.mt-3.tab-content
                             .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
                                 include ../components/card-tile.pug
+
+        .row
+            include ../components/filter-menu.pug
 
 block footer
     .container-fluid

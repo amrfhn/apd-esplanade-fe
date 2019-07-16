@@ -112,10 +112,13 @@
         left:0;
       }
       #goAfter {
-        right:16px;
+        right:7px;
         display: none;
         @media(min-width:768px){
           display: block;
+        }
+        @media(min-width:1440px){
+          right: 17px;
         }
         
       }

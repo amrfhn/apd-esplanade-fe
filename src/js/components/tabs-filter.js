@@ -33,21 +33,50 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
-            this.fetchData();
+            // this.fetchData();
+            var self = this;
             console.log("called api");
+
+            $.when(self.fetchData())
+            .done(function(data) {
+                console.log(data)
+                self.filters = data.Articles
+
+                jQuery.fn.hasScrollBar = function () {
+                    return this.get(0).scrollWidth > this.innerWidth();
+                } 
+                if (!$('.wrap').hasScrollBar()) {
+                    $('#goPrev').css('display', 'none');
+                    $('#goNext').css('display', 'none');
+                    console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
+                }
+                
+                if($('.carousel-banner').hasClass('slick-initialized')){
+                    $('.carousel-banner').slick('unslick').html('');
+                }
+                self.banners = data.Banners
+                
+            }).then(function() {
+                self.bgSwitcher();
+                self.slick();
+
+            })
         },
         updated: function(){
-            var _this = this;
+            self.banners = data.Banners
+            self.filters = data.Articles
             //setTimeout(function(){ _this.slick(); }, 3000); 
-            //_this.slick();
-            this.bgSwitcher();
+            
+            // _this.slick("unslick").slick();
+            
+            // _this.slick();
         },
         watch: {
             banners(){
                 var _this = this;
+
                 //setTimeout(function(){ _this.slick(); }, 3000); 
-                //_this.slick();        
-                
+                // _this.slick("unslick"); 
             }
         },
         methods: {
@@ -90,7 +119,6 @@ $(function () {
                 var key = e;
                 data.genre = key
                 
-                //$('.carousel-banner').hide();
                 $('#' + key).show();
 
                 this.fetchData();
@@ -135,55 +163,14 @@ $(function () {
 
                 var _this = this
 
-                $.ajax({
+                var request = $.ajax({
                     type: "GET",
                     url: url,
                     dataType: "json",
                     data: $.param(params)
-                }).done(function (data) {
-                    console.log(data)
-                    _this.filters = data.Articles
-
-                    jQuery.fn.hasScrollBar = function () {
-                        return this.get(0).scrollWidth > this.innerWidth();
-                    } 
-                    if (!$('.wrap').hasScrollBar()) {
-                        $('#goPrev').css('display', 'none');
-                        $('#goNext').css('display', 'none');
-                        console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
-                    }
-                    // hideMainCategoryArrow()
-                    // console.log(data.filters[1].Title)
-                    if($('.carousel-banner').hasClass('slick-initialized')){
-                        $('.carousel-banner').slick('unslick').html('');
-                    }
-                    _this.banners = data.Banners
-                    
-                    // switch(itemArray.Content.ContentPosition)
-                    // {
-                    //     case "top":
-                    //         {
-                    //             contentPosition = "pos-top";
-                    //             break;
-                    //         }
-                    //     case "middle":
-                    //         {
-                    //             contentPosition = "pos-mid";
-                    //             break;
-                    //         }
-                    //     case "bottom":
-                    //         {
-                    //             contentPosition = "pos-bot";
-                    //             break;
-                    //         }
-                    //     default:
-                    //         {
-                    //             contentPosition = "pos-top";
-                    //             break;
-                    //         }
-                    // }                   
-                    
                 })
+
+                return request;
             }
         }
     })
