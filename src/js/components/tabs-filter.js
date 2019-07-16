@@ -85,8 +85,8 @@ $(function () {
                     dots: false,
                     focusOnSelect: true,
                     arrows: true,
-                    prevArrow: $(this).find('.prev-slide'),
-                    nextArrow: $(this).find('.next-slide')
+                    prevArrow: $('.prev-slide'),
+                    nextArrow: $('.next-slide')
                 });
             },
             filterGenre: function (e) {
