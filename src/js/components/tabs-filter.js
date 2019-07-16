@@ -33,43 +33,16 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
-            // this.fetchData();
-            var self = this;
+            this.fetchData();
             console.log("called api");
-
-            $.when(self.fetchData())
-            .done(function(data) {
-                console.log(data)
-                self.filters = data.Articles
-
-                jQuery.fn.hasScrollBar = function () {
-                    return this.get(0).scrollWidth > this.innerWidth();
-                } 
-                if (!$('.wrap').hasScrollBar()) {
-                    $('#goPrev').css('display', 'none');
-                    $('#goNext').css('display', 'none');
-                    console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
-                }
-                
-                if($('.carousel-banner').hasClass('slick-initialized')){
-                    $('.carousel-banner').slick('unslick').html('');
-                }
-                self.banners = data.Banners
-                
-            }).then(function() {
-                self.bgSwitcher();
-                self.slick();
-
-            })
         },
         updated: function(){
-            self.banners = data.Banners
-            self.filters = data.Articles
+            var _this = this;
             //setTimeout(function(){ _this.slick(); }, 3000); 
             
             // _this.slick("unslick").slick();
-            
-            // _this.slick();
+            _this.bgSwitcher();
+            _this.slick();
         },
         watch: {
             banners(){
@@ -168,9 +141,51 @@ $(function () {
                     url: url,
                     dataType: "json",
                     data: $.param(params)
-                })
+                }).done(function (data) {
+                    console.log(data)
+                    _this.filters = data.Articles
 
-                return request;
+                    jQuery.fn.hasScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    } 
+                    if (!$('.wrap').hasScrollBar()) {
+                        $('#goPrev').css('display', 'none');
+                        $('#goNext').css('display', 'none');
+                        console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
+                    }
+                    // hideMainCategoryArrow()
+                    // console.log(data.filters[1].Title)
+                    if($('.carousel-banner').hasClass('slick-initialized')){
+                        $('.carousel-banner').slick('unslick').html('');
+                    }
+
+
+                    _this.banners = data.Banners
+                    
+                    // switch(itemArray.Content.ContentPosition)
+                    // {
+                    //     case "top":
+                    //         {
+                    //             contentPosition = "pos-top";
+                    //             break;
+                    //         }
+                    //     case "middle":
+                    //         {
+                    //             contentPosition = "pos-mid";
+                    //             break;
+                    //         }
+                    //     case "bottom":
+                    //         {
+                    //             contentPosition = "pos-bot";
+                    //             break;
+                    //         }
+                    //     default:
+                    //         {
+                    //             contentPosition = "pos-top";
+                    //             break;
+                    //         }
+                    // }                   
+                })
             }
         }
     })
