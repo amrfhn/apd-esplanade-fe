@@ -1,29 +1,61 @@
-.accordion#accordionExample
+.accordion#accordion
+    //- Image only
     .card   
         a(data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne") 
             .card-header#headingOne.d-flex.align-items-center.justify-content-between.bg-white.border-0
-                div
-                    p Written by:
-                    h5.mb-0 Author's Name
+                .card-content
+                    h2.index.m-0.font-weight-bold 01
+                    h5.title An old soul in a young body 
                 .icon.icon-plus
                     
-        #collapseOne.collapse.show(aria-labelledby="headingOne" data-parent="#accordionExample")
-            .card-body.pr-5 
-                p.m-0 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis sapiente, nostrum eum excepturi maxime delectus quam asperiores! Aliquam natus cupiditate omnis recusandae eius voluptate esse voluptatum incidunt eaque! Suscipit!
-
+        #collapseOne.collapse.show(aria-labelledby="headingOne" data-parent="#accordion")
+            .card-body.pt-0.pr-5 
+                p.m-0 Paris Opera Ballet is one of the world’s youngest and oldest ballet companies at the same time. Its dancers average 25 years old, while the company is more than 300 years old.
+                .row.py-25
+                    .col-12 
+                        img.accordion-img-holder(src='https://via.placeholder.com/310x200' width='100%')
+            
         hr.m-0.my-4(style="width: 60px; border-top: 4px solid black")
 
 
+    //- Image and video
     .card   
         a(data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo") 
-            .card-header#headingOne.d-flex.align-items-center.justify-content-between.bg-white.border-0
-                div
-                    p Acknowledgements:
-                    h5.mb-0 Contributor's Name
+            .card-header#headingTwo.d-flex.align-items-center.justify-content-between.bg-white.border-0
+                .card-content
+                    h2.index.m-0.font-weight-bold 02
+                    h5.title They gave classical ballet its visual identity 
                 .icon.icon-plus
 
-        #collapseTwo.collapse(aria-labelledby="headingTwo" data-parent="#accordionExample")
-            .card-body.pr-5 
+        #collapseTwo.collapse(aria-labelledby="headingTwo" data-parent="#accordion")
+            .card-body.pt-0.pr-5 
                 p.m-0 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis sapiente, nostrum eum excepturi maxime delectus quam asperiores! Aliquam natus cupiditate omnis recusandae eius voluptate esse voluptatum incidunt eaque! Suscipit!
+                .row.py-25
+                    .col-12.col-md-6 
+                        img.accordion-img-holder(src='https://via.placeholder.com/310x200' width="100%")
+                    .col-12.col-md-6 
+                        div.accordion-video-holder.embed-responsive.embed-responsive-16by9.mb-25
+                            iframe.embed-responsive-item(src="https://www.youtube.com/embed/XW5cOaBM68o" allowfullscreen)
 
         hr.m-0.my-4(style="width: 60px; border-top: 4px solid black")
+
+
+    //- Video only
+    .card   
+        a(data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree") 
+            .card-header#headingThree.d-flex.align-items-center.justify-content-between.bg-white.border-0
+                .card-content
+                    h2.index.m-0.font-weight-bold 03
+                    h5.title The OG of ballet 
+                .icon.icon-plus
+
+        #collapseThree.collapse(aria-labelledby="headingThree" data-parent="#accordion")
+            .card-body.pt-0.pr-5 
+                p.m-0 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui reiciendis sapiente, nostrum eum excepturi maxime delectus quam asperiores! Aliquam natus cupiditate omnis recusandae eius voluptate esse voluptatum incidunt eaque! Suscipit!
+                .row.py-25
+                    .col-12 
+                        div.accordion-video-holder.embed-responsive.embed-responsive-16by9.mb-25
+                            iframe.embed-responsive-item(src="https://www.youtube.com/embed/XW5cOaBM68o" allowfullscreen)
+
+        hr.m-0.my-4(style="width: 60px; border-top: 4px solid black")
+

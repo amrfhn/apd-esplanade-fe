@@ -1,10 +1,23 @@
-.video-carousel-item {
-  height: 184px;
+.video-carousel {
+  padding-bottom: 0; 
   
-  @media(min-width: 768px) {
-    height: 566px;
+  @media(min-width: 768px){
+    padding-bottom: 25px;
   }
+  
+  .video-carousel-item {
+    height: 184px;
+
+    &:last-child {
+      margin-bottom: 0 !important;
+    } 
+    
+    @media(min-width: 768px) {
+      height: 566px;
+    }
+  }  
 }
+
 
 .video-carousel-nav-wrappper {
   iframe {

@@ -1,8 +1,12 @@
 .accordion{
-    .card-header{
+    .card-header {
         cursor: pointer;
         padding-left: 0;
         padding-right: 0; 
+    }
+
+    .card-content {
+        width: 90%;
     }
 
     .card-body {
