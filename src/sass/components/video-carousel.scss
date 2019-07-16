@@ -1,3 +1,11 @@
+.video-carousel-item {
+  height: 184px;
+  
+  @media(min-width: 768px) {
+    height: 566px;
+  }
+}
+
 .video-carousel-nav-wrappper {
   iframe {
     pointer-events: none;

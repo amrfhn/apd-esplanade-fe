@@ -15,8 +15,13 @@
     width: 20px
   }
 
+  .card-title {
+    word-break: break-word;
+  }
+
   .card-text {
-    line-height: 20px
+    line-height: 20px;
+    word-break: break-word;
   }
 
   .card-img-top {
