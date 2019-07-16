@@ -1,6 +1,6 @@
 .banner-content
-    h2.text-white.clamp-3 {{banner.title}}
-    p.description.mt-2.clamp-2 {{banner.subTitle}}
+    h2.text-white.clamp-3(v-line-clamp:20="3") {{banner.Content.Title}}
+    p.description.mt-2.clamp-2(v-line-clamp:20="2") {{banner.subTitle}}
     a.btn.btn-outline-light.mt-2(:href='banner.pageUrl') FIND OUT MORE
     .d-flex.mt-md-5.mt-4
         .arrows-wrapper
