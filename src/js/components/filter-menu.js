@@ -2,11 +2,12 @@ $(function () {
 
     var $filterMenu = $('.filter-menu-wrapper');
 
-    $('.filter').on('click', function (event) {
-        event.preventDefault();
+    $('.filter').on('click', function () {
         $filterMenu.toggleClass('show-filter');
         $("body").addClass("filter-open");
         $('.in-between-screen').addClass('active');
+        $('.mm-wrapper').removeClass('active');
+
     })
 
     $('.close-filter').on('click', function () {
@@ -22,9 +23,10 @@ $(function () {
     })
 
     $('.in-between-screen').on('click', function(){
-        $filterMenu.toggleClass('show-filter');
+        $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active');
         $("body").removeClass("filter-open");
+        $('.mm-wrapper').removeClass('active');
     })
 
     $('.submit-filter').on('click', function(){

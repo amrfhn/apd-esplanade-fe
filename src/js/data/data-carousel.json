@@ -1,0 +1,52 @@
+[
+    {
+        "Genre": "All",
+        "ThumbnailDesktop": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "ThumbnailMobile": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "Content": [
+            "Title": "This is a title",
+            "Subtitle": "This is a subtitle",
+            "LinkToPage": "/"
+        ]
+    },
+    {
+        "Genre": "All",
+        "ThumbnailDesktop": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "ThumbnailMobile": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "Content": [
+            "Title": "This is a title",
+            "Subtitle": "This is a subtitle",
+            "LinkToPage": "/"
+        ]
+    },
+    {
+        "Genre": "All",
+        "ThumbnailDesktop": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "ThumbnailMobile": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "Content": [
+            "Title": "This is a title",
+            "Subtitle": "This is a subtitle",
+            "LinkToPage": "/"
+        ]
+    },
+    {
+        "Genre": "Music",
+        "ThumbnailDesktop": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "ThumbnailMobile": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "Content": [
+            "Title": "This is a title",
+            "Subtitle": "This is a subtitle",
+            "LinkToPage": "/"
+        ]
+    },
+    {
+        "Genre": "Music",
+        "ThumbnailDesktop": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "ThumbnailMobile": "/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=640",
+        "Content": [
+            "Title": "This is a title",
+            "Subtitle": "This is a subtitle",
+            "LinkToPage": "/"
+        ]
+    }
+]
