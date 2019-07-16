@@ -2,12 +2,13 @@
 .search{
     position: absolute;
     z-index: unset;
-    right: 30px;
+    right: 20px;
     top: 25px;
 
     @media(min-width:768px){
         position: fixed;
         z-index: 99999;
+        right: 40px;
     }
     .search-bar{
         display: none;

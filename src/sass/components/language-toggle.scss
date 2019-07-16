@@ -6,6 +6,10 @@
         text-align: center;
         width: calc(100vw/4.5)
     }    
+
+    .active {
+      z-index: 1;
+    }
 }
 
 // Desktop
