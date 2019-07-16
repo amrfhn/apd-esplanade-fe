@@ -29,24 +29,24 @@ $(function () {
         }
     });
 
-    $('.banner-bg').each(function() {
-        var carouselMobileImage = $(this).attr('data-mobile-image')
-        var carouselDesktopImage = $(this).attr('data-desktop-image')
+    // $('.banner-bg').each(function() {
+    //     var carouselMobileImage = $(this).attr('data-mobile-image')
+    //     var carouselDesktopImage = $(this).attr('data-desktop-image')
     
-        if(width <= 768)
-        {  
-            if(carouselMobileImage !== ""){
-                $(this).css('background-image', 'url("' +carouselMobileImage+ '")')
-            } else {
-                $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
-            }
+    //     if(width <= 768)
+    //     {  
+    //         if(carouselMobileImage !== ""){
+    //             $(this).css('background-image', 'url("' +carouselMobileImage+ '")')
+    //         } else {
+    //             $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
+    //         }
             
-        }
-        if(width > 768)
-        {
-            $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
-        }
-    });
+    //     }
+    //     if(width > 768)
+    //     {
+    //         $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
+    //     }
+    // });
 
     $('.caption').each(function() {
         var mobileCaption = $(this).attr('data-mobile-caption')

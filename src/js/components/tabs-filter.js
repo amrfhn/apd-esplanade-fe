@@ -18,8 +18,7 @@ $(function () {
         pageSize: 6,
         currPage: 1,
         filters: [],
-        banners: [],
-        genreSpecificBanners: []
+        banners: []
     }
 
     var params = {
@@ -34,71 +33,66 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
-            $('.carousel-banner').data('banners').forEach(function (item) {
-                var genreSpecificBanners = [];
-                
-                item.forEach(function(itemArray) {
-                    var contentPosition = "";
-                    switch(itemArray.Content.ContentPosition)
-                    {
-                        case "top":
-                            {
-                                contentPosition = "pos-top";
-                                break;
-                            }
-                        case "middle":
-                            {
-                                contentPosition = "pos-mid";
-                                break;
-                            }
-                        case "bottom":
-                            {
-                                contentPosition = "pos-bot";
-                                break;
-                            }
-                        default:
-                            {
-                                contentPosition = "pos-top";
-                                break;
-                            }
-                    }
-                    genreSpecificBanners.push({
-                        "desktopImage": itemArray.ThumbnailDesktop,
-                        "mobileImage": itemArray.ThumbnailMobile,
-                        "title": itemArray.Content.Title,
-                        "subTitle": itemArray.Content.SubTitle,
-                        "pageUrl": itemArray.Content.LinkToPage,
-                        "contentPosition": contentPosition,
-                    })
-                });
-
-                data.banners.push({
-                    "genre": item[0].Genre,
-                    "banners": genreSpecificBanners
-                })
-            });
-              
-            this.loadBanner('all');
             this.fetchData();
             console.log("called api");
         },
+        updated: function(){
+            var _this = this;
+            //setTimeout(function(){ _this.slick(); }, 3000); 
+            //_this.slick();
+            this.bgSwitcher();
+        },
+        watch: {
+            banners(){
+                var _this = this;
+                //setTimeout(function(){ _this.slick(); }, 3000); 
+                //_this.slick();        
+                
+            }
+        },
         methods: {
-            loadBanner: function (e) {
-                var genreSpecificBanners = data.banners.find(function(element) {
-                    return element.genre == e;
-                });
-                var banners = genreSpecificBanners != null ? genreSpecificBanners.banners : [];
+            bgSwitcher: function() {
+                var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;    
 
-                this.genreSpecificBanners = banners;
+                $('.banner-bg').each(function() {
+                    var carouselMobileImage = $(this).attr('data-mobile-image')
+                    var carouselDesktopImage = $(this).attr('data-desktop-image')
+                
+                    if(width <= 768)
+                    {  
+                        if(carouselMobileImage !== ""){
+                            $(this).css('background-image', 'url("' +carouselMobileImage+ '")')
+                        } else {
+                            $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
+                        }
+                        
+                    }
+                    if(width > 768)
+                    {
+                        $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
+                    }
+                });
+            },
+            slick: function(e){
+                $('.carousel-banner').slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    autoplay: 1500,
+                    dots: false,
+                    focusOnSelect: true,
+                    arrows: true,
+                    prevArrow:$(this).find('.prev-slide'),
+                    nextArrow:$(this).find('.next-slide')
+                });
             },
             filterGenre: function (e) {
                 var key = e;
                 data.genre = key
                 
-                $('.carousel-banner').hide();
+                //$('.carousel-banner').hide();
                 $('#' + key).show();
 
-                this.loadBanner(key);
                 this.fetchData();
             },
             applyFilter: function () {
@@ -148,11 +142,11 @@ $(function () {
                     data: $.param(params)
                 }).done(function (data) {
                     console.log(data)
-                    _this.filters = data
+                    _this.filters = data.Articles
 
                     jQuery.fn.hasScrollBar = function () {
                         return this.get(0).scrollWidth > this.innerWidth();
-                    }
+                    } 
                     if (!$('.wrap').hasScrollBar()) {
                         $('#goPrev').css('display', 'none');
                         $('#goNext').css('display', 'none');
@@ -160,9 +154,35 @@ $(function () {
                     }
                     // hideMainCategoryArrow()
                     // console.log(data.filters[1].Title)
-
-                
-
+                    if($('.carousel-banner').hasClass('slick-initialized')){
+                        $('.carousel-banner').slick('unslick').html('');
+                    }
+                    _this.banners = data.Banners
+                    
+                    // switch(itemArray.Content.ContentPosition)
+                    // {
+                    //     case "top":
+                    //         {
+                    //             contentPosition = "pos-top";
+                    //             break;
+                    //         }
+                    //     case "middle":
+                    //         {
+                    //             contentPosition = "pos-mid";
+                    //             break;
+                    //         }
+                    //     case "bottom":
+                    //         {
+                    //             contentPosition = "pos-bot";
+                    //             break;
+                    //         }
+                    //     default:
+                    //         {
+                    //             contentPosition = "pos-top";
+                    //             break;
+                    //         }
+                    // }                   
+                    
                 })
             }
         }
