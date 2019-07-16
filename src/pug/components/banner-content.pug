@@ -1,0 +1,11 @@
+.banner-content
+    h2.text-white.clamp-3 {{banner.title}}
+    p.description.mt-2.clamp-2 {{banner.subTitle}}
+    a.btn.btn-outline-light.mt-2(:href='banner.pageUrl') FIND OUT MORE
+    .d-flex.mt-md-5.mt-4
+        .arrows-wrapper
+            button.btn.prev-slide.custom-btn
+                img.cus-control.a-left.control-c.prev.slick-prev.h-25(src='./assets/microsites/offstage/img/icons/Left-White.svg')
+            button.btn.next-slide.custom-btn
+                img.cus-control.a-right.control-c.next.slick-next.h-25(src='./assets/microsites/offstage/img/icons/Right-White.svg')
+        .slide-count-wrap

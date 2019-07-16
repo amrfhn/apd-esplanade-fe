@@ -27,6 +27,7 @@ function generateHtmlPlugins(templateDir) {
 const htmlPlugins = generateHtmlPlugins('./src/pug/pages')
 
 module.exports = {
+    mode: 'development',
     entry: {
         app: './src/js/main.js'
     },
