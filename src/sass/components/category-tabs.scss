@@ -14,9 +14,9 @@
   .tab-sliders{
     padding:0 10px;
     padding-left: 2px;
-    @media(min-width:768px){
-      padding:0 35px;
-    }
+    // @media(min-width:768px){
+    //   padding:0 35px;
+    // }
     
 
     .wrap{
@@ -86,6 +86,14 @@
         
         a{
           border-bottom: none;
+
+          &:first-child {
+            margin-left: 0px;
+
+            @media(min-width: 768px){
+              margin-left: 5px;
+            }
+          }
         }
       }
       .nav{
@@ -106,17 +114,20 @@
     #goPrev {
       left:-10px;
     }
+
     #goNext {
-      right:-10px;
+      right: 3px;
       display: none;
       @media(min-width:768px){
         display: block;
+        background: white;
       }
     }
     .arrow{
       display:none;
       @media(min-width:768px){
         display: block;
+        background: white
       }
     }
   }
