@@ -1,8 +1,8 @@
 .btn{
     padding: 10px 15px;
-    max-width: 250px;
     word-break: break-word;
     transition: all 0.3s ease-in-out;
+    font-size: 18px;
     // border: none;
 
     @media(min-width: 768px) {
@@ -12,7 +12,7 @@
     &.btn-primary{
         color:#fff;
         background-color: transparent;
-        padding: 0.8rem 3.75rem;
+        padding: 15px 62px !important;
         border:1.5px solid #fff;
         &:hover{
             background-color: #fff;
@@ -23,7 +23,7 @@
 
     &.btn-outline-primary{
         border: 1.5px solid;
-        padding: 0.8rem 3.75rem;
+        padding: 15px 62px !important;
     }
 
     &.btn-back{
