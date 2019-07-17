@@ -1,5 +1,7 @@
 import VueLineClamp from 'vue-line-clamp';
 import VueMatchHeights from 'vue-match-heights'
+import InfiniteLoading from 'vue-infinite-loading'
+import axios from 'axios'
 
 $(function () {
     Vue.use(VueLineClamp, {
@@ -10,6 +12,10 @@ $(function () {
         disabled: [768],
     });
 
+    Vue.use(InfiniteLoading, {
+        /* options */
+    });
+
 
     var data = {
         message: 'Hello Vue!',
@@ -18,7 +24,9 @@ $(function () {
         pageSize: 6,
         currPage: 1,
         filters: [],
-        banners: []
+        banners: [],
+        page: 1,
+        list: []
     }
 
     var params = {
@@ -42,20 +50,26 @@ $(function () {
 
             // _this.slick("unslick").slick();
             _this.bgSwitcher();
+            _this.clamptext();
 
             if ($('.banner-bg').length) {
                 _this.slick();
             }
         },
-        watch: {
-            banners() {
-                var _this = this;
-
-                //setTimeout(function(){ _this.slick(); }, 3000); 
-                // _this.slick("unslick"); 
-            }
-        },
         methods: {
+            infiniteHandler($state) {
+                axios.get(url, {
+                    
+                }).then(({ data }) => {
+                    if (data.hits.length) {
+                        this.page += 1;
+                        this.list.push(...data.hits);
+                        $state.loaded();
+                    } else {
+                        $state.complete();
+                    }
+                });
+            },
             bgSwitcher: function () {
                 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 $('.banner-bg').each(function () {
@@ -88,6 +102,19 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
+                
+                
+            },
+            clamptext: function(){
+                let item = $("*[class*='clamp-']")
+                for(var i=1, len=$(item).length; i<len; i++){
+                    Ellipsis({
+                        className: '.clamp-' + i,
+                        break_word: false,
+                        lines: i,
+                        responsive: true
+                    });
+                }
             },
             filterGenre: function (e) {
                 var key = e;
@@ -158,36 +185,9 @@ $(function () {
                         $('#goNext').css('display', 'none');
                         console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
                     }
-                    // hideMainCategoryArrow()
-                    // console.log(data.filters[1].Title)
                     if ($('.carousel-banner').hasClass('slick-initialized')) {
                         $('.carousel-banner').slick('unslick');
                     }
-
-
-                    // switch(itemArray.Content.ContentPosition)
-                    // {
-                    //     case "top":
-                    //         {
-                    //             contentPosition = "pos-top";
-                    //             break;
-                    //         }
-                    //     case "middle":
-                    //         {
-                    //             contentPosition = "pos-mid";
-                    //             break;
-                    //         }
-                    //     case "bottom":
-                    //         {
-                    //             contentPosition = "pos-bot";
-                    //             break;
-                    //         }
-                    //     default:
-                    //         {
-                    //             contentPosition = "pos-top";
-                    //             break;
-                    //         }
-                    // }                   
                 })
             }
         }

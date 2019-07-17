@@ -46,6 +46,14 @@ block content
                             .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
                                 include ../components/card-tile.pug
 
+                            <infinite-loading @infinite="infiniteHandler">
+                                <div slot="spinner">Loading...</div>
+                                <div slot="no-more">No more message</div>
+                                <div slot="no-results">No results message</div>
+                            </infinite-loading>
+
+                            
+
         .row
             include ../components/filter-menu.pug
 
