@@ -1,8 +1,13 @@
 .btn{
     padding: 10px 15px;
-
+    max-width: 250px;
+    word-break: break-word;
     transition: all 0.3s ease-in-out;
     // border: none;
+
+    @media(min-width: 768px) {
+        max-width: unset
+    }
 
     &.btn-primary{
         color:#fff;
