@@ -57,4 +57,21 @@ $(function () {
          $('a#'+datakey).click();
     })
 
+    // var $menuBrowseBy =  $('.megamenu-browseby')
+    // var $menuBrowseByKey = $menuBrowseBy.data('key')
+
+
+
+    // $menuBrowseBy.on('click', function(){
+    //     $menuBrowseBy.each(function(){  
+            
+    //         var $filterBrowseBy = $('.browse-by').find('.custom-contorl-input')
+    //         var filterBrowseByKey = $filterBrowseBy.data('key')
+
+    //         if ($(this).data('key') === filterBrowseByKey){
+
+    //             $('a#'+filterBrowseByKey).is(":checked")
+    //         }
+    //     })
+    // })
 });

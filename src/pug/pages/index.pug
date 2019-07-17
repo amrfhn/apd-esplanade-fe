@@ -39,12 +39,17 @@ block content
                                  a.filter(style="cursor:pointer;")
                                     img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
 
-        
-
-
                         .row.no-gutters.p-3.pt-md-3.mt-3.tab-content
-                            .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
+                            .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters" :key="filter" v-match-heights="{el:['.card-body']}")
                                 include ../components/card-tile.pug
+
+                            <infinite-loading @infinite="infiniteHandler">
+                                <div slot="spinner">Loading...</div>
+                                <div slot="no-more">No more message</div>
+                                <div slot="no-results">No results message</div>
+                            </infinite-loading>
+
+                            
 
         .row
             include ../components/filter-menu.pug
