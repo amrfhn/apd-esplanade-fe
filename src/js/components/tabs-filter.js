@@ -16,6 +16,7 @@ $(function () {
         /* options */
     });
 
+    var host = "http://dev.esplanade.growthopsapp.com"
 
     var data = {
         message: 'Hello Vue!',
@@ -26,8 +27,11 @@ $(function () {
         filters: [],
         banners: [],
         page: 1,
-        list: []
+        list: [],
+        url:""
     }
+
+    var urld = ""
 
     var params = {
         "browse": "",
@@ -57,19 +61,7 @@ $(function () {
             }
         },
         methods: {
-            infiniteHandler($state) {
-                axios.get(url, {
-                    
-                }).then(({ data }) => {
-                    if (data.hits.length) {
-                        this.page += 1;
-                        this.list.push(...data.hits);
-                        $state.loaded();
-                    } else {
-                        $state.complete();
-                    }
-                });
-            },
+            
             bgSwitcher: function () {
                 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 $('.banner-bg').each(function () {
@@ -159,10 +151,12 @@ $(function () {
                 this.fetchData();
             },
             fetchData: function () {
-                var host = "http://dev.esplanade.growthopsapp.com";
+                
                 var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
-
+                console.log(url)
                 var _this = this
+
+                urld = url
 
                 var request = $.ajax({
                     type: "GET",
@@ -189,6 +183,14 @@ $(function () {
                         $('.carousel-banner').slick('unslick');
                     }
                 })
+            },
+            addCard: function(){
+                this.scrollToEnd();
+                this.filters.push()
+            },
+            scrollToEnd: function(){
+                var tileContainer = this.$el.querySelector('.tab-content');
+                tileContainer.scrollTop = tileContainer.scrollHeight;
             }
         }
     })
