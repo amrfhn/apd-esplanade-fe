@@ -68,11 +68,12 @@
           font-weight: 600;
           color: #fff;
           letter-spacing: 0.6px;
-          padding: 0 5px;
+          padding: 41px 10px;
 
           @media (min-width: 768px) {
             font-size: 18px;
             line-height: 18px;
+            padding: 40px 10px;
           }
         }
       }
