@@ -47,8 +47,8 @@ block content
                                 include ../components/card-tile.pug
                             
                             .col-12.py-2.mx-auto
-                                div(v-if="isLoading")
-                                    img.button-icon.button-spinner(src="/assets/microsites/offstage/img/icons/Loading.svg")
+                                div#spinner.spinner-load
+                                    img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
                                         
 
                             

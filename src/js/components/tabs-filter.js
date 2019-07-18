@@ -12,6 +12,7 @@ $(function () {
 
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
+    var spinner = $('#spinner')
 
     var host = "http://dev.esplanade.growthopsapp.com"
 
@@ -52,28 +53,20 @@ $(function () {
             _this.bgSwitcher();
             _this.clamptext();
 
-            if ($('.banner-bg').length) {
+            if ($('.banner-bg').length > 1) {
                 _this.slick();
             }
         },
         methods: {
 
-            setLoading(isLoading) {
-                if (isLoading) {
-                    this.isLoading = true;
-                } else {
-                    this.isLoading = false;
-                }
-            },
-
             checkScroll: function (e) {
 
                 window.onscroll = () => {
                     let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
-
+                    
                     if (bottomOfWindow && ($(".tab-content")[0])) {
                         this.scrolledToBottom = true
-
+                        spinner.css('display', 'block');
                         this.updateData();
                     }
                 }
@@ -96,7 +89,6 @@ $(function () {
                 var _this = this
 
                 console.log(updateUrl)
-                this.setLoading(true);
 
                 var requestData = $.ajax({
                     type: "GET",
@@ -107,8 +99,10 @@ $(function () {
                     console.log(data)
                     _this.filters = _this.filters.concat(data.Articles)
                     // this.setLoading(false);
-                    if (data.Articles.length < offset){
-                        alert("haha")
+                    if (data.Articles.length < offset || data.Articles.length == 0) {
+                        window.onscroll = () => {
+                            spinner.css('display', 'none');
+                        }
                     }
                 })
             },
@@ -131,6 +125,7 @@ $(function () {
                         $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                     }
                 });
+
             },
             slick: function (e) {
                 $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
@@ -142,7 +137,7 @@ $(function () {
                 });
 
                 if ($(this).find('.banner-bg').length < 2) {
-                    $(this).find('.slide-count-wrap').hide();
+                    $(this).find('.banner-navigation').hide();
                 }
                 $('.carousel-banner').slick({
                     slidesToShow: 1,
@@ -173,10 +168,11 @@ $(function () {
                 var key = e;
                 data.genre = key
 
-                $('#' + key).show();
+                // $('#' + key).show();
                 this.currPage = 1;
                 this.loadPage = 1;
 
+                this.checkScroll();
                 this.fetchData();
             },
             applyFilter: function () {
