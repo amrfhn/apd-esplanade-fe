@@ -25,10 +25,14 @@
   }
 
   .card-img-top {
-    height: 195px;
+    height: 186px;
     object-fit: cover;
     border-radius: 0 !important;
     border: 1px solid #ccc;
+
+    @media(min-width: 768px){
+      height: 200px;
+    }
   }
 
   .card-label {
