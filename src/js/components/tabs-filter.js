@@ -10,6 +10,10 @@ $(function () {
         disabled: [768],
     });
 
+    var xs = window.matchMedia('(max-width: 768px)');
+    var md = window.matchMedia('(min-width: 769px)');
+    var spinner = $('#spinner')
+
     var host = "http://dev.esplanade.growthopsapp.com"
 
     var data = {
@@ -18,9 +22,11 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
+        loadPage: 1,
         filters: [],
         banners: [],
-        reqPageNum: ""
+        reqPageNum: "",
+        isLoading: false
     }
 
     var params = {
@@ -47,40 +53,42 @@ $(function () {
             _this.bgSwitcher();
             _this.clamptext();
 
-            if ($('.banner-bg').length) {
+            if ($('.banner-bg').length > 1) {
                 _this.slick();
+            }
+            else {
+                document.getElementsByClassName('banner-navigation').style.display = "none";
             }
         },
         methods: {
 
             checkScroll: function (e) {
-                // console.log(checkScroll("#product-catalogue .column-control.type-g .col:last"))
-                // console.log(scrPrevPosition)
-                // if(($(window).scrollTop() + $(window).height()) == $(document).height() && $(document).find('.tab-content .card:last-child')) {
-                //     alert("bottom!");
-                // }
+
                 window.onscroll = () => {
                     let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
-
-                    // check if bottom of window and .tab-content exist
+                    
                     if (bottomOfWindow && ($(".tab-content")[0])) {
                         this.scrolledToBottom = true
-                        alert("bottom") // replace it with your code
+                        document.getElementById('spinner').style.display = "flex";
                         this.updateData();
                     }
                 }
             },
             updateData: function (data) {
+                var offset = 0;
 
-                var curPageNum = $('.tab-content').find('.card-tile').length
-                let x = curPageNum;
-                this.currPage += 1
+                if (xs.matches) {
+                    offset = 3;
+                    this.loadPage += 1
+                    console.log("mobile")
+                }
+                if (md.matches) {
+                    offset = 6
+                    this.loadPage += 1
+                    console.log("desktop")
+                }
 
-                // data.reqPageNum = reqPageNum;
-                // console.log(data.reqPageNum)
-
-
-                var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
+                var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset
                 var _this = this
 
                 console.log(updateUrl)
@@ -92,15 +100,15 @@ $(function () {
                     data: $.param(params)
                 }).done(function (data) {
                     console.log(data)
-
-                    _this.filters =_this.filters.concat(data.Articles)
-                   
+                    _this.filters = _this.filters.concat(data.Articles)
+                    // this.setLoading(false);
+                    if (data.Articles.length < offset || data.Articles.length == 0) {
+                        document.getElementById('spinner').style.display = "none";
+                        window.onscroll = () => {
+                        }
+                    }
                 })
             },
-            // appendData: function () {
-            //     let tabContent = $('.tab-content')
-            //     tab.Content.append(updateData())
-            // },
             bgSwitcher: function () {
                 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 $('.banner-bg').each(function () {
@@ -108,7 +116,7 @@ $(function () {
                     var carouselMobileImage = $(this).attr('data-mobile-image')
                     var carouselDesktopImage = $(this).attr('data-desktop-image')
 
-                    if (width <= 768) {
+                    if (xs.matches) {
                         if (carouselMobileImage !== "") {
                             $(this).css('background-image', 'url("' + carouselMobileImage + '")')
                         } else {
@@ -116,10 +124,11 @@ $(function () {
                         }
 
                     }
-                    if (width > 768) {
+                    if (md.matches) {
                         $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                     }
                 });
+
             },
             slick: function (e) {
                 $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
@@ -130,9 +139,7 @@ $(function () {
 
                 });
 
-                if ($(this).find('.banner-bg').length < 2) {
-                    $(this).find('.slide-count-wrap').hide();
-                }
+                
                 $('.carousel-banner').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -162,8 +169,11 @@ $(function () {
                 var key = e;
                 data.genre = key
 
-                $('#' + key).show();
+                // $('#' + key).show();
+                this.currPage = 1;
+                this.loadPage = 1;
 
+                this.checkScroll();
                 this.fetchData();
             },
             applyFilter: function () {
