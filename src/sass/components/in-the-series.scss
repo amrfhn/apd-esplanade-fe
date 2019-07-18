@@ -1,0 +1,9 @@
+#in-the-series {
+    .series-thumbnail {
+        height: 80px;
+
+        @media(min-width: 768px) {
+            height: 150px;
+        }
+    }
+}
