@@ -56,6 +56,9 @@ $(function () {
             if ($('.banner-bg').length > 1) {
                 _this.slick();
             }
+            else {
+                document.getElementsByClassName('banner-navigation').style.display = "none";
+            }
         },
         methods: {
 
@@ -66,7 +69,7 @@ $(function () {
                     
                     if (bottomOfWindow && ($(".tab-content")[0])) {
                         this.scrolledToBottom = true
-                        spinner.css('display', 'block');
+                        document.getElementById('spinner').style.display = "flex";
                         this.updateData();
                     }
                 }
@@ -100,8 +103,8 @@ $(function () {
                     _this.filters = _this.filters.concat(data.Articles)
                     // this.setLoading(false);
                     if (data.Articles.length < offset || data.Articles.length == 0) {
+                        document.getElementById('spinner').style.display = "none";
                         window.onscroll = () => {
-                            spinner.css('display', 'none');
                         }
                     }
                 })
@@ -113,7 +116,7 @@ $(function () {
                     var carouselMobileImage = $(this).attr('data-mobile-image')
                     var carouselDesktopImage = $(this).attr('data-desktop-image')
 
-                    if (width <= 768) {
+                    if (xs.matches) {
                         if (carouselMobileImage !== "") {
                             $(this).css('background-image', 'url("' + carouselMobileImage + '")')
                         } else {
@@ -121,7 +124,7 @@ $(function () {
                         }
 
                     }
-                    if (width > 768) {
+                    if (md.matches) {
                         $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                     }
                 });
@@ -136,9 +139,7 @@ $(function () {
 
                 });
 
-                if ($(this).find('.banner-bg').length < 2) {
-                    $(this).find('.banner-navigation').hide();
-                }
+                
                 $('.carousel-banner').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
