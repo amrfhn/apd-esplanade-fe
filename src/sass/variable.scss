@@ -197,7 +197,7 @@ h4, .h4 {
 
 p {font-size: 18px}
 
-//button
+// Button
 .btn {
   font-family: $font-proxima-bold;
   border-radius: 0 !important;
@@ -210,6 +210,23 @@ p {font-size: 18px}
   }
 }
 
+// Black Outline CTA
+.btn-outline-primary{
+  color: $primary;
+  border-color: $primary;
+  border: 1.5px solid!important;
+  padding: 15px 62px !important;
+  border:1.5px solid $primary;
+  &:hover{
+      background-color: $primary;
+      color: $white;
+      border: 1.5px solid $primary !important;
+      box-shadow: inset 450px 0 0 0 $primary;
+      transition: all 0.25s ease-in;
+  }
+}
+
+// White Outline CTA
 .btn-outline-light {
   color: $white;
   border-color: $white;
@@ -219,7 +236,9 @@ p {font-size: 18px}
   &:hover{
       background-color: $white;
       color: $primary;
-      border:1.5px solid $primary !important;
+      border:1.5px solid $white !important;
+      box-shadow: inset 450px 0 0 0 $white;
+      transition: all 0.25s ease-in;
   }
 }
 
