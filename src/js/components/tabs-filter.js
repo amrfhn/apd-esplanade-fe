@@ -10,10 +10,6 @@ $(function () {
         disabled: [768],
     });
 
-    Vue.use(InfiniteLoading, {
-        /* options */
-    });
-
     var host = "http://dev.esplanade.growthopsapp.com"
 
     var data = {
@@ -24,8 +20,8 @@ $(function () {
         currPage: 1,
         filters: [],
         banners: [],
+        reqPageNum: ""
     }
-
 
     var params = {
         "browse": "",
@@ -34,13 +30,14 @@ $(function () {
         "sort": ""
     }
 
-
     var app = new Vue({
         el: '#tabs-filter',
         data: data,
         mounted: function () {
             this.fetchData();
             console.log("called api");
+            this.checkScroll();
+            // this.updateData();
         },
         updated: function () {
             var _this = this;
@@ -55,24 +52,49 @@ $(function () {
             }
         },
         methods: {
-            
+
             checkScroll: function (e) {
                 // console.log(checkScroll("#product-catalogue .column-control.type-g .col:last"))
                 // console.log(scrPrevPosition)
-                if($(window).scrollTop() + $(window).height() == $(document).height() && $(document).find('.tab-content .card:last-child')) {
-                    alert("bottom!");
+                // if(($(window).scrollTop() + $(window).height()) == $(document).height() && $(document).find('.tab-content .card:last-child')) {
+                //     alert("bottom!");
+                // }
+                window.onscroll = () => {
+                    let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+
+                    if (bottomOfWindow) {
+                        this.scrolledToBottom = true
+                        alert("bottom") // replace it with your code
+                        this.updateData();
+                    }
                 }
             },
             updateData: function (data) {
 
-                // function updateData(data){
-                var arr = data
-                const tmp = `${arr.map(item => `
-                    <div class="col-12 col-md-6 card-tile px-2 pb-4"><div class="card"><a href="${item.Url}" class="position-relative"><div class="position-absolute w-100"><div class="icon-holder bg-white d-flex float-right align-items-center justify-content-center m-3"><img src="/offstage/-/media/Offstage Microsite/Youtube.svg?mw=1920&amp;hash=23ABDC098ACB922A164377ED7549134E19C14239" alt="" class="icon"></div></div> <img src="/offstage/-/media/Offstage Microsite/Tests/bloom-blossom-close-up-36764.jpg?mw=1920&amp;hash=519DE4A445CDAEC948EBD0BB775A0CF285C06618" class="card-img-top"> <div class="border border-top-0 text-left position-relative"><span class="card-label p-1 px-3 bg-primary text-white font-12 text-uppercase position-absolute">Watch</span> <div class="card-body text-center pt-5" style="height: 184px;"><div><span class="genre-title px-2 card-text font-16 font-weight-bold text-uppercase">Dance</span><span class="genre-title px-2 card-text font-16 font-weight-bold text-uppercase">Theatre</span></div> <div class="card-title text-primary m-0"><h5 class="font-weight-bolder m-0 font-22 vue-line-clamp" style="-webkit-line-clamp: 3;">Zhi wei</h5></div> <p class="card-text font-18 vue-line-clamp" style="-webkit-line-clamp: 2;">Zhi wei</p></div></div></a></div></div>
-                `)}`
+                var curPageNum = $('.tab-content').find('.card-tile').length
+                let x = curPageNum;
+                this.currPage += 1
 
-                return tmp
-                // }
+                // data.reqPageNum = reqPageNum;
+                // console.log(data.reqPageNum)
+
+
+                var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
+                var _this = this
+
+                console.log(updateUrl)
+
+                var requestData = $.ajax({
+                    type: "GET",
+                    url: updateUrl,
+                    dataType: "json",
+                    data: $.param(params)
+                }).done(function (data) {
+                    console.log(data)
+
+                    _this.filters =_this.filters.concat(data.Articles)
+                   
+                })
             },
             // appendData: function () {
             //     let tabContent = $('.tab-content')
@@ -180,7 +202,6 @@ $(function () {
             fetchData: function () {
 
                 var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
-                console.log(url)
                 var _this = this
 
                 var request = $.ajax({
@@ -189,7 +210,7 @@ $(function () {
                     dataType: "json",
                     data: $.param(params)
                 }).done(function (data) {
-                    console.log(data)
+                    // console.log(data)
 
 
                     _this.banners = data.Banners
@@ -317,18 +338,3 @@ $(function () {
 
 
 })
-<div class="parent">
-
-//page 1
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-
-</div>
-
-
-var curPageNum = $('.parent').find('li').length // 18
-var reqPageNum = number(curPagenum / 6) + 1 // 3 = 4(this for backend)
