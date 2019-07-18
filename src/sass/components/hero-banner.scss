@@ -23,3 +23,19 @@
 .thumbnail-holder-landscape {
     height: 50vh; 
 }
+
+
+.video-modal-wrapper {
+  .thumbnail-overlay {
+     .video-icon {
+         width: 71px;
+         height: 71px;
+
+         @media(min-width: 768px){
+            width: 84px;
+            height: 84px;             
+         }
+     }
+  }  
+}
+

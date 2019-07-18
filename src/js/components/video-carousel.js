@@ -26,9 +26,8 @@ $(function(){
             // autoplay: true,
             // autoplaySpeed: 2000,
             focusOnSelect: true,
-            infinite: true,
+            infinite: false,
             centerMode: false,
-
         });        
     }
 })
