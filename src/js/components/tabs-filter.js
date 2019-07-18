@@ -10,6 +10,9 @@ $(function () {
         disabled: [768],
     });
 
+    var xs = window.matchMedia('(max-width: 768px)');
+    var md = window.matchMedia('(min-width: 769px)');
+
     var host = "http://dev.esplanade.growthopsapp.com"
 
     var data = {
@@ -18,9 +21,11 @@ $(function () {
         genre: "all",
         pageSize: 6,
         currPage: 1,
+        loadPage: 1,
         filters: [],
         banners: [],
-        reqPageNum: ""
+        reqPageNum: "",
+        isLoading: false
     }
 
     var params = {
@@ -53,36 +58,45 @@ $(function () {
         },
         methods: {
 
+            setLoading(isLoading) {
+                if (isLoading) {
+                    this.isLoading = true;
+                } else {
+                    this.isLoading = false;
+                }
+            },
+
             checkScroll: function (e) {
-                // console.log(checkScroll("#product-catalogue .column-control.type-g .col:last"))
-                // console.log(scrPrevPosition)
-                // if(($(window).scrollTop() + $(window).height()) == $(document).height() && $(document).find('.tab-content .card:last-child')) {
-                //     alert("bottom!");
-                // }
+
                 window.onscroll = () => {
                     let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
 
-                    if (bottomOfWindow) {
+                    if (bottomOfWindow && ($(".tab-content")[0])) {
                         this.scrolledToBottom = true
-                        alert("bottom") // replace it with your code
+
                         this.updateData();
                     }
                 }
             },
             updateData: function (data) {
+                var offset = 0;
 
-                var curPageNum = $('.tab-content').find('.card-tile').length
-                let x = curPageNum;
-                this.currPage += 1
+                if (xs.matches) {
+                    offset = 3;
+                    this.loadPage += 1
+                    console.log("mobile")
+                }
+                if (md.matches) {
+                    offset = 6
+                    this.loadPage += 1
+                    console.log("desktop")
+                }
 
-                // data.reqPageNum = reqPageNum;
-                // console.log(data.reqPageNum)
-
-
-                var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
+                var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset
                 var _this = this
 
                 console.log(updateUrl)
+                this.setLoading(true);
 
                 var requestData = $.ajax({
                     type: "GET",
@@ -91,15 +105,13 @@ $(function () {
                     data: $.param(params)
                 }).done(function (data) {
                     console.log(data)
-
-                    _this.filters =_this.filters.concat(data.Articles)
-                   
+                    _this.filters = _this.filters.concat(data.Articles)
+                    // this.setLoading(false);
+                    if (data.Articles.length < offset){
+                        alert("haha")
+                    }
                 })
             },
-            // appendData: function () {
-            //     let tabContent = $('.tab-content')
-            //     tab.Content.append(updateData())
-            // },
             bgSwitcher: function () {
                 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 $('.banner-bg').each(function () {
@@ -162,6 +174,8 @@ $(function () {
                 data.genre = key
 
                 $('#' + key).show();
+                this.currPage = 1;
+                this.loadPage = 1;
 
                 this.fetchData();
             },
