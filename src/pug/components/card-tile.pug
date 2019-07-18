@@ -11,9 +11,9 @@
 
             .card-body.text-center.pt-5
                 div
-                    span.genre-title.px-2.card-text.font-16.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
+                    span.genre-title.px-2.card-text.bt-2.font-weight-bold.text-uppercase(v-for="genre in filter.Genres") {{genre}}
 
                 .card-title.text-primary.m-0
                     h5.font-weight-bolder.m-0.font-22(v-line-clamp:20="3") {{filter.Title}}
 
-                p.card-text.font-18(v-line-clamp:20="2") {{filter.Description}}
+                p.card-text.bt-1(v-line-clamp:20="2") {{filter.Description}}

@@ -12,18 +12,13 @@
     &.btn-primary{
         color:#fff;
         background-color: transparent;
-        padding: 15px 62px !important;
+        padding: 15px 58px !important;
         border:1.5px solid #fff;
         &:hover{
             background-color: #fff;
             color: #000;
             border:1.5px solid #fff;
         }
-    }
-
-    &.btn-outline-primary{
-        border: 1.5px solid;
-        padding: 15px 62px !important;
     }
 
     &.btn-back{
@@ -37,9 +32,6 @@
             outline: 0;
             box-shadow: none;
         }
-    }
-    .btn-submit-search{
-        
     }
 }
 

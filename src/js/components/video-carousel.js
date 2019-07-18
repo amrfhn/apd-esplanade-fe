@@ -22,7 +22,7 @@ $(function(){
             slidesToShow: slide,
             slidesToScroll: 1,
             asNavFor: '.video-carousel',
-            dots: true,
+            dots: false,
             // autoplay: true,
             // autoplaySpeed: 2000,
             focusOnSelect: true,

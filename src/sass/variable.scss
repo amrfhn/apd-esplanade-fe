@@ -126,12 +126,12 @@ $font-size-base:              1rem !default; // Assumes the browser default, typ
 $font-size-lg:                $font-size-base * 1.25 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 
-$h1-font-size:                $font-size-base * 2.5 !default;
-$h2-font-size:                $font-size-base * 2 !default;
-$h3-font-size:                $font-size-base * 1.75 !default;
-$h4-font-size:                $font-size-base * 1.5 !default;
-$h5-font-size:                $font-size-base * 1.25 !default;
-$h6-font-size:                $font-size-base !default;
+// $h1-font-size:                $font-size-base * 2.5 !default;
+// $h2-font-size:                $font-size-base * 2 !default;
+// $h3-font-size:                $font-size-base * 1.75 !default;
+// $h4-font-size:                $font-size-base * 1.5 !default;
+// $h5-font-size:                $font-size-base * 1.25 !default;
+// $h6-font-size:                $font-size-base !default;
 
 //header
 h1, h2, h3, h4, h5 {
@@ -140,29 +140,40 @@ h1, h2, h3, h4, h5 {
 }
 
 h1, .h1 {
-  font-size: 36px;
+  font-size: 36px !important;
 
   @media(min-width: 768px){
-    font-size: 48px; 
+    font-size: 48px !important; 
   }
 }
 
 h2, .h2 {
-  font-size: 28px;
+  font-size: 28px !important;
 
   @media(min-width: 768px){
-    font-size: 36px; 
+    font-size: 36px !important; 
   }
 }
 
 h3, .h3 {
-  font-size: 22px; 
+  font-size: 22px !important; 
 }
 
 h4, .h4 {
-  font-size: 16px; 
+  font-size: 16px !important; 
 }
 
+.bt-1 {
+  font-size: 18px;
+}
+
+.bt-2 {
+  font-size: 16px;
+}
+
+.bt-3 {
+  font-size: 14px;
+}
 
 //font-size
 .font-220{ font-size: 220px; }
@@ -197,29 +208,49 @@ h4, .h4 {
 
 p {font-size: 18px}
 
-//button
+// Button
 .btn {
   font-family: $font-proxima-bold;
   border-radius: 0 !important;
   font-weight: bold !important;
   border: 1.5px solid ;
   text-transform: uppercase;
+  transition: all 0.25s ease-out;
   &:focus{
     box-shadow: none !important;
     outline: 0 !important;
   }
 }
 
+// Black Outline CTA
+.btn-outline-primary{
+  color: $primary;
+  border-color: $primary;
+  border: 1.5px solid!important;
+  padding: 15px 58px !important;
+  border:1.5px solid $primary;
+  &:hover{
+      background-color: $primary;
+      color: $white;
+      border: 1.5px solid $primary !important;
+      box-shadow: inset 450px 0 0 0 $primary;
+      transition: all 0.25s ease-in;
+  }
+}
+
+// White Outline CTA
 .btn-outline-light {
   color: $white;
   border-color: $white;
   border: 1.5px solid!important;
-  padding: 15px 62px !important;
+  padding: 15px 58px !important;
   border:1.5px solid $white;
   &:hover{
       background-color: $white;
       color: $primary;
-      border:1.5px solid $primary !important;
+      border:1.5px solid $white !important;
+      box-shadow: inset 450px 0 0 0 $white;
+      transition: all 0.25s ease-in;
   }
 }
 
