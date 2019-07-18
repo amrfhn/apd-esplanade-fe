@@ -62,7 +62,8 @@ $(function () {
                 window.onscroll = () => {
                     let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
 
-                    if (bottomOfWindow) {
+                    // check if bottom of window and .tab-content exist
+                    if (bottomOfWindow && ($(".tab-content")[0])) {
                         this.scrolledToBottom = true
                         alert("bottom") // replace it with your code
                         this.updateData();
