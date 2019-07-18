@@ -25,7 +25,10 @@ $(function(){
             dots: true,
             // autoplay: true,
             // autoplaySpeed: 2000,
-            focusOnSelect: true
+            focusOnSelect: true,
+            infinite: true,
+            centerMode: false,
+
         });        
     }
 })
