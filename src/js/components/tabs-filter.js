@@ -1,7 +1,5 @@
 import VueLineClamp from 'vue-line-clamp';
 import VueMatchHeights from 'vue-match-heights'
-import InfiniteLoading from 'vue-infinite-loading'
-import axios from 'axios'
 
 $(function () {
     Vue.use(VueLineClamp, {
@@ -12,10 +10,7 @@ $(function () {
         disabled: [768],
     });
 
-    Vue.use(InfiniteLoading, {
-        /* options */
-    });
-
+    var host = "http://dev.esplanade.growthopsapp.com"
 
     var data = {
         message: 'Hello Vue!',
@@ -25,8 +20,7 @@ $(function () {
         currPage: 1,
         filters: [],
         banners: [],
-        page: 1,
-        list: []
+        reqPageNum: ""
     }
 
     var params = {
@@ -36,13 +30,14 @@ $(function () {
         "sort": ""
     }
 
-
     var app = new Vue({
         el: '#tabs-filter',
         data: data,
         mounted: function () {
             this.fetchData();
             console.log("called api");
+            this.checkScroll();
+            // this.updateData();
         },
         updated: function () {
             var _this = this;
@@ -57,19 +52,54 @@ $(function () {
             }
         },
         methods: {
-            infiniteHandler($state) {
-                axios.get(url, {
-                    
-                }).then(({ data }) => {
-                    if (data.hits.length) {
-                        this.page += 1;
-                        this.list.push(...data.hits);
-                        $state.loaded();
-                    } else {
-                        $state.complete();
+
+            checkScroll: function (e) {
+                // console.log(checkScroll("#product-catalogue .column-control.type-g .col:last"))
+                // console.log(scrPrevPosition)
+                // if(($(window).scrollTop() + $(window).height()) == $(document).height() && $(document).find('.tab-content .card:last-child')) {
+                //     alert("bottom!");
+                // }
+                window.onscroll = () => {
+                    let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+
+                    if (bottomOfWindow) {
+                        this.scrolledToBottom = true
+                        alert("bottom") // replace it with your code
+                        this.updateData();
                     }
-                });
+                }
             },
+            updateData: function (data) {
+
+                var curPageNum = $('.tab-content').find('.card-tile').length
+                let x = curPageNum;
+                this.currPage += 1
+
+                // data.reqPageNum = reqPageNum;
+                // console.log(data.reqPageNum)
+
+
+                var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
+                var _this = this
+
+                console.log(updateUrl)
+
+                var requestData = $.ajax({
+                    type: "GET",
+                    url: updateUrl,
+                    dataType: "json",
+                    data: $.param(params)
+                }).done(function (data) {
+                    console.log(data)
+
+                    _this.filters =_this.filters.concat(data.Articles)
+                   
+                })
+            },
+            // appendData: function () {
+            //     let tabContent = $('.tab-content')
+            //     tab.Content.append(updateData())
+            // },
             bgSwitcher: function () {
                 var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
                 $('.banner-bg').each(function () {
@@ -91,6 +121,17 @@ $(function () {
                 });
             },
             slick: function (e) {
+                $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+
+                    var i = (currentSlide ? currentSlide : 0) + 1;
+
+                    $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+
+                });
+
+                if ($(this).find('.banner-bg').length < 2) {
+                    $(this).find('.slide-count-wrap').hide();
+                }
                 $('.carousel-banner').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -102,12 +143,12 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
-                
-                
+
+
             },
-            clamptext: function(){
+            clamptext: function () {
                 let item = $("*[class*='clamp-']")
-                for(var i=1, len=$(item).length; i<len; i++){
+                for (var i = 1, len = $(item).length; i < len; i++) {
                     Ellipsis({
                         className: '.clamp-' + i,
                         break_word: false,
@@ -159,9 +200,8 @@ $(function () {
                 this.fetchData();
             },
             fetchData: function () {
-                var host = "http://dev.esplanade.growthopsapp.com";
-                var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
 
+                var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
                 var _this = this
 
                 var request = $.ajax({
@@ -170,7 +210,7 @@ $(function () {
                     dataType: "json",
                     data: $.param(params)
                 }).done(function (data) {
-                    console.log(data)
+                    // console.log(data)
 
 
                     _this.banners = data.Banners
@@ -189,7 +229,8 @@ $(function () {
                         $('.carousel-banner').slick('unslick');
                     }
                 })
-            }
+            },
+
         }
     })
     var $filterContainer = $('.tab-filter');
