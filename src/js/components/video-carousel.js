@@ -49,7 +49,7 @@ $(function () {
             slidesToScroll: 1,
             arrows: false,
             fade: true,
-            asNavFor: '.video-carousel-nav',
+            // asNavFor: '.video-carousel-nav',
             responsive: [
                 {
                     breakpoint: 767,
@@ -68,7 +68,7 @@ $(function () {
             $(this).find('.video-carousel-nav').slick({
                 slidesToShow: slide,
                 slidesToScroll: slide,
-                asNavFor: '.video-carousel',
+                // asNavFor: '.video-carousel',
                 dots: false,
                 // autoplay: true,
                 // autoplaySpeed: 2000,
@@ -87,7 +87,6 @@ $(function () {
             // $(this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
             console.log('onclick')
             console.log(goToSingleSlide)
-            console.log($(_this).find('.video-carousel').length)
             $(_this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
         });
 
