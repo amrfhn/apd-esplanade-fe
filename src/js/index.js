@@ -98,6 +98,11 @@ $(function () {
     })
 })
 
+$(window).load(function() {
+    // page is fully loaded, including all frames, objects and images
+    alert("window is loaded");
+});
+
 function clampText(){
     let item = $("*[class*='clamp-']")
     for(var i=1, len=$(item).length; i<len; i++){
