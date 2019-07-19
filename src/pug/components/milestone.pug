@@ -1,14 +1,35 @@
-  .col-12.d-flex.justify-content-end
+.row
+  .col-12.p-25
+        h1.m-0.p-0.mb-4 MILESTONES
+        
+.row#milestones-wrapper.p-25
+  
+    .col-12.d-flex.justify-content-end
         .col-md-6.col-xs-12.box-left
             h3 20 Jan 1975
             p.bt-1 Born in kuala lumpur Malaysia, moved to singapore with family shortly after moving to malaysia 
 
-        .col-12.d-flex.justify-content-md-start.justify-content-end
-            .col-md-6.col-xs-12.box-right
-                h3 1940 to 1930
-                p.bt-1 Test in kuala lumpur Malaysia, moved to singapore
-    
-        .col-12.d-flex.justify-content-end
-            .col-md-6.col-xs-12.box-left
-                h3 1988 to 1975
-                p.bt-1 Attend Raffles Girl School. 
+    .col-12.d-flex.justify-content-md-start.justify-content-end
+        .col-md-6.col-xs-12.box-right
+            h3 1940 to 1930
+            p.bt-1 In kuala lumpur Malaysia, moved to singapore
+
+    .col-12.d-flex.justify-content-end
+        .col-md-6.col-xs-12.box-left
+            h3 1988 to 1975
+            p.bt-1 Attend Raffles Girl School. 
+
+    each moreMilestone in [1, 2, 3]
+        .collapse.more-miles.col-12.p-0
+            .col-12.d-flex.justify-content-md-start.justify-content-end
+                .col-md-6.col-xs-12.box-right
+                    h3 1940 to 1930
+                    p.bt-1 Test in kuala lumpur Malaysia, moved to singapore lumpur Malaysia, moved to singapore lumpur Malaysia, moved to singapore
+
+            .col-12.d-flex.justify-content-end
+                .col-md-6.col-xs-12.box-left
+                    h3 1989 to 1975
+                    p.bt-1 test Born in kuala lumpur after moving to malaysia 
+
+    .col-12.pt-3.d-flex.justify-content-center
+        button.btn.btn-outline-primary(type="button" data-toggle="collapse" data-target=".more-miles" aria-expanded="false") Read More
