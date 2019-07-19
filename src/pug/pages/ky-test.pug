@@ -1,0 +1,16 @@
+extends ../template.pug
+
+block header
+//- +header(false)
+
+block content
+    .container-fluid.no-gutters.p-0
+        .row
+            .col-12
+                h1.font-weight-bolder A French Toast To Ballet
+
+block footer
+    .container-fluid
+        .row
+            .col-12.col-md-6.p-0.sticky-footer
+                include ../layout/footer.pug

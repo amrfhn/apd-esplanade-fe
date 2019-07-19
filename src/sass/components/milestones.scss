@@ -1,0 +1,91 @@
+#milestones-wrapper {
+
+    .box-left {
+        height: auto;
+        padding-left: 40px;
+        padding-bottom: 20px;
+
+        p {
+            max-width: 300px;
+        }
+
+        &:before {
+            content: "";
+            border-left: 1px solid #000000;
+            position: absolute;
+            top: 0px;
+            left: -1px;
+            height: 100%;
+        }
+
+        &:after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background: #000000;
+            ;
+            border-radius: 50%;
+            top: 0px;
+            left: -8px;
+            position: absolute;
+        }
+    }
+
+    .box-right {
+        height: auto;
+        text-align: left;
+        padding-left: 40px;
+        padding-bottom: 20px;
+
+        p {
+            max-width: 300px;
+            float: left;
+        }
+
+        &:before {
+            content: "";
+            border-left: 1px solid #000000;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            @media(min-width: 768px) {
+              left: inherit;
+              right: 0px;
+            }
+        }
+
+        &:after {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background: #000000;
+            border-radius: 50%;
+            top: 0px;
+            left: -8px;
+            position: absolute;
+
+            @media(min-width: 768px) {
+                left: inherit;
+                right: -8px;
+            }
+        }
+
+
+
+        @media(min-width: 768px) {
+            height: auto;
+            text-align: right;
+            padding-right: 40px;
+            padding-bottom:20px;
+            p{
+                max-width: 300px;
+                float: right;
+            }
+          
+    
+        }
+    }
+
+
+}

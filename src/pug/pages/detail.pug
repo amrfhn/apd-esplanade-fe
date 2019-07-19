@@ -160,7 +160,7 @@ block content
         .row.pb-25
             .col
                 .video-carousel.py-25
-                    - const videos = ['https://www.youtube.com/embed/FdnOqThfNzc', 'https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o'];
+                    - const videos = ['https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o'];
                     each video in videos 
                         +videoCarousel(video)
 
@@ -182,6 +182,27 @@ block content
         .row#mini-series.bg-light.mx-md-0.my-25 
             include ../components/mini-series.pug
 
+      
+        #milestones-wrapper.container.no-gutters.p-0
+            .row.p-25
+                .col-12.d-flex.justify-content-end
+                    .col-md-6.col-xs-12.box-left
+                        h3 20 Jan 1975
+                        p.bt-1 Born in kuala lumpur Malaysia, moved to singapore with family shortly after moving to malaysia 
+
+                .col-12.d-flex.justify-content-md-start.justify-content-end
+                   .col-md-6.col-xs-12.box-right
+                        h3 1940 to 1930
+                        p.bt-1 Born in kuala lumpur Malaysia, moved to singapore
+                
+                .col-12.d-flex.justify-content-end
+                    .col-md-6.col-xs-12.box-left
+                        h3 1988 to 1975
+                        p.bt-1 Attend Raffles Girl School. 
+      
+      
+      
+      
         .row.mx-0.py-25
             .col-12.p-0
                 include ../components/accordion.pug
