@@ -35,5 +35,4 @@ $(function () {
         $("body").removeClass("filter-open");
     })
 
-
 })
