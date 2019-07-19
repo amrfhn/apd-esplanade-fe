@@ -2,7 +2,7 @@ mixin heroBanner(icon, imgSrc, video720, video450,  img720, img450)
     if video720
         //- Trigger Modal
         .video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
-            .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
+            .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-items-center
                 img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
             
             .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 720px")
@@ -10,7 +10,7 @@ mixin heroBanner(icon, imgSrc, video720, video450,  img720, img450)
     if video450
         //- Trigger Modal
         .video-modal-wrapper.position-relative(data-toggle="modal" data-target="#video-modal")
-            .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-content-center
+            .thumbnail-overlay.position-absolute.w-100.h-100.d-flex.justify-content-center.align-items-center
                 img(src=icon alt="thumbnail" width="90px").video-icon.float-right.p-3
             
             .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px") 

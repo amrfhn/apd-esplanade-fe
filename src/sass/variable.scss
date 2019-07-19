@@ -141,26 +141,32 @@ h1, h2, h3, h4, h5 {
 
 h1, .h1 {
   font-size: 36px !important;
+  line-height: 36px !important;
 
   @media(min-width: 768px){
     font-size: 48px !important; 
+    line-height: 48px !important; 
   }
 }
 
 h2, .h2 {
   font-size: 28px !important;
+  line-height: 28px !important;
 
   @media(min-width: 768px){
     font-size: 36px !important; 
+    line-height: 36px !important; 
   }
 }
 
 h3, .h3 {
   font-size: 22px !important; 
+  line-height: 22px !important; 
 }
 
 h4, .h4 {
   font-size: 16px !important; 
+  line-height: 16px !important; 
 }
 
 .bt-1 {
@@ -230,9 +236,9 @@ p {font-size: 18px}
   padding: 15px 58px !important;
   border:1.5px solid $primary;
   &:hover{
-      background-color: $primary;
+      background-color: $white;
       color: $white;
-      border: 1.5px solid $primary !important;
+      border: 1.5px solid $white !important;
       box-shadow: inset 450px 0 0 0 $primary;
       transition: all 0.25s ease-in;
   }
@@ -248,7 +254,7 @@ p {font-size: 18px}
   &:hover{
       background-color: $white;
       color: $primary;
-      border:1.5px solid $white !important;
+      border:1.5px solid $primary !important;
       box-shadow: inset 450px 0 0 0 $white;
       transition: all 0.25s ease-in;
   }

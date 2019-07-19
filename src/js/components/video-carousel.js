@@ -20,14 +20,21 @@ $(function(){
     } else {
         $('.video-carousel-nav').slick({
             slidesToShow: slide,
-            slidesToScroll: 1,
+            slidesToScroll: slide,
             asNavFor: '.video-carousel',
             dots: false,
             // autoplay: true,
             // autoplaySpeed: 2000,
-            focusOnSelect: true,
+            focusOnSelect: false,
             infinite: false,
             centerMode: false,
         });        
     }
+
+    $('.video-carousel-nav').on('click', '.slick-slide', function(event) {
+        event.preventDefault();
+        var goToSingleSlide = $(this).data('slick-index');
+   
+        $('.video-carousel').slick('slickGoTo', goToSingleSlide);
+    });
 })
