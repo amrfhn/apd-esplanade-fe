@@ -108,7 +108,8 @@ $(function () {
                 })
             },
             bgSwitcher: function () {
-                var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+                var _this = this;
+                var bannerIndex = 0;
                 $('.banner-bg').each(function () {
 
                     var carouselMobileImage = $(this).attr('data-mobile-image')
@@ -125,6 +126,17 @@ $(function () {
                     if (md.matches) {
                         $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                     }
+
+                    
+
+                    _this.contentColor = data.banners[bannerIndex].Content.Colour
+
+                    if (_this.contentColor == '#000000'){
+                        $(this).find('.banner-content').find('.btn-carousel').addClass('btn-outline-primary');
+                    } else{
+                        $(this).find('.banner-content').find('.btn-carousel').addClass('btn-outline-light');
+                    }
+                    bannerIndex++;
                 });
 
             },
@@ -225,6 +237,13 @@ $(function () {
                     _this.banners = data.Banners
                     _this.filters = data.Articles
 
+                    _this.contentColor = data.Banners[0].Colour
+
+                    if (_this.contentColor == '#000000'){
+                        $('.banner-content').find('.btn').addClass('btn-outline-primary');
+                    } else{
+                        $('.banner-content').find('.btn').addClass('btn-outline-light');
+                    }
 
                     jQuery.fn.hasScrollBar = function () {
                         return this.get(0).scrollWidth > this.innerWidth();
