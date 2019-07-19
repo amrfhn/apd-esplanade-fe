@@ -51,11 +51,14 @@ $(function () {
             _this.bgSwitcher();
             _this.clamptext();
 
-            if ($('.banner-bg').length > 1) {
+            _this.bannerCount = data.banners.length;
+
+            if (_this.bannerCount > 1) {
                 _this.slick();
+                $('.banner-content').find('.banner-navigation').css('display', 'flex');
             }
             else {
-                document.getElementsByClassName('banner-navigation').style.display = "none";
+                $('.banner-content').find('.banner-navigation').css('display', 'none');
             }
         },
         methods: {
@@ -110,6 +113,7 @@ $(function () {
             bgSwitcher: function () {
                 var _this = this;
                 var bannerIndex = 0;
+
                 $('.banner-bg').each(function () {
 
                     var carouselMobileImage = $(this).attr('data-mobile-image')
@@ -141,6 +145,7 @@ $(function () {
 
             },
             slick: function (e) {
+<<<<<<< HEAD
                 $('.next-slide').click(function(){
                     $(".slide-count-wrap").fadeOut(500);
                 });
@@ -154,6 +159,14 @@ $(function () {
                     var i = (currentSlide ? currentSlide : 0) + 1;
                     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
                     $(".slide-count-wrap").fadeIn(500);
+=======
+                $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+
+                    var i = (currentSlide ? currentSlide : 0) + 1;
+
+                    $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+
+>>>>>>> 2670b3a2766ec4888f5590a73d750680a6a6aeb9
                 });
 
                 
@@ -168,6 +181,7 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
+<<<<<<< HEAD
 
                
                 // $('.carousel-banner').on('init beforeChange', function (event, slick, currentSlide, nextSlide) {
@@ -176,6 +190,15 @@ $(function () {
     
                 //     });
 
+=======
+                // $('.carousel-banner').on('init afterChange', function (event, slick, currentSlide, nextSlide) {
+
+                //         var i = (currentSlide ? currentSlide : 0) + 1;
+    
+                //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+    
+                //     });
+>>>>>>> 2670b3a2766ec4888f5590a73d750680a6a6aeb9
 
 
             },
@@ -252,13 +275,6 @@ $(function () {
                     _this.banners = data.Banners
                     _this.filters = data.Articles
 
-                    _this.contentColor = data.Banners[0].Colour
-
-                    if (_this.contentColor == '#000000'){
-                        $('.banner-content').find('.btn').addClass('btn-outline-primary');
-                    } else{
-                        $('.banner-content').find('.btn').addClass('btn-outline-light');
-                    }
 
                     if ($('.wrap').length > 1){
                         jQuery.fn.hasScrollBar = function () {
