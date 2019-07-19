@@ -8,6 +8,15 @@ $(function () {
             scrollTop: $('#acknowledgements').offset().top
         }, 500);
     });
+
+    // $('.genre-list').click(function (e) {
+    //     e.preventDefault();
+
+    //     $('html, body').animate({
+    //         scrollTop: $('.tabfil-container').offset().top
+    //     }, 500);
+    // });
+
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
 

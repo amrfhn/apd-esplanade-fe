@@ -268,7 +268,7 @@ $(function () {
 
         }
     })
-    var $filterContainer = $('.tab-filter');
+    var $filterContainer = $('.tab-content');
 
     if ($filterContainer.length > 0) {
         $(document).on('scroll', function () {
