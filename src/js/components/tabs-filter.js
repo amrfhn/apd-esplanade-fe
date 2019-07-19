@@ -12,7 +12,6 @@ $(function () {
 
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
-    var spinner = $('#spinner')
 
     var host = "http://dev.esplanade.growthopsapp.com"
 
@@ -26,7 +25,6 @@ $(function () {
         filters: [],
         banners: [],
         reqPageNum: "",
-        isLoading: false
     }
 
     var params = {
