@@ -51,11 +51,13 @@ $(function () {
             _this.bgSwitcher();
             _this.clamptext();
 
-            if ($('.banner-bg').length > 1) {
+            _this.bannerCount = data.banners.length;
+
+            if (_this.bannerCount > 1) {
                 _this.slick();
             }
             else {
-                document.getElementsByClassName('banner-navigation').style.display = "none";
+                $('.banner-content').find('.banner-navigation').css('display', 'none');
             }
         },
         methods: {
@@ -110,6 +112,7 @@ $(function () {
             bgSwitcher: function () {
                 var _this = this;
                 var bannerIndex = 0;
+
                 $('.banner-bg').each(function () {
 
                     var carouselMobileImage = $(this).attr('data-mobile-image')
@@ -141,13 +144,13 @@ $(function () {
 
             },
             slick: function (e) {
-                // $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+                $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 
-                //     var i = (currentSlide ? currentSlide : 0) + 1;
+                    var i = (currentSlide ? currentSlide : 0) + 1;
 
-                //     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+                    $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
-                // });
+                });
 
                 
                 $('.carousel-banner').slick({
@@ -161,13 +164,13 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
-                $('.carousel-banner').on('init beforeChange', function (event, slick, currentSlide, nextSlide) {
+                // $('.carousel-banner').on('init afterChange', function (event, slick, currentSlide, nextSlide) {
 
-                        var i = (currentSlide ? currentSlide : 0) + 1;
+                //         var i = (currentSlide ? currentSlide : 0) + 1;
     
-                        $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+                //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
     
-                    });
+                //     });
 
 
             },
