@@ -55,6 +55,7 @@ $(function () {
 
             if (_this.bannerCount > 1) {
                 _this.slick();
+                $('.banner-content').find('.banner-navigation').css('display', 'flex');
             }
             else {
                 $('.banner-content').find('.banner-navigation').css('display', 'none');
