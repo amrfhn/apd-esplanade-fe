@@ -145,12 +145,28 @@ $(function () {
 
             },
             slick: function (e) {
+<<<<<<< HEAD
+                $('.next-slide').click(function(){
+                    $(".slide-count-wrap").fadeOut(500);
+                });
+
+                $('.prev-slide').click(function(){
+                    $(".slide-count-wrap").fadeOut(500);
+                });
+
+
+                $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+                    var i = (currentSlide ? currentSlide : 0) + 1;
+                    $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+                    $(".slide-count-wrap").fadeIn(500);
+=======
                 $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 
                     var i = (currentSlide ? currentSlide : 0) + 1;
 
                     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
+>>>>>>> 2670b3a2766ec4888f5590a73d750680a6a6aeb9
                 });
 
                 
@@ -165,6 +181,16 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
+<<<<<<< HEAD
+
+               
+                // $('.carousel-banner').on('init beforeChange', function (event, slick, currentSlide, nextSlide) {
+                //         var i = (currentSlide ? currentSlide : 0) + 1;
+                //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
+    
+                //     });
+
+=======
                 // $('.carousel-banner').on('init afterChange', function (event, slick, currentSlide, nextSlide) {
 
                 //         var i = (currentSlide ? currentSlide : 0) + 1;
@@ -172,6 +198,7 @@ $(function () {
                 //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
     
                 //     });
+>>>>>>> 2670b3a2766ec4888f5590a73d750680a6a6aeb9
 
 
             },
