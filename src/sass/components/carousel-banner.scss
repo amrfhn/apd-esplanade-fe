@@ -41,22 +41,25 @@
           font-style: normal;
           letter-spacing: 0.6px;
         }
-
-        .arrows-wrapper {
-          .custom-btn {
-            border: 0;
-            background: none;
-            padding: 25px 5px 0 5px;
-
-            img.cus-control {
-              width: 100%;
-              position: relative;
-              top: 0;
-              left: 0;
+        .banner-navigation{
+          display: flex;
+          .arrows-wrapper {
+            .custom-btn {
+              border: 0;
               background: none;
+              padding: 25px 5px 0 5px;
+  
+              img.cus-control {
+                width: 100%;
+                position: relative;
+                top: 0;
+                left: 0;
+                background: none;
+              }
             }
           }
         }
+        
 
         .slide-count-wrap {
           position: relative;
