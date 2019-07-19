@@ -6,7 +6,7 @@ $(function () {
 
     $videoModal.on('show.bs.modal', function () {
         if (window.matchMedia('(min-width: 768px)').matches) {
-            $('.nav-bar-wrapper').css('padding-right', '19px')
+            $('.nav-bar-wrapper').css('padding-right', '17px')
         }
 
         // Get the scroll distance at the time the modal was opened
