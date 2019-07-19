@@ -13,8 +13,6 @@ $(function (){
         }
     })
 
-    console.log(current, width);
-
     var $readSection = $('#readSection');
     var $scrollOffset = $(document).scrollTop();
 
@@ -63,17 +61,15 @@ $(function (){
         });
     }
 
-
-
-    $('#flat').addClass("active");
-    current.find("progress").addClass('flat');
+    // $('#flat').addClass("active");
+    // current.find("progress").addClass('flat');
     
-    $('#flat').on('click', function(){
-        current.find("progress").removeClass().addClass('flat');
-        $('a').removeClass();
-        $(this).addClass('active');
-        $(this).preventDefault();
-    });
+    // $('#flat').on('click', function(){
+    //     current.find("progress").removeClass().addClass('flat');
+    //     $('a').removeClass();
+    //     $(this).addClass('active');
+    //     $(this).preventDefault();
+    // });
 
 
     var $fixProgress = $('.progress-wrapper');
@@ -83,7 +79,7 @@ $(function (){
         $(document).on('scroll', function() {
             
             let scrollPos = $(this).scrollTop()
-            let menuHeight = $('.nav-bar-wrapper').height();
+            let menuHeight = $('.left-wrapper').height();
             
             if(scrollPos > (current.offset().top - menuHeight)) {
             current.find("progress").addClass("fixedbar");
@@ -91,7 +87,6 @@ $(function (){
                 current.find("progress").removeClass("fixedbar");
             } 
 
-            console.log(scrollPos, current.offset().top, menuHeight);
         });
     }
 });
