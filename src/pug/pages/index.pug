@@ -12,7 +12,7 @@ block content
                 .position-relative
                     .carousel-banner-wrapper
                         .carousel-banner(:id="all")
-                            .banner-bg(v-for="banner in banners" :src='banner.ThumbnailDesktop'  :data-desktop-image='banner.ThumbnailDesktop' :data-mobile-image="banner.ThumbnailMobile" )
+                            .banner-bg(v-for="banner in banners" :data-desktop-image='banner.ThumbnailDesktop' :data-mobile-image="banner.ThumbnailMobile" )
                                 include ../components/banner-content.pug 
 
                             

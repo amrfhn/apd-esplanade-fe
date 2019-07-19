@@ -248,13 +248,6 @@ $(function () {
                     _this.banners = data.Banners
                     _this.filters = data.Articles
 
-                    _this.contentColor = data.Banners[0].Colour
-
-                    if (_this.contentColor == '#000000'){
-                        $('.banner-content').find('.btn').addClass('btn-outline-primary');
-                    } else{
-                        $('.banner-content').find('.btn').addClass('btn-outline-light');
-                    }
 
                     if ($('.wrap').length > 1){
                         jQuery.fn.hasScrollBar = function () {
