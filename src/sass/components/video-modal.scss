@@ -2,6 +2,10 @@
     cursor: pointer
 }
 
+#video-modal.modal {
+  overflow-y: hidden !important;
+}
+
 #video-modal {
   .modal-content {
     background: transparent;
@@ -33,4 +37,14 @@
       max-width: 900px !important;
     }
   }
+}
+
+.freeze-page{
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  pointer-events: none;
 }
