@@ -78,7 +78,7 @@
                   background-color: $primary;
                   color: $white;
                   transition: all 0.25s ease-in;
-                  border: 3px solid $white;
+                  border: 3px solid $primary;
                 }             
               }
               .arrow-light{
@@ -89,7 +89,7 @@
                   background-color: $white;
                   color: $primary;
                   transition: all 0.25s ease-in;
-                  border: 3px solid $primary;
+                  border: 3px solid $white;
                 }             
               }
             }

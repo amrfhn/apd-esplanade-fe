@@ -1,12 +1,11 @@
 .btn{
-    padding: 10px 15px;
-    word-break: break-word;
-    transition: all 0.3s ease-in-out;
-    font-size: 18px;
-    // border: none;
+    // padding: 10px 15px;
+    // word-break: break-word;
+    // font-size: 18px;
+    // // border: none;
 
     @media(min-width: 768px) {
-        max-width: unset
+        // max-width: unset
     }
 
     &.btn-primary{
