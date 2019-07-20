@@ -79,6 +79,11 @@ $(function () {
     //menuburger key link to filter data checkbox
     //karyann
 
+    $(".mm-content a").click(function(){
+      var datakey =  $(this).attr("data-key");
+      console.log(datakey)
+    });
 
-    
+
+
 });
