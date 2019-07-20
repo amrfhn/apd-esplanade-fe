@@ -38,10 +38,10 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
+            
             this.fetchData();
             console.log("called api");
             this.checkScroll();
-            // this.updateData();
         },
         updated: function () {
             var _this = this;
@@ -62,6 +62,7 @@ $(function () {
             }
         },
         methods: {
+
 
             checkScroll: function (e) {
 
@@ -245,11 +246,14 @@ $(function () {
                     data: $.param(params)
                 }).done(function (data) {
                     // console.log(data)
-
-
+                    // if (data == true) {
+                    //     $('.load-screen').removeClass('active-loading')
+            
+                    // } else {
+                    //     $('.load-screen').addClass('active-loading')
+                    // }  
                     _this.banners = data.Banners
                     _this.filters = data.Articles
-
 
                     jQuery.fn.hasScrollBar = function () {
                         return this.get(0).scrollWidth > this.innerWidth();
@@ -266,6 +270,8 @@ $(function () {
                     if ($('.carousel-banner').hasClass('slick-initialized')) {
                         $('.carousel-banner').slick('unslick');
                     }
+                }).fail(function(jqXHR, errorThrown, textStatus) {
+                    console.log(jqXHR);
                 })
             },
 
