@@ -38,10 +38,10 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
+            
             this.fetchData();
             console.log("called api");
             this.checkScroll();
-            // this.updateData();
         },
         updated: function () {
             var _this = this;
@@ -63,11 +63,12 @@ $(function () {
         },
         methods: {
 
+
             checkScroll: function (e) {
 
                 window.onscroll = () => {
                     let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
-                    
+
                     if (bottomOfWindow && ($(".tab-content")[0])) {
                         this.scrolledToBottom = true
                         document.getElementById('spinner').style.display = "flex";
@@ -131,45 +132,31 @@ $(function () {
                         $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                     }
 
-                    
+
 
                     _this.contentColor = data.banners[bannerIndex].Content.Colour
 
-                    if (_this.contentColor == '#000000'){
+                    if (_this.contentColor == '#000000') {
                         $(this).find('.banner-content').find('.btn-carousel').addClass('btn-outline-primary');
-                    } else{
+                        $(this).find('.banner-content').find('.cust-icon').addClass('arrow-black');
+                    } else {
                         $(this).find('.banner-content').find('.btn-carousel').addClass('btn-outline-light');
+                        $(this).find('.banner-content').find('.cust-icon').addClass('arrow-light');
                     }
                     bannerIndex++;
                 });
 
             },
             slick: function (e) {
-<<<<<<< HEAD
-                $('.next-slide').click(function(){
-                    $(".slide-count-wrap").fadeOut(500);
-                });
-
-                $('.prev-slide').click(function(){
-                    $(".slide-count-wrap").fadeOut(500);
-                });
-
-
-                $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-                    var i = (currentSlide ? currentSlide : 0) + 1;
-                    $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
-                    $(".slide-count-wrap").fadeIn(500);
-=======
                 $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
 
                     var i = (currentSlide ? currentSlide : 0) + 1;
 
                     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
->>>>>>> 2670b3a2766ec4888f5590a73d750680a6a6aeb9
                 });
 
-                
+
                 $('.carousel-banner').slick({
                     slidesToShow: 1,
                     slidesToScroll: 1,
@@ -181,24 +168,13 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
-<<<<<<< HEAD
-
-               
-                // $('.carousel-banner').on('init beforeChange', function (event, slick, currentSlide, nextSlide) {
-                //         var i = (currentSlide ? currentSlide : 0) + 1;
-                //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
-    
-                //     });
-
-=======
                 // $('.carousel-banner').on('init afterChange', function (event, slick, currentSlide, nextSlide) {
 
                 //         var i = (currentSlide ? currentSlide : 0) + 1;
-    
+
                 //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
-    
+
                 //     });
->>>>>>> 2670b3a2766ec4888f5590a73d750680a6a6aeb9
 
 
             },
@@ -270,32 +246,38 @@ $(function () {
                     data: $.param(params)
                 }).done(function (data) {
                     // console.log(data)
-
-
+                    // if (data == true) {
+                    //     $('.load-screen').removeClass('active-loading')
+            
+                    // } else {
+                    //     $('.load-screen').addClass('active-loading')
+                    // }  
                     _this.banners = data.Banners
                     _this.filters = data.Articles
 
+                    jQuery.fn.hasScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    }
+                    if ($('.wrap').length >= 1) {
 
-                    if ($('.wrap').length > 1){
-                        jQuery.fn.hasScrollBar = function () {
-                            return this.get(0).scrollWidth > this.innerWidth();
-                        }
                         if (!$('.wrap').hasScrollBar()) {
                             $('#goPrev').css('display', 'none');
                             $('#goNext').css('display', 'none');
                             console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
                         }
                     }
-                    
+
                     if ($('.carousel-banner').hasClass('slick-initialized')) {
                         $('.carousel-banner').slick('unslick');
                     }
+                }).fail(function(jqXHR, errorThrown, textStatus) {
+                    console.log(jqXHR);
                 })
             },
 
         }
     })
-    var $filterContainer = $('.tab-filter');
+    var $filterContainer = $('#tabs-filter');
 
     if ($filterContainer.length > 0) {
         $(document).on('scroll', function () {
@@ -332,18 +314,16 @@ $(function () {
     var scrollLeftPrev = 0;
     var catScrollLeftPrev = 0;
 
-    if ($('.wrapper').length > 1){
-        jQuery.fn.hasHScrollBar = function () {
-            return this.get(0).scrollWidth > this.innerWidth();
-        }
+
+    jQuery.fn.hasHScrollBar = function () {
+        return this.get(0).scrollWidth > this.innerWidth();
+    }
+
+    if ($('.wrapper').length >= 1) {
         if (!$('.wrapper').hasHScrollBar()) {
             $('#goBack').css('display', 'none');
             $('#goAfter').css('display', 'none');
         }
-
-        $(function hideMainCategoryArrow() {
-
-        })
     }
 
 

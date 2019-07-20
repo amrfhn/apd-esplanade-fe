@@ -1,46 +1,3 @@
-// $(function(){
-//     $('.video-carousel').slick({
-//         slidesToShow: 1,
-//         slidesToScroll: 1,
-//         arrows: false,
-//         fade: true,
-//         asNavFor: '.video-carousel-nav',
-//         responsive: [
-//             {
-//                 breakpoint: 767, 
-//                 settings: 'unslick'
-//             }
-//         ]
-//     });
-
-//     let slide = $('.video-carousel .slick-slide').length;
-
-//     if (slide < 2) {
-//         $('.video-carousel-nav').addClass('d-none')
-//     } else {
-//         $('.video-carousel-nav').slick({
-//             slidesToShow: slide,
-//             slidesToScroll: slide,
-//             asNavFor: '.video-carousel',
-//             dots: false,
-//             // autoplay: true,
-//             // autoplaySpeed: 2000,
-//             touchMove: false,
-//             draggable: false,
-//             focusOnSelect: false,
-//             infinite: false,
-//             centerMode: false,
-//         });        
-//     }
-
-//     $('.video-carousel-nav').on('click', '.slick-slide', function(event) {
-//         event.preventDefault();
-//         var goToSingleSlide = $(this).data('slick-index');
-
-//         $('.video-carousel').slick('slickGoTo', goToSingleSlide);
-//     });
-// })
-
 $(function () {
 
     $('.video-component').each(function () {
@@ -49,7 +6,7 @@ $(function () {
             slidesToScroll: 1,
             arrows: false,
             fade: true,
-            asNavFor: '.video-carousel-nav',
+            // asNavFor: '.video-carousel-nav',
             responsive: [
                 {
                     breakpoint: 767,
@@ -68,7 +25,7 @@ $(function () {
             $(this).find('.video-carousel-nav').slick({
                 slidesToShow: slide,
                 slidesToScroll: slide,
-                asNavFor: '.video-carousel',
+                // asNavFor: '.video-carousel',
                 dots: false,
                 // autoplay: true,
                 // autoplaySpeed: 2000,
@@ -87,7 +44,6 @@ $(function () {
             // $(this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
             console.log('onclick')
             console.log(goToSingleSlide)
-            console.log($(_this).find('.video-carousel').length)
             $(_this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
         });
 

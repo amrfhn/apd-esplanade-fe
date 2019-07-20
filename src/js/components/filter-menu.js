@@ -18,7 +18,7 @@ $(function () {
 
     $('.submit-filter').on('click', function () {
         $('html, body').animate({
-            scrollTop: $("#tabs-filter").offset().top
+            scrollTop: $(".tab-content").offset().top
         }, 1500);
     })
 
@@ -34,6 +34,5 @@ $(function () {
         $('.in-between-screen').removeClass('active');
         $("body").removeClass("filter-open");
     })
-
 
 })

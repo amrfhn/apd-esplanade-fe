@@ -7,6 +7,8 @@ $(function () {
     $videoModal.on('show.bs.modal', function () {
         if (window.matchMedia('(min-width: 768px)').matches) {
             $('.nav-bar-wrapper').css('padding-right', '17px')
+            $('.detail-search').css('right', '57px')
+            $('.home-search').css('right', '57px')
         }
 
         // Get the scroll distance at the time the modal was opened
@@ -25,6 +27,8 @@ $(function () {
 
     $videoModal.on("hidden.bs.modal", function (e) {
         $('.nav-bar-wrapper').css('padding-right', 'unset')
+        $('.detail-search').css('right', '40px')
+        $('.home-search').css('right', '40px')
 
         // Remove the negative top value on the body
         $body.css("top", "");
