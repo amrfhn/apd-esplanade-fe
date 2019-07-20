@@ -50,15 +50,15 @@ $(function () {
 
 
     $('a.nav-link.megamenu-genre').on('click', function () {
-         $('a.nav-link.megamenu-genre').each(function () {
-             $(this).parent().removeClass('active');
-             
-         console.log($(this));
-         })
-         $(this).parent().addClass('active');
+        $('a.nav-link.megamenu-genre').each(function () {
+            $(this).parent().removeClass('active');
 
-         var datakey = $(this).data('key');
-         $('a#'+datakey).click();
+            console.log($(this));
+        })
+        $(this).parent().addClass('active');
+
+        var dataKey = $(this).data('key');
+        $('a#' + dataKey).click();
     })
 
     // var $menuBrowseBy =  $('.megamenu-browseby')
@@ -68,7 +68,7 @@ $(function () {
 
     // $menuBrowseBy.on('click', function(){
     //     $menuBrowseBy.each(function(){  
-            
+
     //         var $filterBrowseBy = $('.browse-by').find('.custom-contorl-input')
     //         var filterBrowseByKey = $filterBrowseBy.data('key')
 
@@ -83,11 +83,25 @@ $(function () {
     //menuburger key link to filter data checkbox
     //karyann
 
-    $(".mm-content a").click(function(){
-      var datakey =  $(this).attr("data-key");
-      console.log(datakey)
+    $(".mm-content a").click(function () {
+        var dataKey = $(this).attr("data-key");
+        //
+        $(".custom-checkkbox .custom-control-input ").prop("checked", false);
+        $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
+        console.log(dataKey)
+      //  localStorage.setItem("dataKey", dataKey);
+        //localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
+    
     });
+    // $( document ).ready(function() {
+    //     if (localStorage.getItem("dataKey") === null) {
+    //         localStorage.setItem("dataKey", null);
+    //       }else{
+    //         var getKey =localStorage.getItem('dataKey')
+    //         $(".custom-checkkbox [data-key=" + getKey + "] ").prop("checked", true);
+    //       }
 
+    // });
 
 
 });
