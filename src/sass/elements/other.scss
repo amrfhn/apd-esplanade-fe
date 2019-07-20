@@ -1,36 +1,38 @@
-// //SVG Button Custom
-// $icomoon-font-family: "esplanade-prev" !default;
-// $icomoon-font-path: "fonts" !default;
-// $esplanade-icon-Previous: "\e900";
-
-// @font-face {
-//   font-family: '#{$icomoon-font-family}';
-//   src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?946shc');
-//   src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?946shc#iefix') format('embedded-opentype'),
-//     url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?946shc') format('truetype'),
-//     url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?946shc') format('woff'),
-//     url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?946shc##{$icomoon-font-family}') format('svg');
-//   font-weight: normal;
-//   font-style: normal;
-// }
-
-// .icon {
-//   /* use !important to prevent issues with browser extensions that change fonts */
-//   font-family: '#{$icomoon-font-family}' !important;
-//   font-style: normal;
-//   font-weight: normal;
-//   font-variant: normal;
-//   text-transform: none;
-//   line-height: 1;
-
-//   /* Better Font Rendering =========== */
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-// .esplanade-icon-Previous {
-//   &:before {
-//     content: $esplanade-icon-Previous; 
-//   }
-// }
+@font-face {
+    font-family: '#{$icomoon-font-family}';
+    src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?bwjr5n');
+    src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?bwjr5n#iefix') format('embedded-opentype'),
+      url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?bwjr5n') format('truetype'),
+      url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?bwjr5n') format('woff'),
+      url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?bwjr5n##{$icomoon-font-family}') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: '#{$icomoon-font-family}' !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .esplanade-icon-Next {
+    &:before {
+      content: $esplanade-icon-Next; 
+    }
+  }
+  .esplanade-icon-Previous {
+    &:before {
+      content: $esplanade-icon-Previous; 
+    }
+  }
+  
+  
 
