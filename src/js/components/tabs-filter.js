@@ -168,9 +168,7 @@ $(function () {
                     nextArrow: $('.next-slide')
                 });
                 // $('.carousel-banner').on('init afterChange', function (event, slick, currentSlide, nextSlide) {
-
                 //         var i = (currentSlide ? currentSlide : 0) + 1;
-
                 //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
                 //     });
