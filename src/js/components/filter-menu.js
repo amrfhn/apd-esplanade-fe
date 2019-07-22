@@ -18,12 +18,6 @@ $(function () {
         $("body").removeClass("filter-open");
     })
 
-    $('.submit-filter').on('click', function () {
-        $('html, body').animate({
-            scrollTop: $(".tab-content").offset().top
-        }, 1500);
-    })
-
     $('.in-between-screen').on('click', function(){
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active');
@@ -36,6 +30,13 @@ $(function () {
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active');
         $("body").removeClass("filter-open");
+        $('html, body').animate({
+            scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+        }, 1500);
+        $('html, body').animate({
+            scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+        }, 1500);
+        $(".show-filter").scrollTop();
     })
 
     if ($('.in-between-screen').hasClass('active')){
