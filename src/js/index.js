@@ -5,7 +5,7 @@ $(function () {
         e.preventDefault();
 
         $('html, body').animate({
-            scrollTop: $('#acknowledgements').offset().top
+            scrollTop: ($('#acknowledgements').offset().top) - ($('.nav-bar').height()) 
         }, 500);
     });
 
