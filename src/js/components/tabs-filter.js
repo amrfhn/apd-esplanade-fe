@@ -278,16 +278,16 @@ $(function () {
         }
     })
     var $filterContainer = $('#tabs-filter');
-
+    $('.filter-bar').addClass("stick");
     if ($filterContainer.length > 0) {
         $(document).on('scroll', function () {
 
             let filterScrollPos = $(this).scrollTop();
 
             if (filterScrollPos > ($filterContainer.offset().top)) {
-                $('.filter-bar').addClass("stick");
+              //  $('.filter-bar').addClass("stick");
             } else {
-                $('.filter-bar').removeClass("stick");
+              //  $('.filter-bar').removeClass("stick");
             }
 
         });
