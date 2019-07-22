@@ -38,7 +38,7 @@ $(function () {
         el: '#tabs-filter',
         data: data,
         mounted: function () {
-            
+
             this.fetchData();
             console.log("called api");
             this.checkScroll();
@@ -56,8 +56,7 @@ $(function () {
             if (_this.bannerCount > 1) {
                 _this.slick();
                 $('.banner-content').find('.banner-navigation').css('display', 'flex');
-            }
-            else {
+            } else {
                 $('.banner-content').find('.banner-navigation').css('display', 'none');
             }
 
@@ -107,8 +106,7 @@ $(function () {
                     // this.setLoading(false);
                     if (data.Articles.length < offset || data.Articles.length == 0) {
                         document.getElementById('spinner').style.display = "none";
-                        window.onscroll = () => {
-                        }
+                        window.onscroll = () => {}
                     }
                 })
             },
@@ -236,10 +234,10 @@ $(function () {
 
                 _this.fetchData();
 
-                if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1){
+                if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1) {
                     // console.log("have somethin")
                     $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/FilterWithNotifications.svg')
-                } else{
+                } else {
                     $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/Filter.svg')
                 }
 
@@ -255,7 +253,7 @@ $(function () {
                     dataType: "json",
                     data: $.param(params)
                 }).done(function (data) {
-               
+
                     _this.banners = data.Banners
                     _this.filters = data.Articles
 
@@ -280,36 +278,63 @@ $(function () {
         }
     })
     var $filterContainer = $('#tabs-filter');
-
     if ($filterContainer.length > 0) {
         $(document).on('scroll', function () {
-
             let filterScrollPos = $(this).scrollTop();
-
             if (filterScrollPos > ($filterContainer.offset().top)) {
-                $('.filter-bar').addClass("stick");
+                //$('.filter-bar').addClass("stick");
             } else {
-                $('.filter-bar').removeClass("stick");
+                //$('.filter-bar').removeClass("stick");
             }
-
         });
     }
 
+    //test start
+    if ($(window).width() < 960) {
+        $('.filter-bar').removeClass("stick");
+        let mobileHeight = $(document).height() - 50;
+        $(document).on('scroll', function () {
+            let filterScrollPos = $(this).scrollTop();
+            if (filterScrollPos >= mobileHeight) {
+               $('.filter-bar').addClass("stick");
+            //$('.tabfil-container').addClass("bar-height");
+            $('.tab-content .bar-height').css("height","150px");
+            }else{
+                $('.filter-bar').removeClass("stick");
+                //$('.filter-bar').removeClass("bar-height");
+                $('.tab-content .bar-height').css("height","0px");
+                console.log("test")
+            }
+        });
+
+    } else {
+        //  alert('More than 960');
+    }
+    //test end
+
     //category on click scroller arrow and initialize outer width func
     $('#goPrev').on('click', function () {
-        $('.wrap').animate({ scrollLeft: '-=100' }, 200);
+        $('.wrap').animate({
+            scrollLeft: '-=100'
+        }, 200);
     });
 
     $('#goNext').on('click', function () {
-        $('.wrap').animate({ scrollLeft: '+=100' }, 200);
+        $('.wrap').animate({
+            scrollLeft: '+=100'
+        }, 200);
     });
 
     $('#goBack').on('click', function () {
-        $('.wrapper').animate({ scrollLeft: '-=100' }, 200);
+        $('.wrapper').animate({
+            scrollLeft: '-=100'
+        }, 200);
     });
 
     $('#goAfter').on('click', function () {
-        $('.wrapper').animate({ scrollLeft: '+=100' }, 200);
+        $('.wrapper').animate({
+            scrollLeft: '+=100'
+        }, 200);
     });
 
     //genre on click scroller

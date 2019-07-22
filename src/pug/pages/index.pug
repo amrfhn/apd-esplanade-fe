@@ -24,8 +24,7 @@ block content
             .col-12.col-md-6.tabfil-container
                 .tab-filter.position-relative
                     .container-fluid.no-gutters.px-0
-                        .row.no-gutters.filter-bar.px-3
-
+                        .row.no-gutters.filter-bar.px-3.stick
                             .col-12.col-md-11.px-2.pt-4.pb-1
                                 .category-tabs-wrapper.side-filter
                                     include ../components/category-tabs.pug 
@@ -44,6 +43,7 @@ block content
 
         
                         .row.no-gutters.px-3.px-md-4.tab-content
+                            .col-12.bar-height
                             .col-12.col-md-6.card-tile.px-2(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
                                 include ../components/card-tile.pug
                             

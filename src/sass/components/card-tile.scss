@@ -2,6 +2,15 @@
   .card-tile {
     padding-bottom: 31px;
   }
+  
+  .bar-height{
+    position: relative;
+    height: 0px;
+    
+    @media(min-width: 768px){
+      height: 160px;
+    }
+  }
 }
 
 .card {

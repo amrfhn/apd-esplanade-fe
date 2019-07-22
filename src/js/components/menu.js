@@ -91,13 +91,13 @@ $(function () {
 
         $(".custom-checkkbox .custom-control-input ").prop("checked", false);
         $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
-        console.log("AA",dataKey)
         $(".mm-wrapper").removeClass("active");
         $( ".submit-filter" ).click();
         //localStorage.setItem("dataKey", dataKey);
-        //localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
+      //  localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
     
     });
+
     // $( document ).ready(function() {
     //     if (localStorage.getItem("dataKey") === null) {
     //         localStorage.setItem("dataKey", null);
