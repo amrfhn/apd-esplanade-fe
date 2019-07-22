@@ -86,12 +86,15 @@ $(function () {
 
     $(".mm-content a").click(function () {
         var dataKey = $(this).attr("data-key");
-        //
+    
+        event.preventDefault();
+
         $(".custom-checkkbox .custom-control-input ").prop("checked", false);
         $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
-        console.log(dataKey)
-        $('.submit-filter').click();
-      //  localStorage.setItem("dataKey", dataKey);
+        console.log("AA",dataKey)
+        $(".mm-wrapper").removeClass("active");
+        $( ".submit-filter" ).click();
+        //localStorage.setItem("dataKey", dataKey);
         //localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
     
     });
