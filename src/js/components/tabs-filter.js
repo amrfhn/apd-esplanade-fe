@@ -60,6 +60,7 @@ $(function () {
             else {
                 $('.banner-content').find('.banner-navigation').css('display', 'none');
             }
+
         },
         methods: {
 
@@ -201,6 +202,7 @@ $(function () {
                 this.fetchData();
             },
             applyFilter: function () {
+                var _this = this;
                 var browse = [];
                 $('.browse-by').find('input[type=checkbox]:checked').each(function () {
                     if ($(this).find('input[type=checkbox]:checked')) {
@@ -232,7 +234,15 @@ $(function () {
 
                 console.log(params.browse, params.contentType, params.timeTaken, params.sort);
 
-                this.fetchData();
+                _this.fetchData();
+
+                if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1){
+                    // console.log("have somethin")
+                    $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/FilterWithNotifications.svg')
+                } else{
+                    $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/Filter.svg')
+                }
+
             },
             fetchData: function () {
 
@@ -245,13 +255,7 @@ $(function () {
                     dataType: "json",
                     data: $.param(params)
                 }).done(function (data) {
-                    // console.log(data)
-                    // if (data == true) {
-                    //     $('.load-screen').removeClass('active-loading')
-            
-                    // } else {
-                    //     $('.load-screen').addClass('active-loading')
-                    // }  
+               
                     _this.banners = data.Banners
                     _this.filters = data.Articles
 
@@ -270,8 +274,6 @@ $(function () {
                     if ($('.carousel-banner').hasClass('slick-initialized')) {
                         $('.carousel-banner').slick('unslick');
                     }
-                }).fail(function(jqXHR, errorThrown, textStatus) {
-                    console.log(jqXHR);
                 })
             },
 

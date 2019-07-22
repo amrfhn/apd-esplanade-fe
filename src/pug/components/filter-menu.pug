@@ -7,10 +7,13 @@
         p.menu-text BROWSE BY:
 
         .fm-content-item.mb-4
+            //- .browse-by.custom-checkkbox.custom-control
+            //-     input.custom-control-input(type="checkbox" data-key="12123" id="11223")
+            //-     label.custom-control-label(for="forEveryone") FOR EVERYONE
+            
             .browse-by.custom-checkkbox.custom-control
-                input.custom-control-input(type="checkbox" data-key="123" id="123")
-                label.custom-control-label(for="forEveryone") FOR EVERYONE
-
+                input.custom-control-input(type="checkbox" data-key="123" id="123" )
+                label.custom-control-label(for="123") FOR PARENTS
             .browse-by.custom-checkkbox.custom-control
                 input.custom-control-input(type="checkbox" data-key="456" id="forParents")
                 label.custom-control-label(for="forParents") FOR PARENTS
@@ -63,6 +66,6 @@
                 label.custom-control-label(for="fifteen-min") > 15 MINUTES
 
         div.mb-4.mx-auto.px-3
-            button(type="submit" value="submit" @click="applyFilter()").submit-filter.btn.btn-outline-primary Apply Filter
+            button(@click="applyFilter()").submit-filter.btn.btn-outline-primary Apply Filter
             
         

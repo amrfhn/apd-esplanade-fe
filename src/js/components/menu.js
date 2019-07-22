@@ -42,10 +42,11 @@ $(function () {
 
 
     $btnSearch.on('click', function () {
-        $('#searchBar').toggleClass('active');
+        $('#searchBar').addClass('active');
+        $('.in-between-screen').addClass('active');
     })
     $closeSearch.on('click', function () {
-        $('#searchBar').toggleClass('active');
+        $('#searchBar').removeClass('active');
     })
 
 
@@ -89,6 +90,7 @@ $(function () {
         $(".custom-checkkbox .custom-control-input ").prop("checked", false);
         $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
         console.log(dataKey)
+        $('.submit-filter').click();
       //  localStorage.setItem("dataKey", dataKey);
         //localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
     
