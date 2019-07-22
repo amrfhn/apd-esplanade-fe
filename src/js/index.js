@@ -105,6 +105,24 @@ $(function () {
     $('.multi-collapse').on('show.bs.collapse', function () {
         clampText();
     })
+
+    $('.btn-back').on('click', function(){
+
+        var getKey = localStorage.getItem('dataGenre');
+        var genre = $('.genre-list').find('nav-link')
+
+        genre.each(function(){
+            if (getKey === null){
+                console.log('nulllll')
+            } else{
+                $(this).data('key', getKey).click();
+                console.log('fire')
+            }
+        })
+
+        // $('.genre-list').find('nav-link [data-key='+ getKey +']').click();
+//         $(".custom-checkkbox [data-key=" + getKey + "] ").prop("checked", true);
+    })
 })
 
 // $(window).load(function() {

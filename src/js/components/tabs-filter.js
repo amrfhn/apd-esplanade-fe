@@ -167,14 +167,6 @@ $(function () {
                     prevArrow: $('.prev-slide'),
                     nextArrow: $('.next-slide')
                 });
-                // $('.carousel-banner').on('init afterChange', function (event, slick, currentSlide, nextSlide) {
-
-                //         var i = (currentSlide ? currentSlide : 0) + 1;
-
-                //         $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
-
-                //     });
-
 
             },
             clamptext: function () {
@@ -190,12 +182,16 @@ $(function () {
             },
             filterGenre: function (e) {
                 var key = e;
-                data.genre = key
+                data.genre = key;
+
+                var currGenre = localStorage.setItem("dataGenre", data.genre);
 
                 // $('#' + key).show();
                 this.currPage = 1;
                 this.loadPage = 1;
 
+                document.getElementById('spinner').style.display = "none";
+                
                 this.checkScroll();
                 this.fetchData();
             },

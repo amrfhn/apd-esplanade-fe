@@ -34,7 +34,7 @@ $(function () {
         $('html, body').animate({
             scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
         }, 1500);
-        $(".show-filter").scrollTop();
+        // $(".filter-menu-wrapper").scrollTop();
     })
 
     if ($('.in-between-screen').hasClass('active')){
