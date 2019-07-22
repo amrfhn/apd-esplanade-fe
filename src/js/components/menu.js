@@ -93,7 +93,7 @@ $(function () {
         $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
         $(".mm-wrapper").removeClass("active");
         $( ".submit-filter" ).click();
-        //localStorage.setItem("dataKey", dataKey);
+       // localStorage.setItem("dataKey", dataKey);
       //  localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
     
     });

@@ -7,6 +7,8 @@ $(function () {
         $("body").addClass("filter-open");
         $('.in-between-screen').addClass('active');
         $('.mm-wrapper').removeClass('active');
+        
+        $( ".filter-menu-wrapper" ).scrollTop( 0 );
 
     })
 
