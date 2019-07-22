@@ -42,10 +42,11 @@ $(function () {
 
 
     $btnSearch.on('click', function () {
-        $('#searchBar').toggleClass('active');
+        $('#searchBar').addClass('active');
+        $('.in-between-screen').addClass('active');
     })
     $closeSearch.on('click', function () {
-        $('#searchBar').toggleClass('active');
+        $('#searchBar').removeClass('active');
     })
 
 

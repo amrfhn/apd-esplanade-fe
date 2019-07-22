@@ -27,6 +27,7 @@ $(function () {
         $('.in-between-screen').removeClass('active');
         $("body").removeClass("filter-open");
         $('.mm-wrapper').removeClass('active');
+        $('.search-bar').removeClass('active')
     })
 
     $('.submit-filter').on('click', function(){
@@ -34,5 +35,10 @@ $(function () {
         $('.in-between-screen').removeClass('active');
         $("body").removeClass("filter-open");
     })
+
+    if ($('.in-between-screen').hasClass('active')){
+        $('#btnSearch').prop('disabled', true);
+    }
+    
 
 })
