@@ -1,4 +1,3 @@
-import '../sass/main.scss'
 // import '../img/icons'
 
 /* Vendor
@@ -10,6 +9,8 @@ import './vendor/2-ellipsis.min.js'
 /* Main JS 
 // ::::::::::::: */
 import './index.js'
+import '../sass/main.scss'
+
 
 /* Components
 // ::::::::::::: */

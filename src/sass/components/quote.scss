@@ -38,15 +38,17 @@
         width: 100%;
         margin: auto;
         font-size: 36px;    
-        line-height: 1.17;
+        line-height: 36px;
         letter-spacing: 1.36px;
 
         @media (min-width: 768px) {
             width: 85%;
+            line-height: 42px;
         }
     }
 
     .quote-caption {
         font-size: 14px;
+        line-height: 20px;
     }
 }
