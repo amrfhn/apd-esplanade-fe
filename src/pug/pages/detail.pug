@@ -93,8 +93,8 @@ block content
                 hr.w-100.my-4(style="border-top: 1px solid black")
 
     .container
-        .row.pt-50.flex-column-reverse.flex-md-row.align-items-baseline             
-            .col-12.col-md-6
+        .row.py-25.flex-column-reverse.flex-md-row.align-items-baseline             
+            .col-12.col-md-3
                 .d-flex.align-items-md-center.pb-4.pb-md-0
                     .mr-3(style="width: 20px")
                         img(src='./assets/microsites/offstage/img/icons/Book.svg' width="100%")
@@ -102,7 +102,7 @@ block content
             
                 
 
-            .col-12.col-md-6.text-align-left
+            .col-12.col-md-4.text-align-left
                 
 
                 .d-flex.justify-content-md-end.pb-4.pb-md-0.align-items-center    
@@ -116,25 +116,25 @@ block content
                     //-     option(value='2') CH
                     //-     option(value='3') ML
                     //-     option(value='4') TA
-                    #lang-toggle.pl-5
-                        multiselect(
-                            v-model="value",
-                            deselect-label="Can't remove this value",
-                            track-by="id",
-                            label="name",
-                            placeholder="Select one",
-                            :options="options",
-                            :searchable="false",
-                            :allow-empty="false"
-                            :show-labels="false"
-                        )
-                            template(slot="caret") 
-                                a.multiselect__select(tabindex="")
-                                    img(src='./assets/microsites/offstage/img/icons/Down.svg')                                 
+                    //- #lang-toggle.pl-5
+                    //-     multiselect(
+                    //-         v-model="value",
+                    //-         deselect-label="Can't remove this value",
+                    //-         track-by="id",
+                    //-         label="name",
+                    //-         placeholder="Select one",
+                    //-         :options="options",
+                    //-         :searchable="false",
+                    //-         :allow-empty="false"
+                    //-         :show-labels="false"
+                    //-     )
+                    //-         template(slot="caret") 
+                    //-             a.multiselect__select(tabindex="")
+                    //-                 img(src='./assets/microsites/offstage/img/icons/Down.svg')                                 
                     //- include ../components/language-toggle.pug
 
             
-            .col-12.d-md-none
+            .col-12.col-md-4
                 nav#lang-tab.nav.nav-pills.pb-4(role='tablist')
                     a(href="").nav-link.font-weight-bold.active EN
                     a(href="").nav-link.font-weight-bold CH

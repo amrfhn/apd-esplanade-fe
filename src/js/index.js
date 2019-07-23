@@ -131,8 +131,10 @@ $(function () {
 // });
 
 function clampText(){
+
     let item = $("*[class*='clamp-']")
     for(var i=1, len=$(item).length; i<len; i++){
+        let line = $($(item)[i]).attr('data-clamp');
         Ellipsis({
             className: '.clamp-' + i,
             break_word: false,

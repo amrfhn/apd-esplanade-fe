@@ -42,6 +42,7 @@ $(function () {
         mounted: function () {
 
             this.fetchData();
+            this.clamptext();
             console.log("called api");
             this.checkScroll();
         },
@@ -138,11 +139,11 @@ $(function () {
                     _this.contentColor = data.banners[bannerIndex].Content.Colour
 
                     if (_this.contentColor == '#000000') {
-                        $(this).find('.banner-content').find('.btn-carousel').addClass('btn-outline-primary');
-                        $(this).find('.banner-content').find('.cust-icon').addClass('arrow-black');
+                        $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-light').addClass('btn-outline-primary');
+                        $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-light').addClass('arrow-black');
                     } else {
-                        $(this).find('.banner-content').find('.btn-carousel').addClass('btn-outline-light');
-                        $(this).find('.banner-content').find('.cust-icon').addClass('arrow-light');
+                        $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-primary').addClass('btn-outline-light');
+                        $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-black').addClass('arrow-light');
                     }
                     bannerIndex++;
                 });
@@ -174,10 +175,11 @@ $(function () {
             clamptext: function () {
                 let item = $("*[class*='clamp-']")
                 for (var i = 1, len = $(item).length; i < len; i++) {
+                    let line = $($(item)[i]).attr('data-clamp');
                     Ellipsis({
-                        className: '.clamp-' + i,
-                        break_word: false,
-                        lines: i,
+                        className: '.clamp-' + line,
+                        break_word: true,
+                        lines: line,
                         responsive: true
                     });
                 }
@@ -270,6 +272,7 @@ $(function () {
                     if ($('.carousel-banner').hasClass('slick-initialized')) {
                         $('.carousel-banner').slick('unslick');
                     }
+                    _this.clamptext();
                 })
             },
 
