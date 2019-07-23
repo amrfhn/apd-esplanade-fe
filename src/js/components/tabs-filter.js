@@ -156,7 +156,7 @@ $(function () {
 
                     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
-                });
+                }); 
 
 
                 $('.carousel-banner').slick({
