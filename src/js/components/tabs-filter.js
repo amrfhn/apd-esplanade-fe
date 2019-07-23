@@ -233,6 +233,8 @@ $(function () {
                 console.log(params.browse, params.contentType, params.timeTaken, params.sort);
 
                 _this.fetchData();
+                _this.checkScroll();
+
 
                 if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1) {
                     // console.log("have somethin")

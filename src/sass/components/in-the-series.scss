@@ -6,4 +6,12 @@
             height: 150px;
         }
     }
+    h5.series-title{
+        font-size: 18px;
+        line-height: 18px;
+        @media(min-width:768px){
+            font-size: 22px;
+            line-height: 22px;
+        }
+    }
 }
