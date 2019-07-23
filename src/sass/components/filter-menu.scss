@@ -85,9 +85,13 @@
 
 .filter-open {
     overflow: hidden;
-     padding-right: 16px;
-    &::-webkit-scrollbar {
-      //  opacity: 0;
+    padding-right: 0px;
+    // &::-webkit-scrollbar {
+    //   //  opacity: 0;
+    // }
+
+    @media(min-width: 768px) {
+        padding-right: 16px;
     }
 }
 

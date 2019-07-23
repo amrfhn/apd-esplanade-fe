@@ -155,7 +155,7 @@ $(function () {
 
                     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
-                }); 
+                });
 
 
                 $('.carousel-banner').slick({
@@ -193,7 +193,7 @@ $(function () {
                 this.loadPage = 1;
 
                 document.getElementById('spinner').style.display = "none";
-                
+
                 this.checkScroll();
                 this.fetchData();
             },
@@ -287,28 +287,46 @@ $(function () {
         });
     }
 
-    //test start
+    //only for mobile sticky
     if ($(window).width() < 960) {
         $('.filter-bar').removeClass("stick");
-        let mobileHeight = $(document).height() - 50;
+        let mobileHeight = $(document).height() + 50;
         $(document).on('scroll', function () {
             let filterScrollPos = $(this).scrollTop();
             if (filterScrollPos >= mobileHeight) {
-               $('.filter-bar').addClass("stick");
-            //$('.tabfil-container').addClass("bar-height");
-            $('.tab-content .bar-height').css("height","150px");
-            }else{
+                $('.filter-bar').addClass("stick");
+                //$('.tabfil-container').addClass("bar-height");
+                $('.tab-content .bar-height').css("height", "150px");
+            } else {
                 $('.filter-bar').removeClass("stick");
                 //$('.filter-bar').removeClass("bar-height");
-                $('.tab-content .bar-height').css("height","0px");
-                console.log("test")
+                $('.tab-content .bar-height').css("height", "0px");
             }
         });
+
+        $(".filter").click(function () {
+            //console.log("aaaa", $(".tabfil-container").offset().top)
+            // $('.tabfil-container').scrollTop( 0 );
+
+            if ($('.filter-bar').hasClass("stick")) {
+                console.log("do nothing");
+            } else {
+                console.log("do smething");
+                $('html, body').animate({
+                    scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+                }, 360, function () {
+                    $('.filter-bar').addClass("stick");
+                });
+            }
+
+        });
+
+
 
     } else {
         //  alert('More than 960');
     }
-    //test end
+
 
     //category on click scroller arrow and initialize outer width func
     $('#goPrev').on('click', function () {
