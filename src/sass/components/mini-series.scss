@@ -1,9 +1,11 @@
 #mini-series {
-    padding: 30px 21px; 
+    padding: 30px 30px; 
 
-    @media(min-width: 768px){
-        padding: 34px 30px; 
+    @media(min-width: 768px){ 
+        padding: 35px 12px ; 
+
     }
+
     .series-img {
         height: 99px;  
 
@@ -11,14 +13,30 @@
             height: 217px;            
         }
     }
-
+    .top-title{
+        font-size: 12px ;
+        line-height: 12px;
+        @media(min-width: 768px){
+            font-size: 14px ;
+            line-height: 14px; 
+        }
+    }
     .title { 
-        font-size: 18px;
-        line-height: 0.92;
+        line-height: 18px;
         text-transform: uppercase;
+        color: #000;
+        font-size: 18px !important;
 
         @media(min-width: 768px){ 
-            font-size: 36px;
+            line-height: 33px;
+            font-size: 36px !important;
         }
+    }
+}
+.thumbnail-series{
+    width: 100%;
+    height: auto;
+    @media(min-width: 768px){
+        width: 363px;
     }
 }

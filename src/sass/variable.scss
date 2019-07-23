@@ -151,11 +151,9 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: 28px !important;
-  line-height: 28px !important;
 
   @media(min-width: 768px){
     font-size: 36px !important; 
-    line-height: 36px !important; 
   }
 }
 
@@ -167,7 +165,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: 16px !important; 
+  font-size: 16px ; 
 }
 
 .bt-1 {

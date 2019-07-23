@@ -1,5 +1,6 @@
 // Mobile
 .nav-pills {
+    flex-wrap: nowrap;
     .nav-link {
         border: 1px solid $primary;
         border-radius: 0;
