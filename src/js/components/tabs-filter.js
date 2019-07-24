@@ -45,6 +45,7 @@ $(function () {
             this.clamptext();
             console.log("called api");
             this.checkScroll();
+            this.checkActiveGenre();
         },
         updated: function () {
             var _this = this;
@@ -66,6 +67,35 @@ $(function () {
         },
         methods: {
 
+            checkActiveGenre: function () {
+
+                var genre = $('.genre-list').find('.nav-link');
+
+                genre.on('click', function () {
+                    console.log("asdasdas");
+                    let genreId = $(this).attr('id');
+                    sessionStorage.setItem('genreId', genreId);
+                });
+
+                var category = $('#menus').find('a.active');
+
+                var categoryId = category.attr('id');
+
+                var sessionCatId = sessionStorage.getItem('mainCategoryId');
+
+                if (sessionCatId == null || sessionCatId != categoryId)
+                {
+                    sessionStorage.setItem('mainCategoryId', categoryId);
+                }
+                var sessionGenreId = sessionStorage.getItem('genreId');
+
+                if (sessionGenreId != null){
+                    $('#genreTabs').find('#'+sessionGenreId).click();
+                }
+                
+
+                
+            },
 
             checkScroll: function (e) {
 
@@ -106,10 +136,9 @@ $(function () {
                 }).done(function (data) {
                     console.log(data)
                     _this.filters = _this.filters.concat(data.Articles)
-                    // this.setLoading(false);
                     if (data.Articles.length < offset || data.Articles.length == 0) {
                         document.getElementById('spinner').style.display = "none";
-                        window.onscroll = () => {}
+                        window.onscroll = () => { }
                     }
                 })
             },
@@ -232,12 +261,14 @@ $(function () {
 
                 console.log(params.browse, params.contentType, params.timeTaken, params.sort);
 
-                _this.fetchData();
-                _this.checkScroll();
+                this.currPage = 1;
+                this.loadPage = 1;
 
+                document.getElementById('spinner').style.display = "none";
+                _this.checkScroll();
+                _this.fetchData();
 
                 if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1) {
-                    // console.log("have somethin")
                     $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/FilterWithNotifications.svg')
                 } else {
                     $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/Filter.svg')
@@ -253,7 +284,7 @@ $(function () {
                     type: "GET",
                     url: url,
                     dataType: "json",
-                    data: $.param(params)
+                    data: decodeURIComponent($.param(params))
                 }).done(function (data) {
 
                     _this.banners = data.Banners
@@ -426,7 +457,5 @@ $(function () {
 
         catScrollLeftPrev = catScrollLeft;
     })
-
-
 
 })

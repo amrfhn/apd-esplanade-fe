@@ -84,7 +84,7 @@ $(function () {
     //menuburger key link to filter data checkbox
     //karyann
 
-    $(".mm-content a").click(function () {
+    $(".mm-content a.filter").click(function () {
         var dataKey = $(this).attr("data-key");
     
         event.preventDefault();

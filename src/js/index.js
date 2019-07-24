@@ -106,23 +106,16 @@ $(function () {
         clampText();
     })
 
-    $('.btn-back').on('click', function(){
+    var articleGenre = $('.genre-text').find('.genre-link')
 
-        var getKey = localStorage.getItem('dataGenre');
-        var genre = $('.genre-list').find('nav-link')
+    articleGenre.on('click', function(e){
+        e.preventDefault();
+        let articleGenreId = $(this).data('key');
+        sessionStorage.setItem('genreId', articleGenreId);
 
-        genre.each(function(){
-            if (getKey === null){
-                console.log('nulllll')
-            } else{
-                $(this).data('key', getKey).click();
-                console.log('fire')
-            }
-        })
-
-        // $('.genre-list').find('nav-link [data-key='+ getKey +']').click();
-//         $(".custom-checkkbox [data-key=" + getKey + "] ").prop("checked", true);
+        window.location = $(this).attr('href');  
     })
+
 })
 
 // $(window).load(function() {
