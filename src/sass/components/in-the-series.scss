@@ -1,4 +1,5 @@
 #in-the-series {
+    color: #000;
     .series-thumbnail {
         height: 80px;
 
@@ -9,9 +10,16 @@
     h5.series-title{
         font-size: 18px;
         line-height: 18px;
+        text-transform: uppercase;
         @media(min-width:768px){
             font-size: 22px;
             line-height: 22px;
         }
+    }
+    .hyperlink-custom{
+        font-family: "Proxima-Nova-Bold" ;
+    }
+    .hyperlink-text{
+        text-transform: uppercase;
     }
 }

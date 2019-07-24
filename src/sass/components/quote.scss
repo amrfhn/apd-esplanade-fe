@@ -11,12 +11,14 @@
     .quotation-open {
         font-size: 140px;
         margin: 0;
-        height: 40px;
+        height: 60px;
         font-weight: 900;
         line-height: 0.7;
+        padding: 10px;
 
         @media (min-width: 768px) {
             font-size: 190px;
+            height: 40px;
             line-height: 0.85;
         }
     }
@@ -24,13 +26,16 @@
     .quotation-close {
         font-size: 140px;
         margin: 0;
-        height: 87px;
+        height: 40px;
         line-height: 1.2;
         font-weight: 900;
+        padding: 10px;
+        margin-bottom: 45px;
 
         @media (min-width: 768px) {
             line-height: .85;
             font-size: 190px;
+            margin-bottom: 30px;
         }
     }
 
@@ -38,10 +43,11 @@
         width: 100%;
         margin: auto;
         font-size: 36px;    
+        text-transform: none;
         line-height: 36px;
         letter-spacing: 1.36px;
         font-family: 'Libre Baskerville', serif !important;   
-
+        padding: 5px;
 
         @media (min-width: 768px) {
             width: 85%;

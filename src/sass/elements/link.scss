@@ -1,5 +1,16 @@
 a {
-    &:hover {
-        text-decoration: none
+    color: #00A3C9 ;
+    text-decoration: underline ;
+    &:hover{
+        transition: color .2s ;
+        color: #000;
+    }
+}
+.hyperlink-custom{
+    color: #000;
+    text-decoration: none;
+    transition: color .2s ;
+    &:hover{
+        text-decoration: none;
     }
 }

@@ -1,5 +1,8 @@
 #mini-series {
     padding: 30px 30px; 
+    font-size: 14px;
+    font-family: "Proxima-Nova-Bold" ;
+    color: #000;
 
     @media(min-width: 768px){ 
         padding: 35px 35px ; 
@@ -16,6 +19,7 @@
     .top-title{
         font-size: 12px !important;
         line-height: 12px;
+        text-transform: uppercase;
         @media(min-width: 768px){
             font-size: 14px !important;
             line-height: 14px; 
@@ -26,11 +30,15 @@
         text-transform: uppercase;
         color: #000;
         font-size: 18px !important;
+        font-family: "Proxima-Nova-Black" ;
 
         @media(min-width: 768px){ 
             line-height: 33px;
             font-size: 36px !important;
         }
+    }
+    .hyperlink-text{
+        text-transform: uppercase;
     }
 }
 .thumbnail-series{
