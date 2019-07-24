@@ -135,8 +135,9 @@ $font-size-sm:                $font-size-base * .875 !default;
 
 //header
 h1, h2, h3, h4, h5 {
-  text-transform: uppercase;
-  font-family: $font-proxima-bold
+  // text-transform: uppercase;
+  font-family: $font-proxima-bold;
+  color: #000000;
 }
 
 h1, .h1 {
@@ -160,12 +161,19 @@ h2, .h2 {
 h3, .h3 {
   font-size: 22px !important; 
   @media(min-width: 768px){
-    font-size: 28px !important; 
+    font-size: 22px !important; 
   }
 }
 
 h4, .h4 {
   font-size: 16px ; 
+}
+
+h5, .h5{
+  font-size: 18px !important;
+  @media(min-width: 768px){
+    font-size: 22px !important;
+  }
 }
 
 .bt-1 {
@@ -211,7 +219,13 @@ h4, .h4 {
 .font-12{ font-size: 12px; }
 .font-10{ font-size: 10px; }
 
-p {font-size: 18px}
+p {
+  font-size: 18px;
+  color: #000;
+  ::first-letter{
+    text-transform: uppercase;
+  }
+}
 
 // Button
 .btn {
@@ -221,9 +235,13 @@ p {font-size: 18px}
   border: 1.5px solid ;
   text-transform: uppercase;
   transition: all 0.25s ease-out;
+  text-decoration: none;
+
   &:focus{
     box-shadow: none !important;
     outline: 0 !important;
+    text-decoration: none;
+
   }
 }
 
@@ -234,12 +252,14 @@ p {font-size: 18px}
   border: 1.5px solid!important;
   padding: 15px 58px !important;
   border:1.5px solid $primary;
+  text-decoration: none;
   &:hover{
       background-color: $primary;
       color: $white;
       border: 1.5px solid $primary !important;
       box-shadow: inset 450px 0 0 0 $primary;
       transition: all 0.25s ease-in;
+      text-decoration: none;
   }
 }
 
@@ -250,12 +270,16 @@ p {font-size: 18px}
   border: 1.5px solid!important;
   padding: 15px 58px !important;
   border:1.5px solid $white;
+  text-decoration: none;
+
   &:hover{
       background-color: $white;
       color: $primary;
       border:1.5px solid $white !important;
       box-shadow: inset 450px 0 0 0 $white;
       transition: all 0.25s ease-in;
+      text-decoration: none;
+
   }
 }
 
