@@ -135,7 +135,7 @@ $font-size-sm:                $font-size-base * .875 !default;
 
 //header
 h1, h2, h3, h4, h5 {
-  // text-transform: uppercase;
+  text-transform: uppercase;
   font-family: $font-proxima-bold;
   color: #000000;
 }

@@ -26,15 +26,13 @@
         }
     }
     .title { 
-        line-height: 18px;
+        line-height: 28px;
         text-transform: uppercase;
         color: #000;
-        font-size: 18px !important;
         font-family: "Proxima-Nova-Black" ;
 
         @media(min-width: 768px){ 
             line-height: 33px;
-            font-size: 36px !important;
         }
     }
     .hyperlink-text{
