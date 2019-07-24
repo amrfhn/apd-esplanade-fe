@@ -118,7 +118,6 @@ $(function () {
                 var bannerIndex = 0;
 
                 $('.banner-bg').each(function () {
-
                     var carouselMobileImage = $(this).attr('data-mobile-image')
                     var carouselDesktopImage = $(this).attr('data-desktop-image')
 
@@ -146,18 +145,18 @@ $(function () {
                         $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-black').addClass('arrow-light');
                     }
                     bannerIndex++;
+                    // console.log("bannerIndex", bannerIndex);
+                    // $('.carousel-banner').find('.slide-count-wrap').text(bannerIndex);
                 });
 
             },
             slick: function (e) {
-                $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+                // $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+                //     var i = (currentSlide ? currentSlide : 0) + 1;
+                //     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
-                    var i = (currentSlide ? currentSlide : 0) + 1;
-
-                    $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
-
-                });
-
+                // }); 
+               
 
                 $('.carousel-banner').slick({
                     slidesToShow: 1,
@@ -293,7 +292,7 @@ $(function () {
     //only for mobile sticky
     if ($(window).width() < 960) {
         $('.filter-bar').removeClass("stick");
-        let mobileHeight = $(document).height() + 50;
+        let mobileHeight = $(document).height() + 100; 
         $(document).on('scroll', function () {
             let filterScrollPos = $(this).scrollTop();
             if (filterScrollPos >= mobileHeight) {
