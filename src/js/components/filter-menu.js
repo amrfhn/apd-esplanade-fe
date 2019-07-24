@@ -3,12 +3,12 @@ $(function () {
     var $filterMenu = $('.filter-menu-wrapper');
 
     $('.filter').on('click', function () {
-       
+
         $("body").addClass("filter-open");
         $('.in-between-screen').addClass('active');
         $('.mm-wrapper').removeClass('active');
-        
-        $( ".filter-menu-wrapper" ).scrollTop( 0 );
+
+        $(".filter-menu-wrapper").scrollTop(0);
         $filterMenu.toggleClass('show-filter');
 
     })
@@ -19,7 +19,7 @@ $(function () {
         $("body").removeClass("filter-open");
     })
 
-    $('.in-between-screen').on('click', function(){
+    $('.in-between-screen').on('click', function () {
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active');
         $("body").removeClass("filter-open");
@@ -28,25 +28,30 @@ $(function () {
     })
 
     //for mobile
-    if ($(window).width() < 960) {
-    
-        $('.submit-filter').on('click', function(){
+    if ($(window).width() < 768) {
+
+        $('.submit-filter').on('click', function () {
             $filterMenu.removeClass('show-filter');
             $('.in-between-screen').removeClass('active');
             $("body").removeClass("filter-open");
             $('html, body').animate({
                 scrollTop: $(".tab-content").offset().top
             }, 360);
-          
+
         });
 
-    }else{
+    } else {
 
-        $('.submit-filter').on('click', function(){
+        //footer desktop
+        var $desktopWidth = $(window).innerWidth() / 2;
+        $(".sticky-footer").css("max-width", $desktopWidth);
+
+
+        $('.submit-filter').on('click', function () {
             $filterMenu.removeClass('show-filter');
             $('.in-between-screen').removeClass('active');
             $("body").removeClass("filter-open");
-            
+
             $('html, body').animate({
                 scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
             }, 1500);
@@ -60,9 +65,9 @@ $(function () {
 
 
 
-    if ($('.in-between-screen').hasClass('active')){
+    if ($('.in-between-screen').hasClass('active')) {
         $('#btnSearch').prop('disabled', true);
     }
-    
+
 
 })

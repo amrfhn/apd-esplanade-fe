@@ -2,8 +2,9 @@
   background: #fff;
   .card-tile {
     padding-bottom: 31px;
+
   }
-  
+ 
   .bar-height{
     position: relative;
     height: 0px;
@@ -41,18 +42,18 @@
   }
 
   .card-img-top {
-    height: 200px;
+    height: 208px;
     object-fit: cover;
     border-radius: 0 !important;
     border: 1px solid #ccc;
 
     @media(min-width: 768px){
-      height: 186px;
+      height: 194px;
     }
   }
 
   .card-label {
-    top: -1px;
+    top: -1px; 
   }
 
   .genre-title {
@@ -67,6 +68,20 @@
     a {
       &:hover {
       }
+    }
+  }
+}
+
+.related-tile{
+  .col-5{
+    flex: 0 0 133px;
+    max-width: 133px;
+    height: 83px !important;
+
+    @media(min-width: 768px){
+      flex: 0 0 150px;
+      max-width: 150px;
+      height: 94px !important;
     }
   }
 }
