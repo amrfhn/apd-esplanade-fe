@@ -3,9 +3,9 @@ $(function () {
     var $filterMenu = $('.filter-menu-wrapper');
 
     $('.filter').on('click', function () {
-        if ($("body").height() > $(window).height()) {
-            $("body").addClass("filter-open");
-        }
+        // if ($("body").height() > $(window).height()) {
+        //     $("body").addClass("filter-open");
+        // }
         
         $('.in-between-screen').addClass('active');
         $('.mm-wrapper').removeClass('active');
