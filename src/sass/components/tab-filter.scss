@@ -13,7 +13,8 @@
             width: 100%;
 
             @media(min-width:768px){
-                width: calc(100vw / 2 - 9px);
+                width: calc(100vw / 2);
+                // width: calc(100vw / 2 - 9px);
             }
 
             .genre-wrapper {

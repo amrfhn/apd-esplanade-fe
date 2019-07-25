@@ -1,4 +1,13 @@
 .tab-content {
+  // @media(min-width: 768px) {
+  //   overflow-y: auto;
+  //   max-height: 100vh;
+  // }
+
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+
   background: #fff;
   .card-tile {
     padding-bottom: 31px;

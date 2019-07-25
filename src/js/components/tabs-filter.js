@@ -71,11 +71,6 @@ $(function () {
 
         },
         methods: {
-
-            checkMenuGenre: function(){
-                
-            },
-
             checkActiveGenre: function () {
 
                 var genre = $('.genre-list').find('.nav-link');
@@ -234,6 +229,18 @@ $(function () {
 
                 this.checkScroll();
                 this.fetchData();
+            },
+            filterCategory: function () {
+                console.log('click category')
+
+                this.resetGenre();
+            },
+            resetGenre: function () {
+                $('.genre-tabs').each(function(){
+                    $(this).find('.nav-link').removeClass('active');
+                }).find('#all').addClass('active')
+
+                this.filterGenre('all');
             },
             applyFilter: function () {
                 var _this = this;
