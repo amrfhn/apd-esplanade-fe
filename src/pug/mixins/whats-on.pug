@@ -1,10 +1,27 @@
-mixin whatsOn(subtitle, date, time, venue, ticketPrice)
+mixin whatsOn(subtitle, date, time, venue, ticket)
     .row
         .col.whats-on.p-0.bg-dark.text-white.text-center(style="background: url('https://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/7842221242_40deabf89d_o.jpg?itok=NJw1VKrw');")
             .overlay.py-5
             .content-wrapper
-                p.m-2.subtitle.bt-2.font-weight-bold.text-white.text-uppercase=subtitle  
+                p.mt-4.subtitle.bt-2.font-weight-bold.text-white.text-uppercase=subtitle  
                 h1.font-weight-bolder.text-uppercase.text-white Always first
-                p.pb-4.text-white.description.bt-1 Be the first to know what's on at Esplanade.
+                p.py-2.text-white.description.bt-1 Be the first to know what's on at Esplanade.
 
-                button(type="button").btn.btn-outline-light SIGN UP NOW
+                .d-flex.justify-content-center.align-items-center.pb-4
+                    .details.d-flex.align-content-center
+                        img.icon(src="/assets/microsites/offstage/img/icons/Calendar.svg")
+                        p.font-16.text-white.details-item.my-auto=date
+                    
+                    .details.d-flex
+                        img.icon(src="/assets/microsites/offstage/img/icons/Calendar.svg")
+                        p.font-16.text-white.details-item.my-auto=time
+                    
+                    .details.d-flex
+                        img.icon(src="/assets/microsites/offstage/img/icons/Calendar.svg")
+                        p.font-16.text-white.details-item.my-auto=venue
+                    
+                    .details.d-flex
+                        img.icon(src="/assets/microsites/offstage/img/icons/Calendar.svg")
+                        p.font-16.text-white.details-item.my-auto=ticket
+
+                button(type="button").btn.btn-outline-light.my-3 SIGN UP NOW
