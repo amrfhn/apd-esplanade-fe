@@ -15,8 +15,7 @@ $(function () {
     $videoModal.on('shown.bs.modal', function (e) {
         $('html').addClass('freeze-page');
         $('body').addClass('freeze-page');
-        $('.left-wrapper').removeClass('scrolled');
-        $(window).scroll(function() { return false; });
+        $('.left-wrapper').addClass('position-absolute');
     });
 
     $videoModal.on("hide.bs.modal", function (e) {
