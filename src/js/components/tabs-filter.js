@@ -26,6 +26,7 @@ $(function () {
         loadPage: 1,
         filters: [],
         banners: [],
+        totalBanners: 0,
         reqPageNum: "",
     }
 
@@ -71,6 +72,7 @@ $(function () {
 
                 var genre = $('.genre-list').find('.nav-link');
 
+
                 genre.on('click', function () {
                     console.log("asdasdas");
                     let genreId = $(this).attr('id');
@@ -92,9 +94,7 @@ $(function () {
                 if (sessionGenreId != null){
                     $('#genreTabs').find('#'+sessionGenreId).click();
                 }
-                
 
-                
             },
 
             checkScroll: function (e) {
@@ -147,6 +147,7 @@ $(function () {
                 var bannerIndex = 0;
 
                 $('.banner-bg').each(function () {
+
                     var carouselMobileImage = $(this).attr('data-mobile-image')
                     var carouselDesktopImage = $(this).attr('data-desktop-image')
 
@@ -174,21 +175,20 @@ $(function () {
                         $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-black').addClass('arrow-light');
                     }
                     bannerIndex++;
-                    // console.log("bannerIndex", bannerIndex);
-                    // $('.carousel-banner').find('.slide-count-wrap').text(bannerIndex);
                 });
 
             },
             slick: function (e) {
                 // $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
+
                 //     var i = (currentSlide ? currentSlide : 0) + 1;
+
                 //     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
 
-                // }); 
-               
+                // });
 
                 $('.carousel-banner').slick({
-                    slidesToShow: 1, 
+                    slidesToShow: 1,
                     slidesToScroll: 1,
                     arrows: false,
                     autoplay: 5000,
@@ -286,7 +286,8 @@ $(function () {
                     data: decodeURIComponent($.param(params))
                 }).done(function (data) {
 
-                    _this.banners = data.Banners
+                    _this.banners = data.Banner.Banners
+                    _this.totalBanners = data.Banner.Total
                     _this.filters = data.Articles
 
                     jQuery.fn.hasScrollBar = function () {
@@ -325,7 +326,7 @@ $(function () {
     //only for mobile sticky
     if ($(window).width() < 960) {
         $('.filter-bar').removeClass("stick");
-        let mobileHeight = $(document).height() + 100; 
+        let mobileHeight = $(document).height() + 50;
         $(document).on('scroll', function () {
             let filterScrollPos = $(this).scrollTop();
             if (filterScrollPos >= mobileHeight) {
