@@ -311,6 +311,7 @@ $(function () {
 
         }
     })
+
     var $filterContainer = $('#tabs-filter');
     if ($filterContainer.length > 0) {
         $(document).on('scroll', function () {
@@ -347,7 +348,6 @@ $(function () {
             if ($('.filter-bar').hasClass("stick")) {
                 console.log("do nothing");
             } else {
-                console.log("do smething");
                 $('html, body').animate({
                     scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
                 }, 360, function () {
@@ -377,16 +377,30 @@ $(function () {
         }, 200);
     });
 
+
     $('#goBack').on('click', function () {
         $('.wrapper').animate({
             scrollLeft: '-=100'
         }, 200);
+        $('#goAfter').addClass('d-block');
+        $('#goAfter').removeClass('d-none');
     });
 
     $('#goAfter').on('click', function () {
         $('.wrapper').animate({
             scrollLeft: '+=100'
         }, 200);
+        var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth;
+        // let wrapperWidth = $('.wrapper').width();
+        if($('.wrapper').scrollLeft() == maxScrollLeft){
+            console.log("tamat")
+            $('#goAfter').addClass('d-none');
+            $('#goAfter').removeClass('d-block');
+        } 
+        if($('.wrapper').scrollLeft() < maxScrollLeft){
+            $('#goAfter').addClass('d-block');
+            $('#goAfter').removeClass('d-none');
+        }
     });
 
     //genre on click scroller
@@ -403,6 +417,8 @@ $(function () {
             $('#goBack').css('display', 'none');
             $('#goAfter').css('display', 'none');
         }
+
+        
     }
 
 
