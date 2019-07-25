@@ -20,7 +20,7 @@ $(function () {
 
         if (slide < 2) {
             $(this).find('.video-carousel-nav').addClass('d-none')
-            console.log('im here less than two ')
+            $(this).find('.video-carousel-nav-wrappper').removeClass('d-md-block')
         } else {
             $(this).find('.video-carousel-nav').slick({
                 slidesToShow: slide,
