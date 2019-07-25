@@ -15,8 +15,8 @@ $(function () {
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
 
-    //var host = "http://dev.esplanade.growthopsapp.com"
-    var host =  window.location.protocol + "//" + window.location.hostname;
+    var host = "http://dev.esplanade.growthopsapp.com"
+    // var host =  window.location.protocol + "//" + window.location.hostname;
 
     var data = {
         message: 'Hello Vue!',
