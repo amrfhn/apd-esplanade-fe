@@ -50,17 +50,17 @@ $(function () {
     })
 
 
-    $('a.nav-link.megamenu-genre').on('click', function () {
-        $('a.nav-link.megamenu-genre').each(function () {
-            $(this).parent().removeClass('active');
+    // $('a.nav-link.megamenu-genre').on('click', function () {
+    //     $('a.nav-link.megamenu-genre').each(function () {
+    //         $(this).parent().removeClass('active');
 
-            console.log($(this));
-        })
-        $(this).parent().addClass('active');
+    //         console.log($(this));
+    //     })
+    //     $(this).parent().addClass('active');
 
-        var dataKey = $(this).data('key');
-        $('a#' + dataKey).click();
-    })
+    //     var dataKey = $(this).data('key');
+    //     $('#genreTabs').find('a#' + dataKey).click();
+    // })
 
     // var $menuBrowseBy =  $('.megamenu-browseby')
     // var $menuBrowseByKey = $menuBrowseBy.data('key')

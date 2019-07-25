@@ -15,7 +15,8 @@ $(function () {
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
 
-    var host = "http://dev.esplanade.growthopsapp.com"
+    //var host = "http://dev.esplanade.growthopsapp.com"
+    var host =  window.location.protocol + "//" + window.location.hostname;
 
     var data = {
         message: 'Hello Vue!',
@@ -47,6 +48,7 @@ $(function () {
             console.log("called api");
             this.checkScroll();
             this.checkActiveGenre();
+            // this.checkMenuGenre();
         },
         updated: function () {
             var _this = this;
@@ -64,6 +66,8 @@ $(function () {
             } else {
                 $('.banner-content').find('.banner-navigation').css('display', 'none');
             }
+
+            
 
         },
         methods: {
@@ -215,11 +219,11 @@ $(function () {
                 var key = e;
                 data.genre = key;
 
-                var currGenre = localStorage.setItem("dataGenre", data.genre);
-
                 // $('#' + key).show();
                 this.currPage = 1;
                 this.loadPage = 1;
+
+                
 
                 document.getElementById('spinner').style.display = "none";
 
@@ -317,6 +321,8 @@ $(function () {
                         $('.carousel-banner').slick('unslick');
                     }
                     _this.clamptext();
+
+                    
                 })
             },
 
@@ -368,8 +374,6 @@ $(function () {
 
         });
 
-
-
     } else {
         //  alert('More than 960');
     }
@@ -380,12 +384,25 @@ $(function () {
         $('.wrap').animate({
             scrollLeft: '-=100'
         }, 200);
+        $('#goNext').addClass('d-block');
+        $('#goNext').removeClass('d-none');
     });
 
     $('#goNext').on('click', function () {
         $('.wrap').animate({
-            scrollLeft: '+=100'
+            scrollLeft: '+=90'
         }, 200);
+        var maxScrollLeft = $('.wrap').get(0).scrollWidth - $('.wrap').get(0).clientWidth - 100;
+        // let wrapperWidth = $('.wrapper').width();
+        if($('.wrap').scrollLeft() > maxScrollLeft){
+            console.log("tamat")
+            $('#goNext').addClass('d-none');
+            $('#goNext').removeClass('d-block');
+        } 
+        if($('.wrap').scrollLeft() < maxScrollLeft){
+            $('#goNext').addClass('d-block');
+            $('#goNext').removeClass('d-none');
+        }
     });
 
 
@@ -399,11 +416,11 @@ $(function () {
 
     $('#goAfter').on('click', function () {
         $('.wrapper').animate({
-            scrollLeft: '+=100'
+            scrollLeft: '+=90'
         }, 200);
-        var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth;
+        var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth - 100;
         // let wrapperWidth = $('.wrapper').width();
-        if($('.wrapper').scrollLeft() == maxScrollLeft){
+        if($('.wrapper').scrollLeft() > maxScrollLeft){
             console.log("tamat")
             $('#goAfter').addClass('d-none');
             $('#goAfter').removeClass('d-block');
@@ -480,7 +497,6 @@ $(function () {
         if (catScrollWidth - catScrollLeft - catWidth == catOffset) {
             $('#goPrev').addClass('arrow');
         }
-
 
         catScrollLeftPrev = catScrollLeft;
     })
