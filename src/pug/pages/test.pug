@@ -1,66 +1,194 @@
-//- extends ../template.pug   
+extends ../template.pug   
 
-//- block header 
-//-     +header(true)
+block header 
+    +header()
 
-//- block content 
-    
-//-     .container-fluid.no-gutters.p-0
-//-         .row.no-gutters#tabs-filter
-//-             .col-12.col-md-6
-//-                 .position-relative
-//-                     .carousel-banner-wrapper
-//-                         .carousel-banner.carousel-1(id="all" data-banners='[{"Genre":"all","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/Tests/winter-nature-wallpaper-high-definition-For-desktop-Wallpaper.jpg?mw=1920\u0026hash=C2B3AA4D4098785A2F3F1F898F657B9357B795C6","ThumbnailMobile":"","Content":{"Title":"Test - Xinyi 3 Top, Read","SubTitle":"Test Description hereee","ContentPosition":"","LinkToPage":"/offstage/explore the arts/2019/watch/test - xinyi 3 top read"}},{"Genre":"all","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/Tests/COOL-geeter-WALLPAPER-7053-32275236.jpg?mw=1920\u0026hash=C684AF788E5FA09BA2F80D4B3665175B6CE70F3C","ThumbnailMobile":"/offstage/-/media/Offstage Microsite/Tests/1458289957powerful-images3.jpg?mw=1920\u0026hash=107CCAEDC26B82BA8DE1940025B2DCAED5336447","Content":{"Title":"Test - Xinyi 1 Middle Watch Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\u0027s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.","SubTitle":"Start Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\u0027s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. end","ContentPosition":"middle","LinkToPage":"/offstage/explore the arts/2019/watch/test - xinyi 1 middle watch"}},{"Genre":"all","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/landscape-1515004324-boston-terrier.jpg?mw=1920\u0026hash=4DC98326CF3ACACD14177C2298E9F60692E24673","ThumbnailMobile":"","Content":{"Title":"Test - Xinyi Bottom Readd ","SubTitle":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\u0027s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. when an unknown printer took a galley of type and scrambled it to make a type specimen book. ","ContentPosition":"bottom","LinkToPage":"/offstage/explore the arts/2019/watch/test - xinyi 4 bottom read"}},{"Genre":"fedae832124d46329f6c66a8fecf8fb4","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/4.jpg?mw=1920\u0026hash=45099E045AE6751902414FF6585D832F1D2EFF1A","ThumbnailMobile":"","Content":{"Title":"X Music Testing 123 Top Watch Apple","SubTitle":"happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy 123123123","ContentPosition":"top","LinkToPage":"/offstage/explore the arts/2019/watch/x music testing 123 top watch apple"}},{"Genre":"fedae832124d46329f6c66a8fecf8fb4","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/3.jpg?mw=1920\u0026hash=24D4E3F525601AD5604CBC09F904FA9D4E5F3635","ThumbnailMobile":"","Content":{"Title":"X Music Testing abc Middle Read Apple","SubTitle":"sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad","ContentPosition":"middle","LinkToPage":"/offstage/explore the arts/2019/watch/x music testing abc middle read apple"}},{"Genre":"fedae832124d46329f6c66a8fecf8fb4","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/5.jpg?mw=1920\u0026hash=6AB811D8A011CDF84D974A572E1F8D99593D0D8F","ThumbnailMobile":"","Content":{"Title":"X Music Test Z 3 Bottom Listen Apple","SubTitle":"apple apple apple","ContentPosition":"bottom","LinkToPage":"/offstage/explore the arts/2019/watch/x music test z 3 bottom listen apple"}},{"Genre":"6a128c44814a475591e5a2041f2630b8","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/Tests/ED 768x1000px.png?mw=1920\u0026hash=D21EACF04B4CD7922934CB0900835EDC2071B445","ThumbnailMobile":"/offstage/-/media/Offstage Microsite/Tests/COOL-geeter-WALLPAPER-7053-32275236.jpg?mw=1920\u0026hash=C684AF788E5FA09BA2F80D4B3665175B6CE70F3C","Content":{"Title":"Win Sheng","SubTitle":"Win Sheng is ROXXXXXXXXXX","ContentPosition":"","LinkToPage":"/offstage/explore the arts/2019/read/win sheng testing"}},{"Genre":"6a128c44814a475591e5a2041f2630b8","ThumbnailDesktop":"","ThumbnailMobile":"","Content":{"Title":"Tan Win Sheng","SubTitle":"","ContentPosition":"","LinkToPage":"/offstage/explore the arts/2019/test article 1"}},{"Genre":"270e6a0a6ecc42eb947ef8bf4a7036b0","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/landscape-1515004324-boston-terrier.jpg?mw=1920\u0026hash=4DC98326CF3ACACD14177C2298E9F60692E24673","ThumbnailMobile":"","Content":{"Title":"Test - Xinyi Bottom Readd ","SubTitle":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\u0027s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. when an unknown printer took a galley of type and scrambled it to make a type specimen book. ","ContentPosition":"bottom","LinkToPage":"/offstage/explore the arts/2019/watch/test - xinyi 4 bottom read"}},{"Genre":"d3bb61f68a304aea95e9a059189837f6","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/5.jpg?mw=1920\u0026hash=6AB811D8A011CDF84D974A572E1F8D99593D0D8F","ThumbnailMobile":"","Content":{"Title":"X Music Test Z 3 Bottom Listen Apple","SubTitle":"apple apple apple","ContentPosition":"bottom","LinkToPage":"/offstage/explore the arts/2019/watch/x music test z 3 bottom listen apple"}},{"Genre":"603822cb8bd3439c8427070fc245a00a","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/4.jpg?mw=1920\u0026hash=45099E045AE6751902414FF6585D832F1D2EFF1A","ThumbnailMobile":"","Content":{"Title":"X Music Testing 123 Top Watch Apple","SubTitle":"happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy happy 123123123","ContentPosition":"top","LinkToPage":"/offstage/explore the arts/2019/watch/x music testing 123 top watch apple"}},{"Genre":"c9124273cc014703b6495e05dbc794db","ThumbnailDesktop":"/offstage/-/media/Offstage Microsite/3.jpg?mw=1920\u0026hash=24D4E3F525601AD5604CBC09F904FA9D4E5F3635","ThumbnailMobile":"","Content":{"Title":"X Music Testing abc Middle Read Apple","SubTitle":"sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad sad","ContentPosition":"middle","LinkToPage":"/offstage/explore the arts/2019/watch/x music testing abc middle read apple"}}]')
-//-                             .banner-bg(data-desktop-image="./assets/microsites/offstage/img/Bitmap.png" data-mobile-image="" style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
-//-                                 +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-top")
+block content
+    .container-fluid.article-start#summary
+        //- .row
+        //-     //- .col-12
+        //-         +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
+                
+        //-     .col-12.col-md-6.px-0
+        //-         //- Trigger Modal
 
-//-                             .banner-bg(data-desktop-image="./assets/microsites/offstage/img/Bitmap.png" data-mobile-image="" style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
-//-                                 +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
+        //-         //- Hero Banner with Video Modal
+        //-         +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, true)
 
-//-                             .banner-bg(data-desktop-image="./assets/microsites/offstage/img/Bitmap.png" data-mobile-image="" style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
-//-                                 +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
+        //-         //- Hero Banner with Video Modal
+        //-         //- +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
+                
+        //-     .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
+        //-         .px-md-4.h-100.d-flex.justify-content-center.flex-column
+        //-             p.genre-text.bt-2.font-weight-bold 
+        //-                 a(href="#") DANCE
+        //-                 a(href="#") MUSIC 
+        //-                 a(href="#") FILM
+        //-             h1.font-weight-bolder A French Toast To Ballet
+        //-             p.clamp-2 Seven things to know about Paris Opera Ballet to impress your mates 
+        //-             p Publish date: 19 April 2019
+        //-             p Last updated date: 23 April 2019
+        //-             div
+        //-                 a(href="#content")
+        //-                     button(type="button").read-more.btn.btn-outline-primary Read more
 
-//-                         .carousel-banner.carousel-1(id="music")
-//-                             .banner-bg(data-desktop-image="./assets/microsites/offstage/img/Bitmap.png" data-mobile-image="" style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
-//-                                 +textBanner('A French Toast To Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-top")
+        .row
+            .col-12
+                +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
+                
+            .col-12.col-md-6.px-0
+                //- Trigger Modal
+                
+                //- Hero Banner with Video Modal
+                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, false)
 
-//-                             .banner-bg(data-desktop-image="./assets/microsites/offstage/img/Bitmap.png" data-mobile-image="" style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
-//-                                 +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-mid")
+                //- Hero Banner with Img 720
+                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, true, false)   
 
-//-                             .banner-bg(data-desktop-image="./assets/microsites/offstage/img/Bitmap.png" data-mobile-image="" style="background-image:url('https://via.placeholder.com/1920x1920/808080/A9A9A9');")
-//-                                 +textBanner('Paris Opera Ballet', 'In a rare international appearance, Paris Opera Ballet comes to Singapore with works by three renowned choreographers.')(class="pos-bot")
+                //- Hero Banner with Img 450
+                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
+
+                .progress-wrapper.d-md-none.d-block.w-100
+                    include ../components/progress-bar.pug
+
+            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
+                .px-md-4.h-100.d-flex.justify-content-center.flex-column
+                    p.genre-text.bt-2.font-weight-bold 
+                        a.hyperlink-custom(href="#") DANCE
+                        a.hyperlink-custom(href="#") MUSIC 
+                        a.hyperlink-custom(href="#") FILM
+                    h1.font-weight-bolder A French Toast To Ballet
+                    p Seven things to know about Paris Opera Ballet to impress your mates
+
+                    .d-inline
+                        .d-flex.pr-4.hero-banner-icon-wrapper.align-items-baseline
+                            .hero-banner-icon.mr-3                        
+                                img.icon-details(src="./assets/microsites/offstage/img/icons/Loading.svg")
+                            p.mb-0.bt-3 Publish date: 19 April 2019
+                        
+                        .d-flex.pr-4.hero-banner-icon-wrapper.align-items-baseline
+                            .hero-banner-icon.mr-3                        
+                                img.icon-details(src="./assets/microsites/offstage/img/icons/Calendar.svg")
+                            p.mb-0.bt-3 Last updated date: 23 April 2019
+                        
+                        .d-flex.pr-4.hero-banner-icon-wrapper.align-items-baseline
+                            .hero-banner-icon.mr-3                        
+                                img.icon-details(src="./assets/microsites/offstage/img/icons/Social/Whatsapp.svg")
+                            p.mb-0.bt-3 By 
+                                span
+                                    a.hyperlink-custom#author-name(href="#acknowledgements") John Doe
+                    //- div
+                    //-     a(href="#content")
+                    //-         button(type="button").read-more.btn.btn-outline-primary Read more
 
 
+    .container-fluid.p-0
+        .row.no-gutters
+            .progress-wrapper.d-none.d-md-block.w-100
+                include ../components/progress-bar.pug
 
-//-             .col-12.col-md-6.tabfil-container
-//-                 .tab-filter.position-relative
-//-                     .container-fluid.no-gutters.px-0
-//-                         .row.no-gutters.filter-bar.px-3
+    .container-fluid.d-md-none
+        .row
+            .col 
+                hr.w-100.my-4(style="border-top: 1px solid black")
 
-//-                             .col-10.pt-4.pb-1
-//-                                 .category-tabs-wrapper.side-filter
-//-                                     include ../components/category-tabs.pug 
-//-                                     hr.w-100.ml-3
-                                    
-//-                             .col-2.d-none.d-md-block
-                            
-//-                             .col-11.px-2.pb-2.genre-wrapper
-//-                                 .genre-tabs-container.pb-3
-//-                                     include ../components/genre-tabs.pug
-//-                             .col-1.genre-filter.pb-2
-//-                                  a.filter(style="cursor:pointer;")
-//-                                     img(src='./assets/microsites/offstage/img/icons/Filter.svg' style="width:23px;")
+    .container
+        .row.py-25.flex-column-reverse.flex-md-row.align-items-baseline             
+            .col-12.col-md-3
+                .d-flex.align-items-md-center.pb-4.pb-md-0
+                    .mr-3(style="width: 20px")
+                        img(src='./assets/microsites/offstage/img/icons/Book.svg' width="100%")
+                    p.p-0.pb-3.pb-md-0.m-0 Time to read: 15 minutes
+            
+            
 
-//-                         .row
-//-                             include ../components/filter-menu.pug
+            .col-12.col-md-4.text-align-left
+                
+
+                .d-flex.justify-content-md-end.pb-4.pb-md-0.align-items-center    
+                    each icon in ["./assets/microsites/offstage/img/icons/Social/Facebook.svg", "./assets/microsites/offstage/img/icons/Social/Whatsapp.svg", "./assets/microsites/offstage/img/icons/Social/Mail.svg", "./assets/microsites/offstage/img/icons/Social/GooglePlus.svg", "./assets/microsites/offstage/img/icons/Social/Likes.svg"]
+                        a.hyperlink-custom(href="#").pr-3.px-md-0.px-md-2
+                            img(src=icon height="25px")
 
 
-//-                         .row.no-gutters.p-5.pt-md-3.mt-3.tab-content
-//-                             .col-12.col-md-6.card-tile.px-2.pb-4(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
-//-                                 include ../components/card-tile.pug
+                    //- select.ml-3.w-auto.custom-select.d-none.d-md-flex(name="")
+                    //-     option(value='1' selected) EN
+                    //-     option(value='2') CH
+                    //-     option(value='3') ML
+                    //-     option(value='4') TA
+                    //- #lang-toggle.pl-5
+                    //-     multiselect(
+                    //-         v-model="value",
+                    //-         deselect-label="Can't remove this value",
+                    //-         track-by="id",
+                    //-         label="name",
+                    //-         placeholder="Select one",
+                    //-         :options="options",
+                    //-         :searchable="false",
+                    //-         :allow-empty="false"
+                    //-         :show-labels="false"
+                    //-     )
+                    //-         template(slot="caret") 
+                    //-             a.multiselect__select(tabindex="")
+                    //-                 img(src='./assets/microsites/offstage/img/icons/Down.svg')                                 
+                    //- include ../components/language-toggle.pug
 
-//- block footer
-//-     .container-fluid
-//-         .row
-//-             .col-12.col-md-6.p-0.sticky-footer
-//-                 include ../layout/footer.pug
+            
+            .col-12.col-md-4
+                nav#lang-tab.nav.nav-pills.pb-4(role='tablist')
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold.active EN
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold CH
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold ML
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold TA
+
+
+            
+          
+    .container#readSection
+        .row.py-25
+            .col-12
+                h2.font-weight-bold.text-uppercase There's no stopping the tour de force of ballet.
+                p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta temporibus quaerat officia suscipit adipisci deleniti reiciendis molestiae vel nobis iste, dolore enim impedit ab quibusdam minima libero cumque pariatur dolores!
+                p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente nostrum rerum itaque ducimus ex quis fugiat quia enim repellendus dignissimos debitis soluta quam molestiae, dolore est placeat asperiores quos earum. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quo autem ipsum, similique excepturi facere, illo ullam nemo dicta nihil aspernatur dolor voluptatem voluptas aliquam dolorum quaerat qui maiores minima porro.
+                br
+                h3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quas! Nulla, iste neque. Quia, ad rem deserunt dicta facere autem sint voluptas quae sequi accusantium voluptatibus at quos modi beatae?
+
+        .row.py-25#text-component
+            .col
+                +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
+
+        .row.pb-25
+            .col
+                .video-carousel.py-25
+                    - const videos = ['https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o'];
+                    each video in videos 
+                        +videoCarousel(video)
+
+                .video-carousel-nav-wrappper.d-none.d-md-block
+                    .video-carousel-nav
+                        each video in videos 
+                            +videoCarouselNav(video)
+
+                    .slide-count-wrap
+                    
+                    
+        //- One Image Component
+        +images('1', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
+        //- Two Images Component
+        +images('2', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
+        //- Three Images Component
+        +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
+
+        .row#mini-series.bg-light.mx-md-0.my-25 
+            include ../components/mini-series.pug
+
+      
+        .row.mx-0.py-25
+            .col-12.p-0
+                include ../components/accordion.pug
+
+    .container-fluid
+        +whatsOn('Whats on for')
+
+block footer 
+    include ../layout/footer.pug
