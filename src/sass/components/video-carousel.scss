@@ -1,9 +1,9 @@
 .video-carousel {
-  padding-bottom: 0; 
+  padding-bottom: 25px; 
   
-  @media(min-width: 768px){
-    padding-bottom: 25px;
-  }
+  // @media(min-width: 768px){
+  //   padding-bottom: 25px;
+  // }
   
   .video-carousel-item {
     height: 184px;
