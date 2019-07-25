@@ -5,13 +5,11 @@ $(function () {
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;  
     
-    // if (md.matches) {
-    //     if($("#tabs-filter")[0]){
-    //         $('body::-webkit-scrollbar').css("display", "none")
-    //     } else {
-    //         $('body').css("overflow", "auto")
-    //     }        
-    // }
+    if (md.matches) {
+        if($("#tabs-filter")[0]){
+            $('body').addClass('hidden-scrollbar')
+        }      
+    }
 
 
     $('#author-name').click(function (e) {
