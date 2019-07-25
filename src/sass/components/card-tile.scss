@@ -1,4 +1,7 @@
 .tab-content {
+  overflow-y: scroll;
+  max-height: 100vh;
+
   background: #fff;
   .card-tile {
     padding-bottom: 31px;

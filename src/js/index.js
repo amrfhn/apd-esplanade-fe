@@ -1,6 +1,19 @@
 $(function () {
     clampText();
 
+    var xs = window.matchMedia('(max-width: 768px)');
+    var md = window.matchMedia('(min-width: 769px)');
+    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;  
+    
+    if (md.matches) {
+        if($("#tabs-filter")[0]){
+            $('body').css("overflow-y", "hidden")
+        } else {
+            $('body').css("overflow", "auto")
+        }        
+    }
+
+
     $('#author-name').click(function (e) {
         e.preventDefault();
 
@@ -16,11 +29,6 @@ $(function () {
     //         scrollTop: $('.tabfil-container').offset().top
     //     }, 500);
     // });
-
-    var xs = window.matchMedia('(max-width: 768px)');
-    var md = window.matchMedia('(min-width: 769px)');
-
-    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;    
 
     $('.thumbnail-holder-potrait').each(function() {
         var mobileImage = $(this).attr('data-mobile-image')
