@@ -5,13 +5,13 @@ $(function () {
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;  
     
-    if (md.matches) {
-        if($("#tabs-filter")[0]){
-            $('body').css("overflow-y", "hidden")
-        } else {
-            $('body').css("overflow", "auto")
-        }        
-    }
+    // if (md.matches) {
+    //     if($("#tabs-filter")[0]){
+    //         $('body::-webkit-scrollbar').css("display", "none")
+    //     } else {
+    //         $('body').css("overflow", "auto")
+    //     }        
+    // }
 
 
     $('#author-name').click(function (e) {
@@ -106,7 +106,8 @@ $(function () {
 
     //In the series 
     $('.multi-collapse').on('shown.bs.collapse', function () {
-        $('#in-the-series button').addClass('d-none');
+        $('#in-the-series .view-button').removeClass('d-flex').addClass('d-none');
+        $('#in-the-series .card-tile').addClass('pb-4');
         clampText();
     })
 
