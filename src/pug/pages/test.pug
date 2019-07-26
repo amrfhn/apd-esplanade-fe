@@ -153,42 +153,10 @@ block content
                 br
                 h3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, quas! Nulla, iste neque. Quia, ad rem deserunt dicta facere autem sint voluptas quae sequi accusantium voluptatibus at quos modi beatae?
 
-        .row.py-25#text-component
-            .col
-                +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
-
-        .row.pb-25
-            .col
-                .video-carousel.py-25
-                    - const videos = ['https://www.youtube.com/embed/zpOULjyy-n8', 'https://www.youtube.com/embed/XW5cOaBM68o'];
-                    each video in videos 
-                        +videoCarousel(video)
-
-                .video-carousel-nav-wrappper.d-none.d-md-block
-                    .video-carousel-nav
-                        each video in videos 
-                            +videoCarouselNav(video)
-
-                    .slide-count-wrap
-                    
-                    
-        //- One Image Component
-        +images('1', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
-        //- Two Images Component
-        +images('2', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x199')
-        //- Three Images Component
-        +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
-
-        .row#mini-series.bg-light.mx-md-0.my-25 
-            include ../components/mini-series.pug
-
-      
-        .row.mx-0.py-25
-            .col-12.p-0
-                include ../components/accordion.pug
+        
 
     .container-fluid
-        +whatsOn('Whats on for', '22 June 2019 (Saturday)', '4pm - 5.30pm', 'Esplanade Rehearsal Studio', '$58, $70, $150, $400')
+        +whatsOn('What\'s on for', '22 June 2019 (Saturday)', '4pm - 5.30pm', 'Esplanade Rehearsal Studio', '$58, $70, $150, $400')
 
 block footer 
     include ../layout/footer.pug
