@@ -1,0 +1,26 @@
+.side-tile-wrapper{
+    position: relative;
+    .side-img{
+        width: 100%;
+        height: auto;
+        @media(min-width: 1025px){
+            width: 562px;
+        }
+    }
+    .title{
+        padding: 20px 6px 5px;
+        font-family: $font-proxima-black;
+        @media(min-width:768px){
+            padding: 0;
+        }
+    }
+    .subtitle{
+        width:100%;
+        padding: 3px 6px 10px;
+        @media(min-width: 769px){
+            width:90%;
+            padding: 0
+        }
+    }
+    
+}
