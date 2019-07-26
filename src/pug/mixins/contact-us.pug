@@ -1,0 +1,14 @@
+mixin contactUs(subDescription)
+    .row
+        .col.contact-wrapper.p-0.bg-dark.text-white.text-center(style="background: linear-gradient(0deg,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('https://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/7842221242_40deabf89d_o.jpg?itok=NJw1VKrw');")
+            .contact-content
+                h1.title.my-2.font-weight-bolder.text-uppercase.text-white INTERESTED? 
+                p.my-2.text-white.description.bt-1 If you are interested to access our collection as part of your research, please note that archival reference access is available by appointment only. 
+
+                .d-md-flex.d-block.justify-content-center.align-items-center.my-2
+                    .button-wrapper.mx-3
+                        a(href="tel:12121212" role="button").btn.btn-outline-light.my-3 CALL US
+                    .button-wrapper.mx-3
+                            a(href="mailto:testing@gmail.com" role="button").btn.btn-outline-light.my-3 EMAIL US
+
+                p.pt-2.text-white.description.bt-1=subDescription

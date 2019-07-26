@@ -28,9 +28,11 @@
         .description {
             line-height: 22px;
             letter-spacing: .68px;
+            width: 100%;
             @media(min-width:768px){
                 line-height: 26px;
-                padding: 100px;
+                width: 70%;
+                padding: 0 30px;
             }
         }
         .icon{
