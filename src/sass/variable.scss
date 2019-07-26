@@ -227,6 +227,12 @@ p {
   }
 }
 
+.title {
+  text-transform: uppercase;
+  font-family: $font-proxima-bold;
+}
+
+
 // Button
 .btn {
   font-family: $font-proxima-bold;

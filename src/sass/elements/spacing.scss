@@ -61,6 +61,89 @@
   padding-right: 50px;
 }
 
+// MD view 
+.px-md-25 {
+  @media(min-width: 768px) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+.py-md-25 {
+  @media(min-width: 768px) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
+
+.pt-md-25 {
+  @media(min-width: 768px) {
+    padding-top: 25px;
+  }
+}
+
+.pb-md-25 {
+  @media(min-width: 768px) {
+    padding-bottom: 25px;
+  }
+}
+
+.pl-md-25 {
+  @media(min-width: 768px) {
+    padding-left: 25px;
+  }
+}
+
+.pr-md-25 {
+  @media(min-width: 768px) {
+    padding-right: 25px;
+  }
+}
+
+.p-md-50 {
+  @media(min-width: 768px) {
+    padding: 50px;
+  }
+}
+
+.px-md-50 {
+  @media(min-width: 768px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.py-md-50 {
+  @media(min-width: 768px) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
+
+.pt-md-50 {
+  @media(min-width: 768px) {
+    padding-top: 50px;
+  }
+}
+
+.pb-md-50 {
+  @media(min-width: 768px) {
+    padding-bottom: 50px;
+  }
+}
+
+.pl-md-50 {
+  @media(min-width: 768px) {
+    padding-left: 50px;
+  }
+}
+
+.pr-md-50 {
+  @media(min-width: 768px) {
+    padding-right: 50px;
+  }
+}
+
 // Margin
 .m-25 {
   margin: 25px;
@@ -121,3 +204,93 @@
 .mr-50 {
   margin-right: 50px;
 }
+
+// MD View 
+.m-md-25 {
+  @media (min-width: 768px){
+    margin: 25px;
+  }
+}
+
+.mx-md-25 {
+  @media (min-width: 768px){
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
+
+.my-md-25 {
+  @media (min-width: 768px){
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.mt-md-25 {
+  @media (min-width: 768px){
+    margin-top: 25px;
+  }
+}
+
+.mb-md-25 {
+  @media (min-width: 768px){
+    margin-bottom: 25px;
+  }
+}
+
+.ml-md-25 {
+  @media (min-width: 768px){
+    margin-left: 25px;
+  }
+}
+
+.mr-md-25 {
+  @media (min-width: 768px){
+    margin-right: 25px;
+  }
+}
+
+.m-md-50 {
+  @media (min-width: 768px){
+    margin: 50px;
+  }
+}
+
+.mx-md-50 {
+  @media (min-width: 768px){
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+}
+
+.my-md-50 {
+  @media (min-width: 768px){
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+}
+
+.mt-md-50 {
+  @media (min-width: 768px){
+    margin-top: 50px;
+  }
+}
+
+.mb-md-50 {
+  @media (min-width: 768px){
+    margin-bottom: 50px;
+  }
+}
+
+.ml-md-50 {
+  @media (min-width: 768px){
+    margin-left: 50px;
+  }
+}
+
+.mr-md-50 {
+  @media (min-width: 768px){
+    margin-right: 50px;
+  }
+}
+
