@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="28px" viewBox="0 0 30 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>Icons/Book</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icons/Book" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Path" fill="#000000" points="14 11 14 15.6666667 21 15.6666667 21 13.3333333 16.3333333 13.3333333 16.3333333 11"></polygon>
+        <path d="M15.5,25.5 C9.434875,25.5 4.5,20.565125 4.5,14.5 C4.5,8.434875 9.434875,3.5 15.5,3.5 C21.565125,3.5 26.5,8.434875 26.5,14.5 C26.5,20.565125 21.565125,25.5 15.5,25.5 L15.5,25.5 Z M2,14.5 C2,21.95605 8.04395,28 15.5,28 C22.95605,28 29,21.95605 29,14.5 C29,7.04395 22.95605,1 15.5,1 C8.04395,1 2,7.04395 2,14.5 Z" id="plus_circle-[#1441]" fill="#000000"></path>
+    </g>
+</svg>
