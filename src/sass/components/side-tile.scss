@@ -22,5 +22,19 @@
             padding: 0
         }
     }
+    .sideSmall-img{
+        width: 100%;
+        height: auto;
+        @media(min-width: 1025px){
+            width: 359px;
+        }
+    }
+    .subtitle-small{
+        width:100%;
+        padding: 3px 6px 10px;
+        @media(min-width: 769px){
+            padding: 0
+        }
+    }
     
 }
