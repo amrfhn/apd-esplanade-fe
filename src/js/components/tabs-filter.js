@@ -73,8 +73,11 @@ $(function () {
                 $('#genreTabs').find('#' + dataKey).click();
 
                 _this.filterGenre(dataKey);
+                $('.genre-tabs .wrapper').animate({
+                    scrollLeft: $('.genre-tabs .active').position().left 
+                }, 2000);
             })
-
+ 
 
         },
         updated: function () {
