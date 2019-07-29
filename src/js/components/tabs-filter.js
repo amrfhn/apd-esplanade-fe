@@ -17,6 +17,7 @@ $(function () {
 
     var host = window.location.origin
     // var host =  window.location.protocol + "//" + window.location.hostname;
+    // var host = 'http://dev.esplanade.growthopsapp.com/'
 
     var data = {
         message: 'Hello Vue!',
