@@ -312,7 +312,7 @@ $(function () {
                 if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1) {
                     $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/FilterWithNotifications.svg')
                 } else {
-                    $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/Filter.svg')
+                    $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/Filter_with_text.svg')
                 }
 
             },
