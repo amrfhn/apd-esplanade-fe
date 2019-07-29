@@ -15,7 +15,7 @@ $(function () {
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
 
-    var host = "http://dev.esplanade.growthopsapp.com"
+    var host = window.location.origin
     // var host =  window.location.protocol + "//" + window.location.hostname;
 
     var data = {
@@ -93,6 +93,10 @@ $(function () {
             } else {
                 $('.banner-content').find('.banner-navigation').css('display', 'none');
             }
+
+
+            //hide loading screen
+            $('.loading-screen').fadeOut(1000);
 
             
 
@@ -321,6 +325,9 @@ $(function () {
                 var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
                 var _this = this
 
+                //show loading screen
+                $('.loading-screen').fadeIn(1000);
+
                 var request = $.ajax({
                     type: "GET",
                     url: url,
@@ -359,15 +366,14 @@ $(function () {
                     $('.close-btn-x').on('click', function () {
                         $('.mm-wrapper').removeClass('active');
                         $('.in-between-screen').removeClass('active');
-                
+                        $('body').removeClass('set-fixed');
                     })
                 
                     var $megaMenu = $('.mm-wrapper');
                 
                     if ($megaMenu.hasClass('active')) {
                         console.log("active")
-                        $('body').css('position', 'fixed');
-                        $('body').css('overflow', 'hidden');
+                        $('body').addClass('set-fixed');
                 
                     }
                 
