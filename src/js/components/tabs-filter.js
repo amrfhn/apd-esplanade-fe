@@ -15,7 +15,7 @@ $(function () {
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
 
-    var host = window.location.origin
+    var host = window.location.origin;
     // var host =  window.location.protocol + "//" + window.location.hostname;
 
     var data = {
