@@ -115,13 +115,16 @@ module.exports = [{
         filename: "./assets/microsites/offstage/js/bundle.js",
     },
     devServer: {
+        disableHostCheck: true,
+        allowedHosts: [
+            '.esplanade.growthopsapp.com',
+        ],
         writeToDisk: true,
         port: 3000,
         contentBase: './dist',
         historyApiFallback: {
             index: 'index.html'
         },
-        disableHostCheck: true
     },
     plugins: [
         new CleanWebpackPlugin(),
