@@ -24,9 +24,9 @@ $(function () {
     $('.in-between-screen').on('click', function(){
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active');
-        $("body").removeClass("filter-open");
+        $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
-        $('.search-bar').removeClass('active')
+        $('.search-bar').removeClass('active');
     })
 
     //for mobile
@@ -39,7 +39,6 @@ $(function () {
             $('html, body').animate({
                 scrollTop: $(".tab-content").offset().top
             }, 360);
-          
         });
 
     }else{
