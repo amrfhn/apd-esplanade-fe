@@ -1,10 +1,8 @@
 .image-gallery {
     .gallery-img {
-        height: 80vh; 
-
-        img{
-            width: auto;
-            margin: auto;
-        }
+        height: 572px;
+        background-size: contain; 
+        background-position: center center;
+        background-repeat: no-repeat;
     }
 }
