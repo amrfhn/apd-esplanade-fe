@@ -1,10 +1,26 @@
-.image-gallery {
-    .gallery-img {
-        height: 80vh; 
+#image-gallery {
+  .slide-count-wrap {
+    font-family: $font-proxima-bold;
+  }
 
-        img{
-            width: auto;
-            margin: auto;
-        }
-    }
+  // .image-gallery {
+  //   .gallery-img {
+  //     height: 200px;
+  //     background-size: contain;
+  //     background-position: center center;
+  //     background-repeat: no-repeat;
+
+  //     @media(min-width: 768px) {
+  //       height: 572px;
+  //     }
+  //   }
+  // }
 }
+
+
+// .fancybox-caption__body {
+//   @media (min-width: 768px) {
+//     max-width: 80vw;
+//     margin: auto;
+//   }
+// }
