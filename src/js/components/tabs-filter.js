@@ -1,10 +1,10 @@
 import VueLineClamp from 'vue-line-clamp';
-import VueMatchHeights from 'vue-match-heights'
+import VueMatchHeights from 'vue-match-heights';
 
 $(function () {
-    'use strict'
+    'use strict';
 
-    Vue.use(VueLineClamp, {
+    Vue.use(VueLineClamp, { 
         importCss: true
     })
 
@@ -75,7 +75,7 @@ $(function () {
 
                 _this.filterGenre(dataKey);
                 $('.genre-tabs .wrapper').animate({
-                    scrollLeft: $('.genre-tabs .active').position().left 
+                    scrollLeft: $('.genre-tabs .active').position().left
                 }, 2000);
             })
  

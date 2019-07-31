@@ -3,11 +3,7 @@ $(function () {
     var $filterMenu = $('.filter-menu-wrapper');
 
     $('.filter').on('click', function () {
-        // if ($("body").height() > $(window).height()) {
-        //     $("body").addClass("filter-open");
-        // }
-        
-        $('.in-between-screen').addClass('active');
+        $('.in-between-screen').addClass('active'); 
         $('.mm-wrapper').removeClass('active');
         
         $( ".filter-menu-wrapper" ).scrollTop( 0 );
@@ -17,8 +13,8 @@ $(function () {
 
     $('.close-filter').on('click', function () {
         $filterMenu.toggleClass('show-filter');
-        $('.in-between-screen').removeClass('active');
-        $("body").removeClass("filter-open");
+        $('.in-between-screen').removeClass('active');  
+        $("body").removeClass("filter-open"); 
     })
 
     $('.in-between-screen').on('click', function(){
@@ -51,10 +47,6 @@ $(function () {
             $('html, body').animate({
                 scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
             }, 1500);
-            // $('html, body').animate({
-            //     scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
-            // }, 1500);
-            // $(".filter-menu-wrapper").scrollTop();
         })
     }
 
