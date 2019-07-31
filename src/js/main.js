@@ -3,6 +3,7 @@
 /* Vendor
 // ::::::::::::: */
 import 'slick-carousel'
+import '@fancyapps/fancybox'
 import 'bootstrap'
 import './vendor/2-ellipsis.min.js'
 
@@ -15,6 +16,7 @@ import '../sass/main.scss'
 /* Components
 // ::::::::::::: */
 import './components/image-carousel.js'
+import './components/image-gallery.js'
 import './components/video-carousel.js'
 import './components/video-modal.js'
 import './components/menu.js'

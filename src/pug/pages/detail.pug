@@ -155,7 +155,7 @@ block content
             .col
                 +titleDescription('01', 'An old soulin a young boy', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos doloribus similique ab magni dolores autem molestiae repudiandae fugiat maxime ut iusto quam odit amet voluptatibus eius optio, ratione consectetur eveniet.')
 
-        .row.pb-25
+        .row.pb-25.video-component
             .col
                 h3.video-title.m-0.pt-25.text-uppercase Part 1: John adams - a short ride in a fast machine
                 .video-carousel.py-25
@@ -191,15 +191,18 @@ block content
         .row.mx-0.py-25
             .col-12.p-0
                 include ../components/accordion.pug
-            
-    .container
+
         .row
             .col-12.px-5.my-25
                 include ../components/quote.pug
 
+        .row#image-gallery  
+            .col-12
+                include ../components/image-gallery.pug
+
+    .container
         .row.pt-5.border-top.mx-0.my-25
             .col-12.p-0
-                
                 include ../components/acknowledgement.pug
 
         .row.pt-5.border-top#tribute.mx-0.my-25

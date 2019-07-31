@@ -11,9 +11,14 @@ mixin header(navbar)
                                 #rect3.showRect 
                                 p.menu-text MENU
                             
-                            a.logo-link(href="/").d-flex.logo-container
+                            .logo-container
                                 .logo-wrapper
-                                    img.logo(src="./assets/microsites/offstage/img/logo/Logo.svg")
+                                    a(href="/")
+                                        .home-logo
+                                            img.logo(src="./assets/microsites/offstage/img/logo/Logo.svg")
+                                    a(href="#schools")
+                                        .filter-logo
+                                            img.logo(src="./assets/microsites/offstage/img/logo/White/Researchers.svg")
 
 
                     if navbar= navbar 
