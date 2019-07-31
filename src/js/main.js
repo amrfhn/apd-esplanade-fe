@@ -2,8 +2,8 @@
 
 /* Vendor
 // ::::::::::::: */
-import 'slick-carousel'
 import '@fancyapps/fancybox'
+import 'slick-carousel'
 import 'bootstrap'
 import './vendor/2-ellipsis.min.js'
 
