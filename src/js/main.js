@@ -26,6 +26,8 @@ import './components/filter-menu.js'
 import './components/category-filter.js'
 import './components/accordion.js'
 import './components/multiselect.js'
+import './components/resources.js'
+
 
 
 

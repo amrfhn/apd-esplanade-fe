@@ -81,6 +81,9 @@ block content
     .container
         include ../components/divider.pug
 
+    .container
+        include ../components/playbuzz.pug
+
     .container#readSection
         .row.py-25
             .col-12
@@ -90,6 +93,11 @@ block content
         .row.py-25
             .col-12
                 +sideTile
+
+    .container-fluid
+        .row.bg-light
+            .col-12
+                include ../components/resources.pug
 
     .container-fluid
         +whatsOn('What\'s on for', '22 June 2019 (Saturday)', '4pm - 5.30pm', 'Esplanade Rehearsal Studio', '$58, $70, $150, $400')
