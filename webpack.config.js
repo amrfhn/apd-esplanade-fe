@@ -42,8 +42,6 @@ module.exports = [{
             'esplanade.growthopsapp.com',
             'dev.esplanade.growthopsapp.com', 
         ],
-        writeToDisk: true,
-        port: 3000,
         contentBase: './dist',
         historyApiFallback: {
             index: 'index.html'
