@@ -12,17 +12,33 @@
     .expand-wrapper {
       background: $primary;
       border-radius: 50%;
-      border: 5px solid rgba(255, 255, 255, .5);
+      -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
+      -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
+      box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
+      transition: color .2s ease-out, background .2s ease-out;
 
       .expand-icon {
         padding: 10px;
         color: $white;
         font-size: 15px;
 
-        @media(min-width: 768px) {
+        @media (min-width: 768px) {
           font-size: 18px;
         }
-      }      
+      }
+
+      &:hover {
+        box-shadow: none;
+        border: 2px solid $primary;
+        background: $white;
+        box-shadow: none;
+        transition: color .2s ease-in, background .2s ease-in;
+
+        .expand-icon {
+          padding: 8px;
+          color: $primary;
+        }
+      }
     }
 
     .gallery-img {
@@ -79,7 +95,7 @@
   }
 
   .fancybox-button--arrow_left {
-    left: 90px; 
+    left: 90px;
 
     @media (min-width: 768px) {
       right: 131px !important;
@@ -98,16 +114,16 @@
 
   .fancybox-button--close {
     right: 18px;
-    top: 27px; 
-    
-    @media(min-width: 768px){
+    top: 27px;
+
+    @media (min-width: 768px) {
       right: 40px;
     }
 
-    img{
+    img {
       height: 25px;
 
-      @media(min-width: 768px){
+      @media (min-width: 768px) {
         height: 35px;
       }
     }
@@ -116,7 +132,7 @@
   .fancybox-slide--image {
     padding: 44px 21px;
 
-    @media(min-width: 768px){
+    @media (min-width: 768px) {
       padding: 44px 0px;
     }
   }
@@ -124,13 +140,13 @@
   .fancybox-caption {
     padding: 75px 21px 40px;
 
-    @media(min-width: 768px){
+    @media (min-width: 768px) {
       padding: 75px 44px 50px;
     }
-  
+
     &__body {
       text-align: left;
-  
+
       @media (min-width: 768px) {
         max-width: 80vw;
         margin: auto;
