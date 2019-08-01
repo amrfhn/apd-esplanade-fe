@@ -70,22 +70,19 @@ $(function () {
                 $(this).parent().addClass('active');
         
                 var dataKey = $(this).data('key');
-                // $('.genre-list').find('a#' + dataKey).click();
                 $('#genreTabs').find('#' + dataKey).click();
 
                 _this.filterGenre(dataKey);
                 $('.genre-tabs .wrapper').animate({
-                    scrollLeft: $('.genre-tabs .active').position().left
+                    scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
                 }, 2000);
             })
  
 
         },
-        updated: function () {
+        updated: function () { 
             var _this = this;
-            //setTimeout(function(){ _this.slick(); }, 3000); 
-
-            // _this.slick("unslick").slick();
+            
             _this.bgSwitcher();
             _this.clamptext();
 
@@ -100,10 +97,8 @@ $(function () {
 
 
             //hide loading screen
-            $('.loading-screen').fadeOut(1000);
-
-            
-
+            $('.loading-screen').fadeOut(1000); 
+            setTimeout(function(){$('body').removeClass('overflow-hidden');}, 1000);
         },
         methods: {
             checkActiveGenre: function () {
@@ -330,6 +325,7 @@ $(function () {
                 var _this = this
 
                 //show loading screen
+                $('body').addClass('overflow-hidden');
                 $('.loading-screen').fadeIn(1000);
 
                 var request = $.ajax({
@@ -482,7 +478,6 @@ $(function () {
         });
 
         $(".filter").click(function () {
-            //console.log("aaaa", $(".tabfil-container").offset().top)
             // $('.tabfil-container').scrollTop( 0 );
 
             if ($('.filter-bar').hasClass("stick")) {
@@ -542,7 +537,6 @@ $(function () {
             scrollLeft: '+=90'
         }, 200);
         var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth - 100;
-        // let wrapperWidth = $('.wrapper').width();
         if($('.wrapper').scrollLeft() > maxScrollLeft){
             console.log("tamat")
             $('#goAfter').addClass('d-none');
