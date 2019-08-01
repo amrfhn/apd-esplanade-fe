@@ -212,13 +212,6 @@ $(function () {
 
                 },
                 slick: function (e) {
-                    // $('.carousel-banner').on('init reInit afterChange', function (event, slick, currentSlide, nextSlide) {
-
-                    //     var i = (currentSlide ? currentSlide : 0) + 1;
-
-                    //     $(this).find('.slide-count-wrap').text('0' + i + '/' + '0' + slick.slideCount);
-
-                    // });
 
                     $('.carousel-banner').slick({
                         slidesToShow: 1,
@@ -241,7 +234,7 @@ $(function () {
                             className: '.clamp-' + line,
                             break_word: true,
                             lines: line,
-                            responsive: true
+                            responsive: true 
                         });
                     }
                 },
