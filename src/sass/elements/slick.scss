@@ -29,54 +29,55 @@
 .banner-navigation {
   display: flex;
   .arrows-wrapper {
-    .custom-btn {
-      border: 0;
-      background: none;
-      padding: 3px 5px 0 5px;
+  }
+}
 
-      img.cus-control {
-        width: 100%;
-        position: relative;
-        top: 0;
-        left: 0;
-        background: none;
-      }
+.custom-btn {
+  border: 0;
+  background: none;
+  padding: 3px 5px 0 5px;
 
-      .cust-icon {
-        background-color: transparent;
-        border-radius: 100%;
-        width: 37px;
-        font-weight: bold;
-        height: 37px;
-        font-size: 23px;
-        padding: 20px 20px;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .arrow-black {
-        color: $primary;
-        border: 3px solid;
-        border-color: $primary;
-        &:hover {
-          background-color: $primary;
-          color: $white;
-          transition: all 0.25s ease-in;
-          border: 3px solid $primary;
-        }
-      }
-      .arrow-light {
-        color: $white;
-        border: 3px solid;
-        border-color: $white;
-        &:hover {
-          background-color: $white;
-          color: $primary;
-          transition: all 0.25s ease-in;
-          border: 3px solid $white;
-        }
-      }
+  img.cus-control {
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: none;
+  }
+
+  .cust-icon {
+    background-color: transparent;
+    border-radius: 100%;
+    width: 37px;
+    font-weight: bold;
+    height: 37px;
+    font-size: 23px;
+    padding: 20px 20px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .arrow-black {
+    color: $primary;
+    border: 3px solid;
+    border-color: $primary;
+    &:hover {
+      background-color: $primary;
+      color: $white;
+      transition: all 0.25s ease-in;
+      border: 3px solid $primary;
+    }
+  }
+  .arrow-light {
+    color: $white;
+    border: 3px solid;
+    border-color: $white;
+    &:hover {
+      background-color: $white;
+      color: $primary;
+      transition: all 0.25s ease-in;
+      border: 3px solid $white;
     }
   }
 }

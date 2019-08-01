@@ -3,51 +3,48 @@ $(function () {
 
     // fancybox
     $().fancybox({
-        toolbar: false,
+        toolbar: true,
         hash: false,
         selector: '.slick-slide:not(.slick-cloned) a',
         backFocus: false,
-        infobar : false,
-        buttons : false,
+        infobar: true,
+        buttons: false,
+        loop: true,
+        buttons : ['close'],
+        btnTpl: {
+            close:
+            '<button data-fancybox-close class="fancybox-button fancybox-button--close close" title="{{CLOSE}}">' +
+            '<img src="./assets/microsites/offstage/img/icons/Close/White.svg"/>' +
+            "</button>",
+            arrowLeft:
+            '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left prev-slide custom-btn" title="{{PREV}}">' +
+            '<span class="icon esplanade-icon-Previous cust-icon arrow-light"></span>' +
+            "</button>",
+            arrowRight:
+            '<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right next-slide custom-btn" title="{{NEXT}}">' +
+            '<span class="icon esplanade-icon-Next cust-icon arrow-light">' +
+            "</button>",
+        },
         afterShow: function (instance, current) {
             current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
 
-            if (instance.group.length > 1 && current.$content) {
-                current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
-            }
+            // if (instance.group.length > 1 && current.$content) {
+            //     current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
+            // }
 
-            current.$content.append('<a data-fancybox-close class="button-close" href="javascript:;">×</a>');
-        }
+            //current.$content.append('<a data-fancybox-close class="button-close close" href="javascript:;"><img src="./assets/microsites/offstage/img/icons/Close/White.svg></a>');
+        },
+        
     });
 
     // Slick
     // =====
     $(".image-gallery").slick({
         slidesToShow: 1,
-        infinite: false,
+        infinite: true,
         dots: false,
         arrows: true,
         prevArrow: $('.prev-slide'),
         nextArrow: $('.next-slide')
     });
-
-    // // // Slick
-    // // // =====
-    // $(".small-slider").slick({
-    //     slidesToShow: 1,
-    //     infinite: true,
-    //     dots: false,
-    //     arrows: false
-    // });
-
-    // // fancybox
-    // $('[data-fancybox="gallery"]').fancybox({
-    //     // selector: '.small-slider .slick-slide:not(.slick-cloned)',
-    //     backFocus: false,
-    //     // afterShow: function (instance, current) {
-    //     //     console.log('curr', current)
-    //     //     console.log(current.opts.$orig.closest(".slick-initialized"), 'curr', current.index)
-    //     //     current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
-    //     // }
-    // });
 })
