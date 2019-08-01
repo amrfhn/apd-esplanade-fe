@@ -28,19 +28,19 @@ $(function () {
     //     }, 500);
     // });
 
-    $('.thumbnail-holder-potrait').each(function () {
-        var mobileImage = $(this).attr('data-mobile-image')
-        var desktopImage = $(this).attr('data-desktop-image')
+    $('.thumbnail-holder-portrait').each(function () {
+        var mobileImage = $(this).attr('data-mobile-image');
+        var desktopImage = $(this).attr('data-desktop-image');
 
         if (xs.matches) {
             if (mobileImage !== "") {
-                $(this).css('background-image', 'url("' + mobileImage + '")')
+                $(this).css('background-image', 'url("' + mobileImage + '")');
             } else {
-                $(this).css('background-image', 'url("' + desktopImage + '")')
+                $(this).css('background-image', 'url("' + desktopImage + '")');
             }
         }
         if (md.matches) {
-            $('.thumbnail-holder-potrait').css('background-image', 'url("' + desktopImage + '")')
+            $('.thumbnail-holder-portrait').css('background-image', 'url("' + desktopImage + '")');
         }
     });
 
