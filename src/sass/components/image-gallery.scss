@@ -3,24 +3,63 @@
     font-family: $font-proxima-bold;
   }
 
-  // .image-gallery {
-  //   .gallery-img {
-  //     height: 200px;
-  //     background-size: contain;
-  //     background-position: center center;
-  //     background-repeat: no-repeat;
+  .image-gallery {
+    .gallery-img {
+      height: 200px;
+      background-size: contain;
+      background-position: center center;
+      background-repeat: no-repeat;
 
-  //     @media(min-width: 768px) {
-  //       height: 572px;
-  //     }
-  //   }
-  // }
+      @media (min-width: 768px) {
+        height: 572px;
+      }
+    }
+
+
+  }
 }
 
+.button-previous,
+.button-next {
+  top: 50%;
+  margin-top: -22px;
+  line-height: 42px;
+}
 
-// .fancybox-caption__body {
-//   @media (min-width: 768px) {
-//     max-width: 80vw;
-//     margin: auto;
-//   }
-// }
+.button-close,
+.button-previous,
+.button-next {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background: #000;
+  text-align: center;
+  line-height: 44px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50%;
+  font-size: 16px;
+}
+
+.button-previous {
+  left: -50px;
+}
+
+.button-next {
+  right: -50px;
+}
+
+.button-close {
+  top: -44px;
+  right: -44px;
+  font-size: 22px;
+  color: rgba(255,255,255,0.8);
+}
+
+.fancybox-caption__body {
+  @media (min-width: 768px) {
+    max-width: 80vw;
+    margin: auto;
+    text-align: left;
+  }
+}
