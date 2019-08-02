@@ -4,7 +4,7 @@ import VueMatchHeights from 'vue-match-heights';
 $(function () {
     'use strict';
 
-    Vue.use(VueLineClamp, { 
+    Vue.use(VueLineClamp, {
         importCss: true
     })
 
@@ -17,7 +17,8 @@ $(function () {
 
     // var host = window.location.origin
     // var host =  window.location.protocol + "//" + window.location.hostname;
-    var host = 'http://dev.esplanade.growthopsapp.com/'
+    var host = 'http://dev.esplanade.growthopsapp.com/';
+    var currUrl = window.location.href;
 
     var data = {
         message: 'Hello Vue!',
@@ -39,6 +40,11 @@ $(function () {
         "sort": ""
     }
 
+    var homeUrlParams = {
+        "category": "",
+        "genre": ""
+    }
+
     var app = new Vue({
         el: '#tabs-filter',
         data: data,
@@ -53,22 +59,22 @@ $(function () {
 
             $(".mm-content a.filter").click(function () {
                 var dataKey = $(this).attr("data-key");
-            
+
                 event.preventDefault();
-        
+
                 $(".custom-checkkbox .custom-control-input ").prop("checked", false);
                 $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
                 $(".mm-wrapper").removeClass("active");
-                $( ".submit-filter" ).click();
-               // localStorage.setItem("dataKey", dataKey);
-              //  localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
-            
+                $(".submit-filter").click();
+                // localStorage.setItem("dataKey", dataKey);
+                //  localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
+
             });
 
             $('a.nav-link.megamenu-genre').on('click', function () {
                 $('.mm-content-item').find('.nav-item').removeClass('active');
                 $(this).parent().addClass('active');
-        
+
                 var dataKey = $(this).data('key');
                 // $('.genre-list').find('a#' + dataKey).click();
                 $('#genreTabs').find('#' + dataKey).click();
@@ -78,7 +84,7 @@ $(function () {
                     scrollLeft: $('.genre-tabs .active').position().left
                 }, 2000);
             })
- 
+
 
         },
         updated: function () {
@@ -102,36 +108,46 @@ $(function () {
             //hide loading screen
             $('.loading-screen').fadeOut(1000);
 
-            
-
         },
         methods: {
             checkActiveGenre: function () {
 
                 var genre = $('.genre-list').find('.nav-link');
+                var separator = (window.location.href.indexOf("?")===-1)?"?":"&";
 
 
                 genre.on('click', function () {
                     console.log("asdasdas");
                     let genreId = $(this).attr('id');
-                    sessionStorage.setItem('genreId', genreId);
+
+                    // sessionStorage.setItem('genreId', genreId);
+                    homeUrlParams.genre = genreId;
+                    currUrl +="?genre="+homeUrlParams.genre+separator;
+
+                    // if(currUrl.indexOf("?") > -1 || currUrl.indexOf("genre") > -1) {
+                    //     currUrl = currUrl.replace(homeUrlParams.genre, "");
+                    //     currUrl += "genre="+homeUrlParams.genre+separator;
+                    // }else{
+                    //     currUrl += "?genre="+homeUrlParams.genre+separator;
+                    // }
+                    
+                    window.history.pushState({path:currUrl},'',currUrl);
                 });
 
                 var category = $('#menus').find('a.active');
 
                 var categoryId = category.attr('id');
 
-                var sessionCatId = sessionStorage.getItem('mainCategoryId');
+                // var sessionCatId = sessionStorage.getItem('mainCategoryId');
 
-                if (sessionCatId == null || sessionCatId != categoryId)
-                {
-                    sessionStorage.setItem('mainCategoryId', categoryId);
-                }
-                var sessionGenreId = sessionStorage.getItem('genreId');
+                // if (sessionCatId == null || sessionCatId != categoryId) {
+                    // sessionStorage.setItem('mainCategoryId', categoryId);
+                // }
+                // var sessionGenreId = sessionStorage.getItem('genreId');
 
-                if (sessionGenreId != null){
-                    $('#genreTabs').find('#'+sessionGenreId).click();
-                }
+                // if (sessionGenreId != null) {
+                    // $('#genreTabs').find('#' + sessionGenreId).click();
+                // }
 
             },
 
@@ -258,7 +274,7 @@ $(function () {
                 this.currPage = 1;
                 this.loadPage = 1;
 
-                
+
 
                 document.getElementById('spinner').style.display = "none";
 
@@ -271,7 +287,7 @@ $(function () {
                 this.resetGenre();
             },
             resetGenre: function () {
-                $('.genre-tabs').each(function(){
+                $('.genre-tabs').each(function () {
                     $(this).find('.nav-link').removeClass('active');
                 }).find('#all').addClass('active')
 
@@ -364,44 +380,44 @@ $(function () {
                     $('#hamb').on('click', function () {
                         $('.mm-wrapper').addClass('active');
                         $('.in-between-screen').addClass('active');
-                
+
                     })
-                
+
                     $('.close-btn-x').on('click', function () {
                         $('.mm-wrapper').removeClass('active');
                         $('.in-between-screen').removeClass('active');
                         $('body').removeClass('set-fixed');
                     })
-                
+
                     var $megaMenu = $('.mm-wrapper');
-                
+
                     if ($megaMenu.hasClass('active')) {
                         console.log("active")
                         $('body').addClass('set-fixed');
-                
+
                     }
-                
+
                     $('#searchBar').modal({
                         backdrop: false,
                         show: false,
                         focus: false
                     });
-                
+
                     $(document).scroll(function () {
                         var $nav = $(".nav");
-                
+
                         var $navTabs = $('.left-wrapper');
-                
+
                         if ($nav.hasClass('back')) {
                             $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
                         }
                     });
-                
-                
+
+
                     var $btnSearch = $('#btnSearch');
                     var $closeSearch = $('#closeSearch');
-                
-                
+
+
                     $btnSearch.on('click', function () {
                         $('#searchBar').addClass('active');
                         $('.in-between-screen').addClass('active');
@@ -409,43 +425,43 @@ $(function () {
                     $closeSearch.on('click', function () {
                         $('#searchBar').removeClass('active');
                     })
-                
-                
+
+
                     // $('a.nav-link.megamenu-genre').on('click', function () {
                     //     $('a.nav-link.megamenu-genre').each(function () {
                     //         $(this).parent().removeClass('active');
-                
+
                     //         console.log($(this));
                     //     })
                     //     $(this).parent().addClass('active');
-                
+
                     //     var dataKey = $(this).data('key');
                     //     $('#genreTabs').find('a#' + dataKey).click();
                     // })
-                
+
                     // var $menuBrowseBy =  $('.megamenu-browseby')
                     // var $menuBrowseByKey = $menuBrowseBy.data('key')
-                
-                
-                
+
+
+
                     // $menuBrowseBy.on('click', function(){
                     //     $menuBrowseBy.each(function(){  
-                
+
                     //         var $filterBrowseBy = $('.browse-by').find('.custom-contorl-input')
                     //         var filterBrowseByKey = $filterBrowseBy.data('key')
-                
+
                     //         if ($(this).data('key') === filterBrowseByKey){
-                
+
                     //             $('a#'+filterBrowseByKey).is(":checked")
                     //         }
                     //     })
                     // })
-                
-                
+
+
                     //menuburger key link to filter data checkbox
                     //karyann
-                
-                    
+
+
                 })
             },
 
@@ -517,12 +533,12 @@ $(function () {
         }, 200);
         var maxScrollLeft = $('.wrap').get(0).scrollWidth - $('.wrap').get(0).clientWidth - 100;
         // let wrapperWidth = $('.wrapper').width();
-        if($('.wrap').scrollLeft() > maxScrollLeft){
+        if ($('.wrap').scrollLeft() > maxScrollLeft) {
             console.log("tamat")
             $('#goNext').addClass('d-none');
             $('#goNext').removeClass('d-block');
-        } 
-        if($('.wrap').scrollLeft() < maxScrollLeft){
+        }
+        if ($('.wrap').scrollLeft() < maxScrollLeft) {
             $('#goNext').addClass('d-block');
             $('#goNext').removeClass('d-none');
         }
@@ -543,12 +559,12 @@ $(function () {
         }, 200);
         var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth - 100;
         // let wrapperWidth = $('.wrapper').width();
-        if($('.wrapper').scrollLeft() > maxScrollLeft){
+        if ($('.wrapper').scrollLeft() > maxScrollLeft) {
             console.log("tamat")
             $('#goAfter').addClass('d-none');
             $('#goAfter').removeClass('d-block');
-        } 
-        if($('.wrapper').scrollLeft() < maxScrollLeft){
+        }
+        if ($('.wrapper').scrollLeft() < maxScrollLeft) {
             $('#goAfter').addClass('d-block');
             $('#goAfter').removeClass('d-none');
         }
@@ -569,10 +585,8 @@ $(function () {
             $('#goAfter').css('display', 'none');
         }
 
-        
+
     }
-
-
 
     $('.wrapper').on('scroll', function (e) {
         var genreScroll = $('.wrapper').scrollLeft();
@@ -624,4 +638,44 @@ $(function () {
         catScrollLeftPrev = catScrollLeft;
     })
 
+
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, '\\$&');
+        var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function setUrlParameter(url, key, value) {
+
+        var baseUrl = url.split('?')[0],
+            urlQueryString = '?' + url.split('?')[1],
+            newParam = key + '=' + value,
+            params = '?' + newParam;
+
+        // If the "search" string exists, then build params from it
+        if (urlQueryString) {
+            var updateRegex = new RegExp('([\?&])' + key + '[^&]*');
+            var removeRegex = new RegExp('([\?&])' + key + '=[^&;]+[&;]?');
+
+            if (typeof value === 'undefined' || value === null || value === '') { // Remove param if value is empty
+                params = urlQueryString.replace(removeRegex, "$1");
+                params = params.replace(/[&;]$/, "");
+
+            } else if (urlQueryString.match(updateRegex) !== null) { // If param exists already, update it
+                params = urlQueryString.replace(updateRegex, "$1" + newParam);
+
+            } else { // Otherwise, add it to end of query string
+                params = urlQueryString + '&' + newParam;
+            }
+        }
+
+        // no parameter was set so we don't need the question mark
+        params = params === '?' ? '' : params;
+
+        return baseUrl + params;
+    }
 })

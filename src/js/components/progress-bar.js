@@ -18,7 +18,7 @@ $(function (){
 
 
     var getMax = function(){
-        return  $('body').height() - ($('.article-start').height() + 300);
+        return  $('body').height() + $('footer').height() + $('header').height() - ($('.article-start').height() + 350);
     }
     
     var getValue = function(){

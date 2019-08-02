@@ -306,9 +306,16 @@ p {
   border:1px solid #000;
 }
 
-$icomoon-font-family: "arrow-icon" !default;
+// $icomoon-font-family: "arrow-icon" !default;
+// $icomoon-font-path: "/assets/microsites/offstage/fonts" !default;
+
+// $esplanade-icon-Next: "\e901";
+// $esplanade-icon-Previous: "\e900";
+
+$icomoon-font-family: "esplanade-icon" !default;
 $icomoon-font-path: "/assets/microsites/offstage/fonts" !default;
 
+$esplanade-icon-Expand: "\e902";
 $esplanade-icon-Next: "\e901";
 $esplanade-icon-Previous: "\e900";
 

@@ -23,6 +23,22 @@
     -moz-osx-font-smoothing: grayscale;
   }
   
+  // .esplanade-icon-Next {
+  //   &:before {
+  //     content: $esplanade-icon-Next; 
+  //   }
+  // }
+  // .esplanade-icon-Previous {
+  //   &:before {
+  //     content: $esplanade-icon-Previous; 
+  //   }
+  // }
+
+  .esplanade-icon-Expand {
+    &:before {
+      content: $esplanade-icon-Expand;     
+    }
+  }
   .esplanade-icon-Next {
     &:before {
       content: $esplanade-icon-Next; 
