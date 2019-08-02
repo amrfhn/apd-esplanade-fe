@@ -9,7 +9,7 @@ mixin header(navbar)
                                 #rect1.showRect
                                 #rect2.showRect 
                                 #rect3.showRect 
-                                p.menu-text MENU
+                                p.menu-text.d-none.d-md-block MENU
                             
                             .logo-container
                                 .logo-wrapper
@@ -30,14 +30,14 @@ mixin header(navbar)
                                     
 
                     else
-                        .col-12.col-md-6.no-gutters.pl-0.pr-0.d-none.d-md-block(style="background-color:#fff;")
+                        .col-12.col-md-6.no-gutters.pl-0.pr-0.d-none.d-md-flex.align-items-center(style="background-color:#fff;")
                             .row.px-3
                                 .nav-bar.right#navbarRight
                                     .side-nav-wrapper.px-3
                                         .nav.back.d-flex.d-xs-none.d-sm-none.d-md-block
-                                            a.btn.btn-back.bt-3(href="javascript:history.go(-1)")
+                                            a.btn.btn-back.bt-3.m-0(href="javascript:history.go(-1)")
                                                 img(src='./assets/microsites/offstage/img/icons/Previous.svg') 
-                                                span.font-weight-bold.ml-4 Back
+                                                span.font-weight-bold.ml-4.m-0 Back
 
             .row
                 include ../components/search.pug
