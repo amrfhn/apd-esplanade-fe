@@ -9,10 +9,13 @@
     }
     color: #000;
     .series-thumbnail {
-        height: 83px;
+        // height: 83px;
+        img {
+            width: 100%;            
+        }
 
         @media(min-width: 768px) {
-            height: 156px;
+            // height: 156px;
         }
     }
     h5.series-title{
