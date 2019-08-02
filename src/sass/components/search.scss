@@ -49,9 +49,13 @@
 
     .btn-search{
         position: absolute;
-        right: 0px;
-        top: -5px;
+        right: -5px;
+        // top: -5px;
         z-index: 99999;
+
+        @media(min-width: 321px) {
+            right: 0px;
+        }
 
         @media(min-width: 768px){
             top: 0;
@@ -64,11 +68,11 @@
     position: absolute;
     z-index: unset;
     right: 15px;
-    top: 25px;
+    top: 20px;
 
     @media(min-width:768px){
         position: fixed;
-        z-index: 100;
+        z-index: 999999;
         right: 40px;
     }
 }
