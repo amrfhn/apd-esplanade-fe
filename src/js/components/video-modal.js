@@ -1,4 +1,6 @@
 $(function () {
+    var xs = window.matchMedia('(max-width: 768px)');
+
     var $videoModal = $("#video-modal"),
         $window = $(window),
         $body = $("body"),
@@ -15,7 +17,9 @@ $(function () {
     $videoModal.on('shown.bs.modal', function (e) {
         $('html').addClass('freeze-page');
         $('body').addClass('freeze-page');
-        $('.left-wrapper').addClass('position-absolute');
+        if(xs.matches){
+            $('.left-wrapper').addClass('position-absolute');
+        }
     });
 
     $videoModal.on("hide.bs.modal", function (e) {

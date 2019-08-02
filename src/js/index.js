@@ -132,10 +132,6 @@ $(function () {
     })
 })
 
-// $(window).load(function() {
-//     // page is fully loaded, including all frames, objects and images
-//     alert("window is loaded");
-// });
 
 function clampText() {
 
