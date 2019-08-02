@@ -126,7 +126,7 @@ $(function () {
                         // sessionStorage.setItem('genreId', genreId);
                         currUrlParams.genre = genreId;
 
-                        if (currUrl.indexOf("genre") === -1) {
+                        if (currUrl.indexOf("genre") < -1) {
                             // currUrl += separator+"genre=" + currUrlParams.genre;
                             searchParams.append('genre', currUrlParams.genre)
                             // currUrl.search = searchParams.toString();
