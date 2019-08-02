@@ -72,17 +72,20 @@ $(function () {
                 });
 
                 $('a.nav-link.megamenu-genre').on('click', function () {
-                    $('.mm-content-item').find('.nav-item').removeClass('active');
-                    $(this).parent().addClass('active');
+                    if(!$(this).parent().hasClass('active')){
+                        $('.mm-content-item').find('.nav-item').removeClass('active');
+                        $(this).parent().addClass('active');
 
-                    var dataKey = $(this).data('key');
-                    $('#genreTabs').find('#' + dataKey).click();
+                        var dataKey = $(this).data('key');
+                        $('#genreTabs').find('#' + dataKey).click();
 
-                    _this.filterGenre(dataKey);
-                    $('.genre-tabs .wrapper').animate({
-                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
-                    }, 2000);
+                        _this.filterGenre(dataKey);
+                        $('.genre-tabs .wrapper').animate({
+                            scrollLeft: $('.genre-tabs .active').position().left - ($('#goBack').outerWidth()||40)
+                        }, 2000);
+                    }
                 })
+
                 if (currUrl.indexOf("genre") > -1){
                     var paramsValue = url.searchParams.get("genre");
                     $('#genreTabs').find('#'+paramsValue).click();
