@@ -80,12 +80,22 @@
   .col-5{
     flex: 0 0 133px;
     max-width: 133px;
-    height: 83px !important;
 
     @media(min-width: 768px){
       flex: 0 0 150px;
       max-width: 150px;
-      height: 94px !important;
+    }
+  }
+
+  .title {
+    font-family: $font-proxima-bold;
+    text-transform: uppercase;
+    line-height: 21px ;
+  }
+
+  .related-thumbnail {
+    img {
+      width: 100%;
     }
   }
 }
