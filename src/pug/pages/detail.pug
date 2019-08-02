@@ -102,11 +102,19 @@ block content
             
             
 
-            .col-12.col-md-5.text-align-left
+            .col-12.col-md-9.text-align-left.d-flex.justify-content-end.align-items-md-center.flex-md-row.flex-column-reverse
                 .d-flex.justify-content-md-end.pb-4.pb-md-0.align-items-center    
                     each icon in ["./assets/microsites/offstage/img/icons/Social/Facebook.svg", "./assets/microsites/offstage/img/icons/Social/Whatsapp.svg", "./assets/microsites/offstage/img/icons/Social/Mail.svg", "./assets/microsites/offstage/img/icons/Social/GooglePlus.svg", "./assets/microsites/offstage/img/icons/Social/Likes.svg"]
                         a.hyperlink-custom(href="#").pr-3.px-md-0.px-md-2
                             img(src=icon height="25px")
+
+                nav#lang-tab.nav.nav-pills.pb-4.pb-md-0.pl-md-3(role='tablist')
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold.active EN
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold CH
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold ML
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold TA
+            
+            .col-12.col-md-4
 
 
                     //- select.ml-3.w-auto.custom-select.d-none.d-md-flex(name="")
@@ -130,17 +138,7 @@ block content
                     //-             a.multiselect__select(tabindex="")
                     //-                 img(src='./assets/microsites/offstage/img/icons/Down.svg')                                 
                     //- include ../components/language-toggle.pug
-
-            
-            .col-12.col-md-4
-                nav#lang-tab.nav.nav-pills.pb-4(role='tablist')
-                    a.hyperlink-custom(href="").nav-link.font-weight-bold.active EN
-                    a.hyperlink-custom(href="").nav-link.font-weight-bold CH
-                    a.hyperlink-custom(href="").nav-link.font-weight-bold ML
-                    a.hyperlink-custom(href="").nav-link.font-weight-bold TA
-
-
-            
+        
           
     .container#readSection
         .row.py-25
