@@ -6,11 +6,11 @@ $(function () {
     if($('#tabs-filter').length > 0){
         Vue.use(VueLineClamp, { 
             importCss: true
-        })
+        })  
 
-        Vue.use(VueMatchHeights, {
-            disabled: [768],
-        });
+        // Vue.use(VueMatchHeights, {
+        //     disabled: [768],
+        // });
 
         var xs = window.matchMedia('(max-width: 768px)');
         var md = window.matchMedia('(min-width: 769px)');
@@ -74,7 +74,7 @@ $(function () {
 
                     _this.filterGenre(dataKey);
                     $('.genre-tabs .wrapper').animate({
-                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
+                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth() 
                     }, 2000);
                 })
     
@@ -99,6 +99,8 @@ $(function () {
                 //hide loading screen
                 $('.loading-screen').fadeOut(1000); 
                 setTimeout(function(){$('body').removeClass('overflow-hidden');}, 1000);
+
+                $('.card-body').matchHeight();  
             },
             methods: {
                 checkActiveGenre: function () {
@@ -609,6 +611,7 @@ $(function () {
             }
 
             catScrollLeftPrev = catScrollLeft;
+
         })
     }
 })
