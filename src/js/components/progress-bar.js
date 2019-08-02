@@ -18,11 +18,12 @@ $(function (){
 
 
     var getMax = function(){
-        return  $('body').height() + $('footer').height() + $('header').height() - ($('.article-start').height() + 350);
+        //return  $('body').height() + $('footer').height() + $('header').height() - ($('.article-start').height() + 350);
+        return  $('body').height();
     }
     
     var getValue = function(){
-        return $(window).scrollTop();
+        return $(window).scrollTop() + $(window).height() + 20;
     }
     
     if('max' in document.createElement('progress')){
