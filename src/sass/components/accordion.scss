@@ -45,6 +45,9 @@
     .title{
         text-transform: none !important;
     }
+    .accordion-header-inner{
+        width: calc(100% - 20px);
+    }
 }
 
 #author-name {
