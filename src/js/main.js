@@ -5,6 +5,7 @@
 import '@fancyapps/fancybox'
 import 'slick-carousel'
 import 'bootstrap'
+import 'jquery-match-height'
 import './vendor/2-ellipsis.min.js'
 
 /* Main JS 
