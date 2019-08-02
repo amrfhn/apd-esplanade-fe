@@ -117,19 +117,19 @@ $(function () {
         window.location = $(this).attr('href');
     })
 
+    // var homeUrl = (window.location.href = "/")
+    // console.log(homeUrl)
+
     $('a.nav-link.megamenu-genre').on('click', function () {
+
         $('.mm-content-item').find('.nav-item').removeClass('active');
         $(this).parent().addClass('active');
 
         var dataKey = $(this).data('key');
         // $('.genre-list').find('a#' + dataKey).click();
         $('#genreTabs').find('#' + dataKey).click();
+
     })
-
-
-    
-
-
 })
 
 // $(window).load(function() {

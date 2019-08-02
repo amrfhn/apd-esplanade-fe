@@ -5,12 +5,6 @@ $(function () {
 
     })
 
-    $('.close-btn-x').on('click', function () {
-        $('.mm-wrapper').removeClass('active');
-        $('.in-between-screen').removeClass('active');
-
-    })
-
     var $megaMenu = $('.mm-wrapper');
 
     if ($megaMenu.hasClass('active')) {

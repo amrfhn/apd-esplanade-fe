@@ -31,6 +31,7 @@ $(function () {
             banners: [],
             totalBanners: 0,
             reqPageNum: "",
+            keyMapping: []
         }
 
         var params = {
@@ -58,6 +59,7 @@ $(function () {
                 this.checkScroll();
                 this.checkActiveGenre();
                 // this.checkMenuGenre();
+                // this.setKeyMapping();
 
                 $(".mm-content a.filter").click(function () {
                     var dataKey = $(this).attr("data-key");
@@ -79,6 +81,7 @@ $(function () {
                     $('#genreTabs').find('#' + dataKey).click();
 
                     _this.filterGenre(dataKey);
+                    _this.checkActiveGenre();
                     $('.genre-tabs .wrapper').animate({
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
                     }, 2000);
@@ -86,12 +89,18 @@ $(function () {
                 if (currUrl.indexOf("genre") > -1){
                     var paramsValue = url.searchParams.get("genre");
                     $('#genreTabs').find('#'+paramsValue).click();
+
+                    
+
+                    // $('.nav-item').find('.megamenu-genre').find('data-key', cc);
                     _this.filterGenre(paramsValue);
+                    $('.genre-tabs .wrapper').animate({
+                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
+                    }, 2000);
+
                 }   else {
                     this.fetchData();
                 }
-
-
             },
             updated: function () {
                 var _this = this;
@@ -115,10 +124,18 @@ $(function () {
                 $('.card-body').matchHeight();
             },
             methods: {
+                // setKeyMapping: function () {
+                //     var _this = this;
+                //     $.ajax({
+                //         type: "GET",
+                //         url: url,
+                //     }).done(function (data) {
+                //         _this.data.keyMapping = data;
+                //     });
+                // },
                 checkActiveGenre: function () {
 
                     var genre = $('.genre-list').find('.nav-link');
-
                     
                     genre.on('click', function () {
                         // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
@@ -140,6 +157,17 @@ $(function () {
                             var newUrl = url.toString();
                         }
 
+                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
+                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
+                        var i;
+                        for (i = 0; i < megaMenuItem.length; i++) {
+                            if(megaMenuItem.eq(i).attr('data-key') == currUrlParams.genre){
+                                megaMenuItem.eq(i).parent().addClass('active')
+                            }
+                        }
+
+                        // $('.mm-content-item').find('.nav-item').removeClass('active');
+                   
                         //append params on current url
                         window.history.pushState({ path: currUrl }, '', newUrl);
                     });
@@ -154,7 +182,7 @@ $(function () {
                     // {
                     //     sessionStorage.setItem('mainCategoryId', categoryId);
                     // }
-                    // var sessionGenreId = sessionStorage.getItem('genreId');
+                    var sessionGenreId = sessionStorage.getItem('genreId');
                     
                 },
 
@@ -272,6 +300,9 @@ $(function () {
                     // $('#' + key).show();
                     this.currPage = 1;
                     this.loadPage = 1;
+
+                    
+
 
                     document.getElementById('spinner').style.display = "none";
 
@@ -476,6 +507,11 @@ $(function () {
                 }
             });
         }
+        $('.close-btn-x').on('click', function () {
+            $('.mm-wrapper').removeClass('active');
+            $('.in-between-screen').removeClass('active');
+    
+        })
 
         //only for mobile sticky
         if ($(window).width() < 960) {
