@@ -130,6 +130,19 @@ $(function () {
         $('#genreTabs').find('#' + dataKey).click();
 
     })
+
+    // var lastScrollTop = 0;
+    // $(window).scroll(function (event) {
+    //     var st = $(this).scrollTop();
+    //     if (st > lastScrollTop) {
+    //         // downscroll code
+    //         console.log('scroll down');
+    //     } else {
+    //         // upscroll code
+    //         console.log('scroll up');
+    //     }
+    //     lastScrollTop = st;
+    // });
 })
 
 

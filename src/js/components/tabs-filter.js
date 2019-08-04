@@ -526,6 +526,19 @@ $(function () {
                     $('.filter-bar').addClass("stick");
                     //$('.tabfil-container').addClass("bar-height");
                     $('.tab-content .bar-height').css("height", "150px");
+
+                    // var lastScrollTop = 0;
+                    // $(window).scroll(function (event) {
+                    //     var st = $(this).scrollTop();
+                    //     if (st > lastScrollTop) {
+                    //         // downscroll code
+                    //         console.log('scroll down');
+                    //     } else {
+                    //         // upscroll code
+                    //         console.log('scroll up');
+                    //     }
+                    //     lastScrollTop = st;
+                    // });
                 } else {
                     $('.filter-bar').removeClass("stick");
                     //$('.filter-bar').removeClass("bar-height");
