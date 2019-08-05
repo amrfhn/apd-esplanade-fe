@@ -61,15 +61,15 @@ $(function () {
                 // this.checkMenuGenre();
                 // this.setKeyMapping();
 
-                $(".mm-content a.filter").click(function () {
-                    var dataKey = $(this).attr("data-key");
+                $('.mm-content a.filter').click(function () {
+                    var dataKey = $(this).attr('data-key');
 
                     event.preventDefault();
 
-                    $(".custom-checkkbox .custom-control-input ").prop("checked", false);
-                    $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
-                    $(".mm-wrapper").removeClass("active");
-                    $(".submit-filter").click();
+                    $('.custom-checkkbox .custom-control-input ').prop('checked', false);
+                    $('.custom-checkkbox [data-key=' + dataKey + '] ').prop('checked', true);
+                    $('.mm-wrapper').removeClass('active');
+                    $('.submit-filter').click();
 
                 });
 
@@ -89,19 +89,18 @@ $(function () {
                     }
                 })
 
-                if (currUrl.indexOf("genre") > -1){
-                    var paramsValue = url.searchParams.get("genre");
-                    $('#genreTabs').find('#'+paramsValue).click();
-
-                    
-
-                    // $('.nav-item').find('.megamenu-genre').find('data-key', cc);
-                    _this.filterGenre(paramsValue);
+                if (currUrl.indexOf('genre') > -1 || currUrl.indexOf('category') > -1){
+                    var genreValue = url.searchParams.get('genre');
+                    $('#genreTabs').find('#'+genreValue).click();
+                    _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
                     }, 2000);
 
-                }   else {
+                    var categoryValue = url.searchParams.get('category');
+
+
+                } else {
                     this.fetchData();
                 }
             },
@@ -143,19 +142,18 @@ $(function () {
                     genre.on('click', function () {
                         // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
                         let genreId = $(this).attr('id');
-                        // sessionStorage.setItem('genreId', genreId);
                         currUrlParams.genre = genreId;
 
                         if (currUrl.indexOf("genre") < -1) {
                             // currUrl += separator+"genre=" + currUrlParams.genre;
                             searchParams.append('genre', currUrlParams.genre)
-                            // currUrl.search = searchParams.toString();
+                            searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
                         } else {
                             searchParams.delete('genre');
                             searchParams.append('genre', currUrlParams.genre)
-                            // currUrl += separator+"genre=" + currUrlParams.genre.replace(currUrlParams, genreId);
+                            searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
                         }
@@ -168,24 +166,47 @@ $(function () {
                                 megaMenuItem.eq(i).parent().addClass('active')
                             }
                         }
-
-                        // $('.mm-content-item').find('.nav-item').removeClass('active');
-                   
                         //append params on current url
                         window.history.pushState({ path: currUrl }, '', newUrl);
                     });
 
+                    // var category = $('#menus').find('a.active');
+                    var mainCategory = $('.tab-sliders').find('.nav-link');
 
-                    var category = $('#menus').find('a.active');
+                    mainCategory.on('click', function () {
+                        let categoryId = $(this).attr('id');
+                        currUrlParams.category = categoryId;
 
-                    var categoryId = category.attr('id');
-                    // var sessionCatId = sessionStorage.getItem('mainCategoryId');
+                        if(currUrl.indexOf('category') < -1){
+                            searchParams.append('category', currUrlParams.category);
+                            // currUrl.search = searchParams.toString();
+                            searchParams.sort();
+                            url.search = searchParams.toString();
+                            var newUrl = url.toString();
+                        } else {
+                            searchParams.delete('category');
+                            searchParams.append('category', currUrlParams.category);
+                            searchParams.sort();
+                            url.search = searchParams.toString();
+                            var newUrl = url.toString();
+                        }
+                        //append params on current url
+                        
+                        window.history.pushState({ path: newUrl }, '', newUrl);
+                    })
 
-                    // if (sessionCatId == null || sessionCatId != categoryId)
-                    // {
-                    //     sessionStorage.setItem('mainCategoryId', categoryId);
+                    // if (currUrl.indexOf("category") < -1) {
+                    //     searchParams.append('category', currUrlParams.category)
+                    //     // currUrl.search = searchParams.toString();
+                    //     url.search = searchParams.toString();
+                    //     var newUrl = url.toString();
+                    // } else {
+                    //     searchParams.delete('category');
+                    //     searchParams.append('category', currUrlParams.category)
+                    //     // currUrl += separator+"genre=" + currUrlParams.genre.replace(currUrlParams, genreId);
+                    //     url.search = searchParams.toString();
+                    //     var newUrl = url.toString();
                     // }
-                    var sessionGenreId = sessionStorage.getItem('genreId');
                     
                 },
 
