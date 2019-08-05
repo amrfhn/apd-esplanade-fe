@@ -12,3 +12,10 @@
         color:rgb(228, 225, 225);
     }
 } 
+
+.sticky-footer-mobile {
+    background: #000;
+    position: fixed;
+    bottom: 0;
+    z-index: 10000;    
+}

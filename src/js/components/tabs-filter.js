@@ -74,7 +74,7 @@ $(function () {
                 });
 
                 $('a.nav-link.megamenu-genre').on('click', function () {
-                    if(!$(this).parent().hasClass('active')){
+                    if (!$(this).parent().hasClass('active')) {
                         $('.mm-content-item').find('.nav-item').removeClass('active');
                         $(this).parent().addClass('active');
 
@@ -89,11 +89,11 @@ $(function () {
                     }
                 })
 
-                if (currUrl.indexOf("genre") > -1){
+                if (currUrl.indexOf("genre") > -1) {
                     var paramsValue = url.searchParams.get("genre");
-                    $('#genreTabs').find('#'+paramsValue).click();
+                    $('#genreTabs').find('#' + paramsValue).click();
 
-                    
+
 
                     // $('.nav-item').find('.megamenu-genre').find('data-key', cc);
                     _this.filterGenre(paramsValue);
@@ -101,7 +101,7 @@ $(function () {
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
                     }, 2000);
 
-                }   else {
+                } else {
                     this.fetchData();
                 }
             },
@@ -139,7 +139,7 @@ $(function () {
                 checkActiveGenre: function () {
 
                     var genre = $('.genre-list').find('.nav-link');
-                    
+
                     genre.on('click', function () {
                         // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
                         let genreId = $(this).attr('id');
@@ -164,13 +164,13 @@ $(function () {
                         var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
                         var i;
                         for (i = 0; i < megaMenuItem.length; i++) {
-                            if(megaMenuItem.eq(i).attr('data-key') == currUrlParams.genre){
+                            if (megaMenuItem.eq(i).attr('data-key') == currUrlParams.genre) {
                                 megaMenuItem.eq(i).parent().addClass('active')
                             }
                         }
 
                         // $('.mm-content-item').find('.nav-item').removeClass('active');
-                   
+
                         //append params on current url
                         window.history.pushState({ path: currUrl }, '', newUrl);
                     });
@@ -186,7 +186,7 @@ $(function () {
                     //     sessionStorage.setItem('mainCategoryId', categoryId);
                     // }
                     var sessionGenreId = sessionStorage.getItem('genreId');
-                    
+
                 },
 
                 checkScroll: function (e) {
@@ -304,7 +304,7 @@ $(function () {
                     this.currPage = 1;
                     this.loadPage = 1;
 
-                    
+
 
 
                     document.getElementById('spinner').style.display = "none";
@@ -513,7 +513,7 @@ $(function () {
         $('.close-btn-x').on('click', function () {
             $('.mm-wrapper').removeClass('active');
             $('.in-between-screen').removeClass('active');
-    
+
         })
 
         //only for mobile sticky
@@ -526,19 +526,6 @@ $(function () {
                     $('.filter-bar').addClass("stick");
                     //$('.tabfil-container').addClass("bar-height");
                     $('.tab-content .bar-height').css("height", "150px");
-
-                    // var lastScrollTop = 0;
-                    // $(window).scroll(function (event) {
-                    //     var st = $(this).scrollTop();
-                    //     if (st > lastScrollTop) {
-                    //         // downscroll code
-                    //         console.log('scroll down');
-                    //     } else {
-                    //         // upscroll code
-                    //         console.log('scroll up');
-                    //     }
-                    //     lastScrollTop = st;
-                    // });
                 } else {
                     $('.filter-bar').removeClass("stick");
                     //$('.filter-bar').removeClass("bar-height");
@@ -559,6 +546,22 @@ $(function () {
                     });
                 }
 
+            });
+
+            var lastScrollTop = 0;
+            var $footer = $('footer .container-fluid')
+            $(window).scroll(function (event) {
+                var st = $(this).scrollTop();
+                if (st > lastScrollTop) {
+                    // downscroll code
+                    console.log('scroll down'); 
+                    $footer.addClass('sticky-footer-mobile')
+                } else {
+                    // upscroll code
+                    console.log('scroll up');
+                    $footer.removeClass('sticky-footer-mobile')
+                }
+                lastScrollTop = st;
             });
 
         } else {
