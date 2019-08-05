@@ -15,7 +15,7 @@ block content
 
             .col-12.col-md-6
                 .position-relative
-                    .carousel-banner-wrapper.bg-primary
+                    .carousel-banner-wrapper.bg-dark
                         .carousel-banner(:id="all")
                             .banner-bg(v-for="banner in banners" :data-desktop-image='banner.ThumbnailDesktop' :data-mobile-image="banner.ThumbnailMobile" )
                                 include ../components/banner-content.pug 
