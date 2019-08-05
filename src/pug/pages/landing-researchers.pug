@@ -1,0 +1,55 @@
+extends ../template.pug   
+
+block header 
+    +header()
+
+block content
+
+    .container-fluid.article-start#summary
+        .row
+            .col-12
+                .in-between-screen
+                    .background
+                
+            .col-12.col-md-6.px-0
+                //- Hero Banner with Video Modal
+                //- +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, false)
+
+                //- Hero Banner with Img 720
+                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, true, false)   
+
+                //- Hero Banner with Img 450
+                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
+
+            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
+                .px-md-4.h-100.d-flex.justify-content-center.flex-column
+                    p.genre-text.bt-2.font-weight-bold 
+                        a.hyperlink-custom(href="#") For Researchers
+                        
+                    h1.font-weight-bolder ESPLANADE ARCHIVES
+                    p The Esplanade Archives is the custodian of audiovisual recordings and print materials of productions and works presented by Esplanade - Theatres on the Bay. 
+
+                    //- div
+                    //-     a(href="#content")
+                    //-         button(type="button").read-more.btn.btn-outline-primary Read more
+
+    //- 2 col Tiles
+    .container#2colTiles
+        .row.py-25
+            .col-12
+                +smallSideTile
+
+    //- resources component
+    .container-fluid
+        .row.bg-light
+            .col-12
+                include ../components/resources.pug
+    
+    //- contact us component
+    .container-fluid#contactUsContainer
+        +contactUs('If you are located outside Singapore, and wish to access our archival collections, please write in to corporate-oversears@esplanade.com.')
+
+block footer 
+    include ../layout/footer.pug
+
+    

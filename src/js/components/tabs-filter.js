@@ -32,6 +32,7 @@ $(function () {
             totalBanners: 0,
             reqPageNum: "",
             fetchingData: false,
+            keyMapping: []
         }
 
         var params = {
@@ -59,21 +60,22 @@ $(function () {
                 this.checkScroll();
                 this.checkActiveGenre();
                 // this.checkMenuGenre();
+                // this.setKeyMapping();
 
-                $(".mm-content a.filter").click(function () {
-                    var dataKey = $(this).attr("data-key");
+                $('.mm-content a.filter').click(function () {
+                    var dataKey = $(this).attr('data-key');
 
                     event.preventDefault();
 
-                    $(".custom-checkkbox .custom-control-input ").prop("checked", false);
-                    $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
-                    $(".mm-wrapper").removeClass("active");
-                    $(".submit-filter").click();
+                    $('.custom-checkkbox .custom-control-input ').prop('checked', false);
+                    $('.custom-checkkbox [data-key=' + dataKey + '] ').prop('checked', true);
+                    $('.mm-wrapper').removeClass('active');
+                    $('.submit-filter').click();
 
                 });
 
                 $('a.nav-link.megamenu-genre').on('click', function () {
-                    if(!$(this).parent().hasClass('active')){
+                    if (!$(this).parent().hasClass('active')) {
                         $('.mm-content-item').find('.nav-item').removeClass('active');
                         $(this).parent().addClass('active');
 
@@ -81,21 +83,26 @@ $(function () {
                         $('#genreTabs').find('#' + dataKey).click();
 
                         _this.filterGenre(dataKey);
+                        _this.checkActiveGenre();
                         $('.genre-tabs .wrapper').animate({
-                            scrollLeft: $('.genre-tabs .active').position().left - ($('#goBack').outerWidth()||40)
+                            scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
                         }, 2000);
                     }
                 })
 
-                if (currUrl.indexOf("genre") > -1){
-                    var paramsValue = url.searchParams.get("genre");
-                    $('#genreTabs').find('#'+paramsValue).click();
-                    _this.filterGenre(paramsValue);
-                }   else {
+                if (currUrl.indexOf('genre') > -1 || currUrl.indexOf('category') > -1){
+                    var genreValue = url.searchParams.get('genre');
+                    $('#genreTabs').find('#'+genreValue).click();
+                    _this.filterGenre(genreValue);
+                    $('.genre-tabs .wrapper').animate({
+                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
+                    }, 2000);
+
+                    var categoryValue = url.searchParams.get('category');
+
+                } else {
                     this.fetchData();
                 }
-
-
             },
             updated: function () {
                 var _this = this;
@@ -119,46 +126,87 @@ $(function () {
                 $('.card-body').matchHeight();
             },
             methods: {
+                // setKeyMapping: function () {
+                //     var _this = this;
+                //     $.ajax({
+                //         type: "GET",
+                //         url: url,
+                //     }).done(function (data) {
+                //         _this.data.keyMapping = data;
+                //     });
+                // },
                 checkActiveGenre: function () {
 
                     var genre = $('.genre-list').find('.nav-link');
 
-                    
                     genre.on('click', function () {
                         // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
                         let genreId = $(this).attr('id');
-                        // sessionStorage.setItem('genreId', genreId);
                         currUrlParams.genre = genreId;
 
                         if (currUrl.indexOf("genre") < -1) {
                             // currUrl += separator+"genre=" + currUrlParams.genre;
                             searchParams.append('genre', currUrlParams.genre)
-                            // currUrl.search = searchParams.toString();
+                            searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
                         } else {
                             searchParams.delete('genre');
                             searchParams.append('genre', currUrlParams.genre)
-                            // currUrl += separator+"genre=" + currUrlParams.genre.replace(currUrlParams, genreId);
+                            searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
                         }
 
+                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
+                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
+                        var i;
+                        for (i = 0; i < megaMenuItem.length; i++) {
+                            if (megaMenuItem.eq(i).attr('data-key') == currUrlParams.genre) {
+                                megaMenuItem.eq(i).parent().addClass('active')
+                            }
+                        }
                         //append params on current url
                         window.history.pushState({ path: currUrl }, '', newUrl);
                     });
 
+                    // var category = $('#menus').find('a.active');
+                    var mainCategory = $('.tab-sliders').find('.nav-link');
 
-                    var category = $('#menus').find('a.active');
+                    mainCategory.on('click', function () {
+                        let categoryId = $(this).attr('id');
+                        currUrlParams.category = categoryId;
 
-                    var categoryId = category.attr('id');
-                    // var sessionCatId = sessionStorage.getItem('mainCategoryId');
+                        if(currUrl.indexOf('category') < -1){
+                            searchParams.append('category', currUrlParams.category);
+                            // currUrl.search = searchParams.toString();
+                            searchParams.sort();
+                            url.search = searchParams.toString();
+                            var newUrl = url.toString();
+                        } else {
+                            searchParams.delete('category');
+                            searchParams.append('category', currUrlParams.category);
+                            searchParams.sort();
+                            url.search = searchParams.toString();
+                            var newUrl = url.toString();
+                        }
+                        //append params on current url
+                        
+                        window.history.pushState({ path: newUrl }, '', newUrl);
+                    })
 
-                    // if (sessionCatId == null || sessionCatId != categoryId)
-                    // {
-                    //     sessionStorage.setItem('mainCategoryId', categoryId);
+                    // if (currUrl.indexOf("category") < -1) {
+                    //     searchParams.append('category', currUrlParams.category)
+                    //     // currUrl.search = searchParams.toString();
+                    //     url.search = searchParams.toString();
+                    //     var newUrl = url.toString();
+                    // } else {
+                    //     searchParams.delete('category');
+                    //     searchParams.append('category', currUrlParams.category)
+                    //     // currUrl += separator+"genre=" + currUrlParams.genre.replace(currUrlParams, genreId);
+                    //     url.search = searchParams.toString();
+                    //     var newUrl = url.toString();
                     // }
-                    // var sessionGenreId = sessionStorage.getItem('genreId');
                     
                 },
 
@@ -278,6 +326,9 @@ $(function () {
                     // $('#' + key).show();
                     this.currPage = 1;
                     this.loadPage = 1;
+
+
+
 
                     document.getElementById('spinner').style.display = "none";
 
@@ -482,6 +533,11 @@ $(function () {
                 }
             });
         }
+        $('.close-btn-x').on('click', function () {
+            $('.mm-wrapper').removeClass('active');
+            $('.in-between-screen').removeClass('active');
+
+        })
 
         //only for mobile sticky
         if ($(window).width() < 960) {
@@ -513,6 +569,22 @@ $(function () {
                     });
                 }
 
+            });
+
+            var lastScrollTop = 0;
+            var $footer = $('footer .container-fluid')
+            $(window).scroll(function (event) {
+                var st = $(this).scrollTop();
+                if (st > lastScrollTop) {
+                    // downscroll code
+                    console.log('scroll down'); 
+                    $footer.addClass('sticky-footer-mobile')
+                } else {
+                    // upscroll code
+                    console.log('scroll up');
+                    $footer.removeClass('sticky-footer-mobile')
+                }
+                lastScrollTop = st;
             });
 
         } else {

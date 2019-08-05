@@ -116,6 +116,33 @@ $(function () {
 
         window.location = $(this).attr('href');
     })
+
+    // var homeUrl = (window.location.href = "/")
+    // console.log(homeUrl)
+
+    $('a.nav-link.megamenu-genre').on('click', function () {
+
+        $('.mm-content-item').find('.nav-item').removeClass('active');
+        $(this).parent().addClass('active');
+
+        var dataKey = $(this).data('key');
+        // $('.genre-list').find('a#' + dataKey).click();
+        $('#genreTabs').find('#' + dataKey).click();
+
+    })
+
+    // var lastScrollTop = 0;
+    // $(window).scroll(function (event) {
+    //     var st = $(this).scrollTop();
+    //     if (st > lastScrollTop) {
+    //         // downscroll code
+    //         console.log('scroll down');
+    //     } else {
+    //         // upscroll code
+    //         console.log('scroll up');
+    //     }
+    //     lastScrollTop = st;
+    // });
 })
 
 
