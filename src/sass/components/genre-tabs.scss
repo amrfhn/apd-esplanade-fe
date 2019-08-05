@@ -80,11 +80,11 @@
               text-transform: uppercase;
               color: #ccc;
               cursor: pointer;
-              padding: 0.5rem 0.1em;
+              padding: 0.4rem 0.1em;
               margin: 0.5em;
             }
             .active {
-              border-bottom: 3px solid #000;
+              border-bottom: 4px solid #000;
               color: #000;
               transition: color 0.3s;
             }
@@ -145,17 +145,30 @@
 }
 
 .genre-text {
+  position: relative;
+
   a {
     padding-left: 10px;
-    padding-right: 10px;
-    border-right: 2px solid $primary;
+    padding-right: 15px;
 
     &:first-child {
       padding-left: 0px;
     }
 
     &:last-child {
-      border-right: 0px solid $primary;
+      &:after {
+        background: transparent;
+      }
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        background: $primary;
+        top: 6px;
+        width: 2px;
+        height: 11px;
+        margin-left: 10px;
     }
   }
 }

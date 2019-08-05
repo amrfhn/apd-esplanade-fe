@@ -11,6 +11,10 @@ $(function () {
         }
     }
 
+    if ($("#download")[0]) {
+        alert('download component')
+        clampText();
+    }
 
     $('#author-name').click(function (e) {
         e.preventDefault();

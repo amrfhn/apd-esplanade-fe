@@ -4,7 +4,7 @@
   width: 100%;
 
   @media (min-width: 768px) {
-    width: calc(100vw / 2 - 107px)
+    width: calc(100vw / 2 - 107px);
   }
   // @media(min-width:1440px){
   //   width: 770px;
@@ -56,12 +56,11 @@
           padding: 0 1em;
           text-align: center;
 
-          border-left: 2px solid #575656;
+          // border-left: 2px solid #575656;
           border-radius: 0;
 
-
-          @media(min-width: 768px){
-            font-size: 20px;
+          @media (min-width: 768px) {
+            font-size: 18px;
           }
 
           &:first-child {
@@ -74,12 +73,23 @@
             color: #ccc;
             font-weight: 900;
             cursor: pointer;
-            padding: 0.5rem 0.1em;
+            padding: 0.3rem 0.1em;
             margin: 0.5em;
             font-family: $font-proxima-bold;
+
+            &:before {
+              content: "";
+              background: #ccc;
+              position: absolute;
+              top: 17px;
+              width: 2px;
+              height: 25%;
+              margin-left: -26px;
+              z-index: 1;
+            }
           }
           .active {
-            border-bottom: 3px solid #000;
+            border-bottom: 4px solid #000;
             color: #000;
             transition: color 0.3s;
           }

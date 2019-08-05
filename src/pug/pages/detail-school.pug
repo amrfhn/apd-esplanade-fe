@@ -89,8 +89,11 @@ block content
     .container-fluid
         +whatsOn('What\'s on for', '22 June 2019 (Saturday)', '4pm - 5.30pm', 'Esplanade Rehearsal Studio', '$58, $70, $150, $400')
 
-    .container-fluid
-        +contactUs('Sub Description')
+    .container-fluid#download
+        include ../components/download.pug
+
+    //- .container-fluid
+    //-     +contactUs('Sub Description')
 
 block footer 
     include ../layout/footer.pug

@@ -21,7 +21,7 @@ block content
             .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
                     p.genre-text.bt-2.font-weight-bold 
-                        a.hyperlink-custom(href="#") For Schools
+                        a.hyperlink-custom.text-uppercase(href="#") For Schools
                         
                     h1.font-weight-bolder Knowledge about the arts
                     p To equip your students with knowledge about the arts and extend the learning into the classroom, explore our Tuned-in learning Guides, classroom resources, stories and more.
@@ -35,8 +35,8 @@ block content
         .row.py-25
             .col-12
                 +sideTile
-    
-    //- what's on component
+                    //- what's on component
+
     .container-fluid#whatsOn
         +whatsOn('What\'s on for', '22 June 2019 (Saturday)', '4pm - 5.30pm', 'Esplanade Rehearsal Studio', '$58, $70, $150, $400')
 
