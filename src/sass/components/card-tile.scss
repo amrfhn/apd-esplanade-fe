@@ -77,15 +77,15 @@
 }
 
 .related-tile{
-  .col-5{
-    flex: 0 0 133px;
-    max-width: 133px;
+  // .col-5{
+  //   flex: 0 0 133px;
+  //   max-width: 133px;
 
-    @media(min-width: 768px){
-      flex: 0 0 150px;
-      max-width: 150px;
-    }
-  }
+  //   @media(min-width: 768px){
+  //     flex: 0 0 150px;
+  //     max-width: 150px;
+  //   }
+  // }
 
   .title {
     font-family: $font-proxima-bold;
