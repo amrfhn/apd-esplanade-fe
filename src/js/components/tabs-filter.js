@@ -31,6 +31,7 @@ $(function () {
             banners: [],
             totalBanners: 0,
             reqPageNum: "",
+            fetchingData: false,
         }
 
         var params = {
@@ -164,10 +165,9 @@ $(function () {
                 checkScroll: function (e) {
 
                     window.onscroll = () => {
-                        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight
+                        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
 
-                        if (bottomOfWindow && ($(".tab-content")[0])) {
-                            this.scrolledToBottom = true
+                        if ($(".tab-content").length>0 && bottomOfWindow && !this.fetchingData) {
                             document.getElementById('spinner').style.display = "block";
                             this.updateData();
                         }
@@ -178,19 +178,21 @@ $(function () {
 
                     if (xs.matches) {
                         offset = 3;
-                        this.loadPage += 1
+                        this.loadPage += 1;
                         console.log("mobile")
                     }
                     if (md.matches) {
                         offset = 6
-                        this.loadPage += 1
+                        this.loadPage += 1;
                         console.log("desktop")
                     }
 
-                    var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset
-                    var _this = this
+                    var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
+                    var _this = this;
 
-                    console.log(updateUrl)
+                    console.log(updateUrl);
+
+                    this.fetchingData = true;
 
                     var requestData = $.ajax({
                         type: "GET",
@@ -204,6 +206,7 @@ $(function () {
                             document.getElementById('spinner').style.display = "none";
                             window.onscroll = () => { }
                         }
+                        _this.fetchingData = false;
                     })
                 },
                 bgSwitcher: function () {
