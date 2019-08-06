@@ -17,8 +17,8 @@ $(function () {
 
         // var host = window.location.origin
         // var host =  window.location.protocol + "//" + window.location.hostname;
-        // var host = 'http://dev.esplanade.growthopsapp.com/';
-        var host = '';
+        var host = 'http://dev.esplanade.growthopsapp.com/';
+        // var host = '';
         var currUrl = window.location.href;
 
         var data = {
@@ -55,7 +55,7 @@ $(function () {
             data: data,
             mounted: function () {
                 var _this = this;
-                this.checkMetatUrl();
+                // this.checkMetatUrl();
                 // this.fetchData();
                 this.clamptext();
                 console.log("called api");
