@@ -144,7 +144,7 @@ $(function () {
                 //     });
                 // },
                 checkMetatUrl: function () {
-                    
+
                     let metaUrl = $('meta');
                     
                     for (let i = 0, lengthMeta=metaUrl.length; i < lengthMeta; i++){
@@ -152,7 +152,7 @@ $(function () {
                             // console.log()
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
-                            console.log(host)
+                            console.log('current Host from meta:',host)
                         } else {
                             host = 'http://dev.esplanade.growthopsapp.com/';
                         }
@@ -194,7 +194,6 @@ $(function () {
                         window.history.pushState({ path: currUrl }, '', newUrl);
                     });
 
-                    // var category = $('#menus').find('a.active');
                     var mainCategory = $('.tab-sliders').find('.nav-link');
 
                     mainCategory.on('click', function () {
@@ -203,7 +202,6 @@ $(function () {
 
                         if(currUrl.indexOf('category') < -1){
                             searchParams.append('category', currUrlParams.category);
-                            // currUrl.search = searchParams.toString();
                             searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
