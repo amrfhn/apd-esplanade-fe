@@ -17,7 +17,9 @@ block content
             .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
                 .px-md-4.h-100.d-flex.justify-content-center.flex-column
                     p.genre-text.bt-2.font-weight-bold 
-                        a.hyperlink-custom.text-uppercase(href="#") For Schools
+                        a.hyperlink-custom(href="#") DANCE
+                        a.hyperlink-custom(href="#") MUSIC 
+                        a.hyperlink-custom(href="#") FILM
                     h1.font-weight-bolder A French Toast To Ballet
                     p Seven things to know about Paris Opera Ballet to impress your mates
 
@@ -39,65 +41,31 @@ block content
                                 span
                                     a.hyperlink-custom#author-name(href="#acknowledgements") John Doe
 
-        .row    
-            .col-12.col-md-6.px-0
-                //- Hero Banner with Landscape Img
-                +heroBanner('', 'https://via.placeholder.com/310x200', false, false, false, true)
-
-            .col-12.col-md-6.px-md-5.py-md-5.mt-md-5.pb-0.pt-4.mt-2 
-                .px-md-4.h-100.d-flex.justify-content-center.flex-column
-                    p.genre-text.bt-2.font-weight-bold 
-                        a.hyperlink-custom.text-uppercase(href="#") For Schools
-                    h1.font-weight-bolder A French Toast To Ballet
-                    p Seven things to know about Paris Opera Ballet to impress your mates
-
-                    .d-inline
-                        .d-flex.pr-4.hero-banner-icon-wrapper.align-items-baseline
-                            .hero-banner-icon.mr-3                        
-                                img.icon-details(src="./assets/microsites/offstage/img/icons/Loading.svg")
-                            p.mb-0.bt-3 Publish date: 19 April 2019
-                        
-                        .d-flex.pr-4.hero-banner-icon-wrapper.align-items-baseline
-                            .hero-banner-icon.mr-3                        
-                                img.icon-details(src="./assets/microsites/offstage/img/icons/Calendar.svg")
-                            p.mb-0.bt-3 Last updated date: 23 April 2019
-                        
-                        .d-flex.pr-4.hero-banner-icon-wrapper.align-items-baseline
-                            .hero-banner-icon.mr-3                        
-                                img.icon-details(src="./assets/microsites/offstage/img/icons/Social/Whatsapp.svg")
-                            p.mb-0.bt-3 By 
-                                span
-                                    a.hyperlink-custom#author-name(href="#acknowledgements") John Doe
-
-    .container.d-block.d-md-none
-        include ../components/divider.pug
 
     .container
-        .row.py-25
-            .col-12
-                +sideTile
+        .row.py-25.flex-column-reverse.flex-md-row.align-items-baseline 
+            .col-12.col-md-12.text-align-right.d-flex.justify-content-end.align-items-md-center.flex-md-row.flex-column-reverse
+                .d-flex.justify-content-md-end.pb-4.pb-md-0.align-items-center    
+                    each icon in ["./assets/microsites/offstage/img/icons/Social/Facebook.svg", "./assets/microsites/offstage/img/icons/Social/Whatsapp.svg", "./assets/microsites/offstage/img/icons/Social/Mail.svg", "./assets/microsites/offstage/img/icons/Social/GooglePlus.svg", "./assets/microsites/offstage/img/icons/Social/Likes.svg"]
+                        a.hyperlink-custom(href="#").pr-3.px-md-0.px-md-2
+                            img(src=icon height="25px")
+
+                nav#lang-tab.nav.nav-pills.pb-4.pb-md-0.pl-md-3(role='tablist')
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold.active EN
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold CH
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold ML
+                    a.hyperlink-custom(href="").nav-link.font-weight-bold TA
 
     .container#readSection
         .row.py-25
             .col-12
-                h1 hadshdahs
+                h2 hadshdahs
 
-    .container
-        include ../components/playbuzz.pug
-
-    .container-fluid
-        .row.bg-light
-            .col-12
-                include ../components/resources.pug
+    .container-fluid.d-block
+        include ../components/download.pug
 
     .container-fluid
         +whatsOn('What\'s on for', '22 June 2019 (Saturday)', '4pm - 5.30pm', 'Esplanade Rehearsal Studio', '$58, $70, $150, $400')
-
-    .container-fluid#download
-        include ../components/download.pug
-
-    //- .container-fluid
-    //-     +contactUs('Sub Description')
 
 block footer 
     include ../layout/footer.pug

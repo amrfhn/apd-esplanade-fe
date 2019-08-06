@@ -131,18 +131,17 @@ $(function () {
 
     })
 
-    // var lastScrollTop = 0;
-    // $(window).scroll(function (event) {
-    //     var st = $(this).scrollTop();
-    //     if (st > lastScrollTop) {
-    //         // downscroll code
-    //         console.log('scroll down');
-    //     } else {
-    //         // upscroll code
-    //         console.log('scroll up');
-    //     }
-    //     lastScrollTop = st;
-    // });
+    // solution: set flag, not to display back button if user browse details page from external
+    if(sessionStorage.getItem('pageBrowsed') && document.referrer !== ""){
+        var backBtn = $('.nav.back');
+        $(backBtn).addClass('d-md-block');
+        $(backBtn).on('click', function(e){
+            e.preventDefault();
+            window.location.href = document.referrer;
+        });
+
+    }
+    sessionStorage.setItem('pageBrowsed', true);
 })
 
 

@@ -9,7 +9,7 @@ mixin header(navbar)
                                 #rect1.showRect
                                 #rect2.showRect 
                                 #rect3.showRect 
-                                p.menu-text.d-none.d-md-block MENU
+                                p.menu-text.d-none MENU
                             
                             .logo-container
                                 .logo-wrapper
@@ -34,8 +34,8 @@ mixin header(navbar)
                             .row.px-3
                                 .nav-bar.right#navbarRight
                                     .side-nav-wrapper.px-3
-                                        .nav.back.d-flex.d-xs-none.d-sm-none.d-md-block
-                                            a.btn.btn-back.bt-3.m-0(href="javascript:history.go(-1)")
+                                        .nav.back.d-none
+                                            a.btn.btn-back.bt-3.m-0(href="#")
                                                 img(src='./assets/microsites/offstage/img/icons/Previous.svg') 
                                                 span.font-weight-bold.ml-4.m-0 Back
 
