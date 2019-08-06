@@ -66,18 +66,18 @@
       background-color: $primary;
       color: $white;
       transition: all 0.25s ease-in;
-      border: 3px solid $primary;
+      border: 2px solid $primary;
     }
   }
   .arrow-light {
     color: $white;
-    border: 3px solid;
+    border: 2px solid;
     border-color: $white;
     &:hover {
       background-color: $white;
       color: $primary;
       transition: all 0.25s ease-in;
-      border: 3px solid $white;
+      border: 2px solid $white;
     }
   }
 }
