@@ -17,8 +17,8 @@ $(function () {
 
         // var host = window.location.origin
         // var host =  window.location.protocol + "//" + window.location.hostname;
-        var host = 'http://dev.esplanade.growthopsapp.com/';
-        // var host = '';
+        // var host = 'http://dev.esplanade.growthopsapp.com/';
+        var host = '';
         var currUrl = window.location.href;
 
         var data = {
@@ -33,6 +33,7 @@ $(function () {
             totalBanners: 0,
             reqPageNum: "",
             fetchingData: false,
+            articles: [],
             keyMapping: []
         }
 
@@ -55,7 +56,7 @@ $(function () {
             data: data,
             mounted: function () {
                 var _this = this;
-                // this.checkMetatUrl();
+                this.checkMetatUrl();
                 // this.fetchData();
                 this.clamptext();
                 console.log("called api");
@@ -143,12 +144,15 @@ $(function () {
                 //     });
                 // },
                 checkMetatUrl: function () {
+                    
                     let metaUrl = $('meta');
                     
-                    for (let i = 0; i < metaUrl.length; i++){
-                        if (metaUrl.eq(i).attr('site_domain') > -1 || currUrl.indexOf('localhost') == -1){
-                            var currDomain = $(this).attr('content');
+                    for (let i = 0, lengthMeta=metaUrl.length; i < lengthMeta; i++){
+                        if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1){
+                            // console.log()
+                            var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
+                            console.log(host)
                         } else {
                             host = 'http://dev.esplanade.growthopsapp.com/';
                         }
@@ -211,7 +215,6 @@ $(function () {
                             var newUrl = url.toString();
                         }
                         //append params on current url
-                        
                         window.history.pushState({ path: newUrl }, '', newUrl);
                     })
 
@@ -334,13 +337,11 @@ $(function () {
                     this.currPage = 1;
                     this.loadPage = 1;
 
-
-
-
                     document.getElementById('spinner').style.display = "none";
 
                     this.checkScroll();
                     this.fetchData();
+
                 },
                 filterCategory: function () {
                     console.log('click category')
