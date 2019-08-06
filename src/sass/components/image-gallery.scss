@@ -1,4 +1,4 @@
-#image-gallery {
+.image-gallery-wrapper {
   .slide-count-wrap {
     font-family: $font-proxima-bold;
   }
@@ -77,6 +77,7 @@
     color: $white !important;
     top: 29px;
     left: 15px;
+    mix-blend-mode: unset !important;
 
     @media (min-width: 768px) {
       right: 220px;
