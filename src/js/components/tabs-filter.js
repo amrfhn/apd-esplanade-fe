@@ -578,21 +578,21 @@ $(function () {
 
             });
 
-            var lastScrollTop = 0;
-            var $footer = $('footer .container-fluid')
-            $(window).scroll(function (event) {
-                var st = $(this).scrollTop();
-                if (st > lastScrollTop) {
-                    // downscroll code
-                    console.log('scroll down'); 
-                    $footer.addClass('sticky-footer-mobile')
-                } else {
-                    // upscroll code
-                    console.log('scroll up');
-                    $footer.removeClass('sticky-footer-mobile')
-                }
-                lastScrollTop = st;
-            });
+            // var lastScrollTop = 0;
+            // var $footer = $('footer .container-fluid')
+            // $(window).scroll(function (event) {
+            //     var st = $(this).scrollTop();
+            //     if (st > lastScrollTop) {
+            //         // downscroll code
+            //         console.log('scroll down'); 
+            //         $footer.addClass('sticky-footer-mobile')
+            //     } else {
+            //         // upscroll code
+            //         console.log('scroll up');
+            //         $footer.removeClass('sticky-footer-mobile')
+            //     }
+            //     lastScrollTop = st;
+            // });
 
         } else {
             //  alert('More than 960');
