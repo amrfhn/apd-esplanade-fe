@@ -18,6 +18,7 @@ $(function () {
         // var host = window.location.origin
         // var host =  window.location.protocol + "//" + window.location.hostname;
         var host = 'http://dev.esplanade.growthopsapp.com/';
+        // var host = '';
         var currUrl = window.location.href;
 
         var data = {
@@ -54,6 +55,7 @@ $(function () {
             data: data,
             mounted: function () {
                 var _this = this;
+                // this.checkMetatUrl();
                 // this.fetchData();
                 this.clamptext();
                 console.log("called api");
@@ -99,6 +101,11 @@ $(function () {
                     }, 2000);
 
                     var categoryValue = url.searchParams.get('category');
+                    $('#genreTabs').find('#'+genreValue).click();
+                    _this.filterGenre(genreValue);
+                    $('.genre-tabs .wrapper').animate({
+                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
+                    }, 2000); 
 
                 } else {
                     this.fetchData();
@@ -135,6 +142,19 @@ $(function () {
                 //         _this.data.keyMapping = data;
                 //     });
                 // },
+                checkMetatUrl: function () {
+                    let metaUrl = $('meta');
+                    
+                    for (let i = 0; i < metaUrl.length; i++){
+                        if (metaUrl.eq(i).attr('site_domain') > -1 || currUrl.indexOf('localhost') == -1){
+                            var currDomain = $(this).attr('content');
+                            host = currDomain;
+                        } else {
+                            host = 'http://dev.esplanade.growthopsapp.com/';
+                        }
+                    }
+
+                },
                 checkActiveGenre: function () {
 
                     var genre = $('.genre-list').find('.nav-link');
@@ -158,12 +178,12 @@ $(function () {
                             var newUrl = url.toString();
                         }
 
-                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
+                        $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
                         var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
-                        var i;
-                        for (i = 0; i < megaMenuItem.length; i++) {
-                            if (megaMenuItem.eq(i).attr('data-key') == currUrlParams.genre) {
-                                megaMenuItem.eq(i).parent().addClass('active')
+
+                        for (var i = 0, len = megaMenuItem.length; i < len; i++) {
+                            if($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre){
+                                $(megaMenuItem[i]).parent().addClass('active')
                             }
                         }
                         //append params on current url
@@ -195,19 +215,6 @@ $(function () {
                         window.history.pushState({ path: newUrl }, '', newUrl);
                     })
 
-                    // if (currUrl.indexOf("category") < -1) {
-                    //     searchParams.append('category', currUrlParams.category)
-                    //     // currUrl.search = searchParams.toString();
-                    //     url.search = searchParams.toString();
-                    //     var newUrl = url.toString();
-                    // } else {
-                    //     searchParams.delete('category');
-                    //     searchParams.append('category', currUrlParams.category)
-                    //     // currUrl += separator+"genre=" + currUrlParams.genre.replace(currUrlParams, genreId);
-                    //     url.search = searchParams.toString();
-                    //     var newUrl = url.toString();
-                    // }
-                    
                 },
 
                 checkScroll: function (e) {
