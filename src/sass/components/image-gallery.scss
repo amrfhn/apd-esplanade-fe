@@ -3,44 +3,23 @@
     font-family: $font-proxima-bold;
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  .toggle-expand {
+    position: absolute; 
+    z-index: 1; 
+    right: 15px;
+    cursor: pointer;
+
+    @media(min-width: 768px) {
+      right: 40px; 
+      margin-top: 25px;
+    }
+  }
+
   .image-gallery {
-    .image-gallery-item {
-      a {
-        text-decoration: none;
-      }
-    }
-    .expand-wrapper {
-      background: $primary;
-      border-radius: 50%;
-      -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
-      -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
-      box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
-      transition: color .2s ease-out, background .2s ease-out;
-
-      .expand-icon {
-        padding: 10px;
-        color: $white;
-        font-size: 15px;
-
-        @media (min-width: 768px) {
-          font-size: 18px;
-        }
-      }
-
-      // &:hover {
-      //   box-shadow: none;
-      //   border: 2px solid $primary;
-      //   background: $white;
-      //   box-shadow: none;
-      //   transition: color .2s ease-in, background .2s ease-in;
-
-      //   .expand-icon {
-      //     padding: 8px;
-      //     color: $primary;
-      //   }
-      // }
-    }
-
     .gallery-img {
       height: 200px;
       background-size: contain;
@@ -52,6 +31,39 @@
       }
     }
   }
+}
+
+// expand icon 
+.expand-wrapper {
+  background: $primary;
+  border-radius: 50%;
+  -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.5);
+  transition: color .2s ease-out, background .2s ease-out;
+
+  .expand-icon {
+    padding: 10px;
+    color: $white;
+    font-size: 15px;
+
+    @media (min-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  // &:hover {
+  //   box-shadow: none;
+  //   border: 2px solid $primary;
+  //   background: $white;
+  //   box-shadow: none;
+  //   transition: color .2s ease-in, background .2s ease-in;
+
+  //   .expand-icon {
+  //     padding: 8px;
+  //     color: $primary;
+  //   }
+  // }
 }
 
 // fancybox
