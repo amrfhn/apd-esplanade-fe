@@ -22,7 +22,7 @@ $(function () {
             btnTpl: {
                 close:
                     '<button data-fancybox-close class="fancybox-button fancybox-button--close close" title="{{CLOSE}}">' +
-                    '<img src="./assets/microsites/offstage/img/icons/Close/White.svg"/>' +
+                    '<img src="/assets/microsites/offstage/img/icons/Close/White.svg"/>' +
                     "</button>",
                 arrowLeft:
                     '<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left prev-slide custom-btn" title="{{PREV}}">' +
