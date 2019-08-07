@@ -35,10 +35,12 @@ $(function () {
             },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
+                
+                var f = $.fancybox.getInstance();
 
-                console.log('current', current);
-                console.log('current index', current.index);
-
+                if (instance.currIndex == 0 || instance.currIndex > instance.prevIndex){
+                    getIndex();
+                }
                 // if (instance.group.length > 1 && current.$content) {
                 //     current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
                 // }
@@ -90,6 +92,4 @@ $(function () {
             getIndex();
         })
     })
-
-    $.fancybox.next();
 })
