@@ -5,7 +5,7 @@ $(function () {
         console.log('2')
         var _this = $(this);
 
-        var slider = "#"+$(item).attr('id');
+        var slider = "#" + $(item).attr('id');
         var fancyboxSelector = slider + ' .slick-slide:not(.slick-cloned) a'
         console.log(fancyboxSelector)
 
@@ -71,6 +71,12 @@ $(function () {
             nextArrow: $(this).find('.next-slide')
         });
 
+        slider.on('swipe', function (event, slick, direction) {
+            console.log(direction);
+            getIndex();
+            // left
+        });
+
         function getIndex() {
             slider.find(function () {
                 var text = _this.find('.slick-current .gallery-index').text();
@@ -84,4 +90,6 @@ $(function () {
             getIndex();
         })
     })
+
+    $.fancybox.next();
 })
