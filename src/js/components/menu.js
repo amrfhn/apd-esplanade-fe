@@ -2,7 +2,12 @@ $(function () {
     $('#hamb').on('click', function () {
         $('.mm-wrapper').addClass('active');
         $('.in-between-screen').addClass('active');
+    })
 
+    $('.close-btn-x').on('click', function () {
+        $('.mm-wrapper').removeClass('active');
+        $('.in-between-screen').removeClass('active');
+        $('body').removeClass('set-fixed');
     })
 
     var $megaMenu = $('.mm-wrapper');

@@ -1,12 +1,12 @@
 mixin whatsOn(subtitle, date, time, venue, ticket)
     .row
-        .col.whats-on.p-4.p-0.bg-dark.text-white.text-center(style="background: linear-gradient(0deg,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('https://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/7842221242_40deabf89d_o.jpg?itok=NJw1VKrw');")
-            .content-wrapper
+        .col.whats-on.p-0.bg-dark.text-white.text-center(style="background: linear-gradient(0deg,rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8)),url('https://www.publicengagement.ac.uk/sites/default/files/styles/content_width/public/hero/7842221242_40deabf89d_o.jpg?itok=NJw1VKrw');")
+            .content-wrapper.px-5.px-md-0
                 p.mt-4.subtitle.bt-2.font-weight-bold.text-white.text-uppercase=subtitle  
-                h1.font-weight-bolder.text-uppercase.text-white RELEVANT WHAT'S ON TITLE 
+                h1.whatson-title.font-weight-bolder.text-uppercase.text-white RELEVANT WHAT'S ON TITLE RELEVANT WHAT'S ON TITLE RELEVANT WHAT'S ON TITLE 
                 p.py-2.text-white.description.bt-1 Nunc vehicula nunc justo, ac vulputate nisl porttitor vitae. Suspendisse potenti. Cras et ante mi. Nullam erat diam, tempor nec malesuada in, venenatis at erat. Pellentesque nibh mi, pellentesque id ipsum eu, maximus porttitor ipsum.
 
-                .d-md-flex.d-block.justify-content-center.align-items-center.pb-4
+                .whats-on-item.d-md-flex.d-block.justify-content-center.align-items-center.pb-4
                     .details.d-flex.justify-content-center.align-content-center.mr-3.mb-4.my-md-0
                         img.icon(src="/assets/microsites/offstage/img/icons/CalendarWhite.svg")
                         p.font-16.text-white.details-item.my-auto=date
