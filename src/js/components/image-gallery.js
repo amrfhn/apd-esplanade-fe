@@ -35,7 +35,7 @@ $(function () {
             },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
-                
+
                 var f = $.fancybox.getInstance();
 
                 if (instance.currIndex == 0 || instance.currIndex > instance.prevIndex){
@@ -49,6 +49,11 @@ $(function () {
             },
 
         });
+
+        $(this).find('.toggle-expand').on('click', function (){
+            _this.find('.slick-current a').click();
+            return false;
+        })
 
 
         // Slick
