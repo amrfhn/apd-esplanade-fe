@@ -29,9 +29,4 @@ import './components/accordion.js'
 import './components/multiselect.js'
 import './components/resources.js'
 import './components/whats-on.js'
-
-
-
-
-
-
+import './components/backToTop.js'
