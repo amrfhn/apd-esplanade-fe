@@ -2,7 +2,6 @@ $(function () {
     "use strict";
 
     $('.image-gallery-wrapper').each(function (index, item) {
-        console.log('2')
         var _this = $(this);
 
         var slider = "#" + $(item).attr('id');
@@ -51,8 +50,8 @@ $(function () {
         });
 
         $(this).find('.toggle-expand').on('click', function (){
-            _this.find('.slick-current a').click();
-            return false;
+            console.log('click')
+            slider.find('.slick-current a').click();
         })
 
 
@@ -65,8 +64,6 @@ $(function () {
                 _this.find('.slide-count-wrap, .next-slide, .prev-slide').hide();
                 $('.slide-count-container').removeClass('d-flex').addClass('d-none');
             }
-
-            console.log('1')
         });
 
         slider.slick({
@@ -81,7 +78,10 @@ $(function () {
         slider.on('swipe', function (event, slick, direction) {
             console.log(direction);
             getIndex();
+
+            console.log(slick)
             // left
+            $(this).find('.slick-current a').click();
         });
 
         function getIndex() {
