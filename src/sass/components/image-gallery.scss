@@ -27,18 +27,18 @@
         }
       }
 
-      &:hover {
-        box-shadow: none;
-        border: 2px solid $primary;
-        background: $white;
-        box-shadow: none;
-        transition: color .2s ease-in, background .2s ease-in;
+      // &:hover {
+      //   box-shadow: none;
+      //   border: 2px solid $primary;
+      //   background: $white;
+      //   box-shadow: none;
+      //   transition: color .2s ease-in, background .2s ease-in;
 
-        .expand-icon {
-          padding: 8px;
-          color: $primary;
-        }
-      }
+      //   .expand-icon {
+      //     padding: 8px;
+      //     color: $primary;
+      //   }
+      // }
     }
 
     .gallery-img {
