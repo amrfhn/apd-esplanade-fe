@@ -49,10 +49,10 @@ $(function () {
 
         });
 
-        $(this).find('.toggle-expand').on('click', function (){
-            console.log('click')
-            slider.find('.slick-current a').click();
-        })
+        // $(this).find('.toggle-expand').on('click', function (){
+        //     console.log('click')
+        //     slider.find('.slick-current a').click();
+        // })
 
 
         // Slick
