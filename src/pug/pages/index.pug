@@ -46,7 +46,7 @@ block content
                         //-card
                         .row.no-gutters.px-3.px-md-4.tab-content
                             .col-12.bar-height
-                            .col-12.col-md-6.card-tile.px-2(v-for="filter in filters" v-match-heights="{el:['.card-body']}")
+                            .col-12.col-md-6.card-tile.px-2(v-for="filter in filters" v-match-heights="{el:['.card-body']}" data-no-result-message="No result found")
                                 include ../components/card-tile.pug
                             
                             .col-12.py-2.mx-auto
