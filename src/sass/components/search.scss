@@ -7,18 +7,15 @@
         border-radius: 5px;
         box-shadow: -1px 1px rgba(218, 218, 218, .5);
         // opacity: 0;
-        width: 100%;
+        width: 0;
         height: 90px;
-
         position: relative;
         right:-3%;
         top: -265px;
         z-index: 999999;
-
-        transition: .5s ease-in;
+        transition: top .4s ease-in, width 1000s ease-in;
 
         @media(min-width:768px){
-            width: 645px;
             right:-5px;
             top: -217px;
             margin: 0;
@@ -42,11 +39,12 @@
     .active{
         top:-25px;
         display: flex;
-        // opacity: 1;
-        transition: .5s ease-out;
+        width: 100%;
+        transition: top .4s ease-out, width .1s ease-out;
 
         @media (min-width:768px){
             top:-30px;
+            width: 645px;
         }
     }
 
