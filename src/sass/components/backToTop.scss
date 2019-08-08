@@ -2,21 +2,37 @@
     display: inline-block;
     position: fixed;
     right: 10px;
-    bottom: 10px;
+    bottom: 20px;
     z-index: 1000;
     cursor: pointer;
-    opacity: .94;
+    transform: rotate(-90deg);
 
-    .back-top-img{
-        width: 30px;
-        height: 30px;
+    @media(min-width:768px){
+        right: 30px;
+        bottom: 30px;
+    }
+
+    .goTop-icon{
+        // box-shadow: 1px 1px rgba(218, 218, 218, .5);
+        background: rgba(0, 0, 0, .8);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 11px 15px;
+        font-size: 20px;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
         @media(min-width:768px){
-            width: 50px;
-            height: 50px;
+            padding: 11px 18px;
+            font-size: 30px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, .7);
+        }
+        &:hover{
+            border: 1px solid rgba(0, 0, 0, 1);
+            color: white;
+            background: black;
+            transition: all .2s;
         }
     }
 
-    :hover{
-        opacity: 1;
-    }
 }
