@@ -58,7 +58,7 @@ $(function () {
     //     $(this).parent().addClass('active');
 
     //     var dataKey = $(this).data('key');
-    //     $('#genreTabs').find('a#' + dataKey).click();
+    //     $('.genre-tabs.nav').find('a#' + dataKey).click();
     // })
 
     // var $menuBrowseBy =  $('.megamenu-browseby')
@@ -92,20 +92,8 @@ $(function () {
         $(".custom-checkkbox [data-key=" + dataKey + "] ").prop("checked", true);
         $(".mm-wrapper").removeClass("active");
         $( ".submit-filter" ).click();
-       // localStorage.setItem("dataKey", dataKey);
-      //  localStorage.setItem( $(this).attr('name'), $(this).is(':checked') );
     
     });
-
-    // $( document ).ready(function() {
-    //     if (localStorage.getItem("dataKey") === null) {
-    //         localStorage.setItem("dataKey", null);
-    //       }else{
-    //         var getKey =localStorage.getItem('dataKey')
-    //         $(".custom-checkkbox [data-key=" + getKey + "] ").prop("checked", true);
-    //       }
-
-    // });
 
 
 });

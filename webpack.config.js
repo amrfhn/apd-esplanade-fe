@@ -37,6 +37,7 @@ module.exports = [{
     },
     devServer: {
         disableHostCheck: true,
+        port: 3000,
         allowedHosts: [
             '.esplanade.growthopsapp.com',
             'esplanade.growthopsapp.com',
@@ -46,6 +47,9 @@ module.exports = [{
         historyApiFallback: {
             index: 'index.html'
         },
+    },
+    externals: {
+        jquery: 'jQuery'
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -63,7 +67,7 @@ module.exports = [{
             { from: './src/js/data', to: './assets/microsites/offstage/data' },
             { from: './src/img', to: './assets/microsites/offstage/img' },
             { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
-            { from: './src/js/data', to: './assets/microsites/offstage/data'},
+            { from: './src/js/vendors', to: './assets/microsites/offstage/js/vendors'},
         ]),
     ].concat(htmlPlugins),
     module: {
@@ -130,6 +134,9 @@ module.exports = [{
             index: 'index.html'
         },
     },
+    externals: {
+        jquery: 'jQuery'
+    },
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
@@ -146,7 +153,7 @@ module.exports = [{
             { from: './src/js/data', to: './assets/microsites/offstage/data' },
             { from: './src/img', to: './assets/microsites/offstage/img' },
             { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
-            { from: './src/js/data', to: './assets/microsites/offstage/data'},
+            { from: './src/js/vendors', to: './assets/microsites/offstage/js/vendors'},
         ]),
     ].concat(htmlPlugins),
     module: {
