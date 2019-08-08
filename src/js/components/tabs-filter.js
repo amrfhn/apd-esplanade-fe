@@ -99,7 +99,7 @@ $(function () {
                 })
 
                 if (currUrl.indexOf('genre') > -1 || currUrl.indexOf('category') > -1){
-                    var genreValue = url.searchParams.get('genre');
+                    var genreValue = url.searchParams.get('genre') || 'all';
                     $('.genre-tabs.nav').find('#'+genreValue).click();
                     _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
@@ -132,15 +132,6 @@ $(function () {
                 $('.card-body').matchHeight();
             },
             methods: {
-                // setKeyMapping: function () {
-                //     var _this = this;
-                //     $.ajax({
-                //         type: "GET",
-                //         url: url,
-                //     }).done(function (data) {
-                //         _this.data.keyMapping = data;
-                //     });
-                // },
                 checkMetatUrl: function () {
 
                     let metaUrl = $('meta');
@@ -347,6 +338,8 @@ $(function () {
                     $('.filter-menu-content').addClass('d-none');
                     $('#filter-menu-content-'+ id).removeClass('d-none').addClass('.d-block');
                     this.resetGenre();
+                    // reset all side filter checkboxes and radios
+                    $('.filter-menu-content [type="radio"], .filter-menu-content [type="checkbox"]').prop('checked', false);
                 },
                 resetGenre: function () {
                     $('.genre-tabs').each(function () {
