@@ -1,5 +1,9 @@
 #download {
     .download { 
+        .download-tile-wrapper {
+            height: 100px;
+        }
+
         .download-tile {
             background: $primary; 
             height: auto;
