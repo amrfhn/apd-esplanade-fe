@@ -148,6 +148,10 @@
   position: relative;
   text-transform: uppercase;
 
+  .genre-link {
+    position: relative; 
+  }
+
   a {
     padding-left: 10px;
     padding-right: 15px;
