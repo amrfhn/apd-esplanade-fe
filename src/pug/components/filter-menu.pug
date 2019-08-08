@@ -69,3 +69,74 @@
             button(@click="applyFilter()").submit-filter.btn.btn-outline-primary Apply Filter
             
         
+.filter-menu-wrapper
+    a.close-filter
+        img.close-icon(src="./assets/microsites/offstage/img/icons/Close.svg")
+    
+    .fm-content.mt-5
+        
+        p.menu-text BROWSE BY:
+
+        .fm-content-item.mb-4
+            //- .browse-by.custom-checkkbox.custom-control
+            //-     input.custom-control-input(type="checkbox" data-key="12123" id="11223")
+            //-     label.custom-control-label(for="forEveryone") FOR EVERYONE
+            
+            .browse-by.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="123" id="123" )
+                label.custom-control-label(for="123") FOR PARENTS
+            .browse-by.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="456" id="forParents")
+                label.custom-control-label(for="forParents") FOR PARENTS
+
+            .browse-by.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="789" id="forKids")
+                label.custom-control-label(for="forKids") FOR KIDS
+
+
+        p.menu-text CONTENT TYPES:
+
+        .fm-content-item.mb-4
+            .content-types.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="www" id="watch")
+                label.custom-control-label(for="watch") WATCH
+
+            .content-types.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="rrr" id="read")
+                label.custom-control-label(for="read") READ
+
+            .content-types.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" data-key="lll" id="listen")
+                label.custom-control-label(for="listen") LISTEN
+            
+
+        p.menu-text SORT BY:
+            
+        .fm-content-item.mb-4
+            .sort-by.custom-radio.custom-control
+                input.custom-control-input(type="radio" value="latest" name="sort" id="mostRecent")
+                label.custom-control-label.custom-radio-label(for="mostRecent") MOST RECENT
+            .sort-by.custom-radio.custom-control
+                input.custom-control-input(type="radio" value="trending" name="sort" id="trending")
+                label.custom-control-label.custom-radio-label(for="trending") TRENDING
+
+
+        p.menu-text TIME TAKEN:
+
+        .fm-content-item.mb-4
+            .time-taken.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" id="five-min" data-key="five-min")
+                label.custom-control-label(for="five-min") < 5 MINUTES
+
+            .time-taken.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" id="ten-min" data-key="ten-min")
+                label.custom-control-label(for="ten-min") 10 MINUTES
+
+            .time-taken.custom-checkkbox.custom-control
+                input.custom-control-input(type="checkbox" id="fifteen-min" data-key="fifteen-min")
+                label.custom-control-label(for="fifteen-min") > 15 MINUTES
+
+        div.mb-4.mx-auto.px-3
+            button(@click="applyFilter()").submit-filter.btn.btn-outline-primary Apply Filter
+            
+        

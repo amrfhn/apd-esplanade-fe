@@ -127,7 +127,7 @@ $(function () {
 
         var dataKey = $(this).data('key');
         // $('.genre-list').find('a#' + dataKey).click();
-        $('#genreTabs').find('#' + dataKey).click();
+        $('.genre-tabs.nav').find('#' + dataKey).click();
 
     })
 
