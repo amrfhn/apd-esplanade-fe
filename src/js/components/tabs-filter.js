@@ -487,10 +487,9 @@ $(function () {
                         })
                         $closeSearch.on('click', function () {
                             $('#searchBar').removeClass('active');
+                            console.log('closeeeeeee!')
+                            $('.search').css('width', 0);
                         })
-
-
-
 
                     })
                 },
