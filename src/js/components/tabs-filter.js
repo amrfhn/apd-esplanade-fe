@@ -23,7 +23,8 @@ $(function () {
 
         var data = {
             message: 'Hello Vue!',
-            category: "eta",
+            content: "",
+            category: "",
             genre: "all",
             pageSize: 6,
             currPage: 1,
@@ -65,6 +66,10 @@ $(function () {
                 // this.checkMenuGenre();
                 // this.setKeyMapping();
 
+                // Initialise data
+                this.content = $('main').attr('data-content');
+                this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
+
                 $('.mm-content a.filter').click(function () {
                     var dataKey = $(this).attr('data-key');
 
@@ -83,7 +88,7 @@ $(function () {
                         $(this).parent().addClass('active');
 
                         var dataKey = $(this).data('key');
-                        $('#genreTabs').find('#' + dataKey).click();
+                        $('.genre-tabs.nav').find('#' + dataKey).click();
 
                         _this.filterGenre(dataKey);
                         _this.checkActiveGenre();
@@ -95,14 +100,7 @@ $(function () {
 
                 if (currUrl.indexOf('genre') > -1 || currUrl.indexOf('category') > -1){
                     var genreValue = url.searchParams.get('genre');
-                    $('#genreTabs').find('#'+genreValue).click();
-                    _this.filterGenre(genreValue);
-                    $('.genre-tabs .wrapper').animate({
-                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
-                    }, 2000);
-
-                    var categoryValue = url.searchParams.get('category');
-                    $('#genreTabs').find('#'+genreValue).click();
+                    $('.genre-tabs.nav').find('#'+genreValue).click();
                     _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
@@ -154,7 +152,7 @@ $(function () {
                             host = currDomain;
                             console.log('current Host from meta:',host)
                         } else {
-                            host = 'http://dev.esplanade.growthopsapp.com/';
+                            host = 'http://dev.esplanade.growthopsapp.com';
                         }
                     }
 
@@ -219,10 +217,8 @@ $(function () {
                 },
 
                 checkScroll: function (e) {
-
                     window.onscroll = () => {
-                        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
-
+                        var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
                         if ($(".tab-content").length>0 && bottomOfWindow && !this.fetchingData) {
                             document.getElementById('spinner').style.display = "block";
                             this.updateData();
@@ -243,7 +239,7 @@ $(function () {
                         console.log("desktop")
                     }
 
-                    var updateUrl = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
+                    var updateUrl = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
                     var _this = this;
 
                     console.log(updateUrl);
@@ -341,9 +337,15 @@ $(function () {
                     this.fetchData();
 
                 },
-                filterCategory: function () {
+                filterCategory: function (id) {
                     console.log('click category')
-
+                    this.category = id;
+                    // change genre filter
+                    $('.genre-tabs').addClass('d-none');
+                    $('#genre-tabs-'+ id).removeClass('d-none').addClass('.d-block');
+                    // change side filter 
+                    $('.filter-menu-content').addClass('d-none');
+                    $('#filter-menu-content-'+ id).removeClass('d-none').addClass('.d-block');
                     this.resetGenre();
                 },
                 resetGenre: function () {
@@ -401,8 +403,8 @@ $(function () {
                 },
                 fetchData: function () {
 
-                    var url = host + "/sitecore/api/offstage/articles/" + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
-                    var _this = this
+                    var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
+                    var _this = this;
 
                     //show loading screen
                     $('body').addClass('overflow-hidden');
@@ -495,39 +497,6 @@ $(function () {
                         })
 
 
-                        // $('a.nav-link.megamenu-genre').on('click', function () {
-                        //     $('a.nav-link.megamenu-genre').each(function () {
-                        //         $(this).parent().removeClass('active');
-
-                        //         console.log($(this));
-                        //     })
-                        //     $(this).parent().addClass('active');
-
-                        //     var dataKey = $(this).data('key');
-                        //     $('#genreTabs').find('a#' + dataKey).click();
-                        // })
-
-                        // var $menuBrowseBy =  $('.megamenu-browseby')
-                        // var $menuBrowseByKey = $menuBrowseBy.data('key')
-
-
-
-                        // $menuBrowseBy.on('click', function(){
-                        //     $menuBrowseBy.each(function(){  
-
-                        //         var $filterBrowseBy = $('.browse-by').find('.custom-contorl-input')
-                        //         var filterBrowseByKey = $filterBrowseBy.data('key')
-
-                        //         if ($(this).data('key') === filterBrowseByKey){
-
-                        //             $('a#'+filterBrowseByKey).is(":checked")
-                        //         }
-                        //     })
-                        // })
-
-
-                        //menuburger key link to filter data checkbox
-                        //karyann
 
 
                     })
