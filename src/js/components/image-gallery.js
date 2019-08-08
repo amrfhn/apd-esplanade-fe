@@ -2,7 +2,6 @@ $(function () {
     "use strict";
 
     $('.image-gallery-wrapper').each(function (index, item) {
-        console.log('2')
         var _this = $(this);
 
         var slider = "#" + $(item).attr('id');
@@ -35,7 +34,7 @@ $(function () {
             },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
-                
+
                 var f = $.fancybox.getInstance();
 
                 if (instance.currIndex == 0 || instance.currIndex > instance.prevIndex){
@@ -50,6 +49,11 @@ $(function () {
 
         });
 
+        // $(this).find('.toggle-expand').on('click', function (){
+        //     console.log('click')
+        //     slider.find('.slick-current a').click();
+        // })
+
 
         // Slick
         // =====
@@ -60,8 +64,6 @@ $(function () {
                 _this.find('.slide-count-wrap, .next-slide, .prev-slide').hide();
                 $('.slide-count-container').removeClass('d-flex').addClass('d-none');
             }
-
-            console.log('1')
         });
 
         slider.slick({
@@ -76,7 +78,10 @@ $(function () {
         slider.on('swipe', function (event, slick, direction) {
             console.log(direction);
             getIndex();
+
+            console.log(slick)
             // left
+            $(this).find('.slick-current a').click();
         });
 
         function getIndex() {

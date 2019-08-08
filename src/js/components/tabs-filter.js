@@ -425,6 +425,14 @@ $(function () {
                         _this.banners = data.Banner.Banners
                         _this.totalBanners = data.Banner.Total
                         _this.filters = data.Articles
+                        
+                        data.filters = data.Articles
+                        var cardContainer = $('.tab-content').find('.card-tile')
+                        
+                        if(data.filters.length < 1){
+                            var getMessage = cardContainer.attr('data-no-result-message');
+                            cardContainer.children().html(getMessage)
+                        }
 
                         jQuery.fn.hasScrollBar = function () {
                             return this.get(0).scrollWidth > this.innerWidth();
