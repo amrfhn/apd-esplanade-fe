@@ -37,9 +37,9 @@ $(function () {
 
                 var f = $.fancybox.getInstance();
 
-                if (instance.currIndex == 0 || instance.currIndex > instance.prevIndex){
-                    getIndex();
-                }
+                // if (instance.currIndex++){
+                //     getIndex();
+                // }
                 // if (instance.group.length > 1 && current.$content) {
                 //     current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
                 // }
@@ -48,12 +48,6 @@ $(function () {
             },
 
         });
-
-        // $(this).find('.toggle-expand').on('click', function (){
-        //     console.log('click')
-        //     slider.find('.slick-current a').click();
-        // })
-
 
         // Slick
         // =====
@@ -72,7 +66,7 @@ $(function () {
             dots: false,
             arrows: true,
             prevArrow: $(this).find('.prev-slide'),
-            nextArrow: $(this).find('.next-slide')
+            nextArrow: $(this).find('.next-slide'),
         });
 
         slider.on('swipe', function (event, slick, direction) {
@@ -82,6 +76,10 @@ $(function () {
             console.log(slick)
             // left
             $(this).find('.slick-current a').click();
+        });
+
+        slider.on('afterChange', function (slick, currentSlide) {
+            getIndex();
         });
 
         function getIndex() {
