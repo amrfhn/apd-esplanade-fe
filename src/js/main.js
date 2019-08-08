@@ -6,7 +6,7 @@ import '@fancyapps/fancybox'
 import 'slick-carousel'
 import 'bootstrap'
 import 'jquery-match-height'
-import './vendor/2-ellipsis.min.js'
+import './vendors/2-ellipsis.min.js'
 
 /* Main JS 
 // ::::::::::::: */
@@ -16,7 +16,7 @@ import '../sass/main.scss'
 
 /* Components
 // ::::::::::::: */
-import './components/image-carousel.js'
+import './components/image-carousel.js' 
 import './components/image-gallery.js'
 import './components/video-carousel.js'
 import './components/video-modal.js'
