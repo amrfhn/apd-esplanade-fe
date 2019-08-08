@@ -104,13 +104,6 @@ $(function () {
                     _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
-                    }, 2000);
-
-                    var categoryValue = url.searchParams.get('category');
-                    $('.genre-tabs.nav').find('#'+genreValue).click();
-                    _this.filterGenre(genreValue);
-                    $('.genre-tabs .wrapper').animate({
-                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
                     }, 2000); 
 
                 } else {
@@ -159,7 +152,7 @@ $(function () {
                             host = currDomain;
                             console.log('current Host from meta:',host)
                         } else {
-                            host = 'http://dev.esplanade.growthopsapp.com/';
+                            host = 'http://dev.esplanade.growthopsapp.com';
                         }
                     }
 
@@ -224,10 +217,8 @@ $(function () {
                 },
 
                 checkScroll: function (e) {
-
                     window.onscroll = () => {
-                        let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
-
+                        var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
                         if ($(".tab-content").length>0 && bottomOfWindow && !this.fetchingData) {
                             document.getElementById('spinner').style.display = "block";
                             this.updateData();
@@ -248,7 +239,7 @@ $(function () {
                         console.log("desktop")
                     }
 
-                    var updateUrl = host + "sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
+                    var updateUrl = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
                     var _this = this;
 
                     console.log(updateUrl);
@@ -349,8 +340,12 @@ $(function () {
                 filterCategory: function (id) {
                     console.log('click category')
                     this.category = id;
+                    // change genre filter
                     $('.genre-tabs').addClass('d-none');
-                    $('#genre-tabs-'+ id).removeCLass('d-none').addClass('.d-block');
+                    $('#genre-tabs-'+ id).removeClass('d-none').addClass('.d-block');
+                    // change side filter 
+                    $('.filter-menu-content').addClass('d-none');
+                    $('#filter-menu-content-'+ id).removeClass('d-none').addClass('.d-block');
                     this.resetGenre();
                 },
                 resetGenre: function () {
@@ -408,7 +403,7 @@ $(function () {
                 },
                 fetchData: function () {
 
-                    var url = host + "sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize
+                    var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
                     var _this = this;
 
                     //show loading screen
