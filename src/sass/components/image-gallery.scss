@@ -4,11 +4,23 @@
   }
 
   a {
+    position: absolute;
     text-decoration: none;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    right: 4px;
+    cursor: pointer;
+
+    @media(min-width: 768px){
+      right: 22px;
+      margin-top: 18px;      
+    }
   }
 
   .toggle-expand {
     position: absolute; 
+    pointer-events: none;
     z-index: 1; 
     right: 15px;
     cursor: pointer;
@@ -20,6 +32,10 @@
   }
 
   .image-gallery {
+    .image-gallery-item {
+      position: relative;
+    }
+
     .gallery-img {
       height: 200px;
       background-size: contain;
@@ -78,7 +94,8 @@
 
   .fancybox-infobar,
   .fancybox-navigation .fancybox-button,
-  .fancybox-toolbar {
+  .fancybox-toolbar,
+  .fancybox-caption {
     opacity: 1;
     visibility: visible;
   }

@@ -1,93 +1,46 @@
 $(function (){
-
-    var current;
-    var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    "use strict";
     
-    $('.progress-wrapper').each(function () {
+    if($('.progress-wrapper').length > 0){
+        var target;
+        var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
         
-        if(width <= 768) {
-            current = $('.progress-wrapper.d-block');
-        } 
-        if(width > 768) {
-            current = $('.progress-wrapper.d-md-block');
-        }
-    })
-
-    var $readSection = $('#readSection');
-    var $scrollOffset = $(document).scrollTop();
-
-
-    var getMax = function(){
-        //return  $('body').height() + $('footer').height() + $('header').height() - ($('.article-start').height() + 350);
-        return  $('body').height();
-    }
-    
-    var getValue = function(){
-        return $(window).scrollTop() + $(window).height() + 20;
-    }
-    
-    if('max' in document.createElement('progress')){
-        var progressBar = $('progress');
-        
-        progressBar.attr({ max: getMax() });
-
-        $(document).on('scroll', function(){
-            progressBar.attr({ value: getValue() });
-        });
-    
-        $(window).resize(function(){
-            progressBar.attr({ max: getMax(), value: getValue() });
-        });   
-    }
-    else {
-        var progressBar = $('.progress-bar'), 
-            max = getMax(), 
-            value, width;
-        
-        var getWidth = function(){
-            value = getValue();            
-            width = (value/max) * 100;
-            width = width + '%';
-            return width;
-        }
-        
-        var setWidth = function(){
-            progressBar.css({ width: getWidth() });
-        }
-        
-        $(document).on('scroll', setWidth);
-        $(window).on('resize', function(){
-            max = getMax();
-            setWidth();
-        });
-    }
-
-    // $('#flat').addClass("active");
-    // current.find("progress").addClass('flat');
-    
-    // $('#flat').on('click', function(){
-    //     current.find("progress").removeClass().addClass('flat');
-    //     $('a').removeClass();
-    //     $(this).addClass('active');
-    //     $(this).preventDefault();
-    // });
-
-
-    var $fixProgress = $('.progress-wrapper');
-
-
-    if($fixProgress.length>0){
-        $(document).on('scroll', function() {
-            
-            let scrollPos = $(this).scrollTop()
-            let menuHeight = $('.left-wrapper').height();
-            
-            if(scrollPos > (current.offset().top - menuHeight)) {
-            current.find("progress").addClass("fixedbar");
-            } else {
-                current.find("progress").removeClass("fixedbar");
+        $('.progress-wrapper').each(function () {
+            if(width <= 768) {
+                target = '.progress-wrapper.d-block';
             } 
+            if(width > 768) {
+                target = '.progress-wrapper.d-md-block';
+            }
+        })
 
-        });
+        updateProgressBar(target);
+
+        window.onscroll = function() {updateProgressBar(target)};
+
+        // run sticky progress bar
+        var $fixProgress = $('.progress-wrapper');
+        if($fixProgress.length>0){
+            $(document).on('scroll', function() {
+                
+                let scrollPos = $(this).scrollTop()
+                let menuHeight = $('.left-wrapper').height();
+                
+                if(scrollPos > ($(target).offset().top - menuHeight)) {
+                $(target).find(".progress-container").addClass("fixedbar");
+                } else {
+                    $(target).find(".progress-container").removeClass("fixedbar"); 
+                } 
+
+            });
+        }
+
+
+        function updateProgressBar(selector) {
+            var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            document.querySelectorAll(selector + ' .progress-bar')[0].style.width = scrolled + "%";
+        }
     }
 });

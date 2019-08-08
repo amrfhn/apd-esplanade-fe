@@ -2,43 +2,26 @@
     position: relative;
     border: none;
     padding: 0;
-    margin-top: -7px;
+    height: 10px;
 
     @media(min-width:768px){
         top: 0;
     }
-    progress {
-        // position: absolute;
-        // left: 0;
+
+    .progress-container {
         width: 100%;
+        background-color: transparent;
+        top: 0;
+        left: 0;
         height: 10px;
+        display: block;
 
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-
-        border: none;
-        background-color: #f8f8f8;
-
-        &::-webkit-progress-bar {
-            background-color: transparent;
-        }
-
-        .progress-container {
-            width: 100%;
-            background-color: transparent;
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: .25em;
+        .progress-bar {
+            background-color: #00a3c9;
+            width: 0%;
             display: block;
-
-            .progress-bar {
-                background-color: #00a3c9;
-                width: 50%;
-                display: block;
-                height: inherit;
-            }
+            height: inherit;
+            transition: none;
         }
     }
 
