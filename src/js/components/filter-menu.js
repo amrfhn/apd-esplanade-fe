@@ -4,6 +4,8 @@ $(function () {
 
     $('.filter').on('click', function () {
         $('.in-between-screen').addClass('active'); 
+        $('body').addClass('no-scroll'); 
+
         $('.mm-wrapper').removeClass('active');
         
         $( ".filter-menu-wrapper" ).scrollTop( 0 );
@@ -14,12 +16,14 @@ $(function () {
     $('.close-filter').on('click', function () {
         $filterMenu.toggleClass('show-filter');
         $('.in-between-screen').removeClass('active');  
+        $('body').removeClass('no-scroll'); 
         $("body").removeClass("filter-open"); 
     })
 
     $('.in-between-screen').on('click', function(){
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active');
+        $('body').removeClass('no-scroll'); 
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
         $('.search-bar').removeClass('active');
@@ -31,6 +35,7 @@ $(function () {
         $('.submit-filter').on('click', function(){
             $filterMenu.removeClass('show-filter');
             $('.in-between-screen').removeClass('active');
+            $('body').removeClass('no-scroll'); 
             $("body").removeClass("filter-open");
             $('html, body').animate({
                 scrollTop: $(".tab-content").offset().top
@@ -42,6 +47,7 @@ $(function () {
         $('.submit-filter').on('click', function(){
             $filterMenu.removeClass('show-filter');
             $('.in-between-screen').removeClass('active');
+            $('body').addClass('no-scroll'); 
             $("body").removeClass("filter-open");
             
             $('html, body').animate({
