@@ -33,14 +33,24 @@ $(function () {
                     "</button>",
             },
             afterLoad: function (instance, current) {
-                if(instance.group.length == 1) {
+                if (instance.group.length == 1) {
                     $('.fancybox-infobar, .fancybox-navigation').hide();
                 }
             },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
             },
-
+            clickContent: function (current, event) {
+                return current.type === 'image' ? 'zoom' : 'close';
+            },
+            mobile: {
+                clickContent: function (current, event) {
+                    return current.type === 'image' ? 'zoom' : 'close';
+                },
+                clickSlide: function (current, event) {
+                    return current.type === "image" ? "toggleControls" : "close";
+                },
+            }
         });
 
         // Slick
