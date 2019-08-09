@@ -438,12 +438,13 @@ $(function () {
                         $('#hamb').on('click', function () {
                             $('.mm-wrapper').addClass('active');
                             $('.in-between-screen').addClass('active');
-
+                            $('body').addClass('no-scroll'); 
                         })
 
                         $('.close-btn-x').on('click', function () {
                             $('.mm-wrapper').removeClass('active');
                             $('.in-between-screen').removeClass('active');
+                            $('body').removeClass('no-scroll'); 
                             $('body').removeClass('set-fixed');
                         })
 
@@ -479,6 +480,7 @@ $(function () {
                         $btnSearch.on('click', function () {
                             $('#searchBar').addClass('active');
                             $('.in-between-screen').addClass('active');
+                            $('body').addClass('no-scroll'); 
                         })
                         $closeSearch.on('click', function () {
                             $('#searchBar').removeClass('active');
@@ -506,6 +508,7 @@ $(function () {
         $('.close-btn-x').on('click', function () {
             $('.mm-wrapper').removeClass('active');
             $('.in-between-screen').removeClass('active');
+            $('body').removeClass('no-scroll'); 
 
         })
 
