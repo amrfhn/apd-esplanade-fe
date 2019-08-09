@@ -148,6 +148,10 @@
   position: relative;
   text-transform: uppercase;
 
+  .genre-link {
+    position: relative; 
+  }
+
   a {
     padding-left: 10px;
     padding-right: 15px;
@@ -156,20 +160,20 @@
       padding-left: 0px;
     }
 
-    &:last-child {
-      &:after {
+    &:first-child {
+      &:before {
         background: transparent;
       }
     }
 
-    &:after {
+    &:before {
         content: '';
         position: absolute;
         background: $primary;
-        top: 6px;
+        top: 4.5px;
         width: 2px;
-        height: 11px;
-        margin-left: 13px;
+        height: 10px;
+        margin-left: -13px;
     }
   }
 }

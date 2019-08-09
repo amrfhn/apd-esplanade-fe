@@ -32,21 +32,25 @@ $(function () {
                     '<span class="icon esplanade-icon-Next cust-icon arrow-light">' +
                     "</button>",
             },
+            afterLoad: function (instance, current) {
+                if (instance.group.length == 1) {
+                    $('.fancybox-infobar, .fancybox-navigation').hide();
+                }
+            },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
-
-                var f = $.fancybox.getInstance();
-
-                // if (instance.currIndex++){
-                //     getIndex();
-                // }
-                // if (instance.group.length > 1 && current.$content) {
-                //     current.$content.append('<a data-fancybox-next class="button-next" href="javascript:;">→</a><a data-fancybox-previous class="button-previous" href="javascript:;">←</a>');
-                // }
-
-                //current.$content.append('<a data-fancybox-close class="button-close close" href="javascript:;"><img src="./assets/microsites/offstage/img/icons/Close/White.svg></a>');
             },
-
+            clickContent: function (current, event) {
+                return current.type === 'image' ? 'zoom' : 'close';
+            },
+            mobile: {
+                clickContent: function (current, event) {
+                    return current.type === 'image' ? 'zoom' : 'close';
+                },
+                clickSlide: function (current, event) {
+                    return current.type === "image" ? "toggleControls" : "close";
+                },
+            }
         });
 
         // Slick
@@ -55,7 +59,7 @@ $(function () {
 
         slider.on("init", function (event, slick) {
             if ((slick.slideCount < 2) && (slick.slideCount = 1)) {
-                _this.find('.slide-count-wrap, .next-slide, .prev-slide').hide();
+                _this.find('.slide-count-wrap, .banner-navigation').hide();
                 $('.slide-count-container').removeClass('d-flex').addClass('d-none');
             }
         });

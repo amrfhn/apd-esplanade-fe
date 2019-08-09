@@ -100,6 +100,12 @@
     visibility: visible;
   }
 
+  .fancybox-toolbar {
+    .close {
+      opacity: 1;
+    }
+  }
+  
   .fancybox-infobar {
     font-size: 18px;
     font-family: $font-proxima-bold !important;
