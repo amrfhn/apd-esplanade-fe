@@ -49,7 +49,7 @@ $(function () {
 
         slider.on("init", function (event, slick) {
             if ((slick.slideCount < 2) && (slick.slideCount = 1)) {
-                _this.find('.slide-count-wrap, .next-slide, .prev-slide').hide();
+                _this.find('.slide-count-wrap, .banner-navigation').hide();
                 $('.slide-count-container').removeClass('d-flex').addClass('d-none');
             }
         });
