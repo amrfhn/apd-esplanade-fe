@@ -46,9 +46,10 @@ block content
                         //-card
                         .row.no-gutters.px-3.px-md-4.tab-content
                             .col-12.bar-height
-                            .col-12.col-md-6.card-tile.px-2(v-for="filter in filters" v-match-heights="{el:['.card-body']}" data-no-result-message="No result found")
+                            .col-12.col-md-6.card-tile.px-2(v-if="filters.length>0" v-for="filter in filters" v-match-heights="{el:['.card-body']}")
                                 include ../components/card-tile.pug
-                            
+                            .col-12(v-if="filters.length===0")
+                                p.my-5.text-center No result found.
                             .col-12.py-2.mx-auto
                                 div#spinner.spinner-load
                                     img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
