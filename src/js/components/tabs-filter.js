@@ -1,5 +1,4 @@
 import VueLineClamp from 'vue-line-clamp';
-// import VueMatchHeights from 'vue-match-heights';
 
 $(function () {
     'use strict';
@@ -7,10 +6,6 @@ $(function () {
         Vue.use(VueLineClamp, {
             importCss: true
         })
-
-        // Vue.use(VueMatchHeights, {
-        //     disabled: [768],
-        // });
 
         var xs = window.matchMedia('(max-width: 768px)');
         var md = window.matchMedia('(min-width: 769px)');
