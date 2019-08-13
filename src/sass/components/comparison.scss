@@ -1,4 +1,4 @@
-#comparison {
+.comparison {
     .avatar-wrapper {
         .avatar {
             width: 60px; 
@@ -7,4 +7,7 @@
         }
     }
     
+    .card-header {
+        padding: 0.75rem 0;
+    }
 }

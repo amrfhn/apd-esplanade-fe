@@ -7,6 +7,20 @@
     min-height: 375px;
     height: auto;
     
+    .whats-on-content {
+        color: $white;
+        font-size: 16px;
+        text-align: center;
+
+        @media(min-width: 768px) {
+           text-align: left; 
+        }
+
+        p {
+            color: $white;
+        }
+    }
+
     .content-wrapper{
         position: relative;
         top: 0;
