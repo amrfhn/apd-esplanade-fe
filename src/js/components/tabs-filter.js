@@ -83,7 +83,7 @@ $(function () {
                         $(this).parent().addClass('active');
 
                         var dataKey = $(this).data('key');
-                        $('.genre-tabs.nav').find('#' + dataKey).click();
+                        $('.genre-tabs .nav').find('#' + dataKey).click();
 
                         _this.filterGenre(dataKey);
                         _this.checkActiveGenre();
@@ -93,9 +93,12 @@ $(function () {
                     }
                 })
 
-                if (currUrl.indexOf('genre') > -1 || currUrl.indexOf('category') > -1){
+                if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1){
+                    var categoryValue = url.searchParams.get('category') || '';
                     var genreValue = url.searchParams.get('genre') || 'all';
-                    $('.genre-tabs.nav').find('#'+genreValue).click();
+                    $('#'+ categoryValue).click();
+                    _this.filterCategory(categoryValue);
+                    $('#genre-tabs-'+ categoryValue +' .nav').find('#'+genreValue).click();
                     _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
@@ -171,7 +174,7 @@ $(function () {
 
                         for (var i = 0, len = megaMenuItem.length; i < len; i++) {
                             if($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre){
-                                $(megaMenuItem[i]).parent().addClass('active')
+                                $(megaMenuItem[i]).parent().addClass('active');
                             }
                         }
                         //append params on current url
@@ -544,24 +547,7 @@ $(function () {
 
             });
 
-            // var lastScrollTop = 0;
-            // var $footer = $('footer .container-fluid')
-            // $(window).scroll(function (event) {
-            //     var st = $(this).scrollTop();
-            //     if (st > lastScrollTop) {
-            //         // downscroll code
-            //         console.log('scroll down'); 
-            //         $footer.addClass('sticky-footer-mobile')
-            //     } else {
-            //         // upscroll code
-            //         console.log('scroll up');
-            //         $footer.removeClass('sticky-footer-mobile')
-            //     }
-            //     lastScrollTop = st;
-            // });
-
-        } else {
-            //  alert('More than 960');
+            
         }
 
 
