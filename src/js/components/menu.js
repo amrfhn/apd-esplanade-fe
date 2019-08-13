@@ -66,7 +66,7 @@ $(function () {
     //     $(this).parent().addClass('active');
 
     //     var dataKey = $(this).data('key');
-    //     $('.genre-tabs.nav').find('a#' + dataKey).click();
+    //     $('.genre-tabs .nav').find('a#' + dataKey).click();
     // })
 
     // var $menuBrowseBy =  $('.megamenu-browseby')
