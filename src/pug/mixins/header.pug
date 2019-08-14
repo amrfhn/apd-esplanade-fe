@@ -40,6 +40,11 @@ mixin header(navbar)
                                                 span.font-weight-bold.ml-4.m-0 Back
 
             .row
+                button.btn-search#btnSearch(type="button").home-search
+                    img.search-icon-mobile.d-block.d-md-none(src="./assets/microsites/offstage/img/icons/Search/White.svg")
+                    img.search-icon.d-none.d-md-block(src="./assets/microsites/offstage/img/icons/Search/Black.svg")            
+
+            .row#search.search.pt-25.pb-25.px-md-25.pt-md-50        
                 include ../components/search.pug
 
             .row

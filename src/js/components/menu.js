@@ -48,12 +48,12 @@ $(function () {
 
 
     $btnSearch.on('click', function () {
-        $('#searchBar').addClass('active');
+        $('.search').fadeIn("fast");
         $('.in-between-screen').addClass('active');
         $('body').addClass('no-scroll'); 
     })
     $closeSearch.on('click', function () {
-        $('#searchBar').removeClass('active');
+        $('.search').fadeOut('fast');
     })
 
 

@@ -31,7 +31,7 @@ $(function () {
         $('body').removeClass('no-scroll');
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
-        $('.search-bar').removeClass('active');
+        $('.search').fadeOut('fast');
     })
 
     //for mobile
