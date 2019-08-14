@@ -52,9 +52,8 @@ $(function () {
         $('.submit-filter').on('click', function () {
             $filterMenu.removeClass('show-filter');
             $('.in-between-screen').removeClass('active');
-            $('body').addClass('no-scroll');
+            $('body').removeClass('no-scroll');
             $("body").removeClass("filter-open");
-
 
             $('html, body').animate({
                 scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())

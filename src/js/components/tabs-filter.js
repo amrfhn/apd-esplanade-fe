@@ -412,13 +412,18 @@ $(function () {
                         _this.totalBanners = data.Banner.Total
                         _this.filters = data.Articles
                         
+                        //Show error message
                         data.filters = data.Articles
-                        var cardContainer = $('.tab-content').find('.card-tile')
-                        
-                        if(data.filters.length < 1){
-                            var getMessage = cardContainer.attr('data-no-result-message');
-                            cardContainer.children().html(getMessage)
+                        var $messageContainer = $('#emptyData');
+                        var emptyMessage = $messageContainer.find('.message')
+
+                        if(data.filters.length < 1) {
+                            // test.text('Too Bad.. No result found');
+                            emptyMessage.removeClass('d-none').addClass('d-block');
+                        } else {
+                            emptyMessage.removeClass('d-block').addClass('d-none');
                         }
+                        //end
 
                         jQuery.fn.hasScrollBar = function () {
                             return this.get(0).scrollWidth > this.innerWidth();
