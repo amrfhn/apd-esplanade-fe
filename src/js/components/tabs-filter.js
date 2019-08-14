@@ -486,14 +486,14 @@ $(function () {
 
 
                         $btnSearch.on('click', function () {
-                            $('#searchBar').addClass('active');
-                            $('.in-between-screen').addClass('active');
+                            $('.search').fadeIn('fast');
+                            $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5' });
                             $('body').addClass('no-scroll'); 
                         })
                         $closeSearch.on('click', function () {
-                            $('#searchBar').removeClass('active');
-                            console.log('closeeeeeee!')
-                            $('.search').css('width', 0);
+                            $('.search').fadeOut('fast');
+                            $('.in-between-screen').removeClass('active').css({ 'background-color' : '', 'opacity' : '' });
+                            $('body').removeClass('no-scroll'); 
                         })
 
                     })
