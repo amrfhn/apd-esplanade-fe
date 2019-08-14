@@ -61,12 +61,8 @@ $(function () {
         })
     }
 
-
-
-
     if ($('.in-between-screen').hasClass('active')) {
         $('#btnSearch').prop('disabled', true);
     }
-
 
 })

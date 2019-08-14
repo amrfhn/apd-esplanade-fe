@@ -1,0 +1,17 @@
+.related-topics-wrapper{
+    .related-topics{
+        flex-wrap: wrap;
+        max-width: 100%;
+        .btn-related-topic{
+            background-color: #000;
+            color: #fff;
+            @media(min-width:768px){
+                color: rgba(255, 255, 255, 0.8);
+            }
+
+            &:hover{
+                color: #fff;
+            }
+        }
+    }
+}
