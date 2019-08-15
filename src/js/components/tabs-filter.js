@@ -37,7 +37,10 @@ $(function () {
             "browse": "",
             "contentType": "",
             "timeTaken": "",
-            "sort": ""
+            "sort": "",
+            "languages": "",
+            "levels": "",
+            "subjects": ""
         }
         var currUrlParams = {
             "category": "",
@@ -376,7 +379,36 @@ $(function () {
 
                     params.sort = $sortValue;
 
-                    console.log(params.browse, params.contentType, params.timeTaken, params.sort);
+                    // for schools
+                    // ===========
+
+                    var languages = [];
+                    $('.language').find('input[type=checkbox]:checked').each(function () {
+                        if ($(this).find('input[type=checkbox]:checked')) {
+                            languages.push($(this).data('key'));
+                        }
+                    })
+                    params.languages = languages.join(',');
+
+                    var levels = [];
+                    $('.level').find('input[type=checkbox]:checked').each(function () {
+                        if ($(this).find('input[type=checkbox]:checked')) {
+                            levels.push($(this).data('key'));
+                        }
+                    })
+                    params.levels = levels.join(',');
+
+                    var subjects = [];
+                    $('.subject').find('input[type=checkbox]:checked').each(function () {
+                        if ($(this).find('input[type=checkbox]:checked')) {
+                            subjects.push($(this).data('key'));
+                        }
+                    })
+                    params.subjects = subjects.join(',');
+
+                    // ==============
+
+                    console.log(params.browse, params.contentType, params.timeTaken, params.sort, params.languages, params.levels, params.subjects);
 
                     this.currPage = 1;
                     this.loadPage = 1;

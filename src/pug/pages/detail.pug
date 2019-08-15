@@ -190,8 +190,10 @@ block content
         //- Three Images Component
         +images('3', 'Image Caption', 'https://via.placeholder.com/310x200', 'https://via.placeholder.com/310x199', 'https://via.placeholder.com/310x299')
 
-        .row#mini-series.bg-light.mx-md-0.my-25 
-            include ../components/mini-series.pug
+        .mini-series-container
+            a.hyperlink-custom(href="")
+                .row#mini-series.bg-light.mx-md-0.my-25 
+                    include ../components/mini-series.pug
 
         .container.no-gutters.p-0
             include ../components/milestone.pug
