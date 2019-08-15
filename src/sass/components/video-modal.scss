@@ -1,5 +1,5 @@
 .video-modal-wrapper {
-    cursor: pointer
+  cursor: pointer;
 }
 
 #video-modal.modal {
@@ -12,17 +12,15 @@
     border: 0px;
     top: -50px;
 
-    @media(min-width: 768px){
+    @media (min-width: 768px) {
       top: unset;
     }
   }
 
   .modal-header {
-      border-bottom: 0px;
-      padding: 0 1rem;
+    border-bottom: 0px;
+    padding: 0 1rem;
   }
-  
-
 
   @media (min-width: 576px) {
     .modal-dialog {
@@ -31,7 +29,7 @@
   }
 }
 
-.freeze-page{
+.freeze-page {
   overflow: hidden;
   bottom: 0;
   left: 0;
@@ -43,11 +41,11 @@
 
 .close {
   opacity: 1;
-  transition: all .2s;
-  
+  transition: all 0.2s;
+
   &:hover {
-      opacity: 0.75;
-      transition: all .2s;
-      cursor: pointer;
+    opacity: 0.75;
+    transition: all 0.2s;
+    cursor: pointer;
   }
 }
