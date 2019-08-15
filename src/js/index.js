@@ -1,6 +1,11 @@
 $(function () {
     clampText();
 
+    //svg4everybody
+    svg4everybody({
+        polyfill: !0
+    })
+
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
