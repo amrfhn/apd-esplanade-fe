@@ -28,7 +28,7 @@ $(function () {
     });
 
     $(document).scroll(function () {
-        if($('#readSection').length > 0){
+        if($('#readSection').length > 0 || $('#tagResult').length > 0){
             var $nav = $(".nav");
 
             var $navTabs = $('.left-wrapper');
