@@ -264,6 +264,10 @@
   -o-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 
+  hr {
+    border: 0.5px solid rgba(0, 0, 0, 0.5);
+  }
+
   .close-btn-x {
     position: relative;
     padding: 0.5%;
@@ -288,6 +292,7 @@
   }
   .mm-content {
     text-transform: uppercase;
+
     .menu-text {
       margin-bottom: 0;
     }
