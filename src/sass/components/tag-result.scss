@@ -1,0 +1,23 @@
+.tag-result-container{
+
+    .date-wrapper{
+
+        :before{
+            content: '';
+            position: absolute;
+            background: #000;
+            top: 27.5px;
+            width: 2px;
+            height: 10px;
+            margin-left: -9px;
+
+            @media(min-width:768px){
+                top: 3px;
+            }
+        }
+    }
+}
+
+.page-thumbnail{
+    width: 218px;
+}

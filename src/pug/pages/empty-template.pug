@@ -1,0 +1,30 @@
+extends ../template.pug   
+
+block header 
+    +header()
+
+block content
+
+    .pt-50
+    .pt-25
+
+    //- short placeholder container
+    .container
+        .row.py-25
+            .col-12.bg-dark
+                h2 short placeholder
+
+    //- long placeholder container
+    .container-fluid
+        .row.py-25
+            .col-12.bg-dark
+                h1 long placeholder
+                
+
+    .pb-50
+
+block footer
+    .container-fluid
+        .row
+            .col-12.p-0.sticky-footer
+                include ../layout/footer.pug
