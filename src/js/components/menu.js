@@ -48,12 +48,14 @@ $(function () {
 
 
     $btnSearch.on('click', function () {
-        $('.search').fadeIn("fast");
-        $('.in-between-screen').addClass('active');
+        $('.search').fadeIn('fast');
+        $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5', 'left' : '0' });
         $('body').addClass('no-scroll'); 
     })
     $closeSearch.on('click', function () {
         $('.search').fadeOut('fast');
+        $('.in-between-screen').removeClass('active').css({ 'background-color' : '', 'opacity' : '' });
+        $('body').removeClass('no-scroll'); 
     })
 
 

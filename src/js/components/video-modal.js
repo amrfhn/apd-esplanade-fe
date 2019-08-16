@@ -8,9 +8,9 @@ $(function () {
 
     $videoModal.on('show.bs.modal', function () {
         if (window.matchMedia('(min-width: 768px)').matches) {
-            $('.nav-bar-wrapper').css('padding-right', '17px')
-            $('.detail-search').css('right', '57px')
-            $('.home-search').css('right', '57px')
+            $('.nav-bar-wrapper').css('padding-right', '8px')
+            $('.detail-search').css('right', '49px')
+            $('.home-search').css('right', '49px')
         }
     })
 

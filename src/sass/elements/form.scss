@@ -13,5 +13,61 @@ form {
         &:focus {
             box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.25);
         }
-    }    
+    }  
+    
+    .form-check {
+        background: black;
+        font-family: $font-proxima-bold;
+        padding: 7px 12px 7px 30px;
+        color: white;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        margin-right: 5px;
+        width: max-content;
+
+        input[type=checkbox] {
+            display: none;
+        }
+
+        label{
+            position: relative;
+            margin-left: 10px;
+
+            &:before {
+                content: "";
+                position: absolute;
+                display: inline-block;
+                height: 20px;
+                width: 20px;
+                border: 2px solid $white;
+                left: -30px;
+                top: -3px; 
+                cursor: pointer;
+            }
+
+            &:after {
+                content: "";
+                position: absolute;
+                display: inline-block; 
+                height: 6px;
+                width: 9px;
+                border-left: 2px solid;
+                border-bottom: 2px solid;
+                transform: rotate(-45deg);      
+                left: -24px;
+                top: 3px;
+                cursor: pointer;    
+            }
+        }
+
+        /*Hide the checkmark by default*/
+        input[type="checkbox"] + label::after {
+            content: none;
+        }
+
+        /*Unhide the checkmark on the checked state*/
+        input[type="checkbox"]:checked + label::after {
+            content: "";
+        }
+    }
 }
