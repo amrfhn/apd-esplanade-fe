@@ -7,7 +7,6 @@ import 'slick-carousel'
 import 'bootstrap'
 import 'jquery-match-height'
 import './vendors/2-ellipsis.min.js'
-import './vendors/3-svg4everybody.min.js'
 
 /* Main JS 
 // ::::::::::::: */
