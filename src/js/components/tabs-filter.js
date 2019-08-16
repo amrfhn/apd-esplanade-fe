@@ -417,7 +417,7 @@ $(function () {
                     _this.checkScroll();
                     _this.fetchData();
 
-                    if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1) {
+                    if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1 || languages.length >= 1 || levels.length >= 1 || subjects.length >= 1) {
                         $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/FilterWithNotifications.svg')
                     } else {
                         $('.filter-icon').attr('src', '/assets/microsites/offstage/img/icons/Filter_with_text.svg')

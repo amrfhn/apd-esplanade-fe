@@ -2,9 +2,9 @@ $(function () {
     clampText();
 
     //svg4everybody
-    svg4everybody({
-        polyfill: !0
-    })
+    // svg4everybody({
+    //     polyfill: !0
+    // })
 
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
@@ -33,37 +33,40 @@ $(function () {
     //     }, 500);
     // });
 
-    $('.thumbnail-holder-portrait').each(function () {
+    $('.thumbnail-holder').each(function () {
+        var mobileImageType = $(this).attr('data-mobile-image-type');
         var mobileImage = $(this).attr('data-mobile-image');
         var desktopImage = $(this).attr('data-desktop-image');
 
         if (xs.matches) {
-            if (mobileImage !== "") {
+            if (mobileImageType === "landscape") {
                 $(this).css('background-image', 'url("' + mobileImage + '")');
+                $(this).addClass('thumbnail-holder-landscape').removeClass('thumbnail-holder-portrait')
             } else {
                 $(this).css('background-image', 'url("' + desktopImage + '")');
+                $(this).removeClass('thumbnail-holder-landscape').addClass('thumbnail-holder-portrait')
             }
         }
         if (md.matches) {
-            $('.thumbnail-holder-portrait').css('background-image', 'url("' + desktopImage + '")');
+            $('.thumbnail-holder').css('background-image', 'url("' + desktopImage + '")');
         }
     });
 
-    $('.thumbnail-holder-landscape').each(function () {
-        var mobileImage = $(this).attr('data-mobile-image')
-        var desktopImage = $(this).attr('data-desktop-image')
+    // $('.thumbnail-holder').each(function () {
+    //     var mobileImage = $(this).attr('data-mobile-image')
+    //     var desktopImage = $(this).attr('data-desktop-image')
 
-        if (xs.matches) {
-            if (mobileImage !== "") {
-                $(this).css('background-image', 'url("' + mobileImage + '")')
-            } else {
-                $(this).css('background-image', 'url("' + desktopImage + '")')
-            }
-        }
-        if (md.matches) {
-            $('.thumbnail-holder-landscape').css('background-image', 'url("' + desktopImage + '")')
-        }
-    });
+    //     if (xs.matches) {
+    //         if (mobileImage !== "") {
+    //             $(this).css('background-image', 'url("' + mobileImage + '")')
+    //         } else {
+    //             $(this).css('background-image', 'url("' + desktopImage + '")')
+    //         }
+    //     }
+    //     if (md.matches) {
+    //         $('.thumbnail-holder-landscape').css('background-image', 'url("' + desktopImage + '")')
+    //     }
+    // });
 
     // $('.banner-bg').each(function() {
     //     var carouselMobileImage = $(this).attr('data-mobile-image')
