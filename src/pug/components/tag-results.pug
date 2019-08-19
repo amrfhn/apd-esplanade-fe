@@ -2,23 +2,21 @@
 
     .row
         .col-12.col-md-3
-            a.page-url(href="www.google.com")
+            a.page-url(:href="result.Url")
                 //- image size 218x136
-                img.page-thumbnail.ml-md-0(src="https://images.hdqwalls.com/wallpapers/bthumb/hobbs-and-shaw-5k-poster-no.jpg")
+                img.page-thumbnail.ml-md-0(:src='result.Thumbnail' alt="")
 
         .col-12.col-md-8.my-auto
             .detail-content.pt-4.pt-md-0
                 .d-flex.justify-content-start.align-items-center.mb-1
                     .content-type-wrapper.pr-2
-                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase Watch
+                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.ContentType.Value}}
                     .date-wrapper.pl-2
-                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase 17 August 2020
-                a.page-url.hyperlink-custom(href="www.google.com")
+                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.PublishDate}}
+                a.page-url.hyperlink-custom(:href="result.Url")
                     .page-title.my-1
-                        h3.title.text-transform-none.mb-0(v-line-clamp:20="3") Search Title 1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit a numquam temporibus natus perspiciatis saepe similique quos! Vel natus possimus ullam labore atque facere sed vitae ex, quisquam earum deserunt?
+                        h3.title.text-transform-none.mb-0(v-line-clamp:20="3") {{result.Title}}
                     .page-description
-                        p.description.bt-2(v-line-clamp:20="2") Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit a numquam temporibus natus perspiciatis saepe similique quos! Vel natus possimus ullam labore atque facere sed vitae ex, quisquam earum deserunt?
+                        p.description.bt-2(v-line-clamp:20="2") {{result.Description}}
     
-    .row
-        .col-12.pt-3.d-flex.justify-content-center
-            button.btn.btn-outline-primary#loadMore(type="button" data-toggle="collapse" data-target=".more-miles" aria-expanded="false") Load More
+    

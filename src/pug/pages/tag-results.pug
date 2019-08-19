@@ -11,16 +11,17 @@ block content
                 .tagged-in.pt-5.py-2
                     h4.title.text-transform-none TAGGED IN
                 .header-wrapper
-                     h1.font-weight-bolder.title.text-transform-none PARIS opera
+                     h1.font-weight-bolder.title.text-transform-none {{keyword}}
 
         .row
-            .col-12
+            .col-12(v-for="result in results")
                 include ../components/tag-results.pug
-                
-    
+            
+            .col-12.pt-3.d-flex.justify-content-center
+                button.btn.btn-outline-primary#loadMore(type="button" @click="loadMoreResults()") Load More
+        
     .container-fluid#newsletter
         include ../components/newsletter.pug
-
     
 block footer
     .container-fluid

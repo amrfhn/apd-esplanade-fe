@@ -10,7 +10,8 @@ block content
             .col-12
                 .in-between-screen
                     .background
-                include ../components/loading-screen.pug
+                .loading-screen
+                    include ../components/loading-screen/to-offstage.pug
 
             .col-12.col-md-6
                 .position-relative
@@ -52,7 +53,9 @@ block content
                                     p.my-5.text-center.message.d-none opps.. no result found!
                             .col-12.py-2.mx-auto
                                 div#spinner.spinner-load
-                                    img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
+                                    //- img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
+                                    img.spinner-icon(src="/assets/microsites/offstage/img/gif/offstage-reverse.gif")
+                                    p.spinner-message.bt-2 Yeah, it's a slow build-up - but we promise it will be worth the wait!
                                         
         .row
             include ../components/filter-menu.pug

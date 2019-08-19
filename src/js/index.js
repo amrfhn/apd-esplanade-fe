@@ -25,14 +25,6 @@ $(function () {
         }, 500);
     });
 
-    // $('.genre-list').click(function (e) {
-    //     e.preventDefault();
-
-    //     $('html, body').animate({
-    //         scrollTop: $('.tabfil-container').offset().top
-    //     }, 500);
-    // });
-
     $('.thumbnail-holder').each(function () {
         var mobileImageType = $(this).attr('data-mobile-image-type');
         var mobileImage = $(this).attr('data-mobile-image');
