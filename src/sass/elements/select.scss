@@ -24,8 +24,16 @@ select {
   background-color: $primary;
   color: white;
 
+  &:disabled {
+    color: #fff;
+    background-color: $primary;
+    background-image: none;
+    padding-right: 0.75rem;
+  }
+
   &:focus {
     outline: none !important;
     box-shadow: none;
   }
+
 }

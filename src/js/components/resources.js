@@ -22,4 +22,9 @@ $(function () {
         resource.find('.resources-' + this.value).addClass('d-block')
     });
 
+    if(checkSelect.length < 2){
+        $('.resource-select').attr('disabled', 'disabled');
+        
+    }
+
 })
