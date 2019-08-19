@@ -19,9 +19,46 @@
   }
 
   .search-filter {
-    cursor: pointer;
+    position: absolute;
+    display: block;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+    width: 200px;
+    top: 120px;
+    right: -260px;
+    background: white;
+    padding: 15px;
+    z-index: 1;
+    transition: 0.3s ease-out;
+
+    @media (min-width: 768px) {
+      position: relative;
+      display: flex;
+      margin-top: 25px;
+      padding: 0;
+      width: 100%;
+      box-shadow: none;
+      top: 0;
+      left: 0;
+
+      .form-check {
+        background: $primary;
+        color: $white;
+
+        label.form-check-label {
+          &::before {
+            border: 2px solid $white;
+          }
+
+          &::after {
+            border-left: 2px solid $white;
+            border-bottom: 2px solid $white;
+          }
+        }
+      }
+    }
 
     .search-filter-close {
+      cursor: pointer;
       width: 100%;
       height: 35px;
 
@@ -29,59 +66,15 @@
         float: right;
       }
     }
-
-    .search-filter-list {
-      box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
-      width: 200px;
-      padding: 20px;
-      position: absolute;
-      right: -260px;
-      top: 120px;
-      background: white;
-      transition: .3s ease-in;
-    }
-
-    .show-filter-list {
-      right: 0;
-      transition: .3s ease-out;
-    }
-
-    .form-check {
-      padding: 7px 12px 4px 30px;
-    }
   }
 
-  .search-md-filter {
-    display: flex;
-
-    .form-check {
-      background: $primary;
-      color: $white;
-
-      label.form-check-label {
-        &::before {
-          border: 2px solid $white;
-        }
-
-        &::after {
-          border-left: 2px solid $white;
-          border-bottom: 2px solid $white;
-        }
-      }
-    }
+  .show-filter {
+    right: 0;
+    transition: 0.3s ease-out;
   }
 
-  .search-suggestion-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    position: relative;
-    overflow-y: auto;
-    max-height: calc(100vh - 153px);
-
-    li {
-      padding: 12px 0;
-    }
+  .search-filter-btn {
+    cursor: pointer;
   }
 
   .show-result {
@@ -118,7 +111,11 @@
 
   .search-result {
     overflow-y: auto;
-    max-height: calc(100vh - 239px);
+    max-height: calc(100vh - 215px);
+
+    @media (min-width: 768px){
+      max-height: calc(100vh - 239px);
+    }
 
     .result-card {
       padding-bottom: 34px;

@@ -6,6 +6,7 @@ import '@fancyapps/fancybox'
 import 'slick-carousel'
 import 'bootstrap'
 import 'jquery-match-height'
+import 'jquery-ui/ui/widgets/autocomplete';
 import './vendors/2-ellipsis.min.js'
 
 /* Main JS 

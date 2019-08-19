@@ -29,12 +29,20 @@ $(function(){
         var searchFilter = new Vue({
             el: "#search",
             data: data,
+            watch: {
+                searchKey: function (){
+
+                }
+            },
             methods: {
                 showFilter: function (){
-                    $('.search-filter-list').addClass('show-filter-list');
+                    $('.search-filter').addClass('show-filter');
                 },
                 closeFilter: function (){
-                    $('.search-filter-list').removeClass('show-filter-list');
+                    $('.search-filter').removeClass('show-filter');
+                },
+                searchKey: function (event){
+                    console.log('update')
                 }
             },
         })

@@ -8,37 +8,27 @@
                 label(for="validationServer01") Search: 
 
                 .d-flex
-                    input#validationServer01.form-control(type="text" placeholder="Events, Article, Content " value="" required)
+                    input#validationServer01.form-control(v-modal="search" type="text" placeholder="Events, Article, Content " value="" required @change="searchKey($event)")
                     button(type="submit").search-submit.btn.bg-white.px-0
                         img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
 
         .show-result-wrapper.d-flex.justify-content-between.align-items-center
-            p.show-result.m-0.d-none
+            p.show-result.m-0
                 | Showing 
                 span.font-weight-bold 0
                 |  Results  
-            
-            //- MOBILE START: Search Filter List
-            .search-filter.d-md-none
-                .search-filter-btn(@click="showFilter()")
-                    img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon 
 
-                .search-filter-list
-                    .search-filter-close(@click="closeFilter()")
-                            img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
-                    .form-check(v-for="filter in searchFilter") 
-                        input.form-check-input.custom-control-input(type="checkbox" :id="filter.id")
-                        label.form-check-label(:for="filter.id") {{filter.type}}
-            //- MOBILE END: Search Filter List                    
-        
+            .search-filter-btn(@click="showFilter()").d-md-none
+                img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon
 
-        //- DESKTOP START: Search Filter List
-        .search-md-filter.mt-25.d-none
+
+        .search-filter.mt-md-25
+            .search-filter-close(@click="closeFilter()").d-md-none
+                img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
             .form-check(v-for="filter in searchFilter") 
-                input.form-check-input.custom-control-input(type="checkbox" :id="filter.id")
-                label.form-check-label(:for="filter.id") {{filter.type}}
-        //- DESKTOP END: Search Filter List
+                input.form-check-input.custom-control-input(type="checkbox" :id="'filter' + filter.id")
+                label.form-check-label(:for="'filter' + filter.id") {{filter.type}}
 
 //- END: Search BAR & Filter
 
@@ -81,7 +71,7 @@
 
 
 //- START: Search Results
-.col-12.search-result.d-none
+.col-12.search-result
     .result-card
         p.result-genre-date
             | offstage
@@ -111,6 +101,9 @@
             p(v-line-clamp:20="3") Can you talk (jazz) talk?
         a(href="").result-description
             p.bt-2(v-line-clamp:20="2") Jazz in July takes you on an exploration of jazz that reaches deep into its roots to discover new horizons. Throughout the month of July at the Café 21 Living Room (Concourse) and Music Station (Outdoor... 
+    .result-more.mb-md-25.text-center
+        button.btn.btn-outline-primary.mb-25(aria-expanded="false") Load More
+
 
 
     
