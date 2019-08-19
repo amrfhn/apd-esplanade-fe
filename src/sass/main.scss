@@ -13,6 +13,11 @@
 @import "~slick-carousel/slick/slick.scss";
 @import "~slick-carousel/slick/slick-theme.scss";
 
+
+/* Sitecore
+// ::::::::::::: */
+@import 'vendors/sitecore.scss';
+
 /* Elements
 // ::::::::::::: */
 @import 'elements/**/*';
