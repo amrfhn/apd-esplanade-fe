@@ -3,6 +3,9 @@ $(function () {
     
     if ($('#tagResult').length > 0) {
 
+        var xs = window.matchMedia('(max-width: 768px)');
+        var md = window.matchMedia('(min-width: 769px)');
+
         var host = 'http://dev.esplanade.growthopsapp.com/';
 
         var data = {
