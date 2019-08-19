@@ -28,7 +28,15 @@ $(function(){
 
         var searchFilter = new Vue({
             el: "#search",
-            data: data
+            data: data,
+            methods: {
+                showFilter: function (){
+                    $('.search-filter-list').addClass('show-filter-list');
+                },
+                closeFilter: function (){
+                    $('.search-filter-list').removeClass('show-filter-list');
+                }
+            },
         })
     }
 })
