@@ -1,10 +1,7 @@
 .divider-wrapper{
     hr.divider{
-        border: 0;
         color: #979797;
         background-color: #979797;
-        height: 1px;
-        margin-top: 0;
-        margin-bottom: 0
+        border-top: 1px solid #979797;
     }
 }
