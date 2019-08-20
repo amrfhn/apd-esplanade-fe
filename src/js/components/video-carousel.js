@@ -47,7 +47,9 @@ $(function () {
             $(_this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
         });
 
-
-        console.log(slide)
+        var $videoTitle = $(this).find(".video-title");
+        if ($videoTitle.is(':empty')){
+            $videoTitle.removeClass('pt-25')
+        }
     });
 })
