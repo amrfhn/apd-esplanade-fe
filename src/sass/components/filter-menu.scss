@@ -133,7 +133,7 @@
     background-repeat: no-repeat;
 }
 
-.custom-radio .custom-control-input:checked~.custom-control-label::before {
+.custom-radio .custom-control-input:checked~.custom-control-label::before, input[type=radio]:checked {
     background-image: url(/assets/microsites/offstage/img/icons/Radio/radio-on.svg);
     background-color: #fff !important;
     border: 2px solid #000;

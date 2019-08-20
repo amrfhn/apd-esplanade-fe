@@ -337,12 +337,20 @@ $(function () {
                     $('#filter-menu-content-'+ id).removeClass('d-none').addClass('.d-block');
                     this.resetGenre();
                     // reset all side filter checkboxes and radios
-                    $('.filter-menu-content [type="radio"], .filter-menu-content [type="checkbox"]').prop('checked', false);
+                    $('.filter-menu-content [type="checkbox"]').prop('checked', false);
                 },
                 resetGenre: function () {
                     $('.genre-tabs').each(function () {
                         $(this).find('.nav-link').removeClass('active');
                     }).find('#all').addClass('active')
+
+                    // var sortBy = $('.fm-content-item').find('.sort-by')
+                    
+                    // for (let i = 0, sortLength=sortBy.length; i < sortLength; i++){
+                    //     if($(sortBy[i]).find('input').attr('data-key') == 'eta-recent'){
+                    //         $(sortBy[i]).find('input').attr('checked',true)
+                    //     }
+                    // }
 
                     this.filterGenre('all');
                 },
@@ -545,19 +553,17 @@ $(function () {
                 }
             });
         }
-        var $checkCategory = $('#menus').find('.list-act');
+        // var $checkCategory = $('#menus').find('.list-act');
 
-        $checkCategory.each(function(){
-            var radioBtn = $('.custom-radio').find('#mostRecent')
-            if ($(this).children('#explorethearts') && $(this).children().hasClass('active')){
-                radioBtn.click();
-            }
-            $(this).children('#explorethearts').on('click', function () {
-                radioBtn.click()
-            })
-        })
-
-        
+        // $checkCategory.each(function(){
+        //     var radioBtn = $('.custom-radio').find('#mostRecent')
+        //     if ($(this).children('#explorethearts') && $(this).children().hasClass('active')){
+        //         radioBtn.click();
+        //     }
+        //     $(this).children('#explorethearts').on('click', function () {
+        //         radioBtn.click()
+        //     })
+        // })
 
         $('.close-btn-x').on('click', function () {
             $('.mm-wrapper').removeClass('active');
