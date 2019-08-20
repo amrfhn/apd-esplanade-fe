@@ -37,7 +37,7 @@ $(function () {
             "browse": "",
             "contentType": "",
             "timeTaken": "",
-            "sort": "",
+            "sort": "latest",
             "languages": "",
             "levels": "",
             "subjects": ""
@@ -56,13 +56,10 @@ $(function () {
             mounted: function () {
                 var _this = this;
                 this.checkMetatUrl();
-                // this.fetchData();
                 this.clamptext();
                 console.log("called api");
                 this.checkScroll();
                 this.checkActiveGenre();
-                // this.checkMenuGenre();
-                // this.setKeyMapping();
 
                 // Initialise data
                 this.content = $('main').attr('data-content');
@@ -375,7 +372,7 @@ $(function () {
                     })
                     params.timeTaken = timeTaken.join(',');
 
-                    var $sortValue = $('[name="sort"]:checked').length > 0 ? $('[name="sort"]:checked').val() : "";
+                    var $sortValue = $('[name="sort-eta"]:checked').length > 0 ? $('[name="sort-eta"]:checked').val() : "" || $('[name="sort-kta"]:checked').length > 0 ? $('[name="sort-kta"]:checked').val() : "";
 
                     params.sort = $sortValue;
 
@@ -528,6 +525,9 @@ $(function () {
                             $('body').removeClass('no-scroll'); 
                         })
 
+
+                        
+
                     })
                 },
 
@@ -545,6 +545,20 @@ $(function () {
                 }
             });
         }
+        var $checkCategory = $('#menus').find('.list-act');
+
+        $checkCategory.each(function(){
+            var radioBtn = $('.custom-radio').find('#mostRecent')
+            if ($(this).children('#explorethearts') && $(this).children().hasClass('active')){
+                radioBtn.click();
+            }
+            $(this).children('#explorethearts').on('click', function () {
+                radioBtn.click()
+            })
+        })
+
+        
+
         $('.close-btn-x').on('click', function () {
             $('.mm-wrapper').removeClass('active');
             $('.in-between-screen').removeClass('active');
