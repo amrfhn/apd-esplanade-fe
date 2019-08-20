@@ -8,12 +8,12 @@
                 label(for="validationServer01") Search: 
 
                 .d-flex
-                    input#validationServer01.form-control(v-modal="search" type="text" placeholder="Events, Article, Content " value="" required @change="searchKey($event)")
+                    input#search-input.form-control(v-model="search" type="text" placeholder="Events, Article, Content")
                     button(type="submit").search-submit.btn.bg-white.px-0
                         img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
 
-        .show-result-wrapper.d-flex.justify-content-between.align-items-center
+        .show-result-wrapper.d-none.justify-content-between.align-items-center
             p.show-result.m-0
                 | Showing 
                 span.font-weight-bold 0
@@ -23,7 +23,7 @@
                 img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon
 
 
-        .search-filter.mt-md-25
+        .search-filter.mt-md-25.d-none
             .search-filter-close(@click="closeFilter()").d-md-none
                 img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
             .form-check(v-for="filter in searchFilter") 
@@ -34,11 +34,12 @@
 
 
 //- START: Search Suggestion
-.col-12.search-suggestion.d-none
+.col-12.search-suggestion
         p.font-12 Search Suggestion:
         
         ul.search-suggestion-list
-            li(v-for="suggestion in searchSuggestion") {{suggestion}}
+            li(v-for="suggestion in filteredSuggestion") 
+                a(href="") {{suggestion.name}}
 //- END: Search Suggestion
 
 
@@ -71,7 +72,7 @@
 
 
 //- START: Search Results
-.col-12.search-result
+.col-12.search-result.d-none
     .result-card
         p.result-genre-date
             | offstage

@@ -8,18 +8,10 @@ $(function () {
         })
 
         var data = {
-            searchSuggestion: [
-                'Jazz',
-                'Jazz 1',
-                'Jazz 2',
-                'Jazz 3',
-                'Jazz 4',
-                'Jazz 5',
-                'Jazz 6',
-                'Jazz 7'
-            ],
+            search: "",
+            searchSuggestion: [],
             searchFilter: [
-                { id: '1', type: 'Genre' },
+                { id: '1', type: 'Genre'  },
                 { id: '2', type: 'Music' },
                 { id: '3', type: 'Visual Art' },
                 { id: '4', type: 'Family' }
@@ -30,34 +22,37 @@ $(function () {
             el: "#search",
             data: data,
             mounted: function () {
+                this.fetchSuggestKey();
+                $('#search-input').val().toLowerCase();
             },
-            created: function () {
-                window.addEventListener('scroll', this.onScroll);
+            computed: {
+                filteredSuggestion: function() {
+                    return this.searchSuggestion.filter((suggestion) => {
+                        return suggestion.name.toLowerCase().match(this.search)
+                    })
+                },                
             },
             methods: {
+                fetchSuggestKey: function(){
+                    var _this =  this
+                    var requestSuggestKey = $.ajax({
+                        type: "GET",
+                        url: "http://www.mocky.io/v2/5d5b9b423200002900628964",
+                        dataType: "json",
+                        data: data 
+                    }).done(function(data){
+                        console.log('key', data)
+
+                        _this.searchSuggestion = data
+                    })
+                },
+
                 showFilter: function () {
                     $('.search-filter').addClass('show-filter');
                 },
                 closeFilter: function () {
                     $('.search-filter').removeClass('show-filter');
                 },
-                // searchKey: function (event) {
-                //     console.log('update')
-                // },
-                // onScroll: function () {
-                //     var position = $('window').scrollTop();
-
-                //     // should start at 0
-                //     $(window).scroll(function () {
-                //         var scroll = $(window).scrollTop();
-                //         if (scroll > position) {
-                //             console.log('scrollDown');
-                //         } else {
-                //             console.log('scrollUp');
-                //         }
-                //         position = scroll;
-                //     });
-                // }
             }
         })
     }

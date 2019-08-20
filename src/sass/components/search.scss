@@ -73,6 +73,27 @@
     transition: 0.3s ease-out;
   }
 
+  .search-suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    overflow-y: auto;
+    max-height: calc(100vh - 153px);
+
+    @media(min-width: 768px){
+      max-height: calc(100vh - 196px);
+    }
+
+    li {
+      padding: 12px 0;
+      
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
   .search-filter-btn {
     cursor: pointer;
   }
@@ -113,7 +134,7 @@
     overflow-y: auto;
     max-height: calc(100vh - 215px);
 
-    @media (min-width: 768px){
+    @media (min-width: 768px) {
       max-height: calc(100vh - 239px);
     }
 
