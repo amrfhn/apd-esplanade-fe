@@ -9,6 +9,12 @@ block content
             .col-12
                 .in-between-screen
                     .background
+                //- .loading-screen.d-none#animationToOffStage
+                //-     include ../components/loading-screen/to-offstage.pug
+                .loading-screen.d-none#animationToOnstage
+                    include ../components/loading-screen/to-onstage.pug
+                .loading-screen#offstageLoading
+                    include ../components/loading-screen/loading-screen.pug
         //- .row
         //-     //- .col-12
         //-         +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')

@@ -16,7 +16,6 @@ $(function () {
         }
     }
 
-
     $('#author-name').click(function (e) {
         e.preventDefault();
 
@@ -129,6 +128,27 @@ $(function () {
         // $('.genre-list').find('a#' + dataKey).click();
         $('.genre-tabs .nav').find('#' + dataKey).click();
 
+    })
+
+
+    //show animation when click - to on stage
+    let btnOnStage = $('#go-onstage');
+    let toOnStageScreen = $('#animationToOnstage');
+    
+    let redirectTime = '3000';
+    let redirectUrl = ''
+    
+    if (btnOnStage.length > 0){
+        redirectUrl = btnOnStage.attr('data-key');
+    }
+
+    btnOnStage.on('click', function(e){
+        e.preventDefault();
+        toOnStageScreen.removeClass('d-none').addClass('d-block')
+        // toOnStageScreen.addClass('active')
+        setTimeout(function () {
+            location.href=redirectUrl
+        }, redirectTime);
     })
 
     // solution: set flag, not to display back button if user browse details page from external
