@@ -1,8 +1,14 @@
+import VueLineClamp from 'vue-line-clamp';
+
 $(function () {
     'use strict'
     
     if ($('#tagResult').length > 0) {
-
+        
+        Vue.use(VueLineClamp, {
+            importCss: true
+        })
+        
         var xs = window.matchMedia('(max-width: 768px)');
         var md = window.matchMedia('(min-width: 769px)');
 

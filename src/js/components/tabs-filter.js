@@ -124,7 +124,7 @@ $(function () {
                 }
 
                 //hide loading screen
-                $('.loading-screen').fadeOut(1000);
+                $('#offstageLoading').fadeOut(1000);
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 $('.card-body').matchHeight();
@@ -436,7 +436,7 @@ $(function () {
 
                     //show loading screen
                     $('body').addClass('overflow-hidden');
-                    $('.loading-screen').fadeIn(1000);
+                    $('#offstageLoading').fadeIn(1000);
 
                     var request = $.ajax({
                         type: "GET",
