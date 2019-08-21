@@ -15,6 +15,7 @@ import '../sass/main.scss'
 
 /* Components
 // ::::::::::::: */
+import './components/form.js'
 import './components/search.js'
 import './components/image-carousel.js' 
 import './components/image-gallery.js'
