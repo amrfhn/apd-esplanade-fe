@@ -132,10 +132,9 @@ $(function () {
 
 
     //show animation when click - to on stage
-    let btnOnStage = $('#go-onstage');
-    let toOnStageScreen = $('#animationToOnstage');
+    let btnOnStage = $('#go-onstage')
     
-    let redirectTime = '3000';
+    let redirectTime = '3000'
     let redirectUrl = ''
     
     if (btnOnStage.length > 0){
@@ -143,6 +142,7 @@ $(function () {
     }
 
     btnOnStage.on('click', function(e){
+        let toOnStageScreen = $('#animationToOnstage')
         e.preventDefault();
         toOnStageScreen.removeClass('d-none').addClass('d-block')
         // toOnStageScreen.addClass('active')
