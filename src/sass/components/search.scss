@@ -16,6 +16,27 @@
   .search-submit {
     position: absolute;
     right: 0;
+    top: 30px;
+  }
+
+  .was-validated {
+    .form-control:invalid, .form-control.is-invalid {
+      background-image: none;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2px rgba(220, 53, 69, 0.25);
+      }
+    }
+
+    .form-control:valid, .form-control.is-valid {
+      background-image: none;
+      border-color: $primary;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0px 4px 3px -3px rgba(0, 0, 0, 0.75);
+      }
+    }
   }
 
   .show-result-wrapper {
