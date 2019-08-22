@@ -21,7 +21,6 @@ $(function () {
         var $lastItem = $(this).children().last().children().last()
 
         if($lastItem.find('.box-left')){
-            console.log($(this))
             $('.box-left::before').css('content', 'none')
         } else {
 

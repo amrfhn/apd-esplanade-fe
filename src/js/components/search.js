@@ -23,7 +23,7 @@ $(function () {
             data: data,
             mounted: function () {
                 this.fetchSuggestKey();
-                $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result").hide();
+                $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result").hide();
             },
             computed: {},
             methods: {
@@ -86,13 +86,14 @@ $(function () {
                     $('.show-result-wrapper, .search-filter, .search-result').show();
                 },
                 resetSearch: function () {
-
+                    $('.search-wrapper').reset();
                 },
                 showFilter: function () {
                     $('.search-filter').addClass('show-filter');
                 },
                 closeFilter: function () {
                     $('.search-filter').removeClass('show-filter');
+                    this.resetSearch();
                 },
             }
         })
