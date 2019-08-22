@@ -18,6 +18,10 @@
     right: 0;
   }
 
+  .show-result-wrapper {
+    display: flex;
+  }
+
   .search-filter {
     position: absolute;
     display: block;
@@ -81,15 +85,33 @@
     overflow-y: auto;
     max-height: calc(100vh - 153px);
 
-    @media(min-width: 768px){
+    @media (min-width: 768px) {
       max-height: calc(100vh - 196px);
     }
 
     li {
-      padding: 12px 0;
-      
+      padding-bottom: 15px;
+      color: $primary;
+      cursor: pointer;
+      transition: .2s ease;
+
+      &:hover {
+        color: #00A3C9;
+        transition: .2s ease;
+      }
+
       a {
+        color: $primary;
         text-decoration: none;
+
+        &:hover {
+        }
+      }
+
+      em {
+        pointer-events: none;
+        font-style: normal;
+        font-family: $font-proxima-black;
       }
     }
   }
@@ -131,6 +153,7 @@
   }
 
   .search-result {
+    display: none;
     overflow-y: auto;
     max-height: calc(100vh - 215px);
 

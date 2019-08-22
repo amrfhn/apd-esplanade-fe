@@ -1,19 +1,37 @@
-//- START: Search BAR & Filter
-.col-12.pb-25
+//- START: Search BAR
+.col-12.pb-20
     #closeSearch
-        img(src="./assets/microsites/offstage/img/icons/Close.svg").close
-    form.search-wrapper
-        .form-row.mb-25.align-items-end
+        img(src="./assets/microsites/offstage/img/icons/Close.svg" ).close
+    form.search-wrapper.needs-validation(autocomplete="off" @submit="submittedSearch" novalidate)
+        .form-row.pb-20.align-items-end
             .col-12.pr-0
                 label(for="validationServer01") Search: 
 
                 .d-flex
-                    input#search-input.form-control(v-model="search" type="text" placeholder="Events, Article, Content")
+                    input#search-input.form-control(v-model="search" type="text" placeholder="Ask us all about arts in SG" @keyup="filteredSuggestion()" required)
                     button(type="submit").search-submit.btn.bg-white.px-0
                         img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
+                .invalid-feedback Insert Search
+                
+                        
+//- END: Search BAR
 
-        .show-result-wrapper.d-none.justify-content-between.align-items-center
+
+//- START: Search Suggestion
+.col-12.search-suggestion
+        p.font-12 Search Suggestion:
+        
+        ul.search-suggestion-list.bt-2
+            li(v-for="suggestion in searchSuggestion" @click="selectedSuggestion(event)") 
+                span {{suggestion.name}}
+//- END: Search Suggestion
+
+
+//- START: Search Filter
+.col-12
+    form
+        .show-result-wrapper.justify-content-between.align-items-center
             p.show-result.m-0
                 | Showing 
                 span.font-weight-bold 0
@@ -23,24 +41,13 @@
                 img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon
 
 
-        .search-filter.mt-md-25.d-none
+        .search-filter.mt-md-25
             .search-filter-close(@click="closeFilter()").d-md-none
                 img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
             .form-check(v-for="filter in searchFilter") 
                 input.form-check-input.custom-control-input(type="checkbox" :id="'filter' + filter.id")
                 label.form-check-label(:for="'filter' + filter.id") {{filter.type}}
-
-//- END: Search BAR & Filter
-
-
-//- START: Search Suggestion
-.col-12.search-suggestion
-        p.font-12 Search Suggestion:
-        
-        ul.search-suggestion-list
-            li(v-for="suggestion in filteredSuggestion") 
-                a(href="") {{suggestion.name}}
-//- END: Search Suggestion
+//- END: Search Filter
 
 
 //- START: No Result
@@ -72,7 +79,7 @@
 
 
 //- START: Search Results
-.col-12.search-result.d-none
+.col-12.search-result.pt-25
     .result-card
         p.result-genre-date
             | offstage
@@ -104,8 +111,4 @@
             p.bt-2(v-line-clamp:20="2") Jazz in July takes you on an exploration of jazz that reaches deep into its roots to discover new horizons. Throughout the month of July at the Café 21 Living Room (Concourse) and Music Station (Outdoor... 
     .result-more.mb-md-25.text-center
         button.btn.btn-outline-primary.mb-25(aria-expanded="false") Load More
-
-
-
-    
 //- END: Search Results
