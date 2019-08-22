@@ -94,10 +94,13 @@ $(function () {
                 })
 
                 if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1){
-                    var categoryValue = url.searchParams.get('category') || '';
+                    var categoryValue =  url.searchParams.get('category') || 'explorethearts';
                     var genreValue = url.searchParams.get('genre') || 'all';
+                    
                     $('#'+ categoryValue).click();
                     _this.filterCategory(categoryValue);
+
+
                     $('#genre-tabs-'+ categoryValue +' .nav').find('#'+genreValue).click();
                     _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
@@ -204,7 +207,6 @@ $(function () {
                     })
 
                 },
-
                 checkScroll: function (e) {
                     window.onscroll = () => {
                         var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
@@ -320,11 +322,13 @@ $(function () {
                     this.currPage = 1;
                     this.loadPage = 1;
 
+                    $('.genre-list').find('.nav-link').removeClass('active');
+                    $('.genre-list').find('#'+e).addClass('active');
+
                     document.getElementById('spinner').style.display = "none";
 
                     this.checkScroll();
                     this.fetchData();
-
                 },
                 filterCategory: function (id) {
                     console.log('click category')
@@ -343,14 +347,6 @@ $(function () {
                     $('.genre-tabs').each(function () {
                         $(this).find('.nav-link').removeClass('active');
                     }).find('#all').addClass('active')
-
-                    // var sortBy = $('.fm-content-item').find('.sort-by')
-                    
-                    // for (let i = 0, sortLength=sortBy.length; i < sortLength; i++){
-                    //     if($(sortBy[i]).find('input').attr('data-key') == 'eta-recent'){
-                    //         $(sortBy[i]).find('input').attr('checked',true)
-                    //     }
-                    // }
 
                     this.filterGenre('all');
                 },
@@ -462,6 +458,23 @@ $(function () {
                         }
                         //end
 
+                        //
+
+                        var iconHolder = document.getElementsByClassName('icon-holder')
+                        console.log(iconHolder)
+
+                        // for(let j = 0, lengthIconHolder=iconHolder.length; j < lengthIconHolder; j++);
+                        // if ($(iconHolder[i]).children().img[src== '']){
+                        //     console.log($(iconHolder[i]))
+                        // }
+                        // iconHolder.each(function (){
+                        //     if($(this).children().img[src=='']){
+                        //         $(this).removeClass('d-flex').addClass('d-block')
+                        //     }
+                        // })
+
+                        
+
                         jQuery.fn.hasScrollBar = function () {
                             return this.get(0).scrollWidth > this.innerWidth();
                         }
@@ -470,7 +483,6 @@ $(function () {
                             if (!$('.wrap').hasScrollBar()) {
                                 $('#goPrev').css('display', 'none');
                                 $('#goNext').css('display', 'none');
-                                console.log($('.wrap').get(0).scrollWidth, $('.wrap').innerWidth())
                             }
                         }
 
@@ -532,9 +544,6 @@ $(function () {
                             $('.in-between-screen').removeClass('active').css({ 'background-color' : '', 'opacity' : '' });
                             $('body').removeClass('no-scroll'); 
                         })
-
-
-                        
 
                     })
                 },
