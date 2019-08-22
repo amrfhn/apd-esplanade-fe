@@ -297,6 +297,97 @@ $(function () {
 
                     searchParams.delete('genre');
                     searchParams.append('genre', 'all')
+
+                    $('#goBack-'+id).on('click', function () {
+                        $('.wrapper').animate({
+                            scrollLeft: '-=100'
+                        }, 200);
+                        $('#goAfter-'+id).addClass('d-block');
+                        $('#goAfter-'+id).removeClass('d-none');
+                    });
+            
+                    $('#goAfter-'+id).on('click', function () {
+                        $('.wrapper').animate({
+                            scrollLeft: '+=90'
+                        }, 200);
+                        var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth - 100;
+                        if ($('.wrapper').scrollLeft() > maxScrollLeft) {
+                            console.log("tamat")
+                            $('#goAfter-'+id).addClass('d-none');
+                            $('#goAfter-'+id).removeClass('d-block');
+                        }
+                        if ($('.wrapper').scrollLeft() < maxScrollLeft) {
+                            $('#goAfter-'+id).addClass('d-block');
+                            $('#goAfter-'+id).removeClass('d-none');
+                        }
+                    });
+            
+                    //genre on click scroller
+                    var scrollLeftPrev = 0;
+                    var catScrollLeftPrev = 0;
+            
+                    jQuery.fn.hasHScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    }
+            
+                    if ($('.wrapper').length >= 1) {
+                        if (!$('.wrapper').hasHScrollBar()) {
+                            $('#goBack-'+id).css('display', 'none');
+                            $('#goAfter-'+id).css('display', 'none');
+                        }
+                    }
+            
+                    $('.wrapper').on('scroll', function (e) {
+                        var genreScroll = $('.wrapper').scrollLeft();
+                        var $goBack = $('#goBack-'+id)
+            
+                        if ($(this).scrollLeft() == 0) {
+                            $goBack.toggleClass('show-arrow');
+                        }
+                        if ($(this).scrollLeft() > 0) {
+                            $goBack.addClass('show-arrow');
+                        }
+            
+                        var $elem = $('.wrapper');
+                        var newScrollLeft = $elem.scrollLeft(),
+                            width = $elem.width(),
+                            scrollWidth = $elem.get(0).scrollWidth
+                        var offset = 8;
+            
+                        if (scrollWidth - newScrollLeft - width == offset) {
+                            $('#goBack-'+id).addClass('show-arrow');
+                        }
+                        if (newScrollLeft === 0) {
+                            $('#goAfter-'+id).addClass('show-arrow');
+                        }
+            
+                        scrollLeftPrev = newScrollLeft;
+                    })
+            
+                    // $('.wrap').on('scroll', function (event) {
+            
+                    //     var $category = $('.wrap');
+                    //     var catScrollLeft = $category.scrollLeft(),
+                    //         catWidth = $category.width(),
+                    //         catScrollWidth = $category.get(0).catScrollWidth
+                    //     var catOffset = 8;
+            
+                    //     if ($(this).scrollLeft() === 0) {
+                    //         $('#goPrev'+id).toggleClass('arrow');
+                    //     }
+                    //     if ($(this).scrollLeft() >= 1) {
+                    //         $('#goPrev'+id).addClass('arrow');
+                    //     }
+            
+                    //     console.log($(this).scrollLeft())
+                    //     if (catScrollWidth - catScrollLeft - catWidth == catOffset) {
+                    //         $('#goPrev'+id).addClass('arrow');
+                    //     }
+            
+                    //     catScrollLeftPrev = catScrollLeft;
+            
+                    // });
+
                 },
                 resetGenre: function () {
                     $('.genre-tabs').each(function () {
@@ -606,120 +697,32 @@ $(function () {
                     }
             
                     //category on click scroller arrow and initialize outer width func
-                    $('#goPrev').on('click', function () {
-                        $('.wrap').animate({
-                            scrollLeft: '-=100'
-                        }, 200);
-                        $('#goNext').addClass('d-block');
-                        $('#goNext').removeClass('d-none');
-                    });
+                    // $('#goPrev').on('click', function () {
+                    //     $('.wrap').animate({
+                    //         scrollLeft: '-=100'
+                    //     }, 200);
+                    //     $('#goNext').addClass('d-block');
+                    //     $('#goNext').removeClass('d-none');
+                    // });
             
-                    $('#goNext').on('click', function () {
-                        $('.wrap').animate({
-                            scrollLeft: '+=90'
-                        }, 200);
-                        var maxScrollLeft = $('.wrap').get(0).scrollWidth - $('.wrap').get(0).clientWidth - 100;
-                        // let wrapperWidth = $('.wrapper').width();
-                        if ($('.wrap').scrollLeft() > maxScrollLeft) {
-                            console.log("tamat")
-                            $('#goNext').addClass('d-none');
-                            $('#goNext').removeClass('d-block');
-                        }
-                        if ($('.wrap').scrollLeft() < maxScrollLeft) {
-                            $('#goNext').addClass('d-block');
-                            $('#goNext').removeClass('d-none');
-                        }
-                    });
+                    // $('#goNext').on('click', function () {
+                    //     $('.wrap').animate({
+                    //         scrollLeft: '+=90'
+                    //     }, 200);
+                    //     var maxScrollLeft = $('.wrap').get(0).scrollWidth - $('.wrap').get(0).clientWidth - 100;
+                    //     // let wrapperWidth = $('.wrapper').width();
+                    //     if ($('.wrap').scrollLeft() > maxScrollLeft) {
+                    //         console.log("tamat")
+                    //         $('#goNext').addClass('d-none');
+                    //         $('#goNext').removeClass('d-block');
+                    //     }
+                    //     if ($('.wrap').scrollLeft() < maxScrollLeft) {
+                    //         $('#goNext').addClass('d-block');
+                    //         $('#goNext').removeClass('d-none');
+                    //     }
+                    // });
             
-                    $('#goBack').on('click', function () {
-                        $('.wrapper').animate({
-                            scrollLeft: '-=100'
-                        }, 200);
-                        $('#goAfter').addClass('d-block');
-                        $('#goAfter').removeClass('d-none');
-                    });
-            
-                    $('#goAfter').on('click', function () {
-                        $('.wrapper').animate({
-                            scrollLeft: '+=90'
-                        }, 200);
-                        var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth - 100;
-                        if ($('.wrapper').scrollLeft() > maxScrollLeft) {
-                            console.log("tamat")
-                            $('#goAfter').addClass('d-none');
-                            $('#goAfter').removeClass('d-block');
-                        }
-                        if ($('.wrapper').scrollLeft() < maxScrollLeft) {
-                            $('#goAfter').addClass('d-block');
-                            $('#goAfter').removeClass('d-none');
-                        }
-                    });
-            
-                    //genre on click scroller
-                    var scrollLeftPrev = 0;
-                    var catScrollLeftPrev = 0;
-            
-                    jQuery.fn.hasHScrollBar = function () {
-                        return this.get(0).scrollWidth > this.innerWidth();
-                    }
-            
-                    if ($('.wrapper').length >= 1) {
-                        if (!$('.wrapper').hasHScrollBar()) {
-                            $('#goBack').css('display', 'none');
-                            $('#goAfter').css('display', 'none');
-                        }
-                    }
-            
-                    $('.wrapper').on('scroll', function (e) {
-                        var genreScroll = $('.wrapper').scrollLeft();
-                        var $goBack = $('#goBack')
-            
-                        if ($(this).scrollLeft() == 0) {
-                            $goBack.toggleClass('show-arrow');
-                        }
-                        if ($(this).scrollLeft() > 0) {
-                            $goBack.addClass('show-arrow');
-                        }
-            
-                        var $elem = $('.wrapper');
-                        var newScrollLeft = $elem.scrollLeft(),
-                            width = $elem.width(),
-                            scrollWidth = $elem.get(0).scrollWidth
-                        var offset = 8;
-            
-                        if (scrollWidth - newScrollLeft - width == offset) {
-                            $('#goBack').addClass('show-arrow');
-                        }
-                        if (newScrollLeft === 0) {
-                            $('#goAfter').addClass('show-arrow');
-                        }
-            
-                        scrollLeftPrev = newScrollLeft;
-                    })
-            
-                    $('.wrap').on('scroll', function (event) {
-            
-                        var $category = $('.wrap');
-                        var catScrollLeft = $category.scrollLeft(),
-                            catWidth = $category.width(),
-                            catScrollWidth = $category.get(0).catScrollWidth
-                        var catOffset = 8;
-            
-                        if ($(this).scrollLeft() === 0) {
-                            $('#goPrev').toggleClass('arrow');
-                        }
-                        if ($(this).scrollLeft() >= 1) {
-                            $('#goPrev').addClass('arrow');
-                        }
-            
-                        console.log($(this).scrollLeft())
-                        if (catScrollWidth - catScrollLeft - catWidth == catOffset) {
-                            $('#goPrev').addClass('arrow');
-                        }
-            
-                        catScrollLeftPrev = catScrollLeft;
-            
-                    });
+                   
                 },
             }
         })
