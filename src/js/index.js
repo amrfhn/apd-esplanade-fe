@@ -10,12 +10,14 @@ $(function () {
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
+    //Homepage: Hide Scrollbar
     if (md.matches) {
         if ($("#tabs-filter")[0]) {
             $('body').addClass('hidden-scrollbar')
         }
     }
 
+    //Author Componenet: Anchoring 
     $('#author-name').click(function (e) {
         e.preventDefault();
 
@@ -135,38 +137,38 @@ $(function () {
     let btnOnStage = $('#go-onstage')
     let redirectTime = '3000'
     let redirectUrl = ''
-    
-    if (btnOnStage.length > 0){
+
+    if (btnOnStage.length > 0) {
         redirectUrl = btnOnStage.attr('data-key');
     }
 
-    btnOnStage.on('click', function(e){
+    btnOnStage.on('click', function (e) {
         let toOnStageScreen = $('#animationToOnstage')
         e.preventDefault();
         toOnStageScreen.removeClass('d-none').addClass('d-block')
         // toOnStageScreen.addClass('active')
         setTimeout(function () {
-            location.href=redirectUrl
+            location.href = redirectUrl
         }, redirectTime);
     })
 
     //show animation when come from onstage
     let referrer = document.referrer;
 
-    if (referrer.match(/^https?:\/\/([^\/]+\.)?esplanade\.com(\/|$)/i)){
+    if (referrer.match(/^https?:\/\/([^\/]+\.)?esplanade\.com(\/|$)/i)) {
         console.log('dari esplanade.com')
         let fromOnStageScreen = $('#animationToOffStage')
         fromOnStageScreen.removeClass('d-none').addClass('d-block')
-        setTimeout(function(){
+        setTimeout(function () {
             fromOnStageScreen.removeClass('d-block').addClass('d-none')
         }, redirectTime)
     }
 
     // solution: set flag, not to display back button if user browse details page from external
-    if(sessionStorage.getItem('pageBrowsed') && document.referrer !== ""){
+    if (sessionStorage.getItem('pageBrowsed') && document.referrer !== "") {
         var backBtn = $('.nav.back');
         $(backBtn).addClass('d-md-block');
-        $(backBtn).on('click', function(e){
+        $(backBtn).on('click', function (e) {
             e.preventDefault();
             window.location.href = document.referrer;
         });
