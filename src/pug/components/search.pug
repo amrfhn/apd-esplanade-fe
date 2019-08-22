@@ -13,8 +13,6 @@
                     img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
                 .invalid-feedback Insert Search
-                
-                        
 //- END: Search BAR
 
 
@@ -51,7 +49,7 @@
 
 
 //- START: No Result
-.col-12.no-result.d-none 
+.col-12.no-result
     p.result-header.pb-25 Oops! We are unable to provide any results…
     p.font-24.pb-25 
         | Did you mean   
@@ -81,30 +79,30 @@
 //- START: Search Results
 .col-12.search-result.pt-25
     .result-card
-        p.result-genre-date
-            | offstage
-            span.px-2 &#x7c;
-            | 4 jul 2019
+        p.result-label
+            span.pr-3 Explore the Art
+            span.pr-3 Watch 
+            span.pr-3 4 jul 2019
         a(href="").result-title
             p(v-line-clamp:20="3") Jazz in July
         a(href="").result-description
             p.bt-2(v-line-clamp:20="2") Soulful improvisations, swinging rhythms and infectious grooves as we reach deep into the roots of jazz and explore new horizons. Soulful improvisations, swinging rhythms and infectious grooves as we reach deep into the roots of jazz and explore new horizons.
     
     .result-card
-        p.result-genre-date
-            | restaurant & shops
-            span.px-2 &#x7c;
-            | 4 jul 2019
+        p.result-label
+            span.pr-3 Know the artist
+            span.pr-3 Music 
+            span.pr-3 4 jul 2019
         a(href="").result-title
             p(v-line-clamp:20="3") Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aliquam ipsa perferendis ratione totam error eaque itaque sapiente quo. Minus vero expedita tempora error quas illo animi sapiente atque adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora adipisci quis facere cumque eos corrupti error laudantium, autem libero voluptas, quisquam nihil odit officiis debitis quae? Delectus, pariatur molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquam quis dolor! Reprehenderit doloremque dolor a quidem, cumque sint quibusdam culpa inventore debitis error accusantium id itaque neque unde sapiente.
         a(href="").result-description
             p.bt-2(v-line-clamp:20="2") ...a lot of these words came from the jazz world? That’s right, jazz has always been that hip, creative kid on the block, whether it’s making up infectious rhythms and beats on the spot, or words that. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus reiciendis odio totam non consectetur, voluptate cumque voluptatum fuga! Illo non neque consectetur praesentium impedit blanditiis incidunt quo consequatur placeat voluptatibus.
 
     .result-card
-        p.result-genre-date
-            | Downloads 
-            span.px-2 &#x7c; 
-            | 4 jul 2019
+        p.result-label
+            span.pr-3 Explore the Art
+            span.pr-3 Downloads 
+            span.pr-3 4 jul 2019
         a(href="").result-title
             p(v-line-clamp:20="3") Can you talk (jazz) talk?
         a(href="").result-description

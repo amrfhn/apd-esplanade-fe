@@ -185,10 +185,30 @@
     .result-card {
       padding-bottom: 34px;
 
-      .result-genre-date {
+      .result-label {
         font-family: $font-proxima-bold;
         font-size: 12px;
         text-transform: uppercase;
+
+        span {
+          position: relative;
+
+          &:first-child {
+            &:before {
+              background: transparent;
+            }
+          }
+
+          &::before {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: $primary;
+            left: -9px;
+            top: 2px;
+          }
+        }
       }
 
       .result-title {

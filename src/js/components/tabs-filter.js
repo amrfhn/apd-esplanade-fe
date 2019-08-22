@@ -91,13 +91,13 @@ $(function () {
                 checkMetatUrl: function () {
 
                     let metaUrl = $('meta');
-                    
-                    for (let i = 0, lengthMeta=metaUrl.length; i < lengthMeta; i++){
-                        if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1){
+
+                    for (let i = 0, lengthMeta = metaUrl.length; i < lengthMeta; i++) {
+                        if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1) {
                             // console.log()
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
-                            console.log('current Host from meta:',host)
+                            console.log('current Host from meta:', host)
                         } else {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
@@ -131,7 +131,7 @@ $(function () {
                         var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
 
                         for (var i = 0, len = megaMenuItem.length; i < len; i++) {
-                            if($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre){
+                            if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre) {
                                 $(megaMenuItem[i]).parent().addClass('active');
                             }
                         }
@@ -145,7 +145,7 @@ $(function () {
                         let categoryId = $(this).attr('id');
                         currUrlParams.category = categoryId;
 
-                        if(currUrl.indexOf('category') < -1){
+                        if (currUrl.indexOf('category') < -1) {
                             searchParams.append('category', currUrlParams.category);
                             searchParams.sort();
                             url.search = searchParams.toString();
@@ -165,7 +165,7 @@ $(function () {
                 checkScroll: function (e) {
                     window.onscroll = () => {
                         var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
-                        if ($(".tab-content").length>0 && bottomOfWindow && !this.fetchingData) {
+                        if ($(".tab-content").length > 0 && bottomOfWindow && !this.fetchingData) {
                             document.getElementById('spinner').style.display = "block";
                             this.updateData();
                         }
@@ -276,7 +276,7 @@ $(function () {
                     this.loadPage = 1;
 
                     $('.genre-list').find('.nav-link').removeClass('active');
-                    $('.genre-list').find('#'+e).addClass('active');
+                    $('.genre-list').find('#' + e).addClass('active');
 
                     document.getElementById('spinner').style.display = "none";
 
@@ -287,10 +287,10 @@ $(function () {
                     this.category = id;
                     // change genre filter
                     $('.genre-tabs').addClass('d-none');
-                    $('#genre-tabs-'+ id).removeClass('d-none').addClass('.d-block');
+                    $('#genre-tabs-' + id).removeClass('d-none').addClass('.d-block');
                     // change side filter 
                     $('.filter-menu-content').addClass('d-none');
-                    $('#filter-menu-content-'+ id).removeClass('d-none').addClass('.d-block');
+                    $('#filter-menu-content-' + id).removeClass('d-none').addClass('.d-block');
                     this.resetGenre();
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
@@ -489,13 +489,13 @@ $(function () {
                         _this.banners = data.Banner.Banners
                         _this.totalBanners = data.Banner.Total
                         _this.filters = data.Articles
-                        
+
                         //Show error message
                         data.filters = data.Articles
                         var $messageContainer = $('#emptyData');
                         var emptyMessage = $messageContainer.find('.message')
 
-                        if(data.filters.length < 1) {
+                        if (data.filters.length < 1) {
                             // test.text('Too Bad.. No result found');
                             emptyMessage.removeClass('d-none').addClass('d-block');
                             $('#spinner').parent().addClass('d-none');
@@ -538,13 +538,13 @@ $(function () {
                         $('#hamb').on('click', function () {
                             $('.mm-wrapper').addClass('active');
                             $('.in-between-screen').addClass('active');
-                            $('body').addClass('no-scroll'); 
+                            $('body').addClass('no-scroll');
                         })
 
                         $('.close-btn-x').on('click', function () {
                             $('.mm-wrapper').removeClass('active');
                             $('.in-between-screen').removeClass('active');
-                            $('body').removeClass('no-scroll'); 
+                            $('body').removeClass('no-scroll');
                             $('body').removeClass('set-fixed');
                         })
 
@@ -579,13 +579,13 @@ $(function () {
 
                         $btnSearch.on('click', function () {
                             $('.search').fadeIn('fast');
-                            $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5' });
-                            $('body').addClass('no-scroll'); 
+                            $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
+                            $('body').addClass('no-scroll');
                         })
                         $closeSearch.on('click', function () {
                             $('.search').fadeOut('fast');
-                            $('.in-between-screen').removeClass('active').css({ 'background-color' : '', 'opacity' : '' });
-                            $('body').removeClass('no-scroll'); 
+                            $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
+                            $('body').removeClass('no-scroll');
                         })
 
                     })
