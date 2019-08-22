@@ -287,14 +287,15 @@ $(function () {
                     this.category = id;
                     // change genre filter
                     $('.genre-tabs').addClass('d-none');
-                    $('#genre-tabs-' + id).removeClass('d-none').addClass('.d-block');
+                    $('#genre-tabs-' + id).removeClass('d-none');
                     // change side filter 
                     $('.filter-menu-content').addClass('d-none');
-                    $('#filter-menu-content-' + id).removeClass('d-none').addClass('.d-block');
+                    $('#filter-menu-content-' + id).removeClass('d-none');
                     this.resetGenre();
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
 
+                    //reset genre to ALL
                     searchParams.delete('genre');
                     searchParams.append('genre', 'all')
 
@@ -326,16 +327,7 @@ $(function () {
                     var scrollLeftPrev = 0;
                     var catScrollLeftPrev = 0;
             
-                    jQuery.fn.hasHScrollBar = function () {
-                        return this.get(0).scrollWidth > this.innerWidth();
-                    }
-            
-                    if ($('.wrapper').length >= 1) {
-                        if (!$('.wrapper').hasHScrollBar()) {
-                            $('#goBack-'+id).css('display', 'none');
-                            $('#goAfter-'+id).css('display', 'none');
-                        }
-                    }
+                    
             
                     $('.wrapper').on('scroll', function (e) {
                         var genreScroll = $('.wrapper').scrollLeft();
@@ -592,6 +584,17 @@ $(function () {
                 },
                 commonFunction: function () {
                     var _this = this;
+                    var catId = _this.category
+                    jQuery.fn.hasHScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    }
+            
+                    if ($('.wrapper').length >= 1) {
+                        if (!$('.wrapper').hasHScrollBar()) {
+                            $('#goBack-'+catId).css('display', 'none');
+                            $('#goAfter-'+catId).css('display', 'none');
+                        }
+                    }
                     
                     $('.mm-content a.filter').click(function () {
                         var dataKey = $(this).attr('data-key');
