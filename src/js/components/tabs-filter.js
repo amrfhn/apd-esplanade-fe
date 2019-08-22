@@ -94,10 +94,13 @@ $(function () {
                 })
 
                 if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1){
-                    var categoryValue = url.searchParams.get('category') || '';
+                    var categoryValue =  url.searchParams.get('category') || 'explorethearts';
                     var genreValue = url.searchParams.get('genre') || 'all';
+                    
                     $('#'+ categoryValue).click();
                     _this.filterCategory(categoryValue);
+
+
                     $('#genre-tabs-'+ categoryValue +' .nav').find('#'+genreValue).click();
                     _this.filterGenre(genreValue);
                     $('.genre-tabs .wrapper').animate({
@@ -319,6 +322,9 @@ $(function () {
                     this.currPage = 1;
                     this.loadPage = 1;
 
+                    $('.genre-list').find('.nav-link').removeClass('active');
+                    $('.genre-list').find('#'+e).addClass('active');
+
                     document.getElementById('spinner').style.display = "none";
 
                     this.checkScroll();
@@ -457,10 +463,10 @@ $(function () {
                         var iconHolder = document.getElementsByClassName('icon-holder')
                         console.log(iconHolder)
 
-                        for(let j = 0, lengthIconHolder=iconHolder.length; j < lengthIconHolder; j++);
-                        if ($(iconHolder[i]).children().img[src== '']){
-                            console.log($(iconHolder[i]))
-                        }
+                        // for(let j = 0, lengthIconHolder=iconHolder.length; j < lengthIconHolder; j++);
+                        // if ($(iconHolder[i]).children().img[src== '']){
+                        //     console.log($(iconHolder[i]))
+                        // }
                         // iconHolder.each(function (){
                         //     if($(this).children().img[src=='']){
                         //         $(this).removeClass('d-flex').addClass('d-block')
