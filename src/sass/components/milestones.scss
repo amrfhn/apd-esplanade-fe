@@ -1,5 +1,4 @@
 #milestones-wrapper {
-
     .box-left {
         height: auto;
         padding-left: 40px;
@@ -87,5 +86,23 @@
         }
     }
 
+    .more-miles {
+        &:last-child {
+            .milestones-item {
+                &:last-child {
+                    .box-left {
+                        &:before {
+                            content: none
+                        }
+                    }
+                    .box-right {
+                        &:before {
+                            content: none
+                        }
+                    }
+                }
+            } 
+        }       
+    }
 
 }
