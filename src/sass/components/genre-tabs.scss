@@ -107,10 +107,10 @@
       .prev {
         display: none;
       }
-      #goBack {
+      #goBack-explorethearts, #goBack-knowtheartists,  #goBack-learningguides,  #goBack-classroomlearning, #goBack-explorethearchives, #goAfter-researchtheartists  {
         left: 0;
       }
-      #goAfter {
+      #goAfter-explorethearts, #goAfter-knowtheartists,  #goAfter-learningguides,  #goAfter-classroomlearning, #goAfter-explorethearchives, #goAfter-researchtheartists  {
         right: 7px;
         display: none;
         @media (min-width: 768px) {
