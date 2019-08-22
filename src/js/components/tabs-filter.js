@@ -54,20 +54,17 @@ $(function () {
             el: '#tabs-filter',
             data: data,
             mounted: function () {
-                var _this = this;
                 this.checkMetatUrl();
                 this.clamptext();
                 console.log("called api");
                 this.checkScroll();
                 this.checkActiveGenre();
-                
 
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-                
+
                 this.commonFunction();
-                
             },
             updated: function () {
                 var _this = this;
@@ -297,12 +294,14 @@ $(function () {
                     this.resetGenre();
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
+
+                    searchParams.delete('genre');
+                    searchParams.append('genre', 'all')
                 },
                 resetGenre: function () {
                     $('.genre-tabs').each(function () {
                         $(this).find('.nav-link').removeClass('active');
                     }).find('#all').addClass('active')
-
                     this.filterGenre('all');
                 },
                 applyFilter: function () {
@@ -501,7 +500,8 @@ $(function () {
                     })
                 },
                 commonFunction: function () {
-
+                    var _this = this;
+                    
                     $('.mm-content a.filter').click(function () {
                         var dataKey = $(this).attr('data-key');
     
