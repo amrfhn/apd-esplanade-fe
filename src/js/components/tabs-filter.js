@@ -93,13 +93,26 @@ $(function () {
                     }
                 })
 
+                // var checkCategoryActive = $('.list-act').find('.nav-link');
+
+                // for(let j = 0, catLength = checkCategoryActive.length; j < catLength; j++) {
+                //     if ($(checkCategoryActive[j]).hasClass('active')){
+                //         this.category = $(checkCategoryActive[j]).attr('id');
+                //     }
+                // }
+
                 if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1){
-                    var categoryValue =  url.searchParams.get('category') || 'explorethearts';
+                    var categoryValue = '';
                     var genreValue = url.searchParams.get('genre') || 'all';
                     
+                    if (currUrl.indexOf('category')< 1){
+                        categoryValue = _this.category;
+                    } else {
+                        categoryValue =  url.searchParams.get('category');
+                    }
+
                     $('#'+ categoryValue).click();
                     _this.filterCategory(categoryValue);
-
 
                     $('#genre-tabs-'+ categoryValue +' .nav').find('#'+genreValue).click();
                     _this.filterGenre(genreValue);
@@ -222,12 +235,10 @@ $(function () {
                     if (xs.matches) {
                         offset = 3;
                         this.loadPage += 1;
-                        console.log("mobile")
                     }
                     if (md.matches) {
                         offset = 6
                         this.loadPage += 1;
-                        console.log("desktop")
                     }
 
                     var updateUrl = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
@@ -331,7 +342,6 @@ $(function () {
                     this.fetchData();
                 },
                 filterCategory: function (id) {
-                    console.log('click category')
                     this.category = id;
                     // change genre filter
                     $('.genre-tabs').addClass('d-none');
@@ -460,8 +470,8 @@ $(function () {
 
                         //
 
-                        var iconHolder = document.getElementsByClassName('icon-holder')
-                        console.log(iconHolder)
+                        // var iconHolder = document.getElementsByClassName('icon-holder')
+                        // console.log(iconHolder)
 
                         // for(let j = 0, lengthIconHolder=iconHolder.length; j < lengthIconHolder; j++);
                         // if ($(iconHolder[i]).children().img[src== '']){
