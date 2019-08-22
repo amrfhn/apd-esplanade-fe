@@ -88,6 +88,22 @@ $(function () {
                 $('.card-body').matchHeight();
             },
             methods: {
+                checkIconSrc: function(){
+
+                    console.log('check icon'); 
+                    
+                    var $icon = $('.icon-holder')
+                    
+                    $icon.each(function(){
+                        var _this = this
+                        var $img = $icon.find('.icon') 
+
+                        if(($img.attr("src") == "") ){
+                            _this.addClass('d-none');
+                        }                        
+                    })
+
+                },
                 checkMetatUrl: function () {
 
                     let metaUrl = $('meta');
@@ -496,7 +512,9 @@ $(function () {
                             $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                             $('body').removeClass('no-scroll');
                         })
-
+                        
+                        _this.checkIconSrc();
+                        
                     })
                 },
                 commonFunction: function () {
