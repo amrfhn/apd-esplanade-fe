@@ -59,18 +59,22 @@ $(function () {
                 console.log("called api");
                 this.checkScroll();
                 this.checkActiveGenre();
+                
 
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-
+                
                 this.commonFunction();
+                console.log(this.category)
+
             },
             updated: function () {
                 var _this = this;
 
                 _this.bgSwitcher();
                 _this.clamptext();
+                _this.genreArrow();
 
                 _this.bannerCount = data.banners.length;
 
@@ -90,8 +94,6 @@ $(function () {
             methods: {
                 checkIconSrc: function(){
 
-                    console.log('check icon'); 
-                    
                     var $icon = $('.icon-holder')
                     
                     $icon.find('img').each(function(){
@@ -120,7 +122,6 @@ $(function () {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
                     }
-
                 },
                 checkActiveGenre: function () {
 
@@ -312,6 +313,8 @@ $(function () {
                     $('.filter-menu-content').addClass('d-none');
                     $('#filter-menu-content-' + id).removeClass('d-none');
                     this.resetGenre();
+                    // this.genreArrow();
+
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
 
@@ -319,63 +322,80 @@ $(function () {
                     searchParams.delete('genre');
                     searchParams.append('genre', 'all')
 
-                    $('#goBack-'+id).on('click', function () {
-                        $('.wrapper').animate({
-                            scrollLeft: '-=100'
-                        }, 200);
-                        $('#goAfter-'+id).addClass('d-block');
-                        $('#goAfter-'+id).removeClass('d-none');
-                    });
-            
-                    $('#goAfter-'+id).on('click', function () {
-                        $('.wrapper').animate({
-                            scrollLeft: '+=90'
-                        }, 200);
-                        var maxScrollLeft = $('.wrapper').get(0).scrollWidth - $('.wrapper').get(0).clientWidth - 100;
-                        if ($('.wrapper').scrollLeft() > maxScrollLeft) {
-                            console.log("tamat")
-                            $('#goAfter-'+id).addClass('d-none');
-                            $('#goAfter-'+id).removeClass('d-block');
+                },
+                genreArrow: function () {
+                    var _this = this;
+                    var catId = this.category;
+
+                    console.log(catId)
+
+                    jQuery.fn.hasHScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    }
+                    if ($('#genre-tabs-'+catId).length > 0 ) {
+                        if ($('.wrapper-'+catId).length >= 1) {
+                            if (!$('.wrapper-'+catId).hasHScrollBar()) {
+                                $('#goBack-'+catId).addClass('d-none');
+                                $('#goAfter-'+catId).addClass('d-none');
+                            }
                         }
-                        if ($('.wrapper').scrollLeft() < maxScrollLeft) {
-                            $('#goAfter-'+id).addClass('d-block');
-                            $('#goAfter-'+id).removeClass('d-none');
-                        }
-                    });
-            
-                    //genre on click scroller
-                    var scrollLeftPrev = 0;
-                    var catScrollLeftPrev = 0;
-            
+    
+                        $('#goBack-'+catId).on('click', function () {
+                            $('.wrapper-'+catId).animate({
+                                scrollLeft: '-=100'
+                            }, 500, 'linear');
+                            $('#goAfter-'+catId).addClass('d-block');
+                            $('#goAfter-'+catId).removeClass('d-none');
+                        });
+                
+                        $('#goAfter-'+catId).on('click', function () {
+                            $('.wrapper-'+catId).animate({
+                                scrollLeft: '+=90'
+                            }, 500,'linear');
+                            var maxScrollLeft = $('.wrapper-'+catId).get(0).scrollWidth - $('.wrapper-'+catId).get(0).clientWidth - 100;
+                            if ($('.wrapper-'+catId).scrollLeft() >= maxScrollLeft) {
+                                console.log(maxScrollLeft)
+                                $('#goAfter-'+catId).addClass('d-none');
+                                $('#goAfter-'+catId).removeClass('d-block');
+                            }
+                            if ($('.wrapper-'+catId).scrollLeft() < maxScrollLeft) {
+                                $('#goAfter-'+catId).addClass('d-block');
+                                $('#goAfter-'+catId).removeClass('d-none');
+                            }
+                        });
+                
+                        //genre on click scroller
+                        var scrollLeftPrev = 0;
+                        var catScrollLeftPrev = 0;
+                
+                        $('.wrapper-'+catId).on('scroll', function (e) {
+                            var genreScroll = $('.wrapper-'+catId).scrollLeft();
+                            var $goBack = $('#goBack-'+catId)
+                            if ($(this).scrollLeft() < 1) {
+                                $goBack.removeClass('show-arrow');
+                            }
+                            if ($(this).scrollLeft() > 0) {
+                                $goBack.addClass('show-arrow');
+                            }
+                            console.log($(this).scrollLeft())
+                
+                            var $elem = $('.wrapper-'+catId);
+                            var newScrollLeft = $elem.scrollLeft(),
+                                width = $elem.width(),
+                                scrollWidth = $elem.get(0).scrollWidth
+                            var offset = 8;
+                
+                            if (scrollWidth - newScrollLeft - width == offset) {
+                                $('#goBack-'+catId).addClass('show-arrow');
+                            }
+                            if (newScrollLeft === 0) {
+                                $('#goAfter-'+catId).addClass('show-arrow');
+                            }
+                
+                            scrollLeftPrev = newScrollLeft;
+                        })
+                    }
                     
-            
-                    $('.wrapper').on('scroll', function (e) {
-                        var genreScroll = $('.wrapper').scrollLeft();
-                        var $goBack = $('#goBack-'+id)
-            
-                        if ($(this).scrollLeft() == 0) {
-                            $goBack.toggleClass('show-arrow');
-                        }
-                        if ($(this).scrollLeft() > 0) {
-                            $goBack.addClass('show-arrow');
-                        }
-            
-                        var $elem = $('.wrapper');
-                        var newScrollLeft = $elem.scrollLeft(),
-                            width = $elem.width(),
-                            scrollWidth = $elem.get(0).scrollWidth
-                        var offset = 8;
-            
-                        if (scrollWidth - newScrollLeft - width == offset) {
-                            $('#goBack-'+id).addClass('show-arrow');
-                        }
-                        if (newScrollLeft === 0) {
-                            $('#goAfter-'+id).addClass('show-arrow');
-                        }
-            
-                        scrollLeftPrev = newScrollLeft;
-                    })
-            
                     // $('.wrap').on('scroll', function (event) {
             
                     //     var $category = $('.wrap');
@@ -399,13 +419,21 @@ $(function () {
                     //     catScrollLeftPrev = catScrollLeft;
             
                     // });
-
                 },
                 resetGenre: function () {
+                    var _this = this;
+                    var catId = _this.category;
+
                     $('.genre-tabs').each(function () {
                         $(this).find('.nav-link').removeClass('active');
                     }).find('#all').addClass('active')
                     this.filterGenre('all');
+
+                    //to scroll back to all
+                    $('.genre-tabs .wrapper-'+catId).animate({
+                        scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-'+catId).outerWidth()
+                    }, 2000);
+
                 },
                 applyFilter: function () {
                     var _this = this;
@@ -531,16 +559,16 @@ $(function () {
                         //     }
                         // })
 
-                        jQuery.fn.hasScrollBar = function () {
-                            return this.get(0).scrollWidth > this.innerWidth();
-                        }
-                        if ($('.wrap').length >= 1) {
+                        // jQuery.fn.hasScrollBar = function () {
+                        //     return this.get(0).scrollWidth > this.innerWidth();
+                        // }
+                        // if ($('.wrap').length >= 1) {
 
-                            if (!$('.wrap').hasScrollBar()) {
-                                $('#goPrev').css('display', 'none');
-                                $('#goNext').css('display', 'none');
-                            }
-                        }
+                        //     if (!$('.wrap').hasScrollBar()) {
+                        //         $('#goPrev').css('display', 'none');
+                        //         $('#goNext').css('display', 'none');
+                        //     }
+                        // }
 
                         if ($('.carousel-banner').hasClass('slick-initialized')) {
                             $('.carousel-banner').slick('unslick');
@@ -606,17 +634,8 @@ $(function () {
                 },
                 commonFunction: function () {
                     var _this = this;
-                    var catId = _this.category
-                    jQuery.fn.hasHScrollBar = function () {
-                        return this.get(0).scrollWidth > this.innerWidth();
-                    }
-            
-                    if ($('.wrapper').length >= 1) {
-                        if (!$('.wrapper').hasHScrollBar()) {
-                            $('#goBack-'+catId).css('display', 'none');
-                            $('#goAfter-'+catId).css('display', 'none');
-                        }
-                    }
+                    var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
+                    console.log('cat id is =', cat_id)
                     
                     $('.mm-content a.filter').click(function () {
                         var dataKey = $(this).attr('data-key');
@@ -640,9 +659,12 @@ $(function () {
     
                             _this.filterGenre(dataKey);
                             _this.checkActiveGenre();
-                            $('.genre-tabs .wrapper').animate({
-                                scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
-                            }, 2000);
+                            
+                            if ($('.wrapper-'+cat_id).length > 0){
+                                $(this).animate({
+                                    scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-'+cat_id).outerWidth()
+                                }, 2000);
+                            }
                         }
                     })
     
@@ -661,8 +683,9 @@ $(function () {
     
                         $('#genre-tabs-'+ categoryValue +' .nav').find('#'+genreValue).click();
                         _this.filterGenre(genreValue);
-                        $('.genre-tabs .wrapper').animate({
-                            scrollLeft: $('.genre-tabs .active').position().left - $('#goBack').outerWidth()
+
+                        $('.genre-tabs .wrapper-'+cat_id).animate({
+                            scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-'+cat_id).outerWidth()
                         }, 2000); 
     
                     } else {
