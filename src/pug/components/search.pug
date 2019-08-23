@@ -8,7 +8,7 @@
                 label(for="validationServer01") Search: 
 
                 //- .d-flex
-                input#search-input.form-control(v-model="search" type="text" placeholder="Ask us all about arts in SG" @keyup="filteredSuggestion()" required)
+                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG" @keyup="filteredSuggestion()" data-content="suggestions" required)
                 button(type="submit").search-submit.btn.bg-white.px-0
                     img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
@@ -22,7 +22,7 @@
         
         ul.search-suggestion-list.bt-2
             li(v-for="suggestion in searchSuggestion" @click="selectedSuggestion(event)") 
-                span {{suggestion.name}}
+                span {{suggestion}}
 //- END: Search Suggestion
 
 
@@ -32,7 +32,7 @@
         .show-result-wrapper.justify-content-between.align-items-center
             p.show-result.m-0
                 | Showing 
-                span.font-weight-bold 0
+                span.font-weight-bold {{searchResult.total}}
                 |  Results  
 
             .search-filter-btn(@click="showFilter()").d-md-none
@@ -78,35 +78,16 @@
 
 //- START: Search Results
 .col-12.search-result.pt-25
-    .result-card
+    .result-card(v-for="result in searchResult.result")
         p.result-label
-            span.pr-3 Explore the Art
-            span.pr-3 Watch 
-            span.pr-3 4 jul 2019
-        a(href="").result-title
-            p(v-line-clamp:20="3") Jazz in July
-        a(href="").result-description
-            p.bt-2(v-line-clamp:20="2") Soulful improvisations, swinging rhythms and infectious grooves as we reach deep into the roots of jazz and explore new horizons. Soulful improvisations, swinging rhythms and infectious grooves as we reach deep into the roots of jazz and explore new horizons.
+            span.pr-3(v-if="result.category!= ''") {{result.category}}
+            span.pr-3(v-if="result.contentType!= ''") {{result.contentType}}
+            span.pr-3(v-if="result.publishDate!= ''") {{result.publishDate}}
+        a(:href="result.url").result-title
+            p(v-line-clamp:20="3") {{result.title}}
+        a(:href="result.url").result-description
+            p.bt-2(v-line-clamp:20="2") {{result.description}}
     
-    .result-card
-        p.result-label
-            span.pr-3 Know the artist
-            span.pr-3 Music 
-            span.pr-3 4 jul 2019
-        a(href="").result-title
-            p(v-line-clamp:20="3") Lorem ipsum dolor sit amet consectetur adipisicing elit. Non aliquam ipsa perferendis ratione totam error eaque itaque sapiente quo. Minus vero expedita tempora error quas illo animi sapiente atque adipisci. Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui tempora adipisci quis facere cumque eos corrupti error laudantium, autem libero voluptas, quisquam nihil odit officiis debitis quae? Delectus, pariatur molestias! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt aliquam quis dolor! Reprehenderit doloremque dolor a quidem, cumque sint quibusdam culpa inventore debitis error accusantium id itaque neque unde sapiente.
-        a(href="").result-description
-            p.bt-2(v-line-clamp:20="2") ...a lot of these words came from the jazz world? That’s right, jazz has always been that hip, creative kid on the block, whether it’s making up infectious rhythms and beats on the spot, or words that. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus reiciendis odio totam non consectetur, voluptate cumque voluptatum fuga! Illo non neque consectetur praesentium impedit blanditiis incidunt quo consequatur placeat voluptatibus.
-
-    .result-card
-        p.result-label
-            span.pr-3 Explore the Art
-            span.pr-3 Downloads 
-            span.pr-3 4 jul 2019
-        a(href="").result-title
-            p(v-line-clamp:20="3") Can you talk (jazz) talk?
-        a(href="").result-description
-            p.bt-2(v-line-clamp:20="2") Jazz in July takes you on an exploration of jazz that reaches deep into its roots to discover new horizons. Throughout the month of July at the Café 21 Living Room (Concourse) and Music Station (Outdoor... 
-    .result-more.mb-md-25.text-center
+    .result-more.mb-md-25.text-center(@click="moreResult")
         button.btn.btn-outline-primary.mb-25(aria-expanded="false") Load More
 //- END: Search Results
