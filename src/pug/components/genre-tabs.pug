@@ -1,5 +1,5 @@
 #genre-tabs-explorethearts.genre-tabs.pr-3.pr-md-0
-    .wrapper
+    .wrapper-explorethearts
         ul.nav.nav-tabs#genreTabs(role= "tablist")
             li.genre-list
                 a.nav-link.active(data-toggle="tab" role="tab" aria-controls="all" aria-selected="true" id="all" @click="filterGenre('all')") All
@@ -19,7 +19,7 @@
         img.next-right(src="./assets/microsites/offstage/img/icons/Next.svg")
 
 #genre-tabs-knowtheartists.genre-tabs.pr-3.pr-md-0.d-none
-    .wrapper
+    .wrapper-knowtheartists
         ul.nav.nav-tabs#genreTabs(role= "tablist")
             li.genre-list
                 a.nav-link.active(data-toggle="tab" role="tab" aria-controls="all" aria-selected="true" id="all" @click="filterGenre('all')") All
@@ -27,6 +27,18 @@
                 a.nav-link(data-toggle="tab" role="tab" aria-controls="music" aria-selected="true" id="music" @click="filterGenre('music')") Music
             li.genre-list
                 a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance5" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance4" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance3" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance2" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance55" @click="filterGenre('dance')") Dance
+            li.genre-list
+                a.nav-link(data-toggle="tab" role="tab" aria-controls="dance" aria-selected="true" id="dance66" @click="filterGenre('dance')") Dance
     button#goBack-knowtheartists.btn.btn-default.btn-icon.prev(type="button")
         img.left-prev(src="./assets/microsites/offstage/img/icons/Previous.svg")
     button#goAfter-knowtheartists.btn.btn-default.btn-icon(type="button")
