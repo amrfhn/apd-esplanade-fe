@@ -94,12 +94,14 @@ $(function () {
                     
                     var $icon = $('.icon-holder')
                     
-                    $icon.each(function(){
+                    $icon.find('img').each(function(){
                         var _this = this
                         var $img = $icon.find('.icon') 
 
-                        if(($img.attr("src") == "") ){
-                            _this.addClass('d-none');
+                        console.log('img', $(this).attr('src'));
+
+                        if( $(this).attr('src') == ""){
+                            $(this).parent().addClass('d-none');
                         }                        
                     })
 
@@ -219,6 +221,8 @@ $(function () {
                             window.onscroll = () => { }
                         }
                         _this.fetchingData = false;
+
+                        _this.checkIconSrc();
                     })
                 },
                 bgSwitcher: function () {
