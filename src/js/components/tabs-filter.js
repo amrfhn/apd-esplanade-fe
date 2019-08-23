@@ -297,7 +297,7 @@ $(function () {
                     this.loadPage = 1;
 
                     $('.genre-list').find('.nav-link').removeClass('active');
-                    $('.genre-list').find('#' + e).addClass('active');
+                    $('#genre-tabs-'+this.category).find('#' + e).addClass('active');
 
                     document.getElementById('spinner').style.display = "none";
 
@@ -326,8 +326,6 @@ $(function () {
                 genreArrow: function () {
                     var _this = this;
                     var catId = this.category;
-
-                    console.log(catId)
 
                     jQuery.fn.hasHScrollBar = function () {
                         return this.get(0).scrollWidth > this.innerWidth();
@@ -653,12 +651,42 @@ $(function () {
                         if (!$(this).parent().hasClass('active')) {
                             $('.mm-content-item').find('.nav-item').removeClass('active');
                             $(this).parent().addClass('active');
-    
+                            
+                            _this.category = 'explorethearts';
+                            $('.list-act').find('#knowtheartists').removeClass('active')
+                            var activeCategory = $('.list-act').find('#explorethearts');
+                            activeCategory.addClass('active')
+
+                            // change genre filter
+                            $('.genre-tabs').addClass('d-none');
+                            $('#genre-tabs-explorethearts').removeClass('d-none');
+                            // change side filter 
+                            $('.filter-menu-content').addClass('d-none');
+                            $('#filter-menu-content-explorethearts').removeClass('d-none');
+
+                            // reset all side filter checkboxes and radios
+                            $('.filter-menu-content [type="checkbox"]').prop('checked', false);
+
                             var dataKey = $(this).data('key');
-                            $('.genre-tabs .nav').find('#' + dataKey).click();
+                            $('#genre-tabs-explorethearts').find('#' + dataKey).click();
     
                             _this.filterGenre(dataKey);
                             _this.checkActiveGenre();
+
+                            if (currUrl.indexOf('category') < -1) {
+                                searchParams.append('category', 'explorethearts');
+                                searchParams.sort();
+                                url.search = searchParams.toString();
+                                var newUrl = url.toString();
+                            } else {
+                                searchParams.delete('category');
+                                searchParams.append('category', 'explorethearts');
+                                searchParams.sort();
+                                url.search = searchParams.toString();
+                                var newUrl = url.toString();
+                            }
+                            //append params on current url
+                            window.history.pushState({ path: newUrl }, '', newUrl);
                             
                             if ($('.wrapper-'+cat_id).length > 0){
                                 $(this).animate({
