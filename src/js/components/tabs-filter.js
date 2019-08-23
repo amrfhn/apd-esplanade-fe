@@ -91,6 +91,24 @@ $(function () {
                 $('.card-body').matchHeight();
             },
             methods: {
+                checkIconSrc: function(){
+
+                    console.log('check icon'); 
+                    
+                    var $icon = $('.icon-holder')
+                    
+                    $icon.find('img').each(function(){
+                        var _this = this
+                        var $img = $icon.find('.icon') 
+
+                        console.log('img', $(this).attr('src'));
+
+                        if( $(this).attr('src') == ""){
+                            $(this).parent().addClass('d-none');
+                        }                        
+                    })
+
+                },
                 checkMetatUrl: function () {
 
                     let metaUrl = $('meta');
@@ -206,6 +224,8 @@ $(function () {
                             window.onscroll = () => { }
                         }
                         _this.fetchingData = false;
+
+                        _this.checkIconSrc();
                     })
                 },
                 bgSwitcher: function () {
@@ -598,7 +618,9 @@ $(function () {
                             $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                             $('body').removeClass('no-scroll');
                         })
-
+                        
+                        _this.checkIconSrc();
+                        
                     })
                 },
                 commonFunction: function () {
