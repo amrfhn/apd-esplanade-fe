@@ -66,14 +66,15 @@ $(function () {
                 // this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
                 
                 this.commonFunction();
-                // this.genreArrow();
+                console.log(this.category)
+
+                this.genreArrow();
             },
             updated: function () {
                 var _this = this;
 
                 _this.bgSwitcher();
                 _this.clamptext();
-                _this.genreArrow();
 
                 _this.bannerCount = data.banners.length;
 
@@ -93,8 +94,6 @@ $(function () {
             methods: {
                 checkIconSrc: function(){
 
-                    console.log('check icon'); 
-                    
                     var $icon = $('.icon-holder')
                     
                     $icon.find('img').each(function(){
@@ -123,7 +122,6 @@ $(function () {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
                     }
-
                 },
                 checkActiveGenre: function () {
 
@@ -308,6 +306,7 @@ $(function () {
                 },
                 filterCategory: function (id) {
                     this.category = id;
+                    console.log(this.category)
                     // change genre filter
                     $('.genre-tabs').addClass('d-none');
                     $('#genre-tabs-' + id).removeClass('d-none');
@@ -315,6 +314,8 @@ $(function () {
                     $('.filter-menu-content').addClass('d-none');
                     $('#filter-menu-content-' + id).removeClass('d-none');
                     this.resetGenre();
+                    this.genreArrow();
+
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
 
@@ -342,7 +343,7 @@ $(function () {
     
                         $('#goBack-'+catId).on('click', function () {
                             $('.wrapper-'+catId).animate({
-                                scrollLeft: '-=100'
+                                scrollLeft: '-=90'
                             }, 200);
                             $('#goAfter-'+catId).addClass('d-block');
                             $('#goAfter-'+catId).removeClass('d-none');
@@ -350,11 +351,11 @@ $(function () {
                 
                         $('#goAfter-'+catId).on('click', function () {
                             $('.wrapper-'+catId).animate({
-                                scrollLeft: '+=90'
+                                scrollLeft: '+=80'
                             }, 200);
                             var maxScrollLeft = $('.wrapper-'+catId).get(0).scrollWidth - $('.wrapper-'+catId).get(0).clientWidth - 100;
                             if ($('.wrapper-'+catId).scrollLeft() > maxScrollLeft) {
-                                console.log("tamat")
+                                console.log(maxScrollLeft)
                                 $('#goAfter-'+catId).addClass('d-none');
                                 $('#goAfter-'+catId).removeClass('d-block');
                             }
@@ -371,13 +372,13 @@ $(function () {
                         $('.wrapper-'+catId).on('scroll', function (e) {
                             var genreScroll = $('.wrapper-'+catId).scrollLeft();
                             var $goBack = $('#goBack-'+catId)
-                
-                            if ($(this).scrollLeft() == 0) {
-                                $goBack.toggleClass('show-arrow');
+                            if ($(this).scrollLeft() < 1) {
+                                $goBack.removeClass('show-arrow');
                             }
                             if ($(this).scrollLeft() > 0) {
                                 $goBack.addClass('show-arrow');
                             }
+                            console.log($(this).scrollLeft())
                 
                             var $elem = $('.wrapper-'+catId);
                             var newScrollLeft = $elem.scrollLeft(),
