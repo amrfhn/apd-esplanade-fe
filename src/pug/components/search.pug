@@ -1,6 +1,6 @@
 //- START: Search BAR
 .col-12.pb-20
-    #closeSearch
+    #closeSearch(@click="closeSearch()")
         img(src="./assets/microsites/offstage/img/icons/Close.svg" ).close
     form.search-wrapper.needs-validation(autocomplete="off" @submit="submittedSearch" novalidate)
         .form-row.pb-20.align-items-end

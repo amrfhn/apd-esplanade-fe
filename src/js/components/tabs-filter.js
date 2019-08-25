@@ -612,7 +612,7 @@ $(function () {
 
 
                         var $btnSearch = $('#btnSearch');
-                        var $closeSearch = $('#closeSearch');
+                        // var $closeSearch = $('#closeSearch');
 
 
                         $btnSearch.on('click', function () {
@@ -620,11 +620,11 @@ $(function () {
                             $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
                             $('body').addClass('no-scroll');
                         })
-                        $closeSearch.on('click', function () {
-                            $('.search').fadeOut('fast');
-                            $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
-                            $('body').removeClass('no-scroll');
-                        })
+                        // $closeSearch.on('click', function () {
+                        //     $('.search').fadeOut('fast');
+                        //     $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
+                        //     $('body').removeClass('no-scroll');
+                        // })
                         
                         _this.checkIconSrc();
                         

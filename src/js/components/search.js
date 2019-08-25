@@ -43,15 +43,15 @@ $(function () {
             data: data,
             mounted: function () {
                 this.checkMetatUrl();
-                
+
                 // Initialise data
                 this.content = $('#search').attr('data-content');
                 this.field = $('#search-input').attr('data-content');
 
-                $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result").hide();
+                $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
             },
             watch: {
-                keyword: function (){
+                keyword: function () {
                     console.log(this.keyword)
                     this.fetchSuggestKey();
                 }
@@ -72,7 +72,7 @@ $(function () {
                     }
                 },
                 fetchSuggestKey: function () {
-                    var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field 
+                    var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
                     var _this = this
                     params.keyword = this.keyword
                     console.log('url', url)
@@ -88,7 +88,7 @@ $(function () {
                         _this.searchSuggestion = data.suggestions
 
                         console.log("searchSuggestion", _this.searchSuggestion)
-                    }).fail(function (){
+                    }).fail(function () {
                         console.log('fail')
                     })
                 },
@@ -104,6 +104,8 @@ $(function () {
                         this.searchHighlight(this.keyword)
 
                         $(".search-suggestion").show();
+
+                        return
                     } else {
                         $(".search-suggestion").hide();
                     }
@@ -120,23 +122,28 @@ $(function () {
                     })
                 },
                 selectedSuggestion: function (event) {
-                    var $selectedKey = event.target.innerText
-                    $('#search-input').val($selectedKey);
-                    $(".search-suggestion").hide();
+                    var $text = $('#search-input')
+                    var $selectedKey = event.target.textContent;
+
+                    $text.val($selectedKey);
+                    this.keyword = $selectedKey
+
                     $('.search-submit').click();
+                    // this.resetResult();
                 },
                 submittedSearch: function (e) {
                     if (!this.keyword) {
                         this.errors.push('Search required.');
                     } else {
                         this.fetchResultData();
+                        this.resetResult();
                     }
 
                     e.preventDefault();
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-
+                    this.currPage = 1
                     var url = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this
                     resultParams.keyword = this.keyword
@@ -146,50 +153,76 @@ $(function () {
                         url: url,
                         dataType: "json",
                         data: resultParams
-                    }).done(function(data){
+                    }).done(function (data) {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
+                        console.log('search result', _this.searchResult.result.length)
 
-                        $('.search-suggestion').hide();
-                        $('.show-result-wrapper, .search-filter, .search-result').show();
+                        if (_this.searchResult.result.length == 0) {
+                            $('.no-result').show();
+                            $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .result-more").hide();
+                        } else {
+                            _this.resetResult();
+                        }
+
+                    }).fail(function () {
+                        console.log('update fail')
                     })
                 },
-                updateResultData: function(){
+                updateResultData: function () {
                     this.currPage += 1
                     var updateUrl = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this;
-                    
+
                     var requestResult = $.ajax({
                         type: "GET",
                         url: updateUrl,
                         dataType: "json",
                         data: resultParams
-                    }).done(function(data){                        
-                        if(data.result.length > 0 && data.result.length == 5) {
+                    }).done(function (data) {
+                        if (data.result.length > 0 && data.result.length == 5) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
-                            _this.searchResult.result = updatedResult;     
-                     
-                        } else if (data.result.length < 5 ){
+                            _this.searchResult.result = updatedResult;
+
+                        } else if (data.result.length < 5) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
-                            _this.searchResult.result = updatedResult;     
+                            _this.searchResult.result = updatedResult;
 
                             $('.result-more').hide();
                         }
                     })
                 },
-                moreResult: function() {
+                moreResult: function () {
                     this.updateResultData();
                 },
-                resetSearch: function () {
-                    $('.search-wrapper').reset();
+                resetResult: function () {
+                    this.resultScrollTop();
+                    $(".search-suggestion").hide();
+                    $('.no-result').hide();
+                    $('.result-more').show();
+                    $('.show-result-wrapper, .search-filter, .search-result').show();
+                },
+                resultScrollTop: function () {
+                    $('.search-result').animate({ scrollTop: 0 }, '1000');
                 },
                 showFilter: function () {
                     $('.search-filter').addClass('show-filter');
                 },
                 closeFilter: function () {
                     $('.search-filter').removeClass('show-filter');
-                    this.resetSearch();
+                    $('.search-wrapper').reset();
                 },
+                closeSearch: function () {
+                    $('.search').fadeOut('fast');
+                    $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
+                    $('body').removeClass('no-scroll');
+                    $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result").hide();
+
+                    this.keyword = ""
+                    $('.search-wrapper')[0].reset();
+                    $('.search-wrapper').removeClass('was-validated');
+                    console.log('reset')
+                }
             }
         })
     }
