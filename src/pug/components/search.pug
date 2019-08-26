@@ -12,7 +12,7 @@
                 button(type="submit").search-submit.btn.bg-white.px-0
                     img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
-                .invalid-feedback Insert Search
+                .invalid-feedback Insert Keyword
 //- END: Search BAR
 
 
@@ -25,6 +25,13 @@
                 span {{suggestion}}
 //- END: Search Suggestion
 
+//- Start: Spinner
+//- .col-12.mx-auto
+//-     div#spinner.spinner-load
+//-         //- img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
+//-         img.spinner-icon(src="/assets/microsites/offstage/img/gif/offstage-reverse.gif")
+//-         p.spinner-message.bt-2 Yeah, it's a slow build-up - but we promise it will be worth the wait!
+//- END: Spinner
 
 //- START: Search Filter
 .col-12
@@ -42,9 +49,21 @@
         .search-filter.mt-md-25
             .search-filter-close(@click="closeFilter()").d-md-none
                 img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
-            .form-check(v-for="filter in searchFilter") 
-                input.form-check-input.custom-control-input(type="checkbox" :id="'filter' + filter.id")
-                label.form-check-label(:for="'filter' + filter.id") {{filter.type}}
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="jazz" checked)
+                label.form-check-label(for="jazz") Jazz
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="music" checked)
+                label.form-check-label(for="music") Music
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="opera" )
+                label.form-check-label(for="opera") Opera
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="theatre" checked)
+                label.form-check-label(for="theatre") Theatre
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="musicaltheatre" checked)
+                label.form-check-label(for="musicaltheatre") Musical Theatre        
 //- END: Search Filter
 
 
@@ -82,7 +101,7 @@
         p.result-label
             span.pr-3(v-if="result.category!= ''") {{result.category}}
             span.pr-3(v-if="result.contentType!= ''") {{result.contentType}}
-            span.pr-3(v-if="result.publishDate!= ''") {{result.publishDate}}
+            span.pr-3(v-if="result.date!= ''") {{result.date}}
         a(:href="result.url").result-title
             p(v-line-clamp:20="3") {{result.title}}
         a(:href="result.url").result-description
