@@ -20,7 +20,8 @@
   }
 
   .was-validated {
-    .form-control:invalid, .form-control.is-invalid {
+    .form-control:invalid,
+    .form-control.is-invalid {
       background-image: none;
 
       &:focus {
@@ -28,7 +29,8 @@
       }
     }
 
-    .form-control:valid, .form-control.is-valid {
+    .form-control:valid,
+    .form-control.is-valid {
       background-image: none;
       border-color: $primary;
 
@@ -48,7 +50,7 @@
     display: block;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
     width: 200px;
-    top: 120px;
+    top: 0;
     right: -260px;
     background: white;
     padding: 15px;
@@ -103,8 +105,12 @@
     background: $white;
     z-index: 2;
     left: 0;
-    padding: 0 45px;
+    padding: 0 20px;
     box-shadow: 0px 4px 5px -4px rgba(0, 0, 0, 0.75);
+
+    @media (min-width: 768px) {
+      padding: 0 45px;
+    }
   }
 
   .search-suggestion-list {
@@ -123,11 +129,11 @@
       padding-bottom: 15px;
       color: $primary;
       cursor: pointer;
-      transition: .2s ease;
+      transition: 0.2s ease;
 
       &:hover {
-        color: #00A3C9;
-        transition: .2s ease;
+        color: #00a3c9;
+        transition: 0.2s ease;
       }
 
       a {
@@ -185,7 +191,7 @@
   .search-result {
     display: none;
     overflow-y: auto;
-    max-height: calc(100vh - 215px);
+    max-height: calc(100vh - 205px);
 
     @media (min-width: 768px) {
       max-height: calc(100vh - 254px);

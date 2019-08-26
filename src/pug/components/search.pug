@@ -26,11 +26,11 @@
 //- END: Search Suggestion
 
 //- Start: Spinner
-//- .col-12.mx-auto
-//-     div#spinner.spinner-load
-//-         //- img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
-//-         img.spinner-icon(src="/assets/microsites/offstage/img/gif/offstage-reverse.gif")
-//-         p.spinner-message.bt-2 Yeah, it's a slow build-up - but we promise it will be worth the wait!
+.col-12.mx-auto
+    div#search-spinner.spinner-load
+        //- img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
+        img.spinner-icon(src="/assets/microsites/offstage/img/gif/offstage-reverse.gif")
+        p.spinner-message.bt-2 Yeah, it's a slow build-up - but we promise it will be worth the wait!
 //- END: Spinner
 
 //- START: Search Filter
@@ -50,19 +50,19 @@
             .search-filter-close(@click="closeFilter()").d-md-none
                 img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="jazz" checked)
+                input.form-check-input.custom-control-input(type="checkbox" id="jazz" checked @click="checkFilter()")
                 label.form-check-label(for="jazz") Jazz
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="music" checked)
+                input.form-check-input.custom-control-input(type="checkbox" id="music" checked @click="checkFilter()")
                 label.form-check-label(for="music") Music
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="opera" )
+                input.form-check-input.custom-control-input(type="checkbox" id="opera" checked @click="checkFilter()")
                 label.form-check-label(for="opera") Opera
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="theatre" checked)
+                input.form-check-input.custom-control-input(type="checkbox" id="theatre" checked @click="checkFilter()")
                 label.form-check-label(for="theatre") Theatre
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="musicaltheatre" checked)
+                input.form-check-input.custom-control-input(type="checkbox" id="musicaltheatre" checked @click="checkFilter()")
                 label.form-check-label(for="musicaltheatre") Musical Theatre        
 //- END: Search Filter
 

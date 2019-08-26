@@ -53,7 +53,6 @@ $(function () {
                 this.field = $('#search-input').attr('data-content');
 
                 this.fetchSuggestKey();
-
                 this.checkFilter();
             },
             // watch: {
@@ -78,7 +77,7 @@ $(function () {
                     }
                 },
                 hideAll: function () {
-                    $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
+                    $(".search-suggestion, #search-spinner, .show-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
                 },
                 fetchSuggestKey: function () {
                     var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
@@ -105,13 +104,13 @@ $(function () {
                     var value = $('#search-input').val().toLowerCase();
 
                     // Filter List
-                    if (this.keyword.length > 2) {
+                    if (this.keyword.length > 2 && this.searchSuggestion.length > 0 ) {
                         $(".search-suggestion-list li").removeClass("match").hide().filter(function () {
                             return $(this).text().toLowerCase().indexOf(value) != -1;
                         }).addClass("match").show();
 
                         this.searchHighlight(this.keyword)
-
+                        
                         $(".search-suggestion").show();
 
                     } else {
@@ -150,30 +149,30 @@ $(function () {
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-                    // $('#search .spinner-load').show('fast');
-                    
+                    $('#search-spinner').show();
                     $(".search-suggestion").hide();
+                    
                     this.currPage = 1
                     var url = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this
                     resultParams.keyword = this.keyword
 
-
                     var requestResult = $.ajax({
                         type: "GET",
                         url: url,
                         dataType: "json",
-                        data: resultParams
+                        data: decodeURIComponent($.param(resultParams))
                     }).done(function (data) {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
                         console.log('search result', _this.searchResult.result.length)
 
                         if (_this.searchResult.result.length == 0) {
-                            $('.no-result').show();
                             _this.hideAll();
+                            $('.search-suggestion').hide();
+                            $('.no-result').show();
                         } else {
-                            // $('#search .spinner-load').hide('fast');
+                            $('#search-spinner').hide();
                             _this.resetResult();
                         }
 
@@ -242,19 +241,21 @@ $(function () {
                     // loop and check .search-filter has attr "checked"
                     // append id to param 
                     // no checked - remove id from param if it's uncheck 
+                    var checkFilter = []
+
                     var $checkbox = $('.search-filter .form-check-input')
                     $checkbox.each(function(){
                         var filter = $(this).attr('id')
-                        console.log('check filter id:', filter);
 
                         if($('#' + filter).is(':checked')){
-                            console.log($(this));
+                            checkFilter.push(filter);
                         }
                     })
-                },
-                // updateFilter: function () {
 
-                // }
+                    resultParams.filter = checkFilter.toString();
+                    this.fetchResultData();
+                    console.log(resultParams.filter);
+                }
             }
         })
     }
