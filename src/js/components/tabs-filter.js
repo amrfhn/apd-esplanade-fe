@@ -57,17 +57,13 @@ $(function () {
                 this.checkMetatUrl();
                 this.clamptext();
                 console.log("called api");
-                this.checkScroll();
                 this.checkActiveGenre();
                 
-
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
                 
-                this.commonFunction();
-                console.log(this.category)
-
+                this.initialize();
             },
             updated: function () {
                 var _this = this;
@@ -100,8 +96,6 @@ $(function () {
                         var _this = this
                         var $img = $icon.find('.icon') 
 
-                        console.log('img', $(this).attr('src'));
-
                         if( $(this).attr('src') == ""){
                             $(this).parent().addClass('d-none');
                         }                        
@@ -114,7 +108,6 @@ $(function () {
 
                     for (let i = 0, lengthMeta = metaUrl.length; i < lengthMeta; i++) {
                         if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1) {
-                            // console.log()
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
                             console.log('current Host from meta:', host)
@@ -123,6 +116,7 @@ $(function () {
                         }
                     }
                 },
+                //check url params category and genre
                 checkActiveGenre: function () {
 
                     var genre = $('.genre-list').find('.nav-link');
@@ -185,7 +179,9 @@ $(function () {
                     window.onscroll = () => {
                         var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
                         if ($(".tab-content").length > 0 && bottomOfWindow && !this.fetchingData) {
-                            document.getElementById('spinner').style.display = "block";
+                            // document.getElementById('spinner').style.display = "block";
+                            var spinner = $('#spinner')
+                            spinner.addClass('d-block').removeClass('d-none');
                             this.updateData();
                         }
                     }
@@ -218,7 +214,9 @@ $(function () {
                         console.log(data)
                         _this.filters = _this.filters.concat(data.Articles)
                         if (data.Articles.length < offset || data.Articles.length == 0) {
-                            document.getElementById('spinner').style.display = "none";
+                            // document.getElementById('spinner').style.display = "none";
+                            var hideSpinner = $('#spinner');
+                            hideSpinner.addClass('d-none').removeClass('d-block');
                             window.onscroll = () => { }
                         }
                         _this.fetchingData = false;
@@ -299,10 +297,12 @@ $(function () {
                     $('.genre-list').find('.nav-link').removeClass('active');
                     $('#genre-tabs-'+this.category).find('#' + e).addClass('active');
 
-                    document.getElementById('spinner').style.display = "none";
+                    var hideSpinner = $('#spinner');
+                    hideSpinner.addClass('d-none').removeClass('d-block');
+                    // document.getElementById('spinner').style.display = "none";
 
-                    this.checkScroll();
                     this.fetchData();
+
                 },
                 filterCategory: function (id) {
                     this.category = id;
@@ -317,6 +317,10 @@ $(function () {
 
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
+                    $('.filter-menu-content [type="radio"][value="latest"]').prop('checked', true);
+                    
+                    let filterIcon = $('.genre-filter').find('img');
+                    filterIcon.attr('src', '/assets/microsites/offstage/img/icons/Filter.svg');
 
                     //reset genre to ALL
                     searchParams.delete('genre');
@@ -352,7 +356,7 @@ $(function () {
                             }, 500,'linear');
                             var maxScrollLeft = $('.wrapper-'+catId).get(0).scrollWidth - $('.wrapper-'+catId).get(0).clientWidth - 100;
                             if ($('.wrapper-'+catId).scrollLeft() >= maxScrollLeft) {
-                                console.log(maxScrollLeft)
+                                // console.log(maxScrollLeft)
                                 $('#goAfter-'+catId).addClass('d-none');
                                 $('#goAfter-'+catId).removeClass('d-block');
                             }
@@ -375,7 +379,7 @@ $(function () {
                             if ($(this).scrollLeft() > 0) {
                                 $goBack.addClass('show-arrow');
                             }
-                            console.log($(this).scrollLeft())
+                            // console.log($(this).scrollLeft())
                 
                             var $elem = $('.wrapper-'+catId);
                             var newScrollLeft = $elem.scrollLeft(),
@@ -497,8 +501,10 @@ $(function () {
                     this.currPage = 1;
                     this.loadPage = 1;
 
-                    document.getElementById('spinner').style.display = "none";
-                    _this.checkScroll();
+                    // var hideSpinner = $('#spinner');
+                    // hideSpinner.addClass('d-none').removeClass('d-block');
+                    // document.getElementById('spinner').style.display = "none";
+                    // _this.checkScroll();
                     _this.fetchData();
 
                     if (browse.length >= 1 || contentType.length >= 1 || timeTaken.length >= 1 || $sortValue.length >= 1 || languages.length >= 1 || levels.length >= 1 || subjects.length >= 1) {
@@ -536,10 +542,11 @@ $(function () {
                         if (data.filters.length < 1) {
                             // test.text('Too Bad.. No result found');
                             emptyMessage.removeClass('d-none').addClass('d-block');
-                            $('#spinner').parent().addClass('d-none');
+                            $('#spinner').addClass('d-none');
                         } else {
                             emptyMessage.removeClass('d-block').addClass('d-none');
-                            $('#spinner').parent().removeClass('d-none');
+                            // $('#spinner').removeClass('d-none');
+                            _this.checkScroll();
                         }
                         //end
 
@@ -589,9 +596,7 @@ $(function () {
                         var $megaMenu = $('.mm-wrapper');
 
                         if ($megaMenu.hasClass('active')) {
-                            console.log("active")
                             $('body').addClass('set-fixed');
-
                         }
 
                         $('#searchBar').modal({
@@ -625,15 +630,16 @@ $(function () {
                         //     $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                         //     $('body').removeClass('no-scroll');
                         // })
-                        
                         _this.checkIconSrc();
                         
                     })
                 },
-                commonFunction: function () {
+                initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-                    console.log('cat id is =', cat_id)
+                    // console.log('cat id is =', cat_id)
+
+                    $('#spinner').addClass('d-none')
                     
                     $('.mm-content a.filter').click(function () {
                         var dataKey = $(this).attr('data-key');
@@ -646,7 +652,8 @@ $(function () {
                         $('.submit-filter').click();
     
                     });
-    
+                    
+                    //genre in burger menu on click
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (!$(this).parent().hasClass('active')) {
                             $('.mm-content-item').find('.nav-item').removeClass('active');
@@ -688,11 +695,11 @@ $(function () {
                             //append params on current url
                             window.history.pushState({ path: newUrl }, '', newUrl);
                             
-                            if ($('.wrapper-'+cat_id).length > 0){
-                                $(this).animate({
-                                    scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-'+cat_id).outerWidth()
-                                }, 2000);
-                            }
+                            $('.genre-tabs .wrapper-explorethearts').animate({
+                                scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-explorethearts').outerWidth()
+                            }, 2000); 
+
+                            $('.mm-wrapper').removeClass('active');
                         }
                     })
     
@@ -770,6 +777,23 @@ $(function () {
                                 });
                             }
                         });
+                    }
+
+                    //erro page js
+                    let errorPage = $('#error');
+                    if (errorPage.length > 0) {
+                        $('body').addClass('no-scroll');
+
+                        function update(e) {
+                            var x = e.clientX || e.touches[0].clientX
+                            var y = e.clientY || e.touches[0].clientY
+                    
+                            document.documentElement.style.setProperty('--cursorX', x + 'px')
+                            document.documentElement.style.setProperty('--cursorY', y + 'px')
+                        }
+
+                        document.addEventListener('mousemove', update);
+                        document.addEventListener('touchmove', update);
                     }
             
                     //category on click scroller arrow and initialize outer width func
