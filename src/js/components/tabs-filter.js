@@ -185,7 +185,9 @@ $(function () {
                     window.onscroll = () => {
                         var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
                         if ($(".tab-content").length > 0 && bottomOfWindow && !this.fetchingData) {
-                            document.getElementById('spinner').style.display = "block";
+                            // document.getElementById('spinner').style.display = "block";
+                            var spinner = $('#spinner')
+                            spinner.addClass('d-block').removeClass('d-none');
                             this.updateData();
                         }
                     }
@@ -218,7 +220,9 @@ $(function () {
                         console.log(data)
                         _this.filters = _this.filters.concat(data.Articles)
                         if (data.Articles.length < offset || data.Articles.length == 0) {
-                            document.getElementById('spinner').style.display = "none";
+                            // document.getElementById('spinner').style.display = "none";
+                            var hideSpinner = $('#spinner');
+                            hideSpinner.addClass('d-none').removeClass('d-block');
                             window.onscroll = () => { }
                         }
                         _this.fetchingData = false;
@@ -299,7 +303,9 @@ $(function () {
                     $('.genre-list').find('.nav-link').removeClass('active');
                     $('#genre-tabs-'+this.category).find('#' + e).addClass('active');
 
-                    document.getElementById('spinner').style.display = "none";
+                    var hideSpinner = $('#spinner');
+                    hideSpinner.addClass('d-none').removeClass('d-block');
+                    // document.getElementById('spinner').style.display = "none";
 
                     this.checkScroll();
                     this.fetchData();
@@ -352,7 +358,7 @@ $(function () {
                             }, 500,'linear');
                             var maxScrollLeft = $('.wrapper-'+catId).get(0).scrollWidth - $('.wrapper-'+catId).get(0).clientWidth - 100;
                             if ($('.wrapper-'+catId).scrollLeft() >= maxScrollLeft) {
-                                console.log(maxScrollLeft)
+                                // console.log(maxScrollLeft)
                                 $('#goAfter-'+catId).addClass('d-none');
                                 $('#goAfter-'+catId).removeClass('d-block');
                             }
@@ -375,7 +381,7 @@ $(function () {
                             if ($(this).scrollLeft() > 0) {
                                 $goBack.addClass('show-arrow');
                             }
-                            console.log($(this).scrollLeft())
+                            // console.log($(this).scrollLeft())
                 
                             var $elem = $('.wrapper-'+catId);
                             var newScrollLeft = $elem.scrollLeft(),
@@ -497,7 +503,9 @@ $(function () {
                     this.currPage = 1;
                     this.loadPage = 1;
 
-                    document.getElementById('spinner').style.display = "none";
+                    var hideSpinner = $('#spinner');
+                    hideSpinner.addClass('d-none').removeClass('d-block');
+                    // document.getElementById('spinner').style.display = "none";
                     _this.checkScroll();
                     _this.fetchData();
 
@@ -536,10 +544,10 @@ $(function () {
                         if (data.filters.length < 1) {
                             // test.text('Too Bad.. No result found');
                             emptyMessage.removeClass('d-none').addClass('d-block');
-                            $('#spinner').parent().addClass('d-none');
+                            $('#spinner').addClass('d-none');
                         } else {
                             emptyMessage.removeClass('d-block').addClass('d-none');
-                            $('#spinner').parent().removeClass('d-none');
+                            $('#spinner').removeClass('d-none');
                         }
                         //end
 
