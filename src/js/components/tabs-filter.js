@@ -59,15 +59,11 @@ $(function () {
                 console.log("called api");
                 this.checkActiveGenre();
                 
-
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
                 
-                this.commonFunction();
-                console.log(this.category)
-
-
+                this.initialize();
             },
             updated: function () {
                 var _this = this;
@@ -100,8 +96,6 @@ $(function () {
                         var _this = this
                         var $img = $icon.find('.icon') 
 
-                        console.log('img', $(this).attr('src'));
-
                         if( $(this).attr('src') == ""){
                             $(this).parent().addClass('d-none');
                         }                        
@@ -114,7 +108,6 @@ $(function () {
 
                     for (let i = 0, lengthMeta = metaUrl.length; i < lengthMeta; i++) {
                         if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1) {
-                            // console.log()
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
                             console.log('current Host from meta:', host)
@@ -324,6 +317,10 @@ $(function () {
 
                     // reset all side filter checkboxes and radios
                     $('.filter-menu-content [type="checkbox"]').prop('checked', false);
+                    $('.filter-menu-content [type="radio"][value="latest"]').prop('checked', true);
+                    
+                    let filterIcon = $('.genre-filter').find('img');
+                    filterIcon.attr('src', '/assets/microsites/offstage/img/icons/Filter.svg');
 
                     //reset genre to ALL
                     searchParams.delete('genre');
@@ -599,9 +596,7 @@ $(function () {
                         var $megaMenu = $('.mm-wrapper');
 
                         if ($megaMenu.hasClass('active')) {
-                            console.log("active")
                             $('body').addClass('set-fixed');
-
                         }
 
                         $('#searchBar').modal({
@@ -639,10 +634,10 @@ $(function () {
                         
                     })
                 },
-                commonFunction: function () {
+                initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-                    console.log('cat id is =', cat_id)
+                    // console.log('cat id is =', cat_id)
 
                     $('#spinner').addClass('d-none')
                     
@@ -657,7 +652,8 @@ $(function () {
                         $('.submit-filter').click();
     
                     });
-    
+                    
+                    //genre in burger menu on click
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (!$(this).parent().hasClass('active')) {
                             $('.mm-content-item').find('.nav-item').removeClass('active');
@@ -781,6 +777,23 @@ $(function () {
                                 });
                             }
                         });
+                    }
+
+                    //erro page js
+                    let errorPage = $('#error');
+                    if (errorPage.length > 0) {
+                        $('body').addClass('no-scroll');
+
+                        function update(e) {
+                            var x = e.clientX || e.touches[0].clientX
+                            var y = e.clientY || e.touches[0].clientY
+                    
+                            document.documentElement.style.setProperty('--cursorX', x + 'px')
+                            document.documentElement.style.setProperty('--cursorY', y + 'px')
+                        }
+
+                        document.addEventListener('mousemove', update);
+                        document.addEventListener('touchmove', update);
                     }
             
                     //category on click scroller arrow and initialize outer width func
