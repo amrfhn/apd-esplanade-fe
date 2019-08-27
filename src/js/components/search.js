@@ -22,13 +22,6 @@ $(function () {
                 result: []
             },
             searchFilter: ""
-            // searchFilter: [
-            //     { id: 'jazz', type: 'Jazz' },
-            //     { id: 'music', type: 'Music' },
-            //     { id: 'opera', type: 'Opera' },
-            //     { id: 'theatre', type: 'Theatre' },
-            //     { id: 'musicaltheatre', type: 'Musical Theatre' }
-            // ]
         }
 
         var params = {
@@ -53,14 +46,8 @@ $(function () {
                 this.field = $('#search-input').attr('data-content');
 
                 this.fetchSuggestKey();
-                this.checkFilter();
+
             },
-            // watch: {
-            //     keyword: function () {
-            //         console.log(this.keyword)
-            //         this.fetchSuggestKey();
-            //     }
-            // },
             methods: {
                 checkMetatUrl: function () {
                     let metaUrl = $('meta');
@@ -77,7 +64,7 @@ $(function () {
                     }
                 },
                 hideAll: function () {
-                    $(".search-suggestion, #search-spinner, .show-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
+                    $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
                 },
                 fetchSuggestKey: function () {
                     var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
@@ -104,13 +91,13 @@ $(function () {
                     var value = $('#search-input').val().toLowerCase();
 
                     // Filter List
-                    if (this.keyword.length > 2 && this.searchSuggestion.length > 0 ) {
+                    if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
                         $(".search-suggestion-list li").removeClass("match").hide().filter(function () {
                             return $(this).text().toLowerCase().indexOf(value) != -1;
                         }).addClass("match").show();
 
                         this.searchHighlight(this.keyword)
-                        
+
                         $(".search-suggestion").show();
 
                     } else {
@@ -133,25 +120,22 @@ $(function () {
 
                     $text.val($selectedKey);
                     this.keyword = $selectedKey
-
-                    $('.search-submit').click();
-                    // this.resetResult();
+                    this.resetFilter();
+                    this.submittedSearch(event);
                 },
                 submittedSearch: function (e) {
-                    if (!this.keyword) {
-                        this.errors.push('Search required.');
-                    } else {
-                        this.hideAll();
-                        this.fetchResultData();
-                    }
-
                     e.preventDefault();
+                    this.hideAll();
+                    this.resetFilter();
+                    this.fetchResultData();
+                    return false;
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
+                    this.updateFilter();
                     $('#search-spinner').show();
                     $(".search-suggestion").hide();
-                    
+
                     this.currPage = 1
                     var url = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this
@@ -210,7 +194,7 @@ $(function () {
                     this.resultScrollTop();
 
                     $('.no-result').hide();
-                    $('.show-result-wrapper, .search-filter, .search-result, .result-more').show();
+                    $('.total-result-wrapper, .search-filter, .search-result, .result-more').show();
 
                     if (this.searchResult.result.length < 10) {
                         $('.result-more').hide();
@@ -237,25 +221,34 @@ $(function () {
                     $('.search-wrapper').removeClass('was-validated');
                     console.log('reset')
                 },
-                checkFilter: function () {
+                resetFilter: function () {
+                    //reset filter
+                    var $checkbox = $('.search-filter .form-check-input')
+                    $checkbox.each(function () {
+                        if (!$(this).is(':checked')) {
+                            $(this).prop('checked', true);
+                        }
+                    })
+                },
+                updateFilter: function () {
                     // loop and check .search-filter has attr "checked"
                     // append id to param 
                     // no checked - remove id from param if it's uncheck 
                     var checkFilter = []
 
                     var $checkbox = $('.search-filter .form-check-input')
-                    $checkbox.each(function(){
+                    $checkbox.each(function () {
                         var filter = $(this).attr('id')
 
-                        if($('#' + filter).is(':checked')){
+                        if ($('#' + filter).is(':checked')) {
                             checkFilter.push(filter);
                         }
                     })
 
                     resultParams.filter = checkFilter.toString();
-                    this.fetchResultData();
+                    // this.fetchResultData();
                     console.log(resultParams.filter);
-                }
+                },
             }
         })
     }

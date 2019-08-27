@@ -41,8 +41,12 @@
     }
   }
 
-  .show-result-wrapper {
+  .total-result-wrapper {
     display: flex;
+
+    .total-result {
+      font-size: 12px;
+    }
   }
 
   .search-filter {
@@ -156,10 +160,6 @@
     cursor: pointer;
   }
 
-  .show-result {
-    font-size: 12px;
-  }
-
   .result-header {
     font-size: 32px;
     margin: 0;
@@ -243,6 +243,19 @@
         margin: 0;
       }
     }
+  }
+
+  #search-spinner {
+    position: absolute;
+    width: 100vw; 
+    height: 100%;
+    left: 0;
+    z-index: 3; 
+    background: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 25px;
   }
 }
 
