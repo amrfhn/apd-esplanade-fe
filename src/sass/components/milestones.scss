@@ -86,6 +86,21 @@
         }
     }
 
+    .milestones-single-item{
+        &:last-child {
+            .box-left {
+                &:before {
+                    content: none
+                }
+            }
+            .box-right {
+                &:before {
+                    content: none
+                }
+            }
+        }
+    } 
+
     .more-miles {
         &:last-child {
             .milestones-item {
