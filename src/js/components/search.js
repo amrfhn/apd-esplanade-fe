@@ -19,7 +19,8 @@ $(function () {
             searchSuggestion: [],
             searchResult: {
                 total: 0,
-                result: []
+                result: [],
+                message: ""
             },
             searchFilter: ""
         }
@@ -153,6 +154,7 @@ $(function () {
 
                         if (_this.searchResult.result.length == 0) {
                             _this.hideAll();
+                            _this.searchResult.message = data.message
                             $('.search-suggestion').hide();
                             $('.no-result').show();
                         } else {
@@ -225,8 +227,8 @@ $(function () {
                     //reset filter
                     var $checkbox = $('.search-filter .form-check-input')
                     $checkbox.each(function () {
-                        if (!$(this).is(':checked')) {
-                            $(this).prop('checked', true);
+                        if ($(this).is(':checked')) {
+                            $(this).prop('checked', false);
                         }
                     })
                 },

@@ -26,16 +26,17 @@
 //- END: Search Suggestion
 
 //- START: No Result
-.col-12.no-result
-    p.result-header.pb-25 Oops! We are unable to provide any results…
-    p.font-24.pb-25 
-        | Did you mean   
-        a.suggest-key Jazz
-        span.font-weight-bold ?  
-    p Try again: 
-    ul.list-unstyled 
-        li Check your spelling (Don’t worry, we understand somethings it’s hard)
-        li Broaden your search by fewer or more general words
+.col-12.no-result.pb-5
+    //- p.result-header.pb-25 Oops! We are unable to provide any results…
+    //- p.font-24.pb-25 
+    //-     | Did you mean   
+    //-     a.suggest-key Jazz
+    //-     span.font-weight-bold ?  
+    //- p Try again: 
+    //- ul.list-unstyled 
+    //-     li Check your spelling (Don’t worry, we understand somethings it’s hard)
+    //-     li Broaden your search by fewer or more general words
+    div(v-html="searchResult.message")
 //- END: No Result
 
 
@@ -77,19 +78,19 @@
             .search-filter-close(@click="closeFilter()").d-md-none
                 img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="jazz" checked @click="fetchResultData()")
+                input.form-check-input.custom-control-input(type="checkbox" id="jazz" @click="fetchResultData()")
                 label.form-check-label(for="jazz") Jazz
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="music" checked @click="fetchResultData()")
+                input.form-check-input.custom-control-input(type="checkbox" id="music" @click="fetchResultData()")
                 label.form-check-label(for="music") Music
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="opera" checked @click="fetchResultData()")
+                input.form-check-input.custom-control-input(type="checkbox" id="opera" @click="fetchResultData()")
                 label.form-check-label(for="opera") Opera
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="theatre" checked @click="fetchResultData()")
+                input.form-check-input.custom-control-input(type="checkbox" id="theatre" @click="fetchResultData()")
                 label.form-check-label(for="theatre") Theatre
             .form-check
-                input.form-check-input.custom-control-input(type="checkbox" id="musicaltheatre" checked @click="fetchResultData()")
+                input.form-check-input.custom-control-input(type="checkbox" id="musicaltheatre" @click="fetchResultData()")
                 label.form-check-label(for="musicaltheatre") Musical Theatre        
     //- END: Search Filter
 

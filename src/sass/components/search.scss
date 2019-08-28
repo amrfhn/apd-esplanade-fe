@@ -191,10 +191,10 @@
   .search-result {
     display: none;
     overflow-y: auto;
-    max-height: calc(100vh - 205px);
+    max-height: calc(100vh - 230px);
 
     @media (min-width: 768px) {
-      max-height: calc(100vh - 254px);
+      max-height: calc(100vh - 279px);
     }
 
     .result-card {

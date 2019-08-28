@@ -81,7 +81,7 @@
     }
   }
 
-  .milestones-single-item {
+  .milestone-single-item {
     &:last-child {
       .box-left {
         &:before {
@@ -96,20 +96,16 @@
     }
   }
 
-  .more-miles {
+  .hide-line {
     &:last-child {
-      .milestones-item {
-        &:last-child {
-          .box-left {
-            &:before {
-              content: none;
-            }
-          }
-          .box-right {
-            &:before {
-              content: none;
-            }
-          }
+      .box-left {
+        &:before {
+          content: none;
+        }
+      }
+      .box-right {
+        &:before {
+          content: none;
         }
       }
     }
