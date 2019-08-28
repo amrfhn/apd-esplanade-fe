@@ -57,7 +57,7 @@ $(function () {
                         if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1) {
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
-                            console.log('current Host from meta:', host)
+                            // console.log('current Host from meta:', host)
                         } else {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
