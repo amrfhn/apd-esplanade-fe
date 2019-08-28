@@ -6,7 +6,6 @@ $(function () {
 
         var slider = "#" + $(item).attr('id');
         var fancyboxSelector = slider + ' .slick-slide:not(.slick-cloned) a'
-        console.log(fancyboxSelector)
 
         // fancybox
         $().fancybox({

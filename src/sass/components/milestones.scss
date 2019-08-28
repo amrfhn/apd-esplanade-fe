@@ -96,18 +96,23 @@
     }
   }
 
-  .hide-line {
+  .more-miles {
     &:last-child {
-      .box-left {
-        &:before {
-          content: none;
+      .milestones-item {
+        &:last-child {
+          .box-left {
+            &:before {
+              content: none;
+            }
+          }
+          .box-right {
+            &:before {
+              content: none;
+            }
+          }
         }
       }
-      .box-right {
-        &:before {
-          content: none;
-        }
-      }
+      
     }
   }
 }

@@ -55,7 +55,6 @@ $(function () {
 
                     for (let i = 0, lengthMeta = metaUrl.length; i < lengthMeta; i++) {
                         if ($(metaUrl[i]).attr('property') == 'site_domain' && currUrl.indexOf('localhost') === -1) {
-                            // console.log()
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
                             console.log('current Host from meta:', host)
@@ -71,19 +70,14 @@ $(function () {
                     var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
                     var _this = this
                     params.keyword = this.keyword
-                    console.log('url', url)
 
-                    console.log('keyword', this.keyword)
                     var requestSuggestKey = $.ajax({
                         type: "GET",
                         url: url,
                         dataType: "json",
                         // data: params
                     }).done(function (data) {
-                        console.log('key', data)
                         _this.searchSuggestion = data.suggestions
-
-                        console.log("searchSuggestion", _this.searchSuggestion)
                     }).fail(function () {
                         $(".search-suggestion").hide();
                     })
@@ -150,7 +144,6 @@ $(function () {
                     }).done(function (data) {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
-                        console.log('search result', _this.searchResult.result.length)
 
                         if (_this.searchResult.result.length == 0) {
                             _this.hideAll();
@@ -161,7 +154,6 @@ $(function () {
                             $('#search-spinner').hide();
                             _this.resetResult();
                         }
-
                     }).fail(function () {
                         console.log('update fail')
                     })
@@ -221,10 +213,9 @@ $(function () {
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
-                    console.log('reset')
                 },
                 resetFilter: function () {
-                    //reset filter
+                    //reset all filter uncheck
                     var $checkbox = $('.search-filter .form-check-input')
                     $checkbox.each(function () {
                         if ($(this).is(':checked')) {
@@ -248,8 +239,6 @@ $(function () {
                     })
 
                     resultParams.filter = checkFilter.toString();
-                    // this.fetchResultData();
-                    console.log(resultParams.filter);
                 },
             }
         })
