@@ -2,17 +2,17 @@
 .col-12.pb-20
     #closeSearch(@click="closeSearch()")
         img(src="./assets/microsites/offstage/img/icons/Close.svg" ).close
-    form.search-wrapper.needs-validation(autocomplete="off" @submit="submittedSearch" novalidate)
+    form.search-wrapper.needs-validation(autocomplete="off" novalidate @submit.prevent="submittedSearch")
         .form-row.pb-20.align-items-end
             .col-12.pr-0
                 label(for="validationServer01") Search: 
 
                 //- .d-flex
-                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG" @keyup="filteredSuggestion()" data-content="suggestions" required)
+                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG" @keyup="filteredSuggestion()" @keyup.enter="submittedSearch" data-content="suggestions" required)
                 button(type="submit").search-submit.btn.bg-white.px-0
                     img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
-                .invalid-feedback Insert Search
+                .invalid-feedback Insert Keyword
 //- END: Search BAR
 
 
@@ -24,29 +24,6 @@
             li(v-for="suggestion in searchSuggestion" @click="selectedSuggestion(event)") 
                 span {{suggestion}}
 //- END: Search Suggestion
-
-
-//- START: Search Filter
-.col-12
-    form
-        .show-result-wrapper.justify-content-between.align-items-center
-            p.show-result.m-0
-                | Showing 
-                span.font-weight-bold {{searchResult.total}}
-                |  Results  
-
-            .search-filter-btn(@click="showFilter()").d-md-none
-                img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon
-
-
-        .search-filter.mt-md-25
-            .search-filter-close(@click="closeFilter()").d-md-none
-                img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
-            .form-check(v-for="filter in searchFilter") 
-                input.form-check-input.custom-control-input(type="checkbox" :id="'filter' + filter.id")
-                label.form-check-label(:for="'filter' + filter.id") {{filter.type}}
-//- END: Search Filter
-
 
 //- START: No Result
 .col-12.no-result
@@ -75,19 +52,58 @@
     p.result-header You may want to visit them on their site.
 //- END: Special Keyword Result       
 
+//- Start: Spinner
+.col-12#search-spinner
+    .spinner-load
+        //- img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
+        img.spinner-icon(src="/assets/microsites/offstage/img/gif/op2.gif")
+        p.spinner-message.bt-2.mb-25 Yeah, it's a slow build-up - but we promise it will be worth the wait!
+//- END: Spinner
 
 //- START: Search Results
-.col-12.search-result.pt-25
-    .result-card(v-for="result in searchResult.result")
-        p.result-label
-            span.pr-3(v-if="result.category!= ''") {{result.category}}
-            span.pr-3(v-if="result.contentType!= ''") {{result.contentType}}
-            span.pr-3(v-if="result.publishDate!= ''") {{result.publishDate}}
-        a(:href="result.url").result-title
-            p(v-line-clamp:20="3") {{result.title}}
-        a(:href="result.url").result-description
-            p.bt-2(v-line-clamp:20="2") {{result.description}}
-    
-    .result-more.mb-md-25.text-center(@click="moreResult")
-        button.btn.btn-outline-primary.mb-25(aria-expanded="false") Load More
+.col-12
+    form
+        .total-result-wrapper.justify-content-between.align-items-center.pb-25.pb-md-0
+            p.total-result.m-0
+                | Showing 
+                span.font-weight-bold {{searchResult.total}}
+                |  Results  
+
+            .search-filter-btn(@click="showFilter()").d-md-none
+                img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon
+
+
+        .search-filter.mb-25.mt-mb-25
+            .search-filter-close(@click="closeFilter()").d-md-none
+                img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="jazz" checked @click="fetchResultData()")
+                label.form-check-label(for="jazz") Jazz
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="music" checked @click="fetchResultData()")
+                label.form-check-label(for="music") Music
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="opera" checked @click="fetchResultData()")
+                label.form-check-label(for="opera") Opera
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="theatre" checked @click="fetchResultData()")
+                label.form-check-label(for="theatre") Theatre
+            .form-check
+                input.form-check-input.custom-control-input(type="checkbox" id="musicaltheatre" checked @click="fetchResultData()")
+                label.form-check-label(for="musicaltheatre") Musical Theatre        
+    //- END: Search Filter
+
+    .search-result
+        .result-card(v-for="result in searchResult.result")
+            p.result-label
+                span.pr-3(v-if="result.category!= ''") {{result.category}}
+                span.pr-3(v-if="result.contentType!= ''") {{result.contentType}}
+                span.pr-3(v-if="result.date!= ''") {{result.date}}
+            a(:href="result.url").result-title
+                p(v-line-clamp:20="3") {{result.title}}
+            a(:href="result.url").result-description
+                p.bt-2(v-line-clamp:20="2") {{result.description}}
+        
+        .result-more.mb-md-25.text-center(@click="moreResult")
+            button.btn.btn-outline-primary.mb-25(aria-expanded="false") Load More
 //- END: Search Results

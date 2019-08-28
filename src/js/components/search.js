@@ -15,18 +15,13 @@ $(function () {
             field: "",
             keyword: "",
             currPage: 1,
-            pageSize: 5,
+            pageSize: 10,
             searchSuggestion: [],
             searchResult: {
                 total: 0,
                 result: []
             },
-            searchFilter: [
-                { id: '1', type: 'Genre' },
-                { id: '2', type: 'Music' },
-                { id: '3', type: 'Visual Art' },
-                { id: '4', type: 'Family' }
-            ]
+            searchFilter: ""
         }
 
         var params = {
@@ -42,19 +37,16 @@ $(function () {
             el: "#search",
             data: data,
             mounted: function () {
+
                 this.checkMetatUrl();
+                this.hideAll();
 
                 // Initialise data
                 this.content = $('#search').attr('data-content');
                 this.field = $('#search-input').attr('data-content');
 
-                $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
-            },
-            watch: {
-                keyword: function () {
-                    console.log(this.keyword)
-                    this.fetchSuggestKey();
-                }
+                this.fetchSuggestKey();
+
             },
             methods: {
                 checkMetatUrl: function () {
@@ -71,6 +63,9 @@ $(function () {
                         }
                     }
                 },
+                hideAll: function () {
+                    $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
+                },
                 fetchSuggestKey: function () {
                     var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
                     var _this = this
@@ -82,21 +77,21 @@ $(function () {
                         type: "GET",
                         url: url,
                         dataType: "json",
-                        data: params
+                        // data: params
                     }).done(function (data) {
                         console.log('key', data)
                         _this.searchSuggestion = data.suggestions
 
                         console.log("searchSuggestion", _this.searchSuggestion)
                     }).fail(function () {
-                        console.log('fail')
+                        $(".search-suggestion").hide();
                     })
                 },
                 filteredSuggestion: function () {
                     var value = $('#search-input').val().toLowerCase();
 
                     // Filter List
-                    if (this.keyword.length > 2) {
+                    if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
                         $(".search-suggestion-list li").removeClass("match").hide().filter(function () {
                             return $(this).text().toLowerCase().indexOf(value) != -1;
                         }).addClass("match").show();
@@ -105,11 +100,9 @@ $(function () {
 
                         $(".search-suggestion").show();
 
-                        return
                     } else {
                         $(".search-suggestion").hide();
                     }
-
                 },
                 searchHighlight: function (string) {
                     $(".search-suggestion-list li.match").each(function () {
@@ -127,22 +120,22 @@ $(function () {
 
                     $text.val($selectedKey);
                     this.keyword = $selectedKey
-
-                    $('.search-submit').click();
-                    // this.resetResult();
+                    this.resetFilter();
+                    this.submittedSearch(event);
                 },
                 submittedSearch: function (e) {
-                    if (!this.keyword) {
-                        this.errors.push('Search required.');
-                    } else {
-                        this.fetchResultData();
-                        this.resetResult();
-                    }
-
                     e.preventDefault();
+                    this.hideAll();
+                    this.resetFilter();
+                    this.fetchResultData();
+                    return false;
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
+                    this.updateFilter();
+                    $('#search-spinner').show();
+                    $(".search-suggestion").hide();
+
                     this.currPage = 1
                     var url = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this
@@ -152,16 +145,18 @@ $(function () {
                         type: "GET",
                         url: url,
                         dataType: "json",
-                        data: resultParams
+                        data: decodeURIComponent($.param(resultParams))
                     }).done(function (data) {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
                         console.log('search result', _this.searchResult.result.length)
 
                         if (_this.searchResult.result.length == 0) {
+                            _this.hideAll();
+                            $('.search-suggestion').hide();
                             $('.no-result').show();
-                            $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .result-more").hide();
                         } else {
+                            $('#search-spinner').hide();
                             _this.resetResult();
                         }
 
@@ -180,11 +175,11 @@ $(function () {
                         dataType: "json",
                         data: resultParams
                     }).done(function (data) {
-                        if (data.result.length > 0 && data.result.length == 5) {
+                        if (data.result.length > 0 && data.result.length == 10) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
-                        } else if (data.result.length < 5) {
+                        } else if (data.result.length < 10) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
@@ -197,10 +192,13 @@ $(function () {
                 },
                 resetResult: function () {
                     this.resultScrollTop();
-                    $(".search-suggestion").hide();
+
                     $('.no-result').hide();
-                    $('.result-more').show();
-                    $('.show-result-wrapper, .search-filter, .search-result').show();
+                    $('.total-result-wrapper, .search-filter, .search-result, .result-more').show();
+
+                    if (this.searchResult.result.length < 10) {
+                        $('.result-more').hide();
+                    }
                 },
                 resultScrollTop: function () {
                     $('.search-result').animate({ scrollTop: 0 }, '1000');
@@ -216,13 +214,41 @@ $(function () {
                     $('.search').fadeOut('fast');
                     $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                     $('body').removeClass('no-scroll');
-                    $(".search-suggestion, .show-result-wrapper, .search-filter, .search-result, .no-result").hide();
+                    this.hideAll();
 
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
                     console.log('reset')
-                }
+                },
+                resetFilter: function () {
+                    //reset filter
+                    var $checkbox = $('.search-filter .form-check-input')
+                    $checkbox.each(function () {
+                        if (!$(this).is(':checked')) {
+                            $(this).prop('checked', true);
+                        }
+                    })
+                },
+                updateFilter: function () {
+                    // loop and check .search-filter has attr "checked"
+                    // append id to param 
+                    // no checked - remove id from param if it's uncheck 
+                    var checkFilter = []
+
+                    var $checkbox = $('.search-filter .form-check-input')
+                    $checkbox.each(function () {
+                        var filter = $(this).attr('id')
+
+                        if ($('#' + filter).is(':checked')) {
+                            checkFilter.push(filter);
+                        }
+                    })
+
+                    resultParams.filter = checkFilter.toString();
+                    // this.fetchResultData();
+                    console.log(resultParams.filter);
+                },
             }
         })
     }
