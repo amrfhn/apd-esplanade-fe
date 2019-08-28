@@ -345,7 +345,7 @@ $(function () {
                         $('#goBack-'+catId).on('click', function () {
                             $('.wrapper-'+catId).animate({
                                 scrollLeft: '-=100'
-                            }, 500, 'linear');
+                            }, 200, 'linear');
                             $('#goAfter-'+catId).addClass('d-block');
                             $('#goAfter-'+catId).removeClass('d-none');
                         });
@@ -353,7 +353,7 @@ $(function () {
                         $('#goAfter-'+catId).on('click', function () {
                             $('.wrapper-'+catId).animate({
                                 scrollLeft: '+=90'
-                            }, 500,'linear');
+                            }, 200,'linear');
                             var maxScrollLeft = $('.wrapper-'+catId).get(0).scrollWidth - $('.wrapper-'+catId).get(0).clientWidth - 100;
                             if ($('.wrapper-'+catId).scrollLeft() >= maxScrollLeft) {
                                 // console.log(maxScrollLeft)
