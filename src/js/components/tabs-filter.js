@@ -345,7 +345,7 @@ $(function () {
                         $('#goBack-'+catId).on('click', function () {
                             $('.wrapper-'+catId).animate({
                                 scrollLeft: '-=100'
-                            }, 500, 'linear');
+                            }, 200, 'linear');
                             $('#goAfter-'+catId).addClass('d-block');
                             $('#goAfter-'+catId).removeClass('d-none');
                         });
@@ -353,7 +353,7 @@ $(function () {
                         $('#goAfter-'+catId).on('click', function () {
                             $('.wrapper-'+catId).animate({
                                 scrollLeft: '+=90'
-                            }, 500,'linear');
+                            }, 200,'linear');
                             var maxScrollLeft = $('.wrapper-'+catId).get(0).scrollWidth - $('.wrapper-'+catId).get(0).clientWidth - 100;
                             if ($('.wrapper-'+catId).scrollLeft() >= maxScrollLeft) {
                                 // console.log(maxScrollLeft)
@@ -779,23 +779,6 @@ $(function () {
                         });
                     }
 
-                    //erro page js
-                    let errorPage = $('#error');
-                    if (errorPage.length > 0) {
-                        $('body').addClass('no-scroll');
-
-                        function update(e) {
-                            var x = e.clientX || e.touches[0].clientX
-                            var y = e.clientY || e.touches[0].clientY
-                    
-                            document.documentElement.style.setProperty('--cursorX', x + 'px')
-                            document.documentElement.style.setProperty('--cursorY', y + 'px')
-                        }
-
-                        document.addEventListener('mousemove', update);
-                        document.addEventListener('touchmove', update);
-                    }
-            
                     //category on click scroller arrow and initialize outer width func
                     // $('#goPrev').on('click', function () {
                     //     $('.wrap').animate({

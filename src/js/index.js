@@ -178,22 +178,24 @@ $(function () {
 
 
     //erro page js
-    let errorPage = $('#error');
-    if (errorPage.length > 0) {
-        $('body').addClass('no-scroll');
+    function update(e) {
+        var x = e.clientX || e.touches[0].clientX
+        var y = e.clientY || e.touches[0].clientY
+        let errorPage = $('#error');
 
-        function update(e) {
-            var x = e.clientX || e.touches[0].clientX
-            var y = e.clientY || e.touches[0].clientY
-    
+        if (errorPage.length > 0) {
+            $('body').addClass('no-scroll');
             document.documentElement.style.setProperty('--cursorX', x + 'px')
             document.documentElement.style.setProperty('--cursorY', y + 'px')
+        } else {
+            document.documentElement.style.setProperty('--cursorX',  'none');
+            document.documentElement.style.setProperty('--cursorY',  'none');
         }
-        
+    }
+    if ($('#error').length > 0) {
         document.addEventListener('mousemove', update);
         document.addEventListener('touchmove', update);
     }
-    
     
 })
 
