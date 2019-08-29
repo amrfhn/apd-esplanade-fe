@@ -3,21 +3,22 @@
         background-color: #000;
         border-radius: 100%;
         border: 1px solid;
-        height:60px;
-        width: 60px;
+        padding: 25px;
+        // height:60px;
+        // width: 60px;
 
-        @media(min-width:768px){
-            height:70px;
-            width: 70px;
-        }
+        // @media(min-width:768px){
+        //     height:70px;
+        //     width: 70px;
+        // }
 
         .icon-funfact{
-            height: 20px;
-            width: 20px;
-            @media(min-width:768px){
-                height: 30px;
-                width: 30px;
-            }
+            height: 30px;
+            width: 30px;
+            // @media(min-width:768px){
+            //     height: 30px;
+            //     width: 30px;
+            // }
         }
     }
 }
