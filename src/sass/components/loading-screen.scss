@@ -16,9 +16,13 @@
   
   .throbber-wrap {
     width: 270px; 
-    top: 36%;
+    top: 20%;
     margin: 0 auto;
     position: relative;
+
+    @media(min-width: 768px) {
+      top: 10%;
+    }
   }
 }
 
@@ -58,8 +62,31 @@
     }
   }
 }
-p.loading-message{
+.loading-message{
   width: 80%;
+  text-align: center;
+}
+
+.load-gif {
+  width: 250px;
+  height: auto;
+  @media (min-width:768px){
+    width: 250px;
+    height: auto;
+  }
+}
+
+.to-onstage-container, .to-offstage-container {
+  position: relative;
+  top: 20%;
+
+  // @media(min-width:768px){
+  //   top: unset;
+  // }
+  .to-offstage-icon, .to-offstage-icon{
+    width: 250px;
+    height: auto;
+  }
 }
 
 @keyframes loader {
