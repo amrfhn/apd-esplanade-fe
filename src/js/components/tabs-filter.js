@@ -88,20 +88,6 @@ $(function () {
                 $('.card-body').matchHeight();
             },
             methods: {
-                checkIconSrc: function(){
-
-                    var $icon = $('.icon-holder')
-                    
-                    $icon.find('img').each(function(){
-                        var _this = this
-                        var $img = $icon.find('.icon') 
-
-                        if( $(this).attr('src') == ""){
-                            $(this).parent().addClass('d-none');
-                        }                        
-                    })
-
-                },
                 checkMetatUrl: function () {
 
                     let metaUrl = $('meta');
@@ -220,8 +206,6 @@ $(function () {
                             window.onscroll = () => { }
                         }
                         _this.fetchingData = false;
-
-                        _this.checkIconSrc();
                     })
                 },
                 bgSwitcher: function () {
@@ -519,6 +503,7 @@ $(function () {
                     var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
                     var _this = this;
 
+                    console.log(url)
                     //show loading screen
                     $('body').addClass('overflow-hidden');
                     $('#offstageLoading').fadeIn(1000);
@@ -625,12 +610,6 @@ $(function () {
                             $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
                             $('body').addClass('no-scroll');
                         })
-                        // $closeSearch.on('click', function () {
-                        //     $('.search').fadeOut('fast');
-                        //     $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
-                        //     $('body').removeClass('no-scroll');
-                        // })
-                        _this.checkIconSrc();
                         
                     })
                 },

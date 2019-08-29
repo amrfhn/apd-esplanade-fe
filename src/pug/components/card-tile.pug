@@ -1,13 +1,13 @@
 .card
     a(:href='filter.Url').position-relative.hyperlink-custom
         .position-absolute.w-100
-            .icon-holder.bg-white.float-right.align-items-center.justify-content-center.m-3
+            .icon-holder.bg-white.float-right.align-items-center.justify-content-center.m-3(:class="[filter.ContentType.Value.length == 0 || filter.ContentType.Icon == 0 ? 'd-none': 'd-flex']")
                 img.icon(:src='filter.ContentType.Icon' alt="")
 
         img.card-img-top(:src='filter.Thumbnail')
     
         .border.border-top-0.text-left.position-relative 
-            span.card-label.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute {{filter.ContentType.Value}}
+            span.card-label.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute(:class="[filter.ContentType.Value.length == 0 || filter.ContentType.Icon == 0 ? 'd-none': 'd-block']") {{filter.ContentType.Value}}
 
             .card-body.text-center.pt-5
                 div
