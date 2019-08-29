@@ -92,9 +92,14 @@ $(function () {
                         }).addClass("match").show();
 
                         this.searchHighlight(this.keyword)
-
+                        
                         $(".search-suggestion").show();
 
+                        var countlistitems = $(".search-suggestion-list li:visible").length;
+                        if(countlistitems < 1) {
+                            $(".search-suggestion").hide();
+                        } 
+                        
                     } else {
                         $(".search-suggestion").hide();
                     }
