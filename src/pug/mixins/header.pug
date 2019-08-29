@@ -50,3 +50,56 @@ mixin header(navbar)
 
             .row
                 include ../components/mega-menu.pug
+
+mixin headerError(navbar)
+    header
+        .container-fluid.no-gutters.pl-0.pr-0
+            .nav-bar-wrapper.error-nav
+                .row.no-gutters
+                    .col-12.col-md-6.no-gutters.pl-0.pr-0.left-wrapper
+                        .nav-bar.navbar-fixed-top.left
+                            button#hamb.hamb
+                                #rect1.showRect
+                                #rect2.showRect 
+                                #rect3.showRect 
+                                p.menu-text.d-none MENU
+                            
+                            .logo-container
+                                .logo-wrapper
+                                    a(href="/")
+                                        .home-logo
+                                            img.logo(src="./assets/microsites/offstage/img/logo/Logo.svg")
+                                    a(href="/landing-schools.html")
+                                        .filter-logo
+                                            img.logo(src="./assets/microsites/offstage/img/logo/White/Schools.svg")
+
+
+                    if navbar= navbar 
+                        .col-12.col-md-6.no-gutters.pl-0.pr-0(style="background-color:#fff;")
+                            .row.px-3
+                                .nav-bar
+                                    .side-nav-wrapper.px-3
+                                    //- set TRUE for side-nav or blank for back button
+                                    
+
+                    else
+                        .col-12.col-md-6.no-gutters.pl-0.pr-0.d-none.d-md-flex.align-items-center(style="background-color:#fff;")
+                            .row.px-3
+                                .nav-bar.right#navbarRight
+                                    .side-nav-wrapper.px-3
+                                        .nav.back.d-none
+                                            a.btn.btn-back.bt-3.m-0(href="#")
+                                                img(src='./assets/microsites/offstage/img/icons/Previous.svg') 
+                                                span.font-weight-bold.ml-4.m-0 Back
+
+            .row
+                .home-search
+                    button.btn-search#btnSearch(type="button")
+                        img.search-icon-mobile.d-block.d-md-none(src="./assets/microsites/offstage/img/icons/Search/White.svg")
+                        img.search-icon.d-none.d-md-block(src="./assets/microsites/offstage/img/icons/Search/Black.svg")            
+
+            .row#search.search.pt-25.px-md-25(data-content="search")        
+                include ../components/search.pug
+
+            .row
+                include ../components/mega-menu.pug
