@@ -778,6 +778,24 @@ $(function () {
                             }
                         });
                     }
+                    //show animation when click - to on stage
+                    let redirectTime = '3000'
+                    let redirectUrl = 'https://www.esplanade.com/'
+
+                    // if (btnOnStage.length > 0) {
+                    //     redirectUrl = 'https://www.esplanade.com/';
+                    // }
+                    $('a[href*="esplanade.com"]').each(function (){
+                        $(this).on('click', function (e) {
+                            let toOnStageScreen = $('#animationToOnstage')
+                            e.preventDefault();
+                            toOnStageScreen.removeClass('d-none').addClass('d-block')
+                            // toOnStageScreen.addClass('active')
+                            setTimeout(function () {
+                                location.href = redirectUrl
+                            }, redirectTime);
+                        })
+                    })
 
                     //category on click scroller arrow and initialize outer width func
                     // $('#goPrev').on('click', function () {
