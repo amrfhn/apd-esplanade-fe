@@ -96,6 +96,8 @@ $(function () {
         $(".submit-filter").click();
 
     });
-
-
+        
+    if($('#tagResult').length > 0){
+        $('.left-wrapper').css('background', '#000');
+    };
 });

@@ -1,24 +1,21 @@
 .fun-fact-title{
-    .img-wrapper{
-        background-color: #000;
+    // .img-wrapper{
+    //     background-color: #000;
+    //     border-radius: 100%;
+    //     border: 1px solid;
+    //     padding: 25px;
+    //     // height:60px;
+    //     // width: 60px;
+
+    //     // @media(min-width:768px){
+    //     //     height:70px;
+    //     //     width: 70px;
+    //     // }
+    // }
+
+    .icon-funfact{
+        height: 80px;
+        width: 80px;
         border-radius: 100%;
-        border: 1px solid;
-        padding: 25px;
-        // height:60px;
-        // width: 60px;
-
-        // @media(min-width:768px){
-        //     height:70px;
-        //     width: 70px;
-        // }
-
-        .icon-funfact{
-            height: 30px;
-            width: 30px;
-            // @media(min-width:768px){
-            //     height: 30px;
-            //     width: 30px;
-            // }
-        }
     }
 }
