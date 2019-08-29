@@ -134,23 +134,31 @@ $(function () {
 
 
     //show animation when click - to on stage
-    let btnOnStage = $('#go-onstage')
+    // let btnOnStage = $('#go-onstage')
     let redirectTime = '3000'
-    let redirectUrl = ''
+    let redirectUrl = 'https://www.esplanade.com/'
 
-    if (btnOnStage.length > 0) {
-        redirectUrl = btnOnStage.attr('data-key');
-    }
-
-    btnOnStage.on('click', function (e) {
-        let toOnStageScreen = $('#animationToOnstage')
-        e.preventDefault();
-        toOnStageScreen.removeClass('d-none').addClass('d-block')
-        // toOnStageScreen.addClass('active')
-        setTimeout(function () {
-            location.href = redirectUrl
-        }, redirectTime);
+    // if (btnOnStage.length > 0) {
+    //     redirectUrl = 'https://www.esplanade.com/';
+    // }
+    $('a[href*="esplanade.com"]').each(function (){
+        $(this).on('click', function (e) {
+            let toOnStageScreen = $('#animationToOnstage')
+            e.preventDefault();
+            toOnStageScreen.removeClass('d-none').addClass('d-block')
+            // toOnStageScreen.addClass('active')
+            setTimeout(function () {
+                location.href = redirectUrl
+            }, redirectTime);
+        })
     })
+    
+    
+    //a href contains esplanade.com and show loading screen
+    // $('a').each(function() {
+    //     $("a[href^='/{tag_']").remove();
+    // });
+
 
     //show animation when come from onstage
     let referrer = document.referrer;
