@@ -1,0 +1,19 @@
+include mixins/header.pug
+
+doctype html
+html(
+  lang="en"
+)
+  include layout/head.pug
+
+  body
+    block header
+
+    main.offset-menu(data-content="arts")
+      block content
+    canvas#error
+    
+block footer
+            
+    //- include components/blog-search.pug
+    include layout/script.pug

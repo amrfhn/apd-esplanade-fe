@@ -1,5 +1,6 @@
 $(function () {
     clampText();
+    
 
     //svg4everybody
     // svg4everybody({
@@ -141,7 +142,7 @@ $(function () {
     // if (btnOnStage.length > 0) {
     //     redirectUrl = 'https://www.esplanade.com/';
     // }
-    $('a[href*="esplanade.com"]').each(function (){
+    $('a[href*="esplanade.com"]').each(function () {
         $(this).on('click', function (e) {
             let toOnStageScreen = $('#animationToOnstage')
             e.preventDefault();
@@ -152,8 +153,8 @@ $(function () {
             }, redirectTime);
         })
     })
-    
-    
+
+
     //a href contains esplanade.com and show loading screen
     // $('a').each(function() {
     //     $("a[href^='/{tag_']").remove();
@@ -186,25 +187,107 @@ $(function () {
 
 
     //erro page js
-    function update(e) {
-        var x = e.clientX || e.touches[0].clientX
-        var y = e.clientY || e.touches[0].clientY
-        let errorPage = $('#error');
+    // function update(e) {
+    //     var x = e.clientX || e.touches[0].clientX
+    //     var y = e.clientY || e.touches[0].clientY
+    //     let errorPage = $('#error');
 
-        if (errorPage.length > 0) {
-            $('body').addClass('no-scroll');
-            document.documentElement.style.setProperty('--cursorX', x + 'px')
-            document.documentElement.style.setProperty('--cursorY', y + 'px')
-        } else {
-            document.documentElement.style.setProperty('--cursorX',  'none');
-            document.documentElement.style.setProperty('--cursorY',  'none');
+    //     if (errorPage.length > 0) {
+    //         $('body').addClass('no-scroll');
+    //         document.documentElement.style.setProperty('--cursorX', x + 'px')
+    //         document.documentElement.style.setProperty('--cursorY', y + 'px')
+    //     } else {
+    //         document.documentElement.style.setProperty('--cursorX',  'none');
+    //         document.documentElement.style.setProperty('--cursorY',  'none');
+    //     }
+    // }
+    // if ($('#error').length > 0) {
+    //     document.addEventListener('mousemove', update);
+    //     document.addEventListener('touchmove', update);
+    // }
+
+    window.addEventListener('load', eventWindowLoaded, false);
+
+    var Debugger = function () { };
+
+    Debugger.log = function (message) {
+        try {
+            console.log(message);
+        } catch (exception) {
+            return;
         }
     }
-    if ($('#error').length > 0) {
-        document.addEventListener('mousemove', update);
-        document.addEventListener('touchmove', update);
+
+    function eventWindowLoaded() {
+        canvasApp();
     }
-    
+
+    function canvasApp() {
+        Debugger.log('Drawing Canvas');
+
+
+        var canvas = document.getElementById('error');
+        var ctx = canvas.getContext('2d');
+
+        var w = canvas.width = window.innerWidth;
+        var h = canvas.height = window.innerHeight;
+
+        function reOffset() {
+            var BB = canvas.getBoundingClientRect();
+            offsetX = BB.left;
+            offsetY = BB.top;
+        }
+
+        var offsetX, offsetY;
+        reOffset();
+
+        window.onscroll = function (e) {
+            reOffset();
+        }
+
+        window.onresize = function (e) {
+            reOffset();
+        }
+
+        canvas.addEventListener('mousemove', mouseMove, false);
+        canvas.addEventListener('touchmove', mouseMove, false);
+
+        function draw(cx, cy, radius) {
+            ctx.save();
+            ctx.clearRect(0, 0, w, h);
+
+            var radialGradient = ctx.createRadialGradient(cx, cy, 1, cx, cy, radius);
+
+            radialGradient.addColorStop(0, 'rgba(0, 0, 0, 1)');
+            radialGradient.addColorStop(.65, 'rgba(0, 0, 0, 1)');
+            radialGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+            ctx.beginPath();
+
+            ctx.fillStyle = 'rgba(0, 0, 0, .8)';
+            ctx.fillRect(0, 0, w, h);
+
+            ctx.globalCompositeOperation = 'destination-out';
+
+            ctx.arc(cx, cy, radius, 0, Math.PI * 2, false);
+            ctx.fillStyle = radialGradient;
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function mouseMove(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            mouseX = parseInt(e.clientX - offsetX);
+            mouseY = parseInt(e.clientY - offsetY);
+
+            draw(mouseX, mouseY, 100);
+        }
+        draw(w / 2, h / 2, 100);
+    }
+
 })
 
 
