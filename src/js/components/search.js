@@ -154,6 +154,8 @@ $(function () {
                             _this.hideAll();
                             _this.searchResult.message = data.message
                             $('.search-suggestion').hide();
+                            $('.total-result-wrapper').show();
+                            $('.search-filter').show();
                             $('.no-result').show();
                         } else {
                             $('#search-spinner').hide();
