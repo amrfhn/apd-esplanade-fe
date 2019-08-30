@@ -288,6 +288,10 @@ $(function () {
         draw(w / 2, h / 2, 100);
     }
 
+    //stick footer to the bottom when the page is empty
+    if($('.offset-menu').height() < $(window).height()){
+        $('footer').addClass('bot-footer');
+    }
 })
 
 

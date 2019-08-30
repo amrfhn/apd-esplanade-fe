@@ -96,8 +96,10 @@ $(function () {
         $(".submit-filter").click();
 
     });
-        
-    if($('#tagResult').length > 0){
+    
+    var $thumbHolder = $('.thumbnail-holder');
+
+    if($thumbHolder.length < 1){
         $('.left-wrapper').css('background', '#000');
     };
 });
