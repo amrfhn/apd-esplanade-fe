@@ -1,7 +1,7 @@
 //- START: Search BAR
 .col-12.pb-20
-    #closeSearch(@click="closeSearch()")
-        img(src="./assets/microsites/offstage/img/icons/Close.svg" ).close
+    #closeSearch
+        img(src="./assets/microsites/offstage/img/icons/Close.svg" @click="closeSearch()").close
     form.search-wrapper.needs-validation(autocomplete="off" novalidate @submit.prevent="submittedSearch")
         .form-row.pb-20.align-items-end
             .col-12.pr-0
@@ -24,34 +24,7 @@
             li(v-for="suggestion in searchSuggestion" @click="selectedSuggestion(event)") 
                 span {{suggestion}}
 //- END: Search Suggestion
-
-//- START: No Result
-.col-12.no-result.pb-5
-    //- p.result-header.pb-25 Oops! We are unable to provide any results…
-    //- p.font-24.pb-25 
-    //-     | Did you mean   
-    //-     a.suggest-key Jazz
-    //-     span.font-weight-bold ?  
-    //- p Try again: 
-    //- ul.list-unstyled 
-    //-     li Check your spelling (Don’t worry, we understand somethings it’s hard)
-    //-     li Broaden your search by fewer or more general words
-    div(v-html="searchResult.message")
-//- END: No Result
-
-
-//- START: Profanity Result
-.col-12.profanity-result.d-none 
-    p.result-header Hey! That’s not very nice.
-//- END: Profanity Result
-
-
-//- START: Special Keyword Result
-.col-12.special-result.d-none  
-    p.result-header Well, they are friends of Esplanade. 
-    br
-    p.result-header You may want to visit them on their site.
-//- END: Special Keyword Result       
+   
 
 //- Start: Spinner
 .col-12#search-spinner
@@ -64,7 +37,7 @@
 //- START: Search Results
 .col-12
     form
-        .total-result-wrapper.justify-content-between.align-items-center.pb-25.pb-md-0
+        .total-result-wrapper.justify-content-between.align-items-center.pb-25
             p.total-result.m-0
                 | Showing 
                 span.font-weight-bold {{searchResult.total}}
@@ -74,7 +47,7 @@
                 img(src="/assets/microsites/offstage/img/icons/Filter_with_text.svg" width="28px").filter-icon
 
 
-        .search-filter.mb-25.mt-mb-25
+        .search-filter.mb-25
             .search-filter-close(@click="closeFilter()").d-md-none
                 img(src="./assets/microsites/offstage/img/icons/Close.svg").close-icon
             .form-check
@@ -108,3 +81,17 @@
         .result-more.mb-md-25.text-center(@click="moreResult")
             button.btn.btn-outline-primary.mb-25(aria-expanded="false") Load More
 //- END: Search Results
+
+//- START: No Result
+.col-12.no-result.pb-5
+    //- p.result-header.pb-25 Oops! We are unable to provide any results…
+    //- p.font-24.pb-25 
+    //-     | Did you mean   
+    //-     a.suggest-key Jazz
+    //-     span.font-weight-bold ?  
+    //- p Try again: 
+    //- ul.list-unstyled 
+    //-     li Check your spelling (Don’t worry, we understand somethings it’s hard)
+    //-     li Broaden your search by fewer or more general words
+    div(v-html="searchResult.message")
+//- END: No Result

@@ -64,7 +64,7 @@ $(function () {
                     }
                 },
                 hideAll: function () {
-                    $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-result, .no-result, .result-more").hide();
+                    $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more").hide();
                 },
                 fetchSuggestKey: function () {
                     var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
@@ -92,14 +92,14 @@ $(function () {
                         }).addClass("match").show();
 
                         this.searchHighlight(this.keyword)
-                        
+
                         $(".search-suggestion").show();
 
                         var countlistitems = $(".search-suggestion-list li:visible").length;
-                        if(countlistitems < 1) {
+                        if (countlistitems < 1) {
                             $(".search-suggestion").hide();
-                        } 
-                        
+                        }
+
                     } else {
                         $(".search-suggestion").hide();
                     }
@@ -154,7 +154,12 @@ $(function () {
                             _this.hideAll();
                             _this.searchResult.message = data.message
                             $('.search-suggestion').hide();
+                            $('.total-result-wrapper').show();
                             $('.no-result').show();
+
+                            if ($('.form-check input[type=checkbox]:checked').length) {
+                                $('.search-filter, .search-filter-btn').show();
+                            }
                         } else {
                             $('#search-spinner').hide();
                             _this.resetResult();
@@ -193,7 +198,7 @@ $(function () {
                     this.resultScrollTop();
 
                     $('.no-result').hide();
-                    $('.total-result-wrapper, .search-filter, .search-result, .result-more').show();
+                    $('.total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .result-more').show();
 
                     if (this.searchResult.result.length < 10) {
                         $('.result-more').hide();
