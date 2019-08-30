@@ -1,18 +1,24 @@
-.tag-result-container{
+.detail-content{
 
-    .date-wrapper{
+    .page-info{
 
-        :before{
+        &:after{
             content: '';
             position: absolute;
             background: #000;
             top: 27.5px;
             width: 2px;
             height: 10px;
-            margin-left: -9px;
+            // margin-left: -9px;
 
             @media(min-width:768px){
                 top: 3px;
+            }
+        }
+
+        &:last-child{
+            &:after {
+                background: none;
             }
         }
     }

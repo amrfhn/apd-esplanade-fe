@@ -97,9 +97,4 @@ $(function () {
 
     });
     
-    var $thumbHolder = $('.thumbnail-holder');
-
-    if($thumbHolder.length < 1){
-        $('.left-wrapper').css('background', '#000');
-    };
 });

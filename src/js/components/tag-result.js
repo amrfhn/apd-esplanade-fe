@@ -22,6 +22,7 @@ $(function () {
             pageSize: 10,
             results: [],
             keyword: '',
+            category: "",
             fetchingData: false
         }
 
@@ -48,12 +49,18 @@ $(function () {
 
             },
 
+            updated: function () {
+                //hide loading screen
+                $('#offstageLoading').fadeOut(1000);
+                setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+            },
+
             methods: {
 
                 checkUrl: function (){
 
-                    if(currUrl.indexOf('tag') > -1){
-                        var tagValue = url.searchParams.get('tag');
+                    if(currUrl.indexOf('tagcloud') > -1){
+                        var tagValue = url.searchParams.get('tagcloud');
                         data.tag = tagValue;
                     }
 
@@ -63,6 +70,10 @@ $(function () {
 
                     var _this = this;
                     var url = host + '/sitecore/api/offstage/tagcloud/results/' + this.tag + '/' + this.pageNum + '/' + this.pageSize;
+
+                    //show loading screen
+                    $('body').addClass('overflow-hidden');
+                    $('#offstageLoading').fadeIn(1000);
 
                     var request = $.ajax({
                         type: 'GET',
@@ -74,12 +85,19 @@ $(function () {
 
                         _this.results = data.TagCloudResult
                         _this.keyword = data.Keyword
+                        _this.category = data.TagCloudResult.Category;
                         
                         if(data.TagCloudResult.length < 10 || data.TagCloudResult.length == 0 ){
                             $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
                         } else {
                             $('#loadMore').parent().addClass('d-flex').removeClass('d-none');
                         }
+
+                        
+                        console.log(_this.category)
+                        // if () {
+
+                        // }
                     })
                 },
 
@@ -105,6 +123,14 @@ $(function () {
                         if (data.TagCloudResult.length < offset || data.TagCloudResult.length == 0) {
                             $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
                         }
+
+                        if($('.offset-menu').height() < $(window).height()){
+                            $('footer').addClass('bot-footer');
+                        } else {
+                            $('footer').removeClass('bot-footer');
+                        }
+
+                        
 
                         _this.fetchingData = false;
                     })

@@ -1,6 +1,6 @@
 $(function () {
     clampText();
-    
+
 
     //svg4everybody
     // svg4everybody({
@@ -250,7 +250,7 @@ $(function () {
         }
 
         canvas.addEventListener('mousemove', mouseMove, false);
-        canvas.addEventListener('touchmove', mouseMove, false);
+        canvas.addEventListener('touchmove', mouseMove, true);
 
         function draw(cx, cy, radius) {
             ctx.save();
@@ -287,9 +287,9 @@ $(function () {
         }
         draw(w / 2, h / 2, 100);
     }
-
+   
     //stick footer to the bottom when the page is empty
-    if($('.offset-menu').height() < $(window).height()){
+    if ($('.offset-menu').height() < $(window).height()) {
         $('footer').addClass('bot-footer');
     }
 })

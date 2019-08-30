@@ -9,9 +9,11 @@
         .col-12.col-md-8.my-auto
             .detail-content.pt-4.pt-md-0
                 .d-flex.justify-content-start.align-items-center.mb-1
-                    .content-type-wrapper.pr-2
+                    .category-wrapper.pr-2
+                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.Category}}
+                    .content-type-wrapper.page-info.pr-2.pl-2
                         p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.ContentType.Value}}
-                    .date-wrapper.pl-2
+                    .date-wrapper.page-info.pl-2
                         p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.PublishDate}}
                 a.page-url.hyperlink-custom(:href="result.Url")
                     .page-title.my-1
