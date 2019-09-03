@@ -1,4 +1,6 @@
 import VueLineClamp from 'vue-line-clamp';
+import URL from 'core-js/features/url'
+import URLSearchParams from 'core-js/features/url-search-params'
 
 $(function () {
     'use strict';
@@ -53,6 +55,9 @@ $(function () {
         var app = new Vue({
             el: '#tabs-filter',
             data: data,
+            "targets": {
+                "ie": "11"
+              },
             mounted: function () {
                 this.checkMetatUrl();
                 this.clamptext();
