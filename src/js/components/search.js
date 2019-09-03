@@ -37,7 +37,7 @@ $(function () {
         var currUrl = window.location.href;
         var url = new URL(currUrl);
         var query_string = url.search;
-        var searchParams = new URLSearchParams(query_string);
+        var urlParams = new URLSearchParams(query_string);
 
         var searchFilter = new Vue({
             el: "#search",
@@ -52,7 +52,6 @@ $(function () {
                 this.field = $('#search-input').attr('data-content');
 
                 this.fetchSuggestKey();
-
             },
             methods: {
                 checkMetatUrl: function () {
@@ -137,7 +136,8 @@ $(function () {
                     return false;
                 },
                 fetchResultData: function (e) {
-                    // console.log('getting result...')
+                    console.log('getting result...')
+                    // console.log('url', searchParams);
                     // console.log('query', query_string);
 
                     // for (let p of searchParams) {
@@ -205,16 +205,18 @@ $(function () {
                     })
                 },
                 checkKeyword: function () {
-                    if (searchParams.has('keyword')) {
-                        searchParams.delete('keyword')
+                    if (currUrl.indexOf("keyword") < -1 && this.keyword.length > 0) {
+                        urlParams.append('keyword', this.keyword)
+                        url.search = urlParams.toString();
+                        var newUrl = url.toString();
+                    } else {
+                        urlParams.delete('keyword');
+                        urlParams.append('keyword', this.keyword)
+                        url.search = urlParams.toString();
+                        var newUrl = url.toString();
                     }
 
-                    searchParams.append('keyword', this.keyword)
-                    url.search = searchParams.toString();
-                    var newUrl = url.toString();
-
-                    //append params on current url
-                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    window.history.pushState({ path: currUrl }, '', newUrl);
                 },
                 moreResult: function () {
                     this.updateResultData();
@@ -249,16 +251,11 @@ $(function () {
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
 
-
-                    //remove keyword from path
-                    if (searchParams.has('keyword')) {
-                        searchParams.delete('keyword')
-                    }
-                    url.search = searchParams.toString();
+                    urlParams.delete('keyword');
+                    url.search = urlParams.toString();
                     var newUrl = url.toString();
 
-                    //append params on current url
-                    window.history.pushState({ path: newUrl }, '', newUrl);
+                    window.history.pushState({ path: currUrl }, '', newUrl);
                 },
                 resetFilter: function () {
                     //reset all filter uncheck
