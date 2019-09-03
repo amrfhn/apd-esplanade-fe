@@ -1,20 +1,18 @@
 .tag-result-container.py-1
 
     .row
-        .col-12.col-md-3
+        .col-12.col-md-4.col-sm-5.px-0.px-md-20
             a.page-url(:href="result.Url")
                 //- image size 218x136
                 img.page-thumbnail.ml-md-0(:src='result.Thumbnail' alt="")
 
-        .col-12.col-md-8.my-auto
+        .col-12.col-sm-7.col-sm-7.my-auto.px-1.px-sm-2
             .detail-content.pt-4.pt-md-0
                 .d-flex.justify-content-start.align-items-center.mb-1
                     .category-wrapper.pr-2
-                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.Category}}
-                    .content-type-wrapper.page-info.pr-2.pl-2
-                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.ContentType.Value}}
-                    .date-wrapper.page-info.pl-2
-                        p.subcontent.font-12.font-weight-bold.mb-0.text-uppercase {{result.PublishDate}}
+                        span.page-info.subcontent.font-12.font-weight-bold.mb-0.text-uppercase.pr-2 {{result.Category}}
+                        span.page-info.subcontent.font-12.font-weight-bold.mb-0.text-uppercase.px-2 {{result.ContentType.Value}}
+                        span.page-info.subcontent.font-12.font-weight-bold.mb-0.text-uppercase.px-2 {{result.PublishDate}}
                 a.page-url.hyperlink-custom(:href="result.Url")
                     .page-title.my-1
                         h3.title.text-transform-none.mb-0(v-line-clamp:20="3") {{result.Title}}
