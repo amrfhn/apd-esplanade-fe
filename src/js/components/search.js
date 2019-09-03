@@ -8,7 +8,7 @@ $(function () {
         })
 
         var host = '';
-        var currUrl = window.location.href;
+
 
         var data = {
             content: "",
@@ -33,6 +33,11 @@ $(function () {
             "keyword": "",
             "filter": ""
         }
+
+        var currUrl = window.location.href;
+        var url = new URL(currUrl);
+        var query_string = url.search;
+        var searchParams = new URLSearchParams(query_string);
 
         var searchFilter = new Vue({
             el: "#search",
@@ -127,11 +132,18 @@ $(function () {
                     e.preventDefault();
                     this.hideAll();
                     this.resetFilter();
+                    this.checkKeyword();
                     this.fetchResultData();
                     return false;
                 },
                 fetchResultData: function (e) {
-                    console.log('getting result...')
+                    // console.log('getting result...')
+                    // console.log('query', query_string);
+
+                    // for (let p of searchParams) {
+                    //     console.log(p)
+                    // }
+
                     this.updateFilter();
                     $('#search-spinner').show();
                     $(".search-suggestion").hide();
@@ -149,6 +161,7 @@ $(function () {
                     }).done(function (data) {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
+
 
                         if (_this.searchResult.result.length == 0) {
                             _this.hideAll();
@@ -191,6 +204,18 @@ $(function () {
                         }
                     })
                 },
+                checkKeyword: function () {
+                    if (searchParams.has('keyword')) {
+                        searchParams.delete('keyword')
+                    }
+
+                    searchParams.append('keyword', this.keyword)
+                    url.search = searchParams.toString();
+                    var newUrl = url.toString();
+
+                    //append params on current url
+                    window.history.pushState({ path: newUrl }, '', newUrl);
+                },
                 moreResult: function () {
                     this.updateResultData();
                 },
@@ -223,6 +248,17 @@ $(function () {
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
+
+
+                    //remove keyword from path
+                    if (searchParams.has('keyword')) {
+                        searchParams.delete('keyword')
+                    }
+                    url.search = searchParams.toString();
+                    var newUrl = url.toString();
+
+                    //append params on current url
+                    window.history.pushState({ path: newUrl }, '', newUrl);
                 },
                 resetFilter: function () {
                     //reset all filter uncheck
