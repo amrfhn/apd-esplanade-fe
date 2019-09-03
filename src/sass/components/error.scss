@@ -54,14 +54,19 @@
     opacity: 1;
     top: -87px;
     color: #333333;
-    &:hover {
-        opacity: 1;
-    }
-
+    
+    
     @media (min-width:768px){
         left: -277px;
         opacity: 0;
+        top: unset;
+        &:hover {
+            opacity: 1;
+        }
     }
+    &:hover {
+        opacity: 1;
+    }  
 }
 
 .error-nav {

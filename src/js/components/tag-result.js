@@ -22,7 +22,7 @@ $(function () {
             pageSize: 10,
             results: [],
             keyword: '',
-            category: "",
+            category: [],
             fetchingData: false
         }
 
