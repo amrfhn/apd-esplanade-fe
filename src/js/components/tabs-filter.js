@@ -69,6 +69,8 @@ $(function () {
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
                 
                 this.initialize();
+                this.eqHeight();
+
             },
             updated: function () {
                 var _this = this;
@@ -90,7 +92,8 @@ $(function () {
                 $('#offstageLoading').fadeOut(1000);
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
-                $('.card-body').matchHeight();
+                // $('.card-body').matchHeight();
+                _this.eqHeight();
             },
             methods: {
                 checkMetatUrl: function () {
@@ -174,6 +177,7 @@ $(function () {
                             var spinner = $('#spinner')
                             spinner.addClass('d-block').removeClass('d-none');
                             this.updateData();
+                            this.eqHeight();
                         }
                     }
                 },
@@ -210,6 +214,7 @@ $(function () {
                             hideSpinner.addClass('d-none').removeClass('d-block');
                             window.onscroll = () => { }
                         }
+                        _this.eqHeight();
                         _this.fetchingData = false;
                     })
                 },
@@ -616,8 +621,25 @@ $(function () {
                             $('body').addClass('no-scroll');
                         })
                         
+                        _this.eqHeight();
+
                     })
                 },
+
+                eqHeight: function () {
+                    
+                    var tallest = 0;
+                    $.each($(".card-body"), function() {
+                        $(this).css("height", "auto");
+                        if ($(this).outerHeight() > tallest) {
+                            tallest = $(this).outerHeight();
+                        }
+                    });
+                    $.each($(".card-body"), function() {
+                        $(this).css("height", tallest + "px");
+                    });
+                },
+                    
                 initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
@@ -711,18 +733,19 @@ $(function () {
                         this.fetchData();
                     }
 
+
                     //-----------------------
-                    var $filterContainer = $('#tabs-filter');
-                    if ($filterContainer.length > 0) {
-                        $(document).on('scroll', function () {
-                            let filterScrollPos = $(this).scrollTop();
-                            if (filterScrollPos > ($filterContainer.offset().top)) {
-                            //$('.filter-bar').addClass("stick");
-                            } else {
-                                //$('.filter-bar').removeClass("stick");
-                            }
-                        });
-                    }
+                    // var $filterContainer = $('#tabs-filter');
+                    // if ($filterContainer.length > 0) {
+                    //     $(document).on('scroll', function () {
+                    //         let filterScrollPos = $(this).scrollTop();
+                    //         if (filterScrollPos > ($filterContainer.offset().top)) {
+                    //         //$('.filter-bar').addClass("stick");
+                    //         } else {
+                    //             //$('.filter-bar').removeClass("stick");
+                    //         }
+                    //     });
+                    // }
 
                     $('.close-btn-x').on('click', function () {
                         $('.mm-wrapper').removeClass('active');
@@ -806,8 +829,6 @@ $(function () {
                     //         $('#goNext').removeClass('d-none');
                     //     }
                     // });
-            
-                   
                 },
             }
         })
