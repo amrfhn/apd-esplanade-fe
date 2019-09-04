@@ -55,9 +55,7 @@ $(function () {
         var app = new Vue({
             el: '#tabs-filter',
             data: data,
-            "targets": {
-                "ie": "11"
-              },
+            
             mounted: function () {
                 this.checkMetatUrl();
                 this.clamptext();
@@ -625,9 +623,7 @@ $(function () {
 
                     })
                 },
-
                 eqHeight: function () {
-                    
                     var tallest = 0;
                     $.each($(".card-body"), function() {
                         $(this).css("height", "auto");
@@ -639,7 +635,6 @@ $(function () {
                         $(this).css("height", tallest + "px");
                     });
                 },
-                    
                 initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
