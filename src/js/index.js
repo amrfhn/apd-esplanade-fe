@@ -162,11 +162,13 @@ $(function () {
     if (referrer.match(/^http?:\/\/([^\/]+\.)?dev\.esplanade\.growthopsapp\.com(\/|$)/i)) {
         console.log('dari esplanade.com')
         let fromOnStageScreen = $('#animationToOffStage')
-        $('#offstageLoading').removeClass('d-block');
-        fromOnStageScreen.removeClass('d-none').addClass('d-block')
-        setTimeout(function () {
-            fromOnStageScreen.removeClass('d-block').addClass('d-none')
-        }, redirectTime)
+        // $('#offstageLoading').removeClass('d-block').addClass('d-none');
+        $('#offstageLoading').fadeOut(1000);
+        fromOnStageScreen.fadeIn(1000);
+        $('body').addClass('overflow-hidden');
+        // setTimeout(function () {
+        //     fromOnStageScreen.removeClass('d-block').addClass('d-none')
+        // }, redirectTime);
     }
 
     // solution: set flag, not to display back button if user browse details page from external
@@ -187,7 +189,7 @@ $(function () {
         window.addEventListener('load', eventWindowLoaded, false);
 
         var Debugger = function () { };
-    
+
         Debugger.log = function (message) {
             try {
                 console.log(message);
@@ -195,81 +197,81 @@ $(function () {
                 return;
             }
         }
-    
+
         function eventWindowLoaded() {
             canvasApp();
         }
-    
+
         function canvasApp() {
-    
+
             var canvas = document.getElementById('error');
             var ctx = canvas.getContext('2d');
-    
+
             var w = canvas.width = window.innerWidth;
             var h = canvas.height = window.innerHeight;
-    
+
             function reOffset() {
                 var BB = canvas.getBoundingClientRect();
                 offsetX = BB.left;
                 offsetY = BB.top;
             }
-    
+
             var offsetX, offsetY;
             reOffset();
-    
+
             window.onscroll = function (e) {
                 reOffset();
             }
-    
+
             window.onresize = function (e) {
                 reOffset();
             }
-    
+
             canvas.addEventListener('mousemove', mouseMove, false);
             canvas.addEventListener('touchmove', mouseMove, false);
-    
+
             function draw(cx, cy, radius) {
                 ctx.save();
                 ctx.clearRect(0, 0, w, h);
-    
+
                 var radialGradient = ctx.createRadialGradient(cx, cy, 1, cx, cy, radius);
-    
+
                 radialGradient.addColorStop(0, 'rgba(0, 0, 0, 1)');
                 radialGradient.addColorStop(.65, 'rgba(0, 0, 0, 1)');
                 radialGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    
+
                 ctx.beginPath();
-    
+
                 ctx.fillStyle = 'rgba(0, 0, 0, .8)';
                 ctx.fillRect(0, 0, w, h);
-    
+
                 ctx.globalCompositeOperation = 'destination-out';
-    
+
                 ctx.arc(cx, cy, radius, 0, Math.PI * 2, false);
                 ctx.fillStyle = radialGradient;
                 ctx.fill();
-    
+
                 ctx.restore();
             }
-    
+
             function mouseMove(e) {
                 e.preventDefault();
                 e.stopPropagation();
-    
+
                 mouseX = parseInt(e.clientX - offsetX);
                 mouseY = parseInt(e.clientY - offsetY);
-    
+
                 draw(mouseX, mouseY, 100);
             }
 
-            
+
             draw(w / 2, h / 2, 100);
-        $('canvas').addClass('set-fixed')
+            $('canvas').addClass('set-fixed')
 
         }
-        
+
     }
-    
+
     //stick footer to the bottom when the page is empty
     if ($('.offset-menu').height() < $(window).height()) {
         $('footer').addClass('bot-footer');
