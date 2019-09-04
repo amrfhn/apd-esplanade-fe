@@ -18,6 +18,15 @@ $(function () {
         }
     }
 
+    //Comparison: Match Height
+    $('.comparison').each(function(){
+       var $avatarWrapper = $(this).find('.avatar-wrapper');
+       $avatarWrapper.matchHeight(); 
+
+       console.log('match match')
+    })
+    
+
     //Author Componenet: Anchoring 
     $('#author-name').click(function (e) {
         e.preventDefault();
