@@ -138,19 +138,33 @@ $(function () {
     let redirectTime = '3000'
     let redirectUrl = 'https://www.esplanade.com/'
 
-    $('a').each(function () {
-        if($(this).attr('href') === 'https://www.esplanade.com/"') {
-            $(this).on('click', function (e) {
-                let toOnStageScreen = $('#animationToOnstage')
-                e.preventDefault();
-                toOnStageScreen.removeClass('d-none').addClass('d-block')
-                // toOnStageScreen.addClass('active')
-                setTimeout(function () {
-                    location.href = redirectUrl
-                }, redirectTime);
-            })
-        } 
+    // $('a').each(function () {
+    //     if($(this).attr('href').includes('https://www.esplanade.com/') && !$(this).attr('href').includes('offstage')) {
+    //         $(this).on('click', function (e) {
+    //             let toOnStageScreen = $('#animationToOnstage')
+    //             e.preventDefault();
+    //             toOnStageScreen.removeClass('d-none').addClass('d-block')
+    //             // toOnStageScreen.addClass('active')
+    //             setTimeout(function () {
+    //                 location.href = redirectUrl
+    //             }, redirectTime);
+    //         })
+    //     } 
+    // })
+
+    $('a').on('click', function (e) {
+        if($(this).attr('href').includes('https://www.esplanade.com/') && !$(this).attr('href').includes('offstage')) {
+            let toOnStageScreen = $('#animationToOnstage')
+            e.preventDefault();
+            toOnStageScreen.removeClass('d-none').addClass('d-block')
+            // toOnStageScreen.addClass('active')
+            setTimeout(function () {
+                location.href = redirectUrl
+            }, redirectTime);
+        }
     })
+
+
     // $('a[href*==="https://www.esplanade.com/"]').each(function () {
     //     $(this).on('click', function (e) {
     //         let toOnStageScreen = $('#animationToOnstage')
