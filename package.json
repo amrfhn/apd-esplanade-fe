@@ -33,6 +33,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.4.4",
     "@fancyapps/fancybox": "^3.5.7",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",

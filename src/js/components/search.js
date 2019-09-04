@@ -1,4 +1,6 @@
 import VueLineClamp from 'vue-line-clamp';
+import URL from 'core-js/features/url'
+import URLSearchParams from 'core-js/features/url-search-params'
 
 $(function () {
     'use strict'

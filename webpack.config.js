@@ -28,7 +28,10 @@ const htmlPlugins = generateHtmlPlugins('./src/pug/pages')
 
 module.exports = [{
     mode: 'development',
-    entry: ['./src/js/main.js'],
+    entry: [
+        '@babel/polyfill',
+        './src/js/main.js'
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "./assets/microsites/offstage/js/bundle.js",
