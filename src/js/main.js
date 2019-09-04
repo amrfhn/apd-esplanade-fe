@@ -2,6 +2,7 @@
 
 /* Vendor
 // ::::::::::::: */
+import "@babel/polyfill"
 import '@fancyapps/fancybox'
 import 'slick-carousel'
 import 'bootstrap'

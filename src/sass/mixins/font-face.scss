@@ -16,6 +16,7 @@
         font-style: $style;
         font-weight: $weight;
         src: $src;
+        -webkit-font-smoothing: [ auto ];
     }
   }
   
