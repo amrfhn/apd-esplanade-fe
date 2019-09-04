@@ -95,7 +95,7 @@ $border-color: #cccccc !default;
 // Font, line-height, and color for body text, headings, and more.
 
 // stylelint-disable value-keyword-case
-$font-family-sans-serif:     'Proxima-Nova-Regular', sans-serif!default;
+$font-family-sans-serif:     'Proxima-Nova-Regular', 'PingFang-SC-Regular', sans-serif!default;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
 
@@ -107,14 +107,15 @@ $font-weight-normal:          400 !default;
 $font-weight-bold:            700 !default;
 $font-weight-bolder:          900 !default;
 
-$font-proxima-black: 'Proxima-Nova-Black';
-$font-proxima-bold: 'Proxima-Nova-Bold';
-$font-proxima-extrabold: 'Proxima-Nova-Extrabold';
-$font-proxima-light: 'Proxima-Nova-Light';
-$font-proxima-medium: 'Proxima-Nova-Medium';
-$font-proxima-semibold: 'Proxima-Nova-Semibold';
-$font-proxima-thin: 'Proxima-Nova-Thin';
-$font-proxima-regular: 'Proxima-Nova-Regular';
+$font-proxima-black: 'Proxima-Nova-Black', 'PingFang-SC-Regular';
+$font-proxima-bold: 'Proxima-Nova-Bold', 'PingFang-SC-Regular';
+$font-proxima-extrabold: 'Proxima-Nova-Extrabold', 'PingFang-SC-Regular';
+$font-proxima-light: 'Proxima-Nova-Light', 'PingFang-SC-Regular';
+$font-proxima-medium: 'Proxima-Nova-Medium', 'PingFang-SC-Regular';
+$font-proxima-semibold: 'Proxima-Nova-Semibold', 'PingFang-SC-Regular';
+$font-proxima-thin: 'Proxima-Nova-Thin', 'PingFang-SC-Regular';
+$font-proxima-regular: 'Proxima-Nova-Regular', 'PingFang-SC-Regular';
+
 
 $font-medium: $font-proxima-medium;
 $font-regular: $font-proxima-regular;

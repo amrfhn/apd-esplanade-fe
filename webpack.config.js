@@ -29,7 +29,7 @@ const htmlPlugins = generateHtmlPlugins('./src/pug/pages')
 module.exports = [{
     mode: 'development',
     entry: [
-        '@babel/polyfill',
+        // '@babel/polyfill',
         './src/js/main.js'
     ],
     output: {
