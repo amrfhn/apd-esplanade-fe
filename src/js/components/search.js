@@ -90,7 +90,7 @@ $(function () {
                     // Filter List
                     if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
                         $(".search-suggestion-list li").removeClass("match").hide().filter(function () {
-                            return $(this).text().toLowerCase().indexOf(value) != -1;
+                            return $(this).text().toLowerCase().indexOf(value);
                         }).addClass("match").show();
 
                         this.searchHighlight(this.keyword)
