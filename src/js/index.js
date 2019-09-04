@@ -138,35 +138,30 @@ $(function () {
     let redirectTime = '3000'
     let redirectUrl = 'https://www.esplanade.com/'
 
-    // if (btnOnStage.length > 0) {
-    //     redirectUrl = 'https://www.esplanade.com/';
-    // }
-    $('a[href*="esplanade.com"]').each(function () {
-        $(this).on('click', function (e) {
-            let toOnStageScreen = $('#animationToOnstage')
-            e.preventDefault();
-            toOnStageScreen.removeClass('d-none').addClass('d-block')
-            // toOnStageScreen.addClass('active')
-            setTimeout(function () {
-                location.href = redirectUrl
-            }, redirectTime);
-        })
+    $('a').each(function () {
+        if($(this).attr('href') === 'https://www.esplanade.com/"') {
+            $(this).on('click', function (e) {
+                let toOnStageScreen = $('#animationToOnstage')
+                e.preventDefault();
+                toOnStageScreen.removeClass('d-none').addClass('d-block')
+                // toOnStageScreen.addClass('active')
+                setTimeout(function () {
+                    location.href = redirectUrl
+                }, redirectTime);
+            })
+        } 
     })
-
-    //show animation when come from onstage
-    // let referrer = document.referrer;
-
-    // if (referrer.match(/^http?:\/\/([^\/]+\.)?dev\.esplanade\.growthopsapp\.com(\/|$)/i)) {
-    //     console.log('dari esplanade.com')
-    //     let fromOnStageScreen = $('#animationToOffStage')
-    //     // $('#offstageLoading').removeClass('d-block').addClass('d-none');
-    //     $('#offstageLoading').fadeOut(1000);
-    //     fromOnStageScreen.fadeIn(1000);
-    //     $('body').addClass('overflow-hidden');
-    //     // setTimeout(function () {
-    //     //     fromOnStageScreen.removeClass('d-block').addClass('d-none')
-    //     // }, redirectTime);
-    // }
+    // $('a[href*==="https://www.esplanade.com/"]').each(function () {
+    //     $(this).on('click', function (e) {
+    //         let toOnStageScreen = $('#animationToOnstage')
+    //         e.preventDefault();
+    //         toOnStageScreen.removeClass('d-none').addClass('d-block')
+    //         // toOnStageScreen.addClass('active')
+    //         setTimeout(function () {
+    //             location.href = redirectUrl
+    //         }, redirectTime);
+    //     })
+    // })
 
     // solution: set flag, not to display back button if user browse details page from external
     if (sessionStorage.getItem('pageBrowsed') && document.referrer !== "") {

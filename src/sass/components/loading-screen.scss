@@ -84,8 +84,12 @@
   //   top: unset;
   // }
   .to-offstage-icon, .to-offstage-icon{
-    width: 250px;
+    width: 100%;
     height: auto;
+    @media (min-width:768px){
+      width: 350px;
+      height: auto;
+    }
   }
 }
 
