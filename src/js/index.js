@@ -155,18 +155,14 @@ $(function () {
     })
 
 
-    //a href contains esplanade.com and show loading screen
-    // $('a').each(function() {
-    //     $("a[href^='/{tag_']").remove();
-    // });
-
 
     //show animation when come from onstage
     let referrer = document.referrer;
 
-    if (referrer.match(/^https?:\/\/([^\/]+\.)?esplanade\.com(\/|$)/i)) {
+    if (referrer.match(/^http?:\/\/([^\/]+\.)?dev\.esplanade\.growthopsapp\.com(\/|$)/i)) {
         console.log('dari esplanade.com')
         let fromOnStageScreen = $('#animationToOffStage')
+        $('#offstageLoading').removeClass('d-block');
         fromOnStageScreen.removeClass('d-none').addClass('d-block')
         setTimeout(function () {
             fromOnStageScreen.removeClass('d-block').addClass('d-none')
