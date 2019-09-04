@@ -127,7 +127,7 @@ $(function () {
                     e.preventDefault();
                     this.hideAll();
                     this.resetFilter();
-                    // this.checkKeyword();
+                    this.checkKeyword();
                     this.fetchResultData();
                     return false;
                 },
@@ -206,6 +206,8 @@ $(function () {
                     var query_string = url.search;
                     var urlParams = new URLSearchParams(query_string);
 
+                    console.log('check keyword')
+
                     if (currentUrl.indexOf("keyword") < -1 && this.keyword.length > 0) {
                         urlParams.append('keyword', this.keyword)
                         url.search = urlParams.toString();
@@ -213,6 +215,20 @@ $(function () {
                     } else {
                         urlParams.delete('keyword');
                         urlParams.append('keyword', this.keyword)
+                        url.search = urlParams.toString();
+                        var newUrl = url.toString();
+                    }
+
+                    window.history.pushState({ path: currentUrl }, '', newUrl);
+                },
+                removeKeyword: function () {
+                    var currentUrl = window.location.href;
+                    var url = new URL(currentUrl);
+                    var query_string = url.search;
+                    var urlParams = new URLSearchParams(query_string);
+
+                    if (currentUrl.indexOf("keyword") > -1) {
+                        urlParams.delete('keyword');
                         url.search = urlParams.toString();
                         var newUrl = url.toString();
                     }
@@ -251,12 +267,7 @@ $(function () {
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
-
-                    // urlParams.delete('keyword');
-                    // url.search = urlParams.toString();
-                    // var newUrl = url.toString();
-
-                    // window.history.pushState({ path: currentUrl }, '', newUrl);
+                    this.removeKeyword();
                 },
                 resetFilter: function () {
                     //reset all filter uncheck
