@@ -17,7 +17,6 @@ $(function () {
         // var host = 'http://dev.esplanade.growthopsapp.com/';
         var host = '';
         var currUrl = window.location.href;
-        
 
         var data = {
             message: 'Hello Vue!',
@@ -513,9 +512,9 @@ $(function () {
                     var _this = this;
 
                     console.log(url)
-                    // //show loading screen
-                    $('#offstageLoading').fadeIn(1000);
+                    //show loading screen
                     $('body').addClass('overflow-hidden');
+                    $('#offstageLoading').fadeIn(1000);
 
                     var request = $.ajax({
                         type: "GET",
@@ -542,8 +541,6 @@ $(function () {
                             // $('#spinner').removeClass('d-none');
                             _this.checkScroll();
                         }
-
-                        fromOnStageScreen.fadeOut(1000);
                         //end
 
                         //

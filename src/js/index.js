@@ -133,7 +133,6 @@ $(function () {
 
     })
 
-
     //show animation when click - to on stage
     // let btnOnStage = $('#go-onstage')
     let redirectTime = '3000'
@@ -154,22 +153,20 @@ $(function () {
         })
     })
 
-
-
     //show animation when come from onstage
-    let referrer = document.referrer;
+    // let referrer = document.referrer;
 
-    if (referrer.match(/^http?:\/\/([^\/]+\.)?dev\.esplanade\.growthopsapp\.com(\/|$)/i)) {
-        console.log('dari esplanade.com')
-        let fromOnStageScreen = $('#animationToOffStage')
-        // $('#offstageLoading').removeClass('d-block').addClass('d-none');
-        $('#offstageLoading').fadeOut(1000);
-        fromOnStageScreen.fadeIn(1000);
-        $('body').addClass('overflow-hidden');
-        // setTimeout(function () {
-        //     fromOnStageScreen.removeClass('d-block').addClass('d-none')
-        // }, redirectTime);
-    }
+    // if (referrer.match(/^http?:\/\/([^\/]+\.)?dev\.esplanade\.growthopsapp\.com(\/|$)/i)) {
+    //     console.log('dari esplanade.com')
+    //     let fromOnStageScreen = $('#animationToOffStage')
+    //     // $('#offstageLoading').removeClass('d-block').addClass('d-none');
+    //     $('#offstageLoading').fadeOut(1000);
+    //     fromOnStageScreen.fadeIn(1000);
+    //     $('body').addClass('overflow-hidden');
+    //     // setTimeout(function () {
+    //     //     fromOnStageScreen.removeClass('d-block').addClass('d-none')
+    //     // }, redirectTime);
+    // }
 
     // solution: set flag, not to display back button if user browse details page from external
     if (sessionStorage.getItem('pageBrowsed') && document.referrer !== "") {
