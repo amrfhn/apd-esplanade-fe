@@ -17,7 +17,6 @@ $(function () {
         // var host = 'http://dev.esplanade.growthopsapp.com/';
         var host = '';
         var currUrl = window.location.href;
-        var referrer = window.referrer;
 
         var data = {
             message: 'Hello Vue!',
@@ -513,16 +512,9 @@ $(function () {
                     var _this = this;
 
                     console.log(url)
-                    // //show loading screen
-                    // $('body').addClass('overflow-hidden');
-                    // $('#offstageLoading').fadeIn(1000);
-
                     //show loading screen
-
-                    // if (!referrer.match(/^http?:\/\/([^\/]+\.)?dev\.esplanade\.growthopsapp\.com(\/|$)/i)) {
-                    //     $('body').addClass('overflow-hidden');
-                    //     $('#offstageLoading').fadeIn(1000);
-                    // }
+                    $('body').addClass('overflow-hidden');
+                    $('#offstageLoading').fadeIn(1000);
 
                     var request = $.ajax({
                         type: "GET",
