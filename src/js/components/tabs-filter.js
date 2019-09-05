@@ -51,6 +51,8 @@ $(function () {
         var url = new URL(currUrl);
         var query_string = url.search;
         var searchParams = new URLSearchParams(query_string);
+        var tallest = 0;
+
 
         var app = new Vue({
             el: '#tabs-filter',
@@ -65,9 +67,8 @@ $(function () {
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-                
+
                 this.initialize();
-                this.eqHeight();
 
             },
             updated: function () {
@@ -92,6 +93,7 @@ $(function () {
 
                 // $('.card-body').matchHeight();
                 _this.eqHeight();
+
             },
             methods: {
                 checkMetatUrl: function () {
@@ -205,14 +207,16 @@ $(function () {
                         data: $.param(params)
                     }).done(function (data) {
                         console.log(data)
+
                         _this.filters = _this.filters.concat(data.Articles)
+
+
                         if (data.Articles.length < offset || data.Articles.length == 0) {
                             // document.getElementById('spinner').style.display = "none";
                             var hideSpinner = $('#spinner');
                             hideSpinner.addClass('d-none').removeClass('d-block');
                             window.onscroll = () => { }
                         }
-                        _this.eqHeight();
                         _this.fetchingData = false;
                     })
                 },
@@ -515,13 +519,16 @@ $(function () {
                     //show loading screen
                     $('body').addClass('overflow-hidden');
                     $('#offstageLoading').fadeIn(1000);
-
+                    
                     var request = $.ajax({
                         type: "GET",
                         url: url,
                         dataType: "json",
                         data: decodeURIComponent($.param(params))
                     }).done(function (data) {
+
+                        $('.tab-content').removeClass('d-none')
+
 
                         _this.banners = data.Banner.Banners
                         _this.totalBanners = data.Banner.Total
@@ -542,31 +549,6 @@ $(function () {
                             _this.checkScroll();
                         }
                         //end
-
-                        //
-                        // var iconHolder = document.getElementsByClassName('icon-holder')
-                        // console.log(iconHolder)
-
-                        // for(let j = 0, lengthIconHolder=iconHolder.length; j < lengthIconHolder; j++);
-                        // if ($(iconHolder[i]).children().img[src== '']){
-                        //     console.log($(iconHolder[i]))
-                        // }
-                        // iconHolder.each(function (){
-                        //     if($(this).children().img[src=='']){
-                        //         $(this).removeClass('d-flex').addClass('d-block')
-                        //     }
-                        // })
-
-                        // jQuery.fn.hasScrollBar = function () {
-                        //     return this.get(0).scrollWidth > this.innerWidth();
-                        // }
-                        // if ($('.wrap').length >= 1) {
-
-                        //     if (!$('.wrap').hasScrollBar()) {
-                        //         $('#goPrev').css('display', 'none');
-                        //         $('#goNext').css('display', 'none');
-                        //     }
-                        // }
 
                         if ($('.carousel-banner').hasClass('slick-initialized')) {
                             $('.carousel-banner').slick('unslick');
@@ -612,19 +594,15 @@ $(function () {
                         var $btnSearch = $('#btnSearch');
                         // var $closeSearch = $('#closeSearch');
 
-
                         $btnSearch.on('click', function () {
                             $('.search').fadeIn('fast');
                             $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
                             $('body').addClass('no-scroll');
                         })
                         
-                        _this.eqHeight();
-
                     })
                 },
                 eqHeight: function () {
-                    var tallest = 0;
                     $.each($(".card-body"), function() {
                         $(this).css("height", "auto");
                         if ($(this).outerHeight() > tallest) {
@@ -728,19 +706,24 @@ $(function () {
                         this.fetchData();
                     }
 
+                    //show animation when click - to on stage
+                    let redirectTime = '3000'
+                    let redirectUrl = 'https://www.esplanade.com/'
 
-                    //-----------------------
-                    // var $filterContainer = $('#tabs-filter');
-                    // if ($filterContainer.length > 0) {
-                    //     $(document).on('scroll', function () {
-                    //         let filterScrollPos = $(this).scrollTop();
-                    //         if (filterScrollPos > ($filterContainer.offset().top)) {
-                    //         //$('.filter-bar').addClass("stick");
-                    //         } else {
-                    //             //$('.filter-bar').removeClass("stick");
-                    //         }
-                    //     });
-                    // }
+                    $('a').on('click', function (e) {
+                        if ($(this).attr('href').includes('https://www.esplanade.com') && !$(this).attr('href').includes('offstage')) {
+                            let toOnStageScreen = $('#animationToOnstage')
+                            e.preventDefault();
+                            toOnStageScreen.removeClass('d-none').addClass('d-block')
+                            // toOnStageScreen.addClass('active')
+                            setTimeout(function () {
+                                location.href = redirectUrl
+                            }, redirectTime);
+                        } else {
+                            e.currentTarget.click();
+                        }
+                    });
+
 
                     $('.close-btn-x').on('click', function () {
                         $('.mm-wrapper').removeClass('active');
@@ -780,25 +763,7 @@ $(function () {
                             }
                         });
                     }
-                    //show animation when click - to on stage
-                    let redirectTime = '3000'
-                    let redirectUrl = 'https://www.esplanade.com/'
-
-                    // if (btnOnStage.length > 0) {
-                    //     redirectUrl = 'https://www.esplanade.com/';
-                    // }
-                    // $('a[href*="esplanade.com"]').each(function (){
-                    //     $(this).on('click', function (e) {
-                    //         let toOnStageScreen = $('#animationToOnstage')
-                    //         e.preventDefault();
-                    //         toOnStageScreen.removeClass('d-none').addClass('d-block')
-                    //         // toOnStageScreen.addClass('active')
-                    //         setTimeout(function () {
-                    //             location.href = redirectUrl
-                    //         }, redirectTime);
-                    //     })
-                    // })
-
+                    
                     //category on click scroller arrow and initialize outer width func
                     // $('#goPrev').on('click', function () {
                     //     $('.wrap').animate({
@@ -824,7 +789,7 @@ $(function () {
                     //         $('#goNext').removeClass('d-none');
                     //     }
                     // });
-                },
+                }
             }
         })
     }

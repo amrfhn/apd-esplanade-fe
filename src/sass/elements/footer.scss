@@ -24,8 +24,12 @@
     cursor: pointer;
 }
 
+footer {
+    position: relative;
+}
+
 .bot-footer {
-    position: absolute;
-    bottom: 0;
+    // position: absolute;
+    bottom: -12px;
     width: 100%;
 }

@@ -19,13 +19,13 @@ $(function () {
     }
 
     //Comparison: Match Height
-    $('.comparison').each(function(){
-       var $avatarWrapper = $(this).find('.avatar-wrapper');
-       $avatarWrapper.matchHeight(); 
+    $('.comparison').each(function () {
+        var $avatarWrapper = $(this).find('.avatar-wrapper');
+        $avatarWrapper.matchHeight();
 
-       console.log('match match')
+        console.log('match match')
     })
-    
+
 
     //Author Componenet: Anchoring 
     $('#author-name').click(function (e) {
@@ -147,22 +147,8 @@ $(function () {
     let redirectTime = '3000'
     let redirectUrl = 'https://www.esplanade.com/'
 
-    // $('a').each(function () {
-    //     if($(this).attr('href').includes('https://www.esplanade.com/') && !$(this).attr('href').includes('offstage')) {
-    //         $(this).on('click', function (e) {
-    //             let toOnStageScreen = $('#animationToOnstage')
-    //             e.preventDefault();
-    //             toOnStageScreen.removeClass('d-none').addClass('d-block')
-    //             // toOnStageScreen.addClass('active')
-    //             setTimeout(function () {
-    //                 location.href = redirectUrl
-    //             }, redirectTime);
-    //         })
-    //     } 
-    // })
-
     $('a').on('click', function (e) {
-        if($(this).attr('href').includes('https://www.esplanade.com/') && !$(this).attr('href').includes('offstage')) {
+        if ($(this).attr('href').includes('https://www.esplanade.com') && !$(this).attr('href').includes('offstage')) {
             let toOnStageScreen = $('#animationToOnstage')
             e.preventDefault();
             toOnStageScreen.removeClass('d-none').addClass('d-block')
@@ -170,9 +156,10 @@ $(function () {
             setTimeout(function () {
                 location.href = redirectUrl
             }, redirectTime);
+        } else {
+            e.currentTarget.click();
         }
-    })
-
+    });
 
     // $('a[href*==="https://www.esplanade.com/"]').each(function () {
     //     $(this).on('click', function (e) {
@@ -251,9 +238,9 @@ $(function () {
 
                 var radialGradient = ctx.createRadialGradient(cx, cy, 1, cx, cy, radius);
 
-                radialGradient.addColorStop(0, 'rgba(0, 0, 0, 1)');
-                radialGradient.addColorStop(.65, 'rgba(0, 0, 0, 1)');
-                radialGradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+                radialGradient.addColorStop(0, '#fff');
+                radialGradient.addColorStop(.65, '#fff');
+                radialGradient.addColorStop(1, '#fff');
 
                 ctx.beginPath();
 
@@ -287,12 +274,7 @@ $(function () {
 
     }
 
-    //stick footer to the bottom when the page is empty
-    if ($('.offset-menu').height() < $(window).height()) {
-        $('footer').addClass('bot-footer');
-    }
 })
-
 
 function clampText() {
 

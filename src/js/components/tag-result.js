@@ -1,4 +1,6 @@
 import VueLineClamp from 'vue-line-clamp';
+import URL from 'core-js/features/url';
+import URLSearchParams from 'core-js/features/url-search-params';
 
 $(function () {
     'use strict'
@@ -44,15 +46,14 @@ $(function () {
             mounted: function () {
                 var _this = this;
 
+
                 this.checkUrl();
                 this.fetchResults();
 
             },
 
             updated: function () {
-                //hide loading screen
-                $('#offstageLoading').fadeOut(1000);
-                setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+                
             },
 
             methods: {
@@ -62,6 +63,24 @@ $(function () {
                     if(currUrl.indexOf('tagcloud') > -1){
                         var tagValue = url.searchParams.get('tagcloud');
                         data.tag = tagValue;
+                        $('#offstageLoading').fadeIn(1000);
+                        $('.tag-error-message').removeClass('d-block').addClass('d-none');
+                    } else {
+                        $('#offstageLoading').fadeIn(1000);
+                        $('#offstageLoading').fadeOut(1000);
+                        $('.tag-error-message').addClass('d-block').removeClass('d-none');
+                        $('.tagged-in').removeClass('d-block').addClass('d-none');
+                        $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
+                        // $('#tagResult').addClass('vh-100').removeClass('h-auto');
+                        $('#tagResult').closest('main').addClass('custom-tag-result');
+                        $('#tagResult').parent().closest('.container').addClass('m-auto');
+                        $('body').addClass('overflow-hidden');
+
+                        if (xs.matches) {
+                            $('body').removeClass('overflow-hidden');
+
+                        }
+
                     }
 
                 },
@@ -72,8 +91,6 @@ $(function () {
                     var url = host + '/sitecore/api/offstage/tagcloud/results/' + this.tag + '/' + this.pageNum + '/' + this.pageSize;
 
                     //show loading screen
-                    $('body').addClass('overflow-hidden');
-                    $('#offstageLoading').fadeIn(1000);
 
                     var request = $.ajax({
                         type: 'GET',
@@ -82,6 +99,8 @@ $(function () {
                         data: decodeURIComponent($.param(params))
 
                     }).done(function (data){
+                        
+                        $('.tag-results').removeClass('d-none').addClass('d-block')
 
                         _this.results = data.TagCloudResult
                         _this.keyword = data.Keyword
@@ -93,7 +112,9 @@ $(function () {
                             $('#loadMore').parent().addClass('d-flex').removeClass('d-none');
                         }
 
-                        
+                        //hide loading screen
+                        $('#offstageLoading').fadeOut(1000);
+                        setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
                         console.log(_this.category)
                         // if () {
 
@@ -124,13 +145,11 @@ $(function () {
                             $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
                         }
 
-                        if($('.offset-menu').height() < $(window).height()){
-                            $('footer').addClass('bot-footer');
-                        } else {
-                            $('footer').removeClass('bot-footer');
-                        }
-
-                        
+                        // if($('.offset-menu').height() < $(window).height()){
+                        //     $('#tagResult').addClass('vh-100').removeClass('h-auto');
+                        // } else {
+                        //     $('#tagResult').addClass('h-auto').removeClass('vh-100');
+                        // }
 
                         _this.fetchingData = false;
                     })

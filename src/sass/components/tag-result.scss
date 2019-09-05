@@ -31,3 +31,13 @@
         width: 100%;
     }
 }
+
+.custom-tag-result {
+    display: flex;
+    flex-direction: column;
+    // height: calc(100vh - 98px);
+
+    @media (min-width:768px) {
+        height: calc(100vh - 36px);
+    }
+}

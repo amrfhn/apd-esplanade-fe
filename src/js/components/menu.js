@@ -33,10 +33,6 @@ $(function () {
 
             var $navTabs = $('.left-wrapper');
 
-            // if ($nav.hasClass('back')) {
-            //     $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
-            // }
-            console.log('scrolllllll')
             $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());            
         }
 

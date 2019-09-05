@@ -20,7 +20,7 @@
       }
       
   
-      .wrapper-explorethearts, .wrapper-knowtheartists, .wrapper-learningguides, .wrapper-classroomlearning, .wrapper-explorethearchives, .wrapper-researchtheartists {
+      .wrapper-explorethearts, .wrapper-knowtheartists, .wrapper-studentguides, .wrapper-inclassresources, .wrapper-explorethearchives, .wrapper-researchtheartists {
         position: relative;
         overflow-x: auto;
         width: 100%;
@@ -108,10 +108,10 @@
       .prev {
         display: none;
       }
-      #goBack-explorethearts, #goBack-knowtheartists,  #goBack-learningguides,  #goBack-classroomlearning, #goBack-explorethearchives, #goAfter-researchtheartists  {
+      #goBack-explorethearts, #goBack-knowtheartists,  #goBack-studentguides,  #goBack-inclassresources, #goBack-explorethearchives, #goAfter-researchtheartists  {
         left: 0;
       }
-      #goAfter-explorethearts, #goAfter-knowtheartists,  #goAfter-learningguides,  #goAfter-classroomlearning, #goAfter-explorethearchives, #goAfter-researchtheartists  {
+      #goAfter-explorethearts, #goAfter-knowtheartists,  #goAfter-studentguides,  #goAfter-inclassresources, #goAfter-explorethearchives, #goAfter-researchtheartists  {
         right: 7px;
         display: none;
         @media (min-width: 768px) {
