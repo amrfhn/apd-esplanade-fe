@@ -48,8 +48,9 @@ $(function () {
                 // Initialise data
                 this.content = $('#search').attr('data-content');
                 this.field = $('#search-input').attr('data-content');
-
+                
                 this.fetchSuggestKey();
+                this.checkUrlParam();
             },
             methods: {
                 checkMetatUrl: function () {
@@ -126,10 +127,10 @@ $(function () {
                     this.submittedSearch(event);
                 },
                 submittedSearch: function (e) {
-                    e.preventDefault();
+                    // e.preventDefault();
                     this.hideAll();
                     this.resetFilter();
-                    this.checkKeyword();
+                    this.updateUrlParam();
                     this.fetchResultData();
                     return false;
                 },
@@ -203,7 +204,37 @@ $(function () {
                         }
                     })
                 },
-                checkKeyword: function () {
+                checkUrlParam: function () {
+                    var currentUrl = window.location.href;
+                    var url = new URL(currentUrl);
+                    var query_string = url.search;
+                    var urlParams = new URLSearchParams(query_string);
+                    var myParams = urlParams.get('keyword')
+
+                    if (currentUrl.indexOf("keyword") > -1) {
+                        console.log('showwwwwwwwwwwww')
+                        $('.search').fadeIn('slow');
+                        
+                        var $text = $('#search-input')
+    
+                        $text.val(myParams);
+                        this.keyword = myParams
+                        this.resetFilter();
+                        this.submittedSearch();
+                        // this.fetchResultData();
+                    }
+
+                    // console.log('hideeeee')
+
+                    // setTimeout(function(){
+                    //     if ($('#offstageLoading').is(":hidden")) {
+                    //         alert('hide')
+                    //     } else {
+                    //         alert('show')
+                    //     }
+                    // }, 1000)
+                },
+                updateUrlParam: function () {
                     var currentUrl = window.location.href;
                     var url = new URL(currentUrl);
                     var query_string = url.search;
