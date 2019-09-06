@@ -595,17 +595,6 @@ $(function () {
                             $('body').addClass('no-scroll');
                         })
 
-                        if (window.DOMParser) {
-                            parser = new DOMParser();
-                            xmlDoc = parser.parseFromString(data, "text/xml");
-                        }
-                        else // Internet Explorer
-                        {
-                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-                            xmlDoc.async = false;
-                            xmlDoc.loadXML(data);
-                        }
-                        
                     })
                 },
                 eqHeight: function () {

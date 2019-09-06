@@ -52,22 +52,20 @@
 }
 
 #btn-error {
-    position: relative;
+    position: absolute;
     z-index: 9;
     left: 0;
     opacity: 1;
     // color: #333333;
     display: flex;
     justify-content: center;
-    top: -60px;
+    top: 0;
     opacity: 0;
     
     @media (min-width:768px){
         display: inline-block;
         position: absolute;
-        left: 52px;
         opacity: 0;
-        top: unset;
         &:hover {
             opacity: 1;
         }
