@@ -127,7 +127,7 @@ $(function () {
                     this.submittedSearch(event);
                 },
                 submittedSearch: function (e) {
-                    e.preventDefault();
+                    // e.preventDefault();
                     this.hideAll();
                     this.resetFilter();
                     this.updateUrlParam();
@@ -204,14 +204,14 @@ $(function () {
                         }
                     })
                 },
-                checkUrlParam: function (e) {
+                checkUrlParam: function () {
                     var currentUrl = window.location.href;
                     var url = new URL(currentUrl);
                     var query_string = url.search;
                     var urlParams = new URLSearchParams(query_string);
                     var myParams = urlParams.get('keyword')
 
-                    if ($('#offstageLoading').is(":hidden")) {
+                    if (currentUrl.indexOf("keyword") > -1) {
                         console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
                         
@@ -220,16 +220,17 @@ $(function () {
                         $text.val(myParams);
                         this.keyword = myParams
                         this.resetFilter();
-                        this.fetchResultData();
+                        this.submittedSearch();
+                        // this.fetchResultData();
                     }
 
-                    console.log('hideeeee')
+                    // console.log('hideeeee')
 
                     // setTimeout(function(){
-                    //     if ($('#offstageLoading').is(":visible")) {
-                    //         alert('show')
-                    //     } else {
+                    //     if ($('#offstageLoading').is(":hidden")) {
                     //         alert('hide')
+                    //     } else {
+                    //         alert('show')
                     //     }
                     // }, 1000)
                 },
