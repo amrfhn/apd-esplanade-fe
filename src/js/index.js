@@ -235,8 +235,6 @@ $(function () {
         location.reload(true);
     });
 
-    $('#offstageLoading').addClass('d-none');  
-
 
 })
 
