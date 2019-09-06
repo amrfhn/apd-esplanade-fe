@@ -694,6 +694,10 @@ $(function () {
     
                         $('#'+ categoryValue).click();
                         _this.filterCategory(categoryValue);
+
+                        $('.list-act').find('.nav-link').removeClass('active');
+                        $('.list-act').find('#'+categoryValue).addClass('active');
+
     
                         $('#genre-tabs-'+ categoryValue +' .nav').find('#'+genreValue).click();
                         _this.filterGenre(genreValue);
