@@ -176,6 +176,7 @@ $(function () {
                             _this.resetResult();
                         }
                     }).fail(function () {
+                        $('#search-spinner').hide();
                         console.log('update fail')
                     })
                 },
