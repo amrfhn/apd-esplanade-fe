@@ -274,6 +274,11 @@ $(function () {
 
     }
 
+    //to force page and network reload when click on browser back button
+    $(window).on('popstate', function () {
+        location.reload(true);
+    });
+
 })
 
 function clampText() {

@@ -110,7 +110,7 @@ $(function () {
                         }
                     }
                 },
-                //check url params category and genre
+                //set url params category and genre on click
                 checkActiveGenre: function () {
 
                     var genre = $('.genre-list').find('.nav-link');
@@ -681,7 +681,8 @@ $(function () {
                             $('.mm-wrapper').removeClass('active');
                         }
                     })
-    
+                    
+                    //check url params have category/genre
                     if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1){
                         var categoryValue = '';
                         var genreValue = url.searchParams.get('genre') || 'all';
