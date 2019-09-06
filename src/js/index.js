@@ -189,13 +189,14 @@ $(function () {
 
             function draw(cx, cy, radius) {
                 ctx.save();
-                ctx.clearRect(0, 0, w, h);
 
                 var radialGradient = ctx.createRadialGradient(cx, cy, 1, cx, cy, radius);
 
                 radialGradient.addColorStop(0, '#fff');
                 radialGradient.addColorStop(.65, '#fff');
                 radialGradient.addColorStop(1, '#fff');
+                
+                ctx.clearRect(0, 0, w, h);
 
                 ctx.beginPath();
 
@@ -205,7 +206,7 @@ $(function () {
                 ctx.globalCompositeOperation = 'destination-out';
 
                 ctx.arc(cx, cy, radius, 0, Math.PI * 2, false);
-                ctx.fillStyle = radialGradient;
+                ctx.fillStyle = '#fff';
                 ctx.fill();
 
                 ctx.restore();
