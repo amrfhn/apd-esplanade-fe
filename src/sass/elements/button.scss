@@ -1,0 +1,10 @@
+.btn-transparent {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+        background: transparent;
+        border: none;
+    }
+}
