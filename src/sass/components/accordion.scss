@@ -1,4 +1,8 @@
 .accordion{
+
+    .card {
+        flex-direction: column;
+    }
     .card-header {
         cursor: pointer;
         padding-left: 0;

@@ -4,6 +4,7 @@ import URLSearchParams from 'core-js/features/url-search-params'
 
 $(function () {
     'use strict';
+
     if ($('#tabs-filter').length > 0) {
         Vue.use(VueLineClamp, {
             importCss: true
@@ -44,15 +45,16 @@ $(function () {
             "levels": "",
             "subjects": ""
         }
+
         var currUrlParams = {
             "category": "",
             "genre": ""
         }
+
         var url = new URL(currUrl);
         var query_string = url.search;
         var searchParams = new URLSearchParams(query_string);
         var tallest = 0;
-
 
         var app = new Vue({
             el: '#tabs-filter',
@@ -61,7 +63,6 @@ $(function () {
             mounted: function () {
                 this.checkMetatUrl();
                 this.clamptext();
-                console.log("called api");
                 this.checkActiveGenre();
                 
                 // Initialise data
@@ -196,8 +197,6 @@ $(function () {
                     var updateUrl = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.loadPage + '/' + offset;
                     var _this = this;
 
-                    console.log(updateUrl);
-
                     this.fetchingData = true;
 
                     var requestData = $.ajax({
@@ -206,7 +205,7 @@ $(function () {
                         dataType: "json",
                         data: $.param(params)
                     }).done(function (data) {
-                        console.log(data)
+                        // console.log(data)
 
                         _this.filters = _this.filters.concat(data.Articles)
 
@@ -492,7 +491,7 @@ $(function () {
 
                     // ==============
 
-                    console.log(params.browse, params.contentType, params.timeTaken, params.sort, params.languages, params.levels, params.subjects);
+                    // console.log(params.browse, params.contentType, params.timeTaken, params.sort, params.languages, params.levels, params.subjects);
 
                     this.currPage = 1;
                     this.loadPage = 1;
@@ -515,7 +514,6 @@ $(function () {
                     var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
                     var _this = this;
 
-                    console.log(url)
                     //show loading screen
                     $('body').addClass('overflow-hidden');
                     $('#offstageLoading').fadeIn(1000);
@@ -528,7 +526,6 @@ $(function () {
                     }).done(function (data) {
 
                         $('.tab-content').removeClass('d-none')
-
 
                         _this.banners = data.Banner.Banners
                         _this.totalBanners = data.Banner.Total
@@ -590,15 +587,24 @@ $(function () {
                             }
                         });
 
-
                         var $btnSearch = $('#btnSearch');
-                        // var $closeSearch = $('#closeSearch');
 
                         $btnSearch.on('click', function () {
                             $('.search').fadeIn('fast');
                             $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
                             $('body').addClass('no-scroll');
                         })
+
+                        if (window.DOMParser) {
+                            parser = new DOMParser();
+                            xmlDoc = parser.parseFromString(data, "text/xml");
+                        }
+                        else // Internet Explorer
+                        {
+                            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+                            xmlDoc.async = false;
+                            xmlDoc.loadXML(data);
+                        }
                         
                     })
                 },
@@ -616,7 +622,6 @@ $(function () {
                 initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-                    // console.log('cat id is =', cat_id)
 
                     $('#spinner').addClass('d-none')
                     
@@ -710,13 +715,13 @@ $(function () {
                     } else {
                         this.fetchData();
                     }
-
+                    
                     //show animation when click - to on stage
                     let redirectTime = '3000'
                     let redirectUrl = 'https://www.esplanade.com/'
 
                     $('a').on('click', function (e) {
-                        if ($(this).attr('href').includes('https://www.esplanade.com') && !$(this).attr('href').includes('offstage')) {
+                        if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage')) {
                             let toOnStageScreen = $('#animationToOnstage')
                             e.preventDefault();
                             toOnStageScreen.removeClass('d-none').addClass('d-block')
@@ -755,10 +760,7 @@ $(function () {
                         });
             
                         $(".filter").click(function () {
-                            // $('.tabfil-container').scrollTop( 0 );
-            
                             if ($('.filter-bar').hasClass("stick")) {
-                                console.log("do nothing");
                             } else {
                                 $('html, body').animate({
                                     scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())

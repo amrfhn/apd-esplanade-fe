@@ -1,12 +1,6 @@
 $(function () {
     clampText();
 
-
-    //svg4everybody
-    // svg4everybody({
-    //     polyfill: !0
-    // })
-
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -22,10 +16,7 @@ $(function () {
     $('.comparison').each(function () {
         var $avatarWrapper = $(this).find('.avatar-wrapper');
         $avatarWrapper.matchHeight();
-
-        console.log('match match')
     })
-
 
     //Author Componenet: Anchoring 
     $('#author-name').click(function (e) {
@@ -54,41 +45,6 @@ $(function () {
             $('.thumbnail-holder').css('background-image', 'url("' + desktopImage + '")');
         }
     });
-
-    // $('.thumbnail-holder').each(function () {
-    //     var mobileImage = $(this).attr('data-mobile-image')
-    //     var desktopImage = $(this).attr('data-desktop-image')
-
-    //     if (xs.matches) {
-    //         if (mobileImage !== "") {
-    //             $(this).css('background-image', 'url("' + mobileImage + '")')
-    //         } else {
-    //             $(this).css('background-image', 'url("' + desktopImage + '")')
-    //         }
-    //     }
-    //     if (md.matches) {
-    //         $('.thumbnail-holder-landscape').css('background-image', 'url("' + desktopImage + '")')
-    //     }
-    // });
-
-    // $('.banner-bg').each(function() {
-    //     var carouselMobileImage = $(this).attr('data-mobile-image')
-    //     var carouselDesktopImage = $(this).attr('data-desktop-image')
-
-    //     if(xs.matches)
-    //     {  
-    //         if(carouselMobileImage !== ""){
-    //             $(this).css('background-image', 'url("' +carouselMobileImage+ '")')
-    //         } else {
-    //             $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
-    //         }
-
-    //     }
-    //     if(md.matches)
-    //     {
-    //         $(this).css('background-image', 'url("' +carouselDesktopImage+ '")')
-    //     }
-    // });
 
     $('.caption').each(function () {
         var mobileCaption = $(this).attr('data-mobile-caption')
@@ -130,7 +86,6 @@ $(function () {
 
     // var homeUrl = (window.location.href = "/")
     // console.log(homeUrl)
-
     $('a.nav-link.megamenu-genre').on('click', function () {
 
         $('.mm-content-item').find('.nav-item').removeClass('active');
@@ -148,7 +103,7 @@ $(function () {
     let redirectUrl = 'https://www.esplanade.com/'
 
     $('a').on('click', function (e) {
-        if ($(this).attr('href').includes('https://www.esplanade.com') && !$(this).attr('href').includes('offstage')) {
+        if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage')) {
             let toOnStageScreen = $('#animationToOnstage')
             e.preventDefault();
             toOnStageScreen.removeClass('d-none').addClass('d-block')
@@ -186,7 +141,7 @@ $(function () {
     sessionStorage.setItem('pageBrowsed', true);
 
 
-    //erro page js
+    //404 page js
     if ($('#error').length > 0) {
         window.addEventListener('load', eventWindowLoaded, false);
 
@@ -278,6 +233,8 @@ $(function () {
     $(window).on('popstate', function () {
         location.reload(true);
     });
+
+    
 
 })
 
