@@ -12,16 +12,17 @@
   bottom: 0;
   right: 0;
   z-index: 9999999;
-  display: none;
+  // display: none;
   
   .throbber-wrap {
-    width: 270px; 
-    top: 20%;
+    width: 80%; 
+    top: 10%;
     margin: 0 auto;
     position: relative;
 
     @media(min-width: 768px) {
-      top: 10%;
+      top: 5%;
+      width: 270px; 
     }
   }
 }
@@ -68,10 +69,10 @@
 }
 
 .load-gif {
-  width: 250px;
+  width: 100%;
   height: auto;
   @media (min-width:768px){
-    width: 250px;
+    width: 350px;
     height: auto;
   }
 }
