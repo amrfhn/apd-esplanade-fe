@@ -1,6 +1,7 @@
 $(function () {
     clampText();
 
+
     var xs = window.matchMedia('(max-width: 768px)');
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
@@ -195,7 +196,7 @@ $(function () {
                 radialGradient.addColorStop(0, '#fff');
                 radialGradient.addColorStop(.65, '#fff');
                 radialGradient.addColorStop(1, '#fff');
-                
+
                 ctx.clearRect(0, 0, w, h);
 
                 ctx.beginPath();
@@ -234,8 +235,14 @@ $(function () {
     $(window).on('popstate', function () {
         location.reload(true);
     });
-
-
+    
+    //hide transition when window finish load
+    if($('#readSection').length > 0){
+        $(window).on("load", function(){
+            $('#offstageLoading').addClass('d-none')
+        });
+    }
+    
 })
 
 function clampText() {
@@ -262,8 +269,6 @@ function buttonClick(a) {
 
 //playbuzz
 // (function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return; js = d.createElement(s); js.id = id; js.src = 'https://embed.playbuzz.com/sdk.js'; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'playbuzz-sdk'));
-
-
 
 
 
