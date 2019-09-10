@@ -48,11 +48,13 @@
 
   .card-title {
     word-break: break-word;
+    -ms-word-break: normal;
   }
 
   .card-text {
     line-height: 20px;
     word-break: break-word;
+    -ms-word-break: normal;
   }
 
   .card-img-top {

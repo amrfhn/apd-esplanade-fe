@@ -602,7 +602,9 @@ $(function () {
                             $('body').addClass('no-scroll');
                         })
 
-                        _this.eqHeight();
+                        setTimeout(function() {
+                            _this.eqHeight();
+                        },300)
 
 
                     })
