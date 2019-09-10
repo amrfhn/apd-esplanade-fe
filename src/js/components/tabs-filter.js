@@ -64,12 +64,14 @@ $(function () {
                 this.checkMetatUrl();
                 this.clamptext();
                 this.checkActiveGenre();
+
                 
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
 
                 this.initialize();
+
 
             },
             updated: function () {
@@ -93,7 +95,7 @@ $(function () {
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 // $('.card-body').matchHeight();
-                _this.eqHeight();
+                // _this.eqHeight();
 
             },
             methods: {
@@ -171,6 +173,7 @@ $(function () {
 
                 },
                 checkScroll: function (e) {
+
                     window.onscroll = () => {
                         var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
                         if ($(".tab-content").length > 0 && bottomOfWindow && !this.fetchingData) {
@@ -178,7 +181,7 @@ $(function () {
                             var spinner = $('#spinner')
                             spinner.addClass('d-block').removeClass('d-none');
                             this.updateData();
-                            this.eqHeight();
+                            
                         }
                     }
                 },
@@ -208,14 +211,18 @@ $(function () {
                         // console.log(data)
 
                         _this.filters = _this.filters.concat(data.Articles)
-
-
+                        
+                        setTimeout(function() {
+                            _this.eqHeight();
+                        },300)
+                        
                         if (data.Articles.length < offset || data.Articles.length == 0) {
                             // document.getElementById('spinner').style.display = "none";
                             var hideSpinner = $('#spinner');
                             hideSpinner.addClass('d-none').removeClass('d-block');
                             window.onscroll = () => { }
                         }
+
                         _this.fetchingData = false;
                     })
                 },
@@ -594,6 +601,9 @@ $(function () {
                             $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
                             $('body').addClass('no-scroll');
                         })
+
+                        _this.eqHeight();
+
 
                     })
                 },
