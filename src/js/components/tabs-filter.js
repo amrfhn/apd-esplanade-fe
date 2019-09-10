@@ -54,7 +54,7 @@ $(function () {
         var url = new URL(currUrl);
         var query_string = url.search;
         var searchParams = new URLSearchParams(query_string);
-        var tallest = 0;
+        // var tallest = 0;
 
         var app = new Vue({
             el: '#tabs-filter',
@@ -631,6 +631,7 @@ $(function () {
                     });
                 },
                 eqHeight: function () {
+                    var tallest = 0;
                     $.each($(".card-body"), function () {
                         $(this).css("height", "auto");
                         if ($(this).outerHeight() > tallest) {
