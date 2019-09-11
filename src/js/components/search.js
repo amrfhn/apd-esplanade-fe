@@ -221,13 +221,7 @@ $(function () {
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-                    // console.log('url', searchParams);
-                    // console.log('query', query_string);
-
-                    // for (let p of searchParams) {
-                    //     console.log(p)
-                    // }
-
+                    
                     this.updateFilter();
                     $('#search-spinner').show();
                     $(".search-suggestion").hide();
