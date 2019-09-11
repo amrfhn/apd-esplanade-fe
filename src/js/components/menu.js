@@ -40,13 +40,28 @@ $(function () {
 
 
     var $btnSearch = $('#btnSearch');
+    var bodyScrollLock = require('body-scroll-lock');
+    var disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    var $searchContainer = $('.search')
     // var $closeSearch = $('#closeSearch');
-
 
     $btnSearch.on('click', function () {
         $('.search').fadeIn('fast');
         $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5', 'left' : '0' });
-        $('body').addClass('no-scroll'); 
+        // $('body').addClass('no-scroll'); 
+
+        //body scroll lock
+        disableBodyScroll($searchContainer  , {
+            allowTouchMove: el => {
+              while (el && el !== document.body) {
+                if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                  return true
+                }
+          
+                el = el.parentNode
+              }
+            },
+        });
     })
     // $closeSearch.on('click', function () {
     //     $('.search').fadeOut('fast');

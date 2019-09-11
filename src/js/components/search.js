@@ -369,11 +369,15 @@ $(function () {
                     $('.search-wrapper').reset();
                 },
                 closeSearch: function () {
+                    var bodyScrollLock = require('body-scroll-lock');
+
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
                     $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
-                    $('body').removeClass('no-scroll');
+                    // $('body').removeClass('no-scroll');
                     this.hideAll();
+                   
+                    bodyScrollLock.clearAllBodyScrollLocks();
 
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
