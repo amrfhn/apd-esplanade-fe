@@ -20,7 +20,7 @@
 .col-12.search-suggestion
         p.font-12 Search Suggestion:
         
-        ul#search-suggestion-list.search-suggestion-list.bt-2
+        ul#search-suggestion-list.search-suggestion-list.bt-2(body-scroll-lock-ignore)
             li(v-for="suggestion in searchSuggestion" @click="selectedSuggestion(event)") 
                 span {{suggestion}}
 //- END: Search Suggestion

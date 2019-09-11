@@ -42,7 +42,7 @@ $(function () {
     var $btnSearch = $('#btnSearch');
     var bodyScrollLock = require('body-scroll-lock');
     var disableBodyScroll = bodyScrollLock.disableBodyScroll;
-    var $searchContainer = $('.search')
+    var $searchContainer = $('#search-suggestion-list')
     // var $closeSearch = $('#closeSearch');
 
     $btnSearch.on('click', function () {
