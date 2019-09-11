@@ -6,6 +6,7 @@ import "@babel/polyfill"
 import '@fancyapps/fancybox'
 import 'slick-carousel'
 import 'bootstrap'
+import 'mark.js/dist/jquery.mark.min.js'
 import 'jquery-match-height'
 import './vendors/2-ellipsis.min.js'
 

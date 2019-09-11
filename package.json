@@ -42,6 +42,7 @@
     "eslint-loader": "^2.1.2",
     "import-glob-loader": "^1.1.0",
     "jquery": "^3.4.1",
+    "mark.js": "^8.11.1",
     "sass": "^1.21.0",
     "slick-carousel": "^1.8.1",
     "svg-sprite-loader": "^4.1.6",

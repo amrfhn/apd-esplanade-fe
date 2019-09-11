@@ -137,6 +137,11 @@
       &:hover {
         color: #00a3c9;
         transition: 0.2s ease;
+
+        mark {
+          color: #00a3c9;
+          transition: 0.2s ease;
+        }
       }
 
       a {

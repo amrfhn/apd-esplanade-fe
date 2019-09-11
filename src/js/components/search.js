@@ -48,7 +48,7 @@ $(function () {
                 // Initialise data
                 this.content = $('#search').attr('data-content');
                 this.field = $('#search-input').attr('data-content');
-                
+
                 this.fetchSuggestKey();
                 this.checkUrlParam();
             },
@@ -86,27 +86,108 @@ $(function () {
                     })
                 },
                 filteredSuggestion: function () {
-                    var value = $('#search-input').val().toLowerCase();
+                    // var value = $('#search-input').val().toLowerCase();
 
                     // var newVal = value.split(" ")
 
                     // console.log(newVal);
 
-                    // Filter List
+                    // // Filter List
+                    // if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
+                    //     $(".search-suggestion-list li").removeClass("match").hide().filter(function () {
+                    //         return $(this).text().toLowerCase().indexOf(value) != -1;
+                    //     }).addClass("match").show();
+
+                    //     this.searchHighlight(this.keyword)
+
+                    //     $(".search-suggestion").show();
+
+                    //     var countlistitems = $(".search-suggestion-list li:visible").length;
+                    //     if (countlistitems < 1) {
+                    //         $(".search-suggestion").hide();
+                    //     }
+
+                    // } else {
+                    //     $(".search-suggestion").hide();
+                    // }
+
+
+                    // -------------------- MARK.JS --------------------
+                    // var $input = $('#search-input input'),
+                    //     $context = $('.search-suggestion-list li'),
+                    //     term = $('#search-input').val();
+
+                    // if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
+                    //     $(".search-suggestion").show();
+                    //     $context.show().unmark();
+                    //     if (term) {
+                    //         $context.mark(term, {
+                    //             "element": "mark",
+                    //             "className": "hightlight",
+                    //             separateWordSearch: true,
+                    //             acrossElements: false,
+                    //             done: function (counter) {
+                    //                 $context.not(":has(mark)").hide();
+                    //                 var words = term.split(' ')
+                    //                 // console.log('foundTerm', words.length)
+
+                    //                 $context.each(function(){
+                    //                     var mark = $(this).find('span').find('mark').text().toLowerCase()
+
+                    //                     // console.log(words)
+
+                    //                     // mark.filter(function(el){
+                    //                     //     console.log("here")
+                    //                     //     return words.indexof(el) > 0
+                    //                     // })
+                    //                     // console.log($context.has('mark').text())
+
+                    //                     var highlight = $(this).has('mark').text()
+                    //                     // console.log(highlight)
+                    //                     // if($.inArray(mark, words) != '-1'){
+                    //                     //     alert(mark + 'in the array')
+                    //                     // }
+                    //                 })
+                    //             }
+                    //         })
+                    //     }
+                    // } else {
+                    //     $(".search-suggestion").hide();
+                    // }
+
+                    // -------------------- REGEX SEARCH --------------------
+
                     if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
-                        $(".search-suggestion-list li").removeClass("match").hide().filter(function () {
-                            return $(this).text().toLowerCase().indexOf(value) != -1;
-                        }).addClass("match").show();
-
-                        this.searchHighlight(this.keyword)
-
                         $(".search-suggestion").show();
+                        // Declare variables
+                        var input = document.getElementById('search-input'),
+                            filter = input.value,
+                            ul = document.getElementById('search-suggestion-list'),
+                            lis = ul.getElementsByTagName('li'),
+                            searchTerms = filter.match(/[a-z0-9]+/gi),
+                            re, index, li, span;
 
-                        var countlistitems = $(".search-suggestion-list li:visible").length;
-                        if (countlistitems < 1) {
-                            $(".search-suggestion").hide();
+                        if (searchTerms) {
+                            searchTerms = searchTerms.map(function (term) {
+                                return '(?=.*' + term + ')';
+                            });
+
+                            re = new RegExp(searchTerms.join(''), 'i');
+                        } else {
+                            re = /./;
                         }
 
+                        // Loop through all list items, and hide those who don't match the search query
+                        for (index = 0; index < lis.length; index++) {
+                            li = lis[index];
+                            span = li.firstChild;
+
+                            if (re.test(span.innerHTML)) {
+                                li.style.display = '';
+                            } else {
+                                li.style.display = 'none';
+                            }
+                        }
                     } else {
                         $(".search-suggestion").hide();
                     }
@@ -218,9 +299,9 @@ $(function () {
                     if (currentUrl.indexOf("keyword") > -1) {
                         console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
-                        
+
                         var $text = $('#search-input')
-    
+
                         $text.val(myParams);
                         this.keyword = myParams
                         this.resetFilter();
