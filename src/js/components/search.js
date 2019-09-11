@@ -299,6 +299,7 @@ $(function () {
                     if (currentUrl.indexOf("keyword") > -1) {
                         console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
+                        $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5', 'left' : '0' });
 
                         var $text = $('#search-input')
 
@@ -308,16 +309,6 @@ $(function () {
                         this.submittedSearch();
                         // this.fetchResultData();
                     }
-
-                    // console.log('hideeeee')
-
-                    // setTimeout(function(){
-                    //     if ($('#offstageLoading').is(":hidden")) {
-                    //         alert('hide')
-                    //     } else {
-                    //         alert('show')
-                    //     }
-                    // }, 1000)
                 },
                 updateUrlParam: function () {
                     var currentUrl = window.location.href;
@@ -379,6 +370,7 @@ $(function () {
                 },
                 closeSearch: function () {
                     $('.search').fadeOut('fast');
+                    $('#btnSearch').prop('disabled', false);
                     $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                     $('body').removeClass('no-scroll');
                     this.hideAll();
