@@ -47,8 +47,13 @@
   }
 
   .card-title {
+    width: 100%;
     word-break: break-word;
     -ms-word-break: normal;
+
+    @media (min-width:768px){
+      max-width: 251px;
+    }
   }
 
   .card-text {
