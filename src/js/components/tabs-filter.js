@@ -1,7 +1,6 @@
 // import VueLineClamp from 'vue-line-clamp';
 import URL from 'core-js/features/url'
 import URLSearchParams from 'core-js/features/url-search-params'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
 
 $(function () {
@@ -647,6 +646,7 @@ $(function () {
                 initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
+                    
 
                     $('#spinner').addClass('d-none')
 
@@ -767,8 +767,16 @@ $(function () {
 
                     })
 
+                    /*********************** */
+                    // filter menu functions
+                    /*********************** */
+
+                    var $filterMenu = $('.filter-menu-wrapper');
+                    var bodyScrollLock = require('body-scroll-lock');
+                    var disableBodyScroll = bodyScrollLock.disableBodyScroll;
+
                     //only for mobile sticky
-                    if ($(window).width() < 960) {
+                    if (xs.matches) {
                         $('.filter-bar').removeClass("stick");
                         let mobileHeight = $(document).height() + 50;
                         $(document).on('scroll', function () {
@@ -785,6 +793,9 @@ $(function () {
                         });
 
                         $(".filter").click(function () {
+                            $filterMenu.scrollTop(0)
+                            $('.in-between-screen').addClass('active');
+
                             if ($('.filter-bar').hasClass("stick")) {
                             } else {
                                 $('html, body').animate({
@@ -793,8 +804,89 @@ $(function () {
                                     $('.filter-bar').addClass("stick");
                                 });
                             }
+                            $filterMenu.addClass('show-filter');
+
+                            //body-scroll-lock
+                            disableBodyScroll($filterMenu, {
+                                allowTouchMove: el => {
+                                  while (el && el !== document.body) {
+                                    if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                                      return true
+                                    }
+                              
+                                    el = el.parentNode
+                                  }
+                                },
+                            });
+                        });
+
+                        $('.submit-filter').on('click', function () {
+                            $filterMenu.removeClass('show-filter');
+                            $('.in-between-screen').removeClass('active');
+                            // $('body').removeClass('no-scroll');
+                            // $("body").removeClass("filter-open");
+                            $('html, body').animate({
+                                scrollTop: $(".tab-content").offset().top
+                            }, 360);
+                            
+                            //body-scroll-lock
+                            bodyScrollLock.clearAllBodyScrollLocks();
                         });
                     }
+
+                    if (md.matches) {
+
+                        $('.filter').on('click', function () {
+                            $('.filter-menu-wrapper').addClass('show-filter');
+                            $('.in-between-screen').addClass('active');
+                            // $('body').addClass('no-scroll');
+                    
+                            $('.mm-wrapper').removeClass('active');
+                    
+                            $(".filter-menu-wrapper").scrollTop(0);
+                            $filterMenu.addClass('show-filter');
+
+                            //body-scroll-lock
+                            disableBodyScroll($filterMenu, {
+                                allowTouchMove: el => {
+                                  while (el && el !== document.body) {
+                                    if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                                      return true
+                                    }
+                              
+                                    el = el.parentNode
+                                  }
+                                },
+                            });
+                        })
+
+                        $('.submit-filter').on('click', function () {
+                            $filterMenu.removeClass('show-filter');
+                            $('.in-between-screen').removeClass('active');
+                            // $('body').removeClass('no-scroll');
+                            // $("body").removeClass("filter-open");
+                
+                            $('html, body').animate({
+                                scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+                            }, 1500);
+
+                            bodyScrollLock.clearAllBodyScrollLocks();
+
+                        })
+                        
+                    }
+
+                    //close filter menu and enable body scroll
+                    $('.close-filter').on('click', function () {
+                        $('.filter-menu-wrapper').removeClass('show-filter');
+                        $('.in-between-screen').removeClass('active');
+                        // $('body').removeClass('no-scroll');
+                        // $("body").removeClass("filter-open");
+                        bodyScrollLock.clearAllBodyScrollLocks();
+                    })
+
+                    //*********************** */
+
 
                     //category on click scroller arrow and initialize outer width func
                     // $('#goPrev').on('click', function () {
