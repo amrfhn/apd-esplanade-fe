@@ -563,18 +563,7 @@ $(function () {
                         }
                         _this.clamptext();
 
-                        $('#hamb').on('click', function () {
-                            $('.mm-wrapper').addClass('active');
-                            $('.in-between-screen').addClass('active');
-                            $('body').addClass('no-scroll');
-                        })
-
-                        $('.close-btn-x').on('click', function () {
-                            $('.mm-wrapper').removeClass('active');
-                            $('.in-between-screen').removeClass('active');
-                            $('body').removeClass('no-scroll');
-                            $('body').removeClass('set-fixed');
-                        })
+                        
 
                         var $megaMenu = $('.mm-wrapper');
 
@@ -646,7 +635,8 @@ $(function () {
                 initialize: function () {
                     var _this = this;
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
-                    
+                    var bodyScrollLock = require('body-scroll-lock');
+                    var disableBodyScroll = bodyScrollLock.disableBodyScroll;
 
                     $('#spinner').addClass('d-none')
 
@@ -760,20 +750,51 @@ $(function () {
                     });
 
 
-                    $('.close-btn-x').on('click', function () {
-                        $('.mm-wrapper').removeClass('active');
-                        $('.in-between-screen').removeClass('active');
-                        $('body').removeClass('no-scroll');
+                    // $('.close-btn-x').on('click', function () {
+                    //     $('.mm-wrapper').removeClass('active');
+                    //     $('.in-between-screen').removeClass('active');
+                    //     $('body').removeClass('no-scroll');
 
+                    // })
+
+                    /*********************** */
+                    // mega menu functions
+                    /*********************** */
+                    var $burgerMenu = $('#hamb');
+                    var $megaMenu = $('.mm-wrapper');
+
+                    $burgerMenu.on('click', function () {
+                        $megaMenu.addClass('active');
+                        $('.in-between-screen').addClass('active');
+                        // $('body').addClass('no-scroll');
+                        disableBodyScroll($megaMenu , {
+                            allowTouchMove: el => {
+                              while (el && el !== document.body) {
+                                if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                                  return true
+                                }
+                          
+                                el = el.parentNode
+                              }
+                            },
+                        });
                     })
 
-                    /*********************** */
-                    // filter menu functions
+                    $('.close-btn-x').on('click', function () {
+                        $megaMenu.removeClass('active');
+                        $('.in-between-screen').removeClass('active');
+                        // $('body').removeClass('no-scroll');
+                        // $('body').removeClass('set-fixed');
+                        bodyScrollLock.clearAllBodyScrollLocks();
+                    })
                     /*********************** */
 
+
+                    /************************/
+                    // filter menu functions
+                    /************************/
+
                     var $filterMenu = $('.filter-menu-wrapper');
-                    var bodyScrollLock = require('body-scroll-lock');
-                    var disableBodyScroll = bodyScrollLock.disableBodyScroll;
 
                     //only for mobile sticky
                     if (xs.matches) {
