@@ -137,6 +137,11 @@
       &:hover {
         color: #00a3c9;
         transition: 0.2s ease;
+
+        mark {
+          color: #00a3c9;
+          transition: 0.2s ease;
+        }
       }
 
       a {
@@ -336,7 +341,7 @@
   @media (min-width: 768px) {
     position: fixed;
     z-index: 999999;
-    right: 40px;
+    right: 30px;
   }
 }
 
@@ -349,6 +354,6 @@
   @media (min-width: 768px) {
     position: fixed;
     z-index: 100;
-    right: 40px;
+    right: 30px;
   }
 }

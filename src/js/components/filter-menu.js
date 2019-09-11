@@ -17,6 +17,8 @@ $(function () {
 
     if ($('.in-between-screen').hasClass('active')) {
         $('#btnSearch').prop('disabled', true);
+    } else {
+        $('#btnSearch').prop('disabled', false);
     }
 
     //for mobile
