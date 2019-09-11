@@ -2,15 +2,26 @@ $(function () {
 
     var $filterMenu = $('.filter-menu-wrapper');
 
+    var bodyScrollLock = require('body-scroll-lock');
+    var disableBodyScroll = bodyScrollLock.disableBodyScroll;
+    var enableBodyScroll = bodyScrollLock.enableBodyScroll;
+    const targetElement = document.querySelector(".show-filter");
+
+
     $('.filter').on('click', function () {
         $('.in-between-screen').addClass('active');
-        $('body').addClass('no-scroll');
+        // $('body').addClass('no-scroll');
 
         $('.mm-wrapper').removeClass('active');
 
+
+
+        //body-scroll-lock
+
+
         $(".filter-menu-wrapper").scrollTop(0);
         $filterMenu.toggleClass('show-filter')
-
+        disableBodyScroll(targetElement);
         // $('.tabfil-container').bind('touchmove', function(e){
         //     e.preventDefault();
         // })
@@ -19,8 +30,9 @@ $(function () {
     $('.close-filter').on('click', function () {
         $filterMenu.toggleClass('show-filter');
         $('.in-between-screen').removeClass('active');
-        $('body').removeClass('no-scroll');
-        $("body").removeClass("filter-open");
+        // $('body').removeClass('no-scroll');
+        // $("body").removeClass("filter-open");
+        enableBodyScroll(targetElement);
 
         // $('.tabfil-container').unbind('touchmove')
     })
@@ -32,6 +44,9 @@ $(function () {
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
         $('.search').fadeOut('fast');
+
+        enableBodyScroll(targetElement);
+
     })
 
     //for mobile
