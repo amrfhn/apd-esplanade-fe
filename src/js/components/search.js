@@ -159,13 +159,14 @@ $(function () {
 
                     if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
                         $(".search-suggestion").show();
+
                         // Declare variables
                         var input = document.getElementById('search-input'),
                             filter = input.value,
                             ul = document.getElementById('search-suggestion-list'),
                             lis = ul.getElementsByTagName('li'),
                             searchTerms = filter.match(/[a-z0-9]+/gi),
-                            re, index, li, span;
+                            re, i, li, span;
 
                         if (searchTerms) {
                             searchTerms = searchTerms.map(function (term) {
@@ -178,8 +179,8 @@ $(function () {
                         }
 
                         // Loop through all list items, and hide those who don't match the search query
-                        for (index = 0; index < lis.length; index++) {
-                            li = lis[index];
+                        for (i = 0; i < lis.length; i++) {
+                            li = lis[i];
                             span = li.firstChild;
 
                             if (re.test(span.innerHTML)) {
@@ -188,6 +189,13 @@ $(function () {
                                 li.style.display = 'none';
                             }
                         }
+
+                        // $('.search-suggestion-list li').mark(filter);
+
+                        if($('.search-suggestion-list li').length === $('.search-suggestion-list li:hidden').length) {
+                            $(".search-suggestion").hide();
+                        }
+                        
                     } else {
                         $(".search-suggestion").hide();
                     }
@@ -221,13 +229,7 @@ $(function () {
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-                    // console.log('url', searchParams);
-                    // console.log('query', query_string);
-
-                    // for (let p of searchParams) {
-                    //     console.log(p)
-                    // }
-
+                    
                     this.updateFilter();
                     $('#search-spinner').show();
                     $(".search-suggestion").hide();
