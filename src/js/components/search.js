@@ -190,10 +190,15 @@ $(function () {
                             }
                         }
 
+                        // $('.search-suggestion-list li').mark(filter);
+
                         if($('.search-suggestion-list li').length === $('.search-suggestion-list li:hidden').length) {
                             $(".search-suggestion").hide();
                         }
-                    } 
+                        
+                    } else {
+                        $(".search-suggestion").hide();
+                    }
                 },
                 searchHighlight: function (string) {
                     $(".search-suggestion-list li.match").each(function () {
