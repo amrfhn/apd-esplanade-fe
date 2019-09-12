@@ -43,20 +43,20 @@ block content
         //-                     button(type="button").read-more.btn.btn-outline-primary Read more
 
         .row
-            .col-12
-                +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
+            //- .col-12
+                //- +videoModal('https://www.youtube.com/embed/FdnOqThfNzc')
                 
             .col-12.col-md-6.px-0
                 //- Trigger Modal
                 
                 //- Hero Banner with Video Modal
-                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, false)
+                //- +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', true, false, false, false)
 
                 //- Hero Banner with Img 720
-                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, true, false)   
+                +heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, true, false)   
 
                 //- Hero Banner with Img 450
-                //+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
+                //-+heroBanner('./assets/microsites/offstage/img/icons/Youtube.svg', 'https://via.placeholder.com/310x200', false, false, false, true)
 
                 .progress-wrapper.d-md-none.d-block.w-100
                     include ../components/progress-bar.pug

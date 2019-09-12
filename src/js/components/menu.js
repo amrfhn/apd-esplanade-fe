@@ -29,6 +29,8 @@ $(function () {
         bodyScrollLock.clearAllBodyScrollLocks();
     })
 
+
+    
     var $megaMenu = $('.mm-wrapper');
 
     if ($megaMenu.hasClass('active')) {

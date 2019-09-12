@@ -18,7 +18,11 @@
 }
 
 .thumbnail-holder-portrait {
-    height: 90vh
+    height: 100%;
+
+    @media (min-width:768px) {
+        height: 90vh;
+    }
 }
 
 .thumbnail-holder-landscape {

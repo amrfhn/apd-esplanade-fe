@@ -736,7 +736,7 @@ $(function () {
                     let redirectUrl = 'https://www.esplanade.com/'
 
                     $('a').on('click', function (e) {
-                        if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage')) {
+                        if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage')  && !$(this).hasClass('nav-item')) {
                             let toOnStageScreen = $('#animationToOnstage')
                             e.preventDefault();
                             toOnStageScreen.removeClass('d-none').addClass('d-block')
