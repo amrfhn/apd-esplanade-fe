@@ -736,19 +736,20 @@ $(function () {
                     let redirectUrl = 'https://www.esplanade.com/'
 
                     $('a').on('click', function (e) {
-                        if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage')  && !$(this).hasClass('nav-item')) {
-                            let toOnStageScreen = $('#animationToOnstage')
-                            e.preventDefault();
-                            toOnStageScreen.removeClass('d-none').addClass('d-block')
-                            // toOnStageScreen.addClass('active')
-                            setTimeout(function () {
-                                location.href = redirectUrl
-                            }, redirectTime);
-                        } else {
-                            e.currentTarget.click();
+                        if ($(this).attr('href')) {
+                            if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
+                                let toOnStageScreen = $('#animationToOnstage')
+                                e.preventDefault();
+                                toOnStageScreen.removeClass('d-none').addClass('d-block')
+                                // toOnStageScreen.addClass('active')
+                                setTimeout(function () {
+                                    location.href = redirectUrl
+                                }, redirectTime);
+                            } else {
+                                e.currentTarget.click();
+                            }
                         }
                     });
-
 
                     // $('.close-btn-x').on('click', function () {
                     //     $('.mm-wrapper').removeClass('active');

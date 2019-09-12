@@ -104,16 +104,18 @@ $(function () {
     let redirectUrl = 'https://www.esplanade.com/'
 
     $('a').on('click', function (e) {
-        if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
-            let toOnStageScreen = $('#animationToOnstage')
-            e.preventDefault();
-            toOnStageScreen.removeClass('d-none').addClass('d-block')
-            // toOnStageScreen.addClass('active')
-            setTimeout(function () {
-                location.href = redirectUrl
-            }, redirectTime);
-        } else {
-            e.currentTarget.click();
+        if ($(this).attr('href')) {
+            if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
+                let toOnStageScreen = $('#animationToOnstage')
+                e.preventDefault();
+                toOnStageScreen.removeClass('d-none').addClass('d-block')
+                // toOnStageScreen.addClass('active')
+                setTimeout(function () {
+                    location.href = redirectUrl
+                }, redirectTime);
+            } else {
+                e.currentTarget.click();
+            }
         }
     });
 
@@ -235,24 +237,24 @@ $(function () {
     $(window).on('popstate', function () {
         location.reload(true);
     });
-    
+
     //hide transition when window finish load
-    if($('#readSection').length > 0 || $('.article-start').length > 0 || $('.error-start').length > 0){
-        $(window).on("load", function(){
+    if ($('#readSection').length > 0 || $('.article-start').length > 0 || $('.error-start').length > 0) {
+        $(window).on("load", function () {
             $('#offstageLoading').addClass('d-none')
         });
     }
 
     //gtm
-    $('#whats-on-button').on('click', function() {
+    $('#whats-on-button').on('click', function () {
         var action = 'whats.on.click';
         var title = 'Whats On CTA Button Clicked';
         var value = $(this).data('event-title');
         var var_name = 'whats.on.click';
         _gaq.push([var_name, action, title, value]);
     });
-    
-    
+
+
 })
 
 function clampText() {
