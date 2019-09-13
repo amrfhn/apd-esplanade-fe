@@ -63,11 +63,11 @@ $(function () {
                     if(currUrl.indexOf('tagcloud') > -1){
                         var tagValue = url.searchParams.get('tagcloud');
                         data.tag = tagValue;
-                        $('#offstageLoading').fadeIn(1000);
+                        // $('#offstageLoading').fadeIn(1000);
                         $('.tag-error-message').removeClass('d-block').addClass('d-none');
                     } else {
-                        $('#offstageLoading').fadeIn(1000);
-                        $('#offstageLoading').fadeOut(1000);
+                        // $('#offstageLoading').fadeIn(1000);
+                        // $('#offstageLoading').fadeOut(1000);
                         $('.tag-error-message').addClass('d-block').removeClass('d-none');
                         $('.tagged-in').removeClass('d-block').addClass('d-none');
                         $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
@@ -113,8 +113,8 @@ $(function () {
                         }
 
                         //hide loading screen
-                        $('#offstageLoading').fadeOut(1000);
-                        setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+                        // $('#offstageLoading').fadeOut(1000);
+                        // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
                         console.log(_this.category)
                         // if () {
 

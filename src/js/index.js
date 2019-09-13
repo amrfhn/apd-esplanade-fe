@@ -6,6 +6,11 @@ $(function () {
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
+
+    //hide loading screen
+    // $('#offstageLoading').fadeOut();
+    // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+
     //Homepage: Hide Scrollbar
     if (md.matches) {
         if ($("#tabs-filter")[0]) {
@@ -242,9 +247,10 @@ $(function () {
 
     //hide transition when window finish load
     // if ($('#readSection').length > 0 || $('.article-start').length > 0 || $('.error-start').length > 0) {
-    //     $(window).on("load", function () {
-    //         $('#offstageLoading').addClass('d-none')
-    //     });
+    //     // $(window).on("load", function () {
+    //     $('#offstageLoading').css('display', 'none');
+    //         // $('#offstageLoading').addClass('d-none')
+    //     // });
     // }
 
     //gtm

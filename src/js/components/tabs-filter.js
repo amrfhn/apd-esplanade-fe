@@ -70,6 +70,12 @@ $(function () {
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
 
+                // $('#offstageLoading').addClass('d-block').removeClass('d-none');
+                //hide loading screen
+                $('#offstageLoading').fadeIn()
+                
+                setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+
                 this.initialize();
 
             },
@@ -90,8 +96,9 @@ $(function () {
                 }
 
                 //hide loading screen
-                $('#offstageLoading').fadeOut(1000);
-                setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+                // $('#offstageLoading').fadeIn(1000);
+                
+                // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 // $('.card-body').matchHeight();
                 // _this.eqHeight();
@@ -118,34 +125,7 @@ $(function () {
                     var genre = $('.genre-list').find('.nav-link');
 
                     genre.on('click', function () {
-                        // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
-                        let genreId = $(this).attr('id');
-                        currUrlParams.genre = genreId;
-
-                        if (currUrl.indexOf("genre") < -1) {
-                            // currUrl += separator+"genre=" + currUrlParams.genre;
-                            searchParams.append('genre', currUrlParams.genre)
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        } else {
-                            searchParams.delete('genre');
-                            searchParams.append('genre', currUrlParams.genre)
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        }
-
-                        $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
-                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
-
-                        for (var i = 0, len = megaMenuItem.length; i < len; i++) {
-                            if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre) {
-                                $(megaMenuItem[i]).parent().addClass('active');
-                            }
-                        }
-                        //append params on current url
-                        window.history.pushState({ path: currUrl }, '', newUrl);
+                        
                     });
 
                     var mainCategory = $('.tab-sliders').find('.nav-link');
@@ -307,6 +287,44 @@ $(function () {
                     hideSpinner.addClass('d-none').removeClass('d-block');
                     // document.getElementById('spinner').style.display = "none";
 
+                    // $('#offstageLoading').addClass('d-block').removeClass('d-none');
+                    //hide loading screen
+                    $('#offstageLoading').fadeIn(1000);
+                    
+                    setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+
+                    // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
+                    let genreId = key;
+                    currUrlParams.genre = genreId;
+
+                    if (currUrl.indexOf("genre") < -1) {
+                        // currUrl += separator+"genre=" + currUrlParams.genre;
+                        searchParams.append('genre', currUrlParams.genre)
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    } else {
+                        searchParams.delete('genre');
+                        searchParams.append('genre', currUrlParams.genre)
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    }
+
+                    $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
+                    var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
+
+                    for (var i = 0, len = megaMenuItem.length; i < len; i++) {
+                        if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre) {
+                            $(megaMenuItem[i]).parent().addClass('active');
+                        }
+                    }
+                    //append params on current url
+                    window.history.pushState({ path: currUrl }, '', newUrl);
+
+                    currUrl = newUrl;
+
+
                     this.fetchData();
 
                 },
@@ -318,7 +336,7 @@ $(function () {
                     // change side filter 
                     $('.filter-menu-content').addClass('d-none');
                     $('#filter-menu-content-' + id).removeClass('d-none');
-                    this.resetGenre();
+                    this.resetGenre()
                     // this.genreArrow();
 
                     // reset all side filter checkboxes and radios
@@ -331,6 +349,14 @@ $(function () {
                     //reset genre to ALL
                     searchParams.delete('genre');
                     searchParams.append('genre', 'all')
+
+                    //hide loading screen
+                    $('#offstageLoading').fadeIn(1000);
+                    
+                    setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+
+                    // $('#offstageLoading').addClass('d-block').removeClass('d-none');
+
 
                 },
                 genreArrow: function () {
@@ -521,75 +547,96 @@ $(function () {
 
                 },
                 fetchData: function () {
-
-                    var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
-                    var _this = this;
-
-                    //show loading screen
-                    $('body').addClass('overflow-hidden');
-                    $('#offstageLoading').fadeIn(1000);
-
-                    var request = $.ajax({
-                        type: "GET",
-                        url: url,
-                        dataType: "json",
-                        data: decodeURIComponent($.param(params))
-                    }).done(function (data) {
-
-                        $('.tab-content').removeClass('d-none')
-
-                        _this.banners = data.Banner.Banners
-                        _this.totalBanners = data.Banner.Total
-                        _this.filters = data.Articles
-
-                        //Show error message
-                        data.filters = data.Articles
-                        var $messageContainer = $('#emptyData');
-                        var emptyMessage = $messageContainer.find('.message')
-
-                        if (data.filters.length < 1) {
-                            // test.text('Too Bad.. No result found');
-                            emptyMessage.removeClass('d-none').addClass('d-block');
-                            $('#spinner').addClass('d-none');
-                        } else {
-                            emptyMessage.removeClass('d-block').addClass('d-none');
-                            // $('#spinner').removeClass('d-none');
-                            _this.checkScroll();
+                    // var searchParams = new URLSearchParams(query_string);
+                    
+                    var fetchdata = false;
+                    if (currUrl.indexOf('genre') > -1) {
+                        var url = new URL(currUrl);
+                        var query_string = url.search;
+                        var searchParams = new URLSearchParams(query_string);
+                        var genreValue = url.searchParams.get('genre') || 'all';
+                        if (genreValue === this.genre) {
+                            fetchdata = true;
                         }
-                        //end
+                    } else {
+                        fetchdata = true;
+                    }
 
-                        if ($('.carousel-banner').hasClass('slick-initialized')) {
-                            $('.carousel-banner').slick('unslick');
-                        }
-                        _this.clamptext();
-
-                        $('#searchBar').modal({
-                            backdrop: false,
-                            show: false,
-                            focus: false
-                        });
-
-                        $(document).scroll(function () {
-                            var $nav = $(".nav");
-
-                            var $navTabs = $('.left-wrapper');
-
-                            if ($nav.hasClass('back')) {
-                                $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                    if (fetchdata) {
+                        var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
+                        var _this = this;
+    
+                        //show loading screen
+                        // $('body').addClass('overflow-hidden');
+                        $('#offstageLoading').fadeIn(1000);
+    
+                        var request = $.ajax({
+                            type: "GET",
+                            url: url,
+                            dataType: "json",
+                            data: decodeURIComponent($.param(params))
+                        }).done(function (data) {
+    
+                            $('.tab-content').removeClass('d-none')
+    
+                            _this.banners = data.Banner.Banners
+                            _this.totalBanners = data.Banner.Total
+                            _this.filters = data.Articles
+    
+                            //Show error message
+                            data.filters = data.Articles
+                            var $messageContainer = $('#emptyData');
+                            var emptyMessage = $messageContainer.find('.message')
+    
+                            $('#offstageLoading').fadeOut(1000);
+                            // $('#offstageLoading').addClass('d-none').removeClass('d-block');
+    
+    
+    
+                            if (data.filters.length < 1) {
+                                // test.text('Too Bad.. No result found');
+                                emptyMessage.removeClass('d-none').addClass('d-block');
+                                $('#spinner').addClass('d-none');
+                            } else {
+                                emptyMessage.removeClass('d-block').addClass('d-none');
+                                // $('#spinner').removeClass('d-none');
+                                _this.checkScroll();
                             }
-                        });
-
-                        
-
-                        setTimeout(function () {
-                            _this.clampTextCard();
-                        }, 100)
-
-
-                        setTimeout(function () {
-                            _this.eqHeight();
-                        }, 300)
-                    })
+                            //end
+    
+                            if ($('.carousel-banner').hasClass('slick-initialized')) {
+                                $('.carousel-banner').slick('unslick');
+                            }
+                            _this.clamptext();
+    
+                            $('#searchBar').modal({
+                                backdrop: false,
+                                show: false,
+                                focus: false
+                            });
+    
+                            $(document).scroll(function () {
+                                var $nav = $(".nav");
+    
+                                var $navTabs = $('.left-wrapper');
+    
+                                if ($nav.hasClass('back')) {
+                                    $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                                }
+                            });
+    
+                            
+    
+                            setTimeout(function () {
+                                _this.clampTextCard();
+                            }, 100)
+    
+    
+                            setTimeout(function () {
+                                _this.eqHeight();
+                            }, 300)
+                        })
+                    }
                 },
                 clampTextCard: function () {
                     Ellipsis({
