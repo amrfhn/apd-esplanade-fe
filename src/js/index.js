@@ -241,9 +241,9 @@ $(function () {
     }
 
     //to force page and network reload when click on browser back button
-    $(window).on('popstate', function () {
-        location.reload(true);
-    });
+    // $(window).on('popstate', function () {
+    //     location.reload(true);
+    // });
 
     //hide transition when window finish load
     // if ($('#readSection').length > 0 || $('.article-start').length > 0 || $('.error-start').length > 0) {

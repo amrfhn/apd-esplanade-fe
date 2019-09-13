@@ -64,7 +64,7 @@ $(function () {
             mounted: function () {
                 this.checkMetatUrl();
                 this.clamptext();
-                this.checkActiveGenre();
+                // this.checkActiveGenre();
 
                 // Initialise data
                 this.content = $('main').attr('data-content');
@@ -118,38 +118,6 @@ $(function () {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
                     }
-                },
-                //set url params category and genre on click
-                checkActiveGenre: function () {
-
-                    var genre = $('.genre-list').find('.nav-link');
-
-                    genre.on('click', function () {
-                        
-                    });
-
-                    var mainCategory = $('.tab-sliders').find('.nav-link');
-
-                    mainCategory.on('click', function () {
-                        let categoryId = $(this).attr('id');
-                        currUrlParams.category = categoryId;
-
-                        if (currUrl.indexOf('category') < -1) {
-                            searchParams.append('category', currUrlParams.category);
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        } else {
-                            searchParams.delete('category');
-                            searchParams.append('category', currUrlParams.category);
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        }
-                        //append params on current url
-                        window.history.pushState({ path: newUrl }, '', newUrl);
-                    })
-
                 },
                 checkScroll: function (e) {
 
@@ -357,6 +325,24 @@ $(function () {
 
                     // $('#offstageLoading').addClass('d-block').removeClass('d-none');
 
+
+                    let categoryId = id;
+                    currUrlParams.category = categoryId;
+
+                    if (currUrl.indexOf('category') < -1) {
+                        searchParams.append('category', currUrlParams.category);
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    } else {
+                        searchParams.delete('category');
+                        searchParams.append('category', currUrlParams.category);
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    }
+                    //append params on current url
+                    window.history.pushState({ path: newUrl }, '', newUrl);
 
                 },
                 genreArrow: function () {
@@ -687,11 +673,6 @@ $(function () {
                         $('.submit-filter').click();
                     });
 
-                    // var $megaMenu = $('.mm-wrapper');
-
-                    // if ($megaMenu.hasClass('active')) {
-                    //     $('body').addClass('set-fixed');
-                    // }
 
                     /************************/
                     // search button on click
@@ -725,12 +706,6 @@ $(function () {
                             // reset all side filter checkboxes and radios
                             $('.filter-menu-content [type="checkbox"]').prop('checked', false);
 
-                            var dataKey = $(this).data('key');
-                            $('#genre-tabs-explorethearts').find('#' + dataKey).click();
-
-                            _this.filterGenre(dataKey);
-                            _this.checkActiveGenre();
-
                             if (currUrl.indexOf('category') < -1) {
                                 searchParams.append('category', 'explorethearts');
                                 searchParams.sort();
@@ -743,8 +718,17 @@ $(function () {
                                 url.search = searchParams.toString();
                                 var newUrl = url.toString();
                             }
+
                             //append params on current url
                             window.history.pushState({ path: newUrl }, '', newUrl);
+
+                            var dataKey = $(this).data('key');
+                            // $('#genre-tabs-explorethearts').find('#' + dataKey).click();
+                            // this.category = 'explorethearts';
+
+                            _this.filterGenre(dataKey);
+                            // _this.checkActiveGenre();
+
 
                             $('.genre-tabs .wrapper-explorethearts').animate({
                                 scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-explorethearts').outerWidth()
@@ -767,7 +751,7 @@ $(function () {
                             categoryValue = url.searchParams.get('category');
                         }
 
-                        $('#' + categoryValue).click();
+                        // $('#' + categoryValue).click();
                         _this.filterCategory(categoryValue);
 
                         $('.list-act').find('.nav-link').removeClass('active');
