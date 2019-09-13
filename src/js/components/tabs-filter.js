@@ -563,14 +563,6 @@ $(function () {
                         }
                         _this.clamptext();
 
-                        
-
-                        var $megaMenu = $('.mm-wrapper');
-
-                        if ($megaMenu.hasClass('active')) {
-                            $('body').addClass('set-fixed');
-                        }
-
                         $('#searchBar').modal({
                             backdrop: false,
                             show: false,
@@ -587,13 +579,7 @@ $(function () {
                             }
                         });
 
-                        var $btnSearch = $('#btnSearch');
-
-                        $btnSearch.on('click', function () {
-                            $('.search').fadeIn('fast');
-                            $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
-                            $('body').addClass('no-scroll');
-                        })
+                        
 
                         setTimeout(function () {
                             _this.clampTextCard();
@@ -637,6 +623,10 @@ $(function () {
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
                     var bodyScrollLock = require('body-scroll-lock');
                     var disableBodyScroll = bodyScrollLock.disableBodyScroll;
+                    var $btnSearch = $('#btnSearch');
+                    var $burgerMenu = $('#hamb');
+                    var $megaMenu = $('.mm-wrapper');
+                    var $filterMenu = $('.filter-menu-wrapper');
 
                     $('#spinner').addClass('d-none')
 
@@ -644,15 +634,30 @@ $(function () {
                         var dataKey = $(this).attr('data-key');
 
                         event.preventDefault();
-
                         $('.custom-checkkbox .custom-control-input ').prop('checked', false);
                         $('.custom-checkkbox [data-key=' + dataKey + '] ').prop('checked', true);
                         $('.mm-wrapper').removeClass('active');
                         $('.submit-filter').click();
-
                     });
 
+                    // var $megaMenu = $('.mm-wrapper');
+
+                    // if ($megaMenu.hasClass('active')) {
+                    //     $('body').addClass('set-fixed');
+                    // }
+
+                    /************************/
+                    // search button on click
+                    /************************/
+                    $btnSearch.on('click', function () {
+                        $('.search').fadeIn('fast');
+                        $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
+                        $('body').addClass('no-scroll');
+                    })
+
+                    /************************/
                     //genre in burger menu on click
+                    /************************/
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (!$(this).parent().hasClass('active')) {
                             $('.mm-content-item').find('.nav-item').removeClass('active');
@@ -702,7 +707,9 @@ $(function () {
                         }
                     })
 
+                    /************************/
                     //check url params have category/genre
+                    /************************/
                     if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1) {
                         var categoryValue = '';
                         var genreValue = url.searchParams.get('genre') || 'all';
@@ -731,7 +738,9 @@ $(function () {
                         this.fetchData();
                     }
 
+                    /************************/
                     //show animation when click - to on stage
+                    /************************/
                     let redirectTime = '3000'
                     let redirectUrl = 'https://www.esplanade.com/'
 
@@ -751,19 +760,9 @@ $(function () {
                         }
                     });
 
-                    // $('.close-btn-x').on('click', function () {
-                    //     $('.mm-wrapper').removeClass('active');
-                    //     $('.in-between-screen').removeClass('active');
-                    //     $('body').removeClass('no-scroll');
-
-                    // })
-
-                    /*********************** */
+                    /************************/
                     // mega menu functions
-                    /*********************** */
-                    var $burgerMenu = $('#hamb');
-                    var $megaMenu = $('.mm-wrapper');
-
+                    /************************/
                     $burgerMenu.on('click', function () {
                         $megaMenu.addClass('active');
                         $('.in-between-screen').addClass('active');
@@ -780,7 +779,6 @@ $(function () {
                             },
                         });
                     })
-
                     $('.close-btn-x').on('click', function () {
                         $megaMenu.removeClass('active');
                         $('.in-between-screen').removeClass('active');
@@ -788,15 +786,11 @@ $(function () {
                         // $('body').removeClass('set-fixed');
                         bodyScrollLock.clearAllBodyScrollLocks();
                     })
-                    /*********************** */
 
 
                     /************************/
                     // filter menu functions
                     /************************/
-
-                    var $filterMenu = $('.filter-menu-wrapper');
-
                     //only for mobile sticky
                     if (xs.matches) {
                         $('.filter-bar').removeClass("stick");
@@ -898,7 +892,9 @@ $(function () {
                         
                     }
 
+                    /************************/
                     //close filter menu and enable body scroll
+                    /************************/
                     $('.close-filter').on('click', function () {
                         $('.filter-menu-wrapper').removeClass('show-filter');
                         $('.in-between-screen').removeClass('active');
@@ -906,9 +902,6 @@ $(function () {
                         // $("body").removeClass("filter-open");
                         bodyScrollLock.clearAllBodyScrollLocks();
                     })
-
-                    //*********************** */
-
 
                     //category on click scroller arrow and initialize outer width func
                     // $('#goPrev').on('click', function () {
