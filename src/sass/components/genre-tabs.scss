@@ -138,9 +138,10 @@
   .filter-icon {
     width: 25px;
     height: auto;
+    margin-top: -10px;
 
     @media(min-width: 768px){
-      margin-top: -3px;
+      margin-top: -5px;
       width: 30px;
       height: 100%;
     }

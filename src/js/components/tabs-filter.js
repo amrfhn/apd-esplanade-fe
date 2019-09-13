@@ -64,11 +64,17 @@ $(function () {
             mounted: function () {
                 this.checkMetatUrl();
                 this.clamptext();
-                this.checkActiveGenre();
+                // this.checkActiveGenre();
 
                 // Initialise data
                 this.content = $('main').attr('data-content');
                 this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
+
+                // $('#offstageLoading').addClass('d-block').removeClass('d-none');
+                //hide loading screen
+                $('#offstageLoading').fadeIn()
+                
+                setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 this.initialize();
 
@@ -90,8 +96,9 @@ $(function () {
                 }
 
                 //hide loading screen
-                $('#offstageLoading').fadeOut(1000);
-                setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+                // $('#offstageLoading').fadeIn(1000);
+                
+                // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 // $('.card-body').matchHeight();
                 // _this.eqHeight();
@@ -111,65 +118,6 @@ $(function () {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
                     }
-                },
-                //set url params category and genre on click
-                checkActiveGenre: function () {
-
-                    var genre = $('.genre-list').find('.nav-link');
-
-                    genre.on('click', function () {
-                        // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
-                        let genreId = $(this).attr('id');
-                        currUrlParams.genre = genreId;
-
-                        if (currUrl.indexOf("genre") < -1) {
-                            // currUrl += separator+"genre=" + currUrlParams.genre;
-                            searchParams.append('genre', currUrlParams.genre)
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        } else {
-                            searchParams.delete('genre');
-                            searchParams.append('genre', currUrlParams.genre)
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        }
-
-                        $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
-                        var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
-
-                        for (var i = 0, len = megaMenuItem.length; i < len; i++) {
-                            if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre) {
-                                $(megaMenuItem[i]).parent().addClass('active');
-                            }
-                        }
-                        //append params on current url
-                        window.history.pushState({ path: currUrl }, '', newUrl);
-                    });
-
-                    var mainCategory = $('.tab-sliders').find('.nav-link');
-
-                    mainCategory.on('click', function () {
-                        let categoryId = $(this).attr('id');
-                        currUrlParams.category = categoryId;
-
-                        if (currUrl.indexOf('category') < -1) {
-                            searchParams.append('category', currUrlParams.category);
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        } else {
-                            searchParams.delete('category');
-                            searchParams.append('category', currUrlParams.category);
-                            searchParams.sort();
-                            url.search = searchParams.toString();
-                            var newUrl = url.toString();
-                        }
-                        //append params on current url
-                        window.history.pushState({ path: newUrl }, '', newUrl);
-                    })
-
                 },
                 checkScroll: function (e) {
 
@@ -307,6 +255,44 @@ $(function () {
                     hideSpinner.addClass('d-none').removeClass('d-block');
                     // document.getElementById('spinner').style.display = "none";
 
+                    // $('#offstageLoading').addClass('d-block').removeClass('d-none');
+                    //hide loading screen
+                    $('#offstageLoading').fadeIn(1000);
+                    
+                    setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+
+                    // var separator = (window.location.href.indexOf("?") === -1) ? "?" : "&";
+                    let genreId = key;
+                    currUrlParams.genre = genreId;
+
+                    if (currUrl.indexOf("genre") < -1) {
+                        // currUrl += separator+"genre=" + currUrlParams.genre;
+                        searchParams.append('genre', currUrlParams.genre)
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    } else {
+                        searchParams.delete('genre');
+                        searchParams.append('genre', currUrlParams.genre)
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    }
+
+                    $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
+                    var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
+
+                    for (var i = 0, len = megaMenuItem.length; i < len; i++) {
+                        if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre) {
+                            $(megaMenuItem[i]).parent().addClass('active');
+                        }
+                    }
+                    //append params on current url
+                    window.history.pushState({ path: currUrl }, '', newUrl);
+
+                    currUrl = newUrl;
+
+
                     this.fetchData();
 
                 },
@@ -318,7 +304,7 @@ $(function () {
                     // change side filter 
                     $('.filter-menu-content').addClass('d-none');
                     $('#filter-menu-content-' + id).removeClass('d-none');
-                    this.resetGenre();
+                    this.resetGenre()
                     // this.genreArrow();
 
                     // reset all side filter checkboxes and radios
@@ -331,6 +317,32 @@ $(function () {
                     //reset genre to ALL
                     searchParams.delete('genre');
                     searchParams.append('genre', 'all')
+
+                    //hide loading screen
+                    $('#offstageLoading').fadeIn(1000);
+                    
+                    setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
+
+                    // $('#offstageLoading').addClass('d-block').removeClass('d-none');
+
+
+                    let categoryId = id;
+                    currUrlParams.category = categoryId;
+
+                    if (currUrl.indexOf('category') < -1) {
+                        searchParams.append('category', currUrlParams.category);
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    } else {
+                        searchParams.delete('category');
+                        searchParams.append('category', currUrlParams.category);
+                        searchParams.sort();
+                        url.search = searchParams.toString();
+                        var newUrl = url.toString();
+                    }
+                    //append params on current url
+                    window.history.pushState({ path: newUrl }, '', newUrl);
 
                 },
                 genreArrow: function () {
@@ -521,89 +533,96 @@ $(function () {
 
                 },
                 fetchData: function () {
-
-                    var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
-                    var _this = this;
-
-                    //show loading screen
-                    $('body').addClass('overflow-hidden');
-                    $('#offstageLoading').fadeIn(1000);
-
-                    var request = $.ajax({
-                        type: "GET",
-                        url: url,
-                        dataType: "json",
-                        data: decodeURIComponent($.param(params))
-                    }).done(function (data) {
-
-                        $('.tab-content').removeClass('d-none')
-
-                        _this.banners = data.Banner.Banners
-                        _this.totalBanners = data.Banner.Total
-                        _this.filters = data.Articles
-
-                        //Show error message
-                        data.filters = data.Articles
-                        var $messageContainer = $('#emptyData');
-                        var emptyMessage = $messageContainer.find('.message')
-
-                        if (data.filters.length < 1) {
-                            // test.text('Too Bad.. No result found');
-                            emptyMessage.removeClass('d-none').addClass('d-block');
-                            $('#spinner').addClass('d-none');
-                        } else {
-                            emptyMessage.removeClass('d-block').addClass('d-none');
-                            // $('#spinner').removeClass('d-none');
-                            _this.checkScroll();
+                    // var searchParams = new URLSearchParams(query_string);
+                    
+                    var fetchdata = false;
+                    if (currUrl.indexOf('genre') > -1) {
+                        var url = new URL(currUrl);
+                        var query_string = url.search;
+                        var searchParams = new URLSearchParams(query_string);
+                        var genreValue = url.searchParams.get('genre') || 'all';
+                        if (genreValue === this.genre) {
+                            fetchdata = true;
                         }
-                        //end
+                    } else {
+                        fetchdata = true;
+                    }
 
-                        if ($('.carousel-banner').hasClass('slick-initialized')) {
-                            $('.carousel-banner').slick('unslick');
-                        }
-                        _this.clamptext();
-
-                        
-
-                        var $megaMenu = $('.mm-wrapper');
-
-                        if ($megaMenu.hasClass('active')) {
-                            $('body').addClass('set-fixed');
-                        }
-
-                        $('#searchBar').modal({
-                            backdrop: false,
-                            show: false,
-                            focus: false
-                        });
-
-                        $(document).scroll(function () {
-                            var $nav = $(".nav");
-
-                            var $navTabs = $('.left-wrapper');
-
-                            if ($nav.hasClass('back')) {
-                                $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                    if (fetchdata) {
+                        var url = host + "/sitecore/api/offstage/articles/" + this.content + '/' + this.category + '/' + this.genre + '/' + this.currPage + '/' + this.pageSize;
+                        var _this = this;
+    
+                        //show loading screen
+                        // $('body').addClass('overflow-hidden');
+                        $('#offstageLoading').fadeIn(1000);
+    
+                        var request = $.ajax({
+                            type: "GET",
+                            url: url,
+                            dataType: "json",
+                            data: decodeURIComponent($.param(params))
+                        }).done(function (data) {
+    
+                            $('.tab-content').removeClass('d-none')
+    
+                            _this.banners = data.Banner.Banners
+                            _this.totalBanners = data.Banner.Total
+                            _this.filters = data.Articles
+    
+                            //Show error message
+                            data.filters = data.Articles
+                            var $messageContainer = $('#emptyData');
+                            var emptyMessage = $messageContainer.find('.message')
+    
+                            $('#offstageLoading').fadeOut(1000);
+                            // $('#offstageLoading').addClass('d-none').removeClass('d-block');
+    
+    
+    
+                            if (data.filters.length < 1) {
+                                // test.text('Too Bad.. No result found');
+                                emptyMessage.removeClass('d-none').addClass('d-block');
+                                $('#spinner').addClass('d-none');
+                            } else {
+                                emptyMessage.removeClass('d-block').addClass('d-none');
+                                // $('#spinner').removeClass('d-none');
+                                _this.checkScroll();
                             }
-                        });
-
-                        var $btnSearch = $('#btnSearch');
-
-                        $btnSearch.on('click', function () {
-                            $('.search').fadeIn('fast');
-                            $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
-                            $('body').addClass('no-scroll');
+                            //end
+    
+                            if ($('.carousel-banner').hasClass('slick-initialized')) {
+                                $('.carousel-banner').slick('unslick');
+                            }
+                            _this.clamptext();
+    
+                            $('#searchBar').modal({
+                                backdrop: false,
+                                show: false,
+                                focus: false
+                            });
+    
+                            $(document).scroll(function () {
+                                var $nav = $(".nav");
+    
+                                var $navTabs = $('.left-wrapper');
+    
+                                if ($nav.hasClass('back')) {
+                                    $navTabs.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                                }
+                            });
+    
+                            
+    
+                            setTimeout(function () {
+                                _this.clampTextCard();
+                            }, 100)
+    
+    
+                            setTimeout(function () {
+                                _this.eqHeight();
+                            }, 300)
                         })
-
-                        setTimeout(function () {
-                            _this.clampTextCard();
-                        }, 100)
-
-
-                        setTimeout(function () {
-                            _this.eqHeight();
-                        }, 300)
-                    })
+                    }
                 },
                 clampTextCard: function () {
                     Ellipsis({
@@ -637,6 +656,10 @@ $(function () {
                     var cat_id = this.category = $('.category-tabs-wrapper li:first-child a').attr('id');
                     var bodyScrollLock = require('body-scroll-lock');
                     var disableBodyScroll = bodyScrollLock.disableBodyScroll;
+                    var $btnSearch = $('#btnSearch');
+                    var $burgerMenu = $('#hamb');
+                    var $megaMenu = $('.mm-wrapper');
+                    var $filterMenu = $('.filter-menu-wrapper');
 
                     $('#spinner').addClass('d-none')
 
@@ -644,15 +667,25 @@ $(function () {
                         var dataKey = $(this).attr('data-key');
 
                         event.preventDefault();
-
                         $('.custom-checkkbox .custom-control-input ').prop('checked', false);
                         $('.custom-checkkbox [data-key=' + dataKey + '] ').prop('checked', true);
                         $('.mm-wrapper').removeClass('active');
                         $('.submit-filter').click();
-
                     });
 
+
+                    /************************/
+                    // search button on click
+                    /************************/
+                    $btnSearch.on('click', function () {
+                        $('.search').fadeIn('fast');
+                        $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
+                        $('body').addClass('no-scroll');
+                    })
+
+                    /************************/
                     //genre in burger menu on click
+                    /************************/
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (!$(this).parent().hasClass('active')) {
                             $('.mm-content-item').find('.nav-item').removeClass('active');
@@ -673,12 +706,6 @@ $(function () {
                             // reset all side filter checkboxes and radios
                             $('.filter-menu-content [type="checkbox"]').prop('checked', false);
 
-                            var dataKey = $(this).data('key');
-                            $('#genre-tabs-explorethearts').find('#' + dataKey).click();
-
-                            _this.filterGenre(dataKey);
-                            _this.checkActiveGenre();
-
                             if (currUrl.indexOf('category') < -1) {
                                 searchParams.append('category', 'explorethearts');
                                 searchParams.sort();
@@ -691,8 +718,17 @@ $(function () {
                                 url.search = searchParams.toString();
                                 var newUrl = url.toString();
                             }
+
                             //append params on current url
                             window.history.pushState({ path: newUrl }, '', newUrl);
+
+                            var dataKey = $(this).data('key');
+                            // $('#genre-tabs-explorethearts').find('#' + dataKey).click();
+                            // this.category = 'explorethearts';
+
+                            _this.filterGenre(dataKey);
+                            // _this.checkActiveGenre();
+
 
                             $('.genre-tabs .wrapper-explorethearts').animate({
                                 scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-explorethearts').outerWidth()
@@ -702,7 +738,9 @@ $(function () {
                         }
                     })
 
+                    /************************/
                     //check url params have category/genre
+                    /************************/
                     if (currUrl.indexOf('category') > -1 || currUrl.indexOf('genre') > -1) {
                         var categoryValue = '';
                         var genreValue = url.searchParams.get('genre') || 'all';
@@ -713,7 +751,7 @@ $(function () {
                             categoryValue = url.searchParams.get('category');
                         }
 
-                        $('#' + categoryValue).click();
+                        // $('#' + categoryValue).click();
                         _this.filterCategory(categoryValue);
 
                         $('.list-act').find('.nav-link').removeClass('active');
@@ -731,14 +769,18 @@ $(function () {
                         this.fetchData();
                     }
 
+                    /************************/
                     //show animation when click - to on stage
+                    /************************/
                     let redirectTime = '3000'
-                    let redirectUrl = 'https://www.esplanade.com/'
+                    // let redirectUrl = 'https://www.esplanade.com/'
 
                     $('a').on('click', function (e) {
                         if ($(this).attr('href')) {
+                            let redirectUrl = $(this).attr('href');
+                            let toOnStageScreen = $('#animationToOnstage')
+                
                             if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
-                                let toOnStageScreen = $('#animationToOnstage')
                                 e.preventDefault();
                                 toOnStageScreen.removeClass('d-none').addClass('d-block')
                                 // toOnStageScreen.addClass('active')
@@ -751,19 +793,9 @@ $(function () {
                         }
                     });
 
-                    // $('.close-btn-x').on('click', function () {
-                    //     $('.mm-wrapper').removeClass('active');
-                    //     $('.in-between-screen').removeClass('active');
-                    //     $('body').removeClass('no-scroll');
-
-                    // })
-
-                    /*********************** */
+                    /************************/
                     // mega menu functions
-                    /*********************** */
-                    var $burgerMenu = $('#hamb');
-                    var $megaMenu = $('.mm-wrapper');
-
+                    /************************/
                     $burgerMenu.on('click', function () {
                         $megaMenu.addClass('active');
                         $('.in-between-screen').addClass('active');
@@ -780,7 +812,6 @@ $(function () {
                             },
                         });
                     })
-
                     $('.close-btn-x').on('click', function () {
                         $megaMenu.removeClass('active');
                         $('.in-between-screen').removeClass('active');
@@ -788,15 +819,11 @@ $(function () {
                         // $('body').removeClass('set-fixed');
                         bodyScrollLock.clearAllBodyScrollLocks();
                     })
-                    /*********************** */
 
 
                     /************************/
                     // filter menu functions
                     /************************/
-
-                    var $filterMenu = $('.filter-menu-wrapper');
-
                     //only for mobile sticky
                     if (xs.matches) {
                         $('.filter-bar').removeClass("stick");
@@ -898,7 +925,9 @@ $(function () {
                         
                     }
 
+                    /************************/
                     //close filter menu and enable body scroll
+                    /************************/
                     $('.close-filter').on('click', function () {
                         $('.filter-menu-wrapper').removeClass('show-filter');
                         $('.in-between-screen').removeClass('active');
@@ -906,9 +935,6 @@ $(function () {
                         // $("body").removeClass("filter-open");
                         bodyScrollLock.clearAllBodyScrollLocks();
                     })
-
-                    //*********************** */
-
 
                     //category on click scroller arrow and initialize outer width func
                     // $('#goPrev').on('click', function () {
