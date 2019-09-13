@@ -742,12 +742,14 @@ $(function () {
                     //show animation when click - to on stage
                     /************************/
                     let redirectTime = '3000'
-                    let redirectUrl = 'https://www.esplanade.com/'
+                    // let redirectUrl = 'https://www.esplanade.com/'
 
                     $('a').on('click', function (e) {
                         if ($(this).attr('href')) {
+                            let redirectUrl = $(this).attr('href');
+                            let toOnStageScreen = $('#animationToOnstage')
+                
                             if ($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
-                                let toOnStageScreen = $('#animationToOnstage')
                                 e.preventDefault();
                                 toOnStageScreen.removeClass('d-none').addClass('d-block')
                                 // toOnStageScreen.addClass('active')
