@@ -6,7 +6,7 @@ $(function () {
 
     $('.in-between-screen').on('click', function () {
         $filterMenu.removeClass('show-filter');
-        $('.in-between-screen').removeClass('active');
+        $('.in-between-screen').removeClass('active-screen');
         $('body').removeClass('no-scroll');
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
@@ -15,7 +15,7 @@ $(function () {
         bodyScrollLock.clearAllBodyScrollLocks();
     })
 
-    if ($('.in-between-screen').hasClass('active')) {
+    if ($('.in-between-screen').hasClass('active-screen')) {
         $('#btnSearch').prop('disabled', true);
     } else {
         $('#btnSearch').prop('disabled', false);

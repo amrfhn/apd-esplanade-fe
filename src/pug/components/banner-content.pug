@@ -2,8 +2,8 @@
     h4.font-16.content-type(v-bind:style="{color: banner.Content.Colour}") {{banner.ContentType}}
     h1.title-banner.clamp-3(v-line-clamp:20="3" data-clamp="3") {{banner.Content.Title}}
     p.description.mt-2.clamp-2(v-line-clamp:20="2" data-clamp="2" v-bind:style="{color: banner.Content.Colour}") {{banner.subTitle}}
-    a.btn.btn-carousel.btn-outline-light.mt-2(:href='banner.pageUrl') FIND OUT MORE
-    .banner-navigation.mt-md-5.mt-4
+    a.btn.btn-carousel.btn-outline-light.mt-2.d-none(:href='banner.pageUrl') FIND OUT MORE
+    .banner-navigation.mt-md-5.mt-4.d-none
         .arrows-wrapper
             button.btn.prev-slide.custom-btn
                 span.icon.esplanade-icon-Previous.cust-icon.arrow-light

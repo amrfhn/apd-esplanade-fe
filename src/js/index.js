@@ -263,6 +263,21 @@ $(function () {
     });
 
 
+    if($('#genericPage'.length > 0) && $('#tagResult').length < 1) {
+        $('#genericPage').closest('main').addClass('custom-generic-page ');
+        $('#genericPage').parent().closest('.container').addClass('m-auto');
+        
+        if (md.matches) {
+            $('body').addClass('overflow-hidden');
+        }
+
+        if (xs.matches) {
+            $('body').removeClass('overflow-hidden');
+
+        }
+    }
+
+
 })
 
 function clampText() {

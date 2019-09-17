@@ -148,8 +148,6 @@
         color: $primary;
         text-decoration: none;
 
-        &:hover {
-        }
       }
 
       em {
@@ -340,7 +338,7 @@
 
   @media (min-width: 768px) {
     position: fixed;
-    z-index: 999999;
+    z-index: 99997;
     right: 30px;
   }
 }
