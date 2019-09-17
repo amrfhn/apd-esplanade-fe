@@ -79,6 +79,7 @@ $(function () {
         $('.search').fadeIn('fast');
         $('.in-between-screen').addClass('active-screen').css({ 'background-color': 'black', 'opacity': '.5', 'left': '0' });
         // $('body').addClass('no-scroll'); 
+        $('#search-input').focus();
 
         //body scroll lock
         disableBodyScroll($searchContainer, {
