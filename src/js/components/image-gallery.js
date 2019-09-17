@@ -31,10 +31,21 @@ $(function () {
                     '<span class="icon esplanade-icon-Next cust-icon arrow-light">' +
                     "</button>",
             },
+            caption: function (instance, item){
+                var caption = $(this).data('caption')
+
+                if ( item.type === 'image' ) {
+                    caption = (caption.length ? caption : ' ') ;
+                }
+        
+                return caption;
+            },
             afterLoad: function (instance, current) {
                 if (instance.group.length == 1) {
                     $('.fancybox-infobar, .fancybox-navigation').hide();
                 }
+
+                console.info( instance.$refs );
             },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
