@@ -40,6 +40,17 @@ $(function () {
         
                 return caption;
             },
+            // beforeLoad: function() {
+            //     var el, id = $(this.element).data('title-id');
+    
+            //     if (id) {
+            //         el = $('#' + id);
+                
+            //         if (el.length) {
+            //             this.title = el.html();
+            //         }
+            //     }
+            // },
             afterLoad: function (instance, current) {
                 if (instance.group.length == 1) {
                     $('.fancybox-infobar, .fancybox-navigation').hide();
