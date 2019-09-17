@@ -90,10 +90,15 @@ $(function () {
 
                 if (_this.bannerCount > 1) {
                     _this.slick();
-                    $('.banner-content').find('.banner-navigation').css('display', 'flex');
+                    $('.banner-content').find('.banner-navigation').addClass('d-flex').removeClass('d-none');
                 } else {
-                    $('.banner-content').find('.banner-navigation').css('display', 'none');
+                    $('.banner-content').find('.banner-navigation').addClass('d-none').removeClass('d-flex');
                 }
+
+                //show banner cta button
+                $('.banner-content').each(function () {
+                    $(this).find('.btn-carousel').addClass('d-inline-block').removeClass('d-none');
+                })
 
                 //hide loading screen
                 // $('#offstageLoading').fadeIn(1000);
@@ -576,8 +581,8 @@ $(function () {
     
                             $('#offstageLoading').fadeOut(1000);
                             // $('#offstageLoading').addClass('d-none').removeClass('d-block');
-    
-    
+                            
+                            
     
                             if (data.filters.length < 1) {
                                 // test.text('Too Bad.. No result found');
