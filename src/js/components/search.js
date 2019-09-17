@@ -194,6 +194,7 @@ $(function () {
 
 
                         if (_this.keyword.length > 2) {
+                            console.log('search keyword')
                             $(".search-suggestion").show();
 
                             // Declare variables
@@ -265,6 +266,8 @@ $(function () {
                 },
                 submittedSearch: function (e) {
                     // e.preventDefault();
+                    console.log('submitttt')
+                    $('#search-input').blur();
                     this.hideAll();
                     this.resetFilter();
                     this.updateUrlParam();
@@ -273,11 +276,12 @@ $(function () {
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-                    
-                    this.updateFilter();
-                    $('#search-spinner').show();
-                    $(".search-suggestion").hide();
 
+                    this.hideAll();
+                    $('.search-suggestion').hide();
+                    $('#search-spinner').show();
+
+                    this.updateFilter();
                     this.currPage = 1
                     var url = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this
@@ -292,7 +296,7 @@ $(function () {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
 
-                        $(".search-suggestion").hide();
+                        // $(".search-suggestion").hide();
 
                         if (_this.searchResult.result.length == 0) {
                             _this.hideAll();
@@ -310,6 +314,7 @@ $(function () {
                         }
                     }).fail(function () {
                         $('#search-spinner').hide();
+                        $(".search-suggestion").hide();
                         console.log('update fail')
                     })
                 },
