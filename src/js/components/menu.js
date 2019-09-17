@@ -8,6 +8,11 @@ $(function () {
         $megaMenu.addClass('active');
         $('.in-between-screen').addClass('active-screen');
         // $('body').addClass('no-scroll');
+
+        // $('body').css('position', 'fixed');
+
+
+
         disableBodyScroll($megaMenu, {
             allowTouchMove: el => {
                 while (el && el !== document.body) {
@@ -19,6 +24,8 @@ $(function () {
                 }
             },
         });
+        $('body').css('overflow-y', 'auto');
+
     })
 
     $('.close-btn-x').on('click', function () {
@@ -26,7 +33,10 @@ $(function () {
         $('.in-between-screen').removeClass('active-screen');
         // $('body').removeClass('no-scroll');
         // $('body').removeClass('set-fixed');
+
         bodyScrollLock.clearAllBodyScrollLocks();
+        // $('body').css('position', 'static');
+        $('body').css('overflow-y', 'auto');
     })
 
 
@@ -47,7 +57,8 @@ $(function () {
     });
 
     $(document).scroll(function () {
-        if ($('#readSection').length > 0 || $('#tagResult').length > 0) {
+        if ($('#readSection').length > 0 || $('#tagResult').length > 0 ||
+        $('#landingPage').length > 0) {
             var $nav = $(".nav");
 
             var $navTabs = $('.left-wrapper');
