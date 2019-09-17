@@ -346,7 +346,7 @@ $(function () {
                     if (currentUrl.indexOf("keyword") > -1) {
                         // console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
-                        $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5', 'left' : '0' });
+                        $('.in-between-screen').addClass('active-screen');
 
                         var $text = $('#search-input')
 
@@ -416,20 +416,19 @@ $(function () {
                     $('.search-wrapper').reset();
                 },
                 closeSearch: function () {
-                    var bodyScrollLock = require('body-scroll-lock');
 
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
-                    $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
+                    $('.in-between-screen').click();
                     // $('body').removeClass('no-scroll');
                     this.hideAll();
                    
-                    bodyScrollLock.clearAllBodyScrollLocks();
-
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
                     this.removeKeyword();
+
+                    // bodyScrollLock.clearAllBodyScrollLocks();
                 },
                 resetFilter: function () {
                     //reset all filter uncheck

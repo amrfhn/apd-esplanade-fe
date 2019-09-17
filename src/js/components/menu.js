@@ -6,7 +6,7 @@ $(function () {
 
     $burgerMenu.on('click', function () {
         $megaMenu.addClass('active');
-        $('.in-between-screen').addClass('active');
+        $('.in-between-screen').addClass('active-screen');
         // $('body').addClass('no-scroll');
         disableBodyScroll($megaMenu, {
             allowTouchMove: el => {
@@ -23,7 +23,7 @@ $(function () {
 
     $('.close-btn-x').on('click', function () {
         $megaMenu.removeClass('active');
-        $('.in-between-screen').removeClass('active');
+        $('.in-between-screen').removeClass('active-screen');
         // $('body').removeClass('no-scroll');
         // $('body').removeClass('set-fixed');
         bodyScrollLock.clearAllBodyScrollLocks();
@@ -66,7 +66,7 @@ $(function () {
 
     $btnSearch.on('click', function () {
         $('.search').fadeIn('fast');
-        $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5', 'left': '0' });
+        $('.in-between-screen').addClass('active-screen').css({ 'background-color': 'black', 'opacity': '.5', 'left': '0' });
         // $('body').addClass('no-scroll'); 
 
         //body scroll lock

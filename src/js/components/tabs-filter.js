@@ -63,7 +63,11 @@ $(function () {
 
             mounted: function () {
                 this.checkMetatUrl();
-                this.clamptext();
+
+                // setTimeout(function (){
+                //     this.clamptext();
+                // },100);
+
                 // this.checkActiveGenre();
 
                 // Initialise data
@@ -83,7 +87,12 @@ $(function () {
                 var _this = this;
 
                 _this.bgSwitcher();
-                _this.clamptext();
+
+                setTimeout(function (){
+                    _this.clamptext();
+
+                },100);
+                
                 _this.genreArrow();
 
                 _this.bannerCount = data.banners.length;
@@ -598,7 +607,10 @@ $(function () {
                             if ($('.carousel-banner').hasClass('slick-initialized')) {
                                 $('.carousel-banner').slick('unslick');
                             }
-                            _this.clamptext();
+                            setTimeout(function (){
+                                _this.clamptext();
+            
+                            },100);
     
                             $('#searchBar').modal({
                                 backdrop: false,
@@ -684,7 +696,7 @@ $(function () {
                     /************************/
                     $btnSearch.on('click', function () {
                         $('.search').fadeIn('fast');
-                        $('.in-between-screen').addClass('active').css({ 'background-color': 'black', 'opacity': '.5' });
+                        $('.in-between-screen').addClass('active-screen').css({ 'background-color': 'black', 'opacity': '.5' });
                         $('body').addClass('no-scroll');
                     })
 
@@ -803,7 +815,7 @@ $(function () {
                     /************************/
                     $burgerMenu.on('click', function () {
                         $megaMenu.addClass('active');
-                        $('.in-between-screen').addClass('active');
+                        $('.in-between-screen').addClass('active-screen');
                         // $('body').addClass('no-scroll');
                         disableBodyScroll($megaMenu , {
                             allowTouchMove: el => {
@@ -819,7 +831,7 @@ $(function () {
                     })
                     $('.close-btn-x').on('click', function () {
                         $megaMenu.removeClass('active');
-                        $('.in-between-screen').removeClass('active');
+                        $('.in-between-screen').removeClass('active-screen');
                         // $('body').removeClass('no-scroll');
                         // $('body').removeClass('set-fixed');
                         bodyScrollLock.clearAllBodyScrollLocks();
@@ -848,7 +860,7 @@ $(function () {
 
                         $(".filter").click(function () {
                             $filterMenu.scrollTop(0)
-                            $('.in-between-screen').addClass('active');
+                            $('.in-between-screen').addClass('active-screen');
 
                             if ($('.filter-bar').hasClass("stick")) {
                             } else {
@@ -876,7 +888,7 @@ $(function () {
 
                         $('.submit-filter').on('click', function () {
                             $filterMenu.removeClass('show-filter');
-                            $('.in-between-screen').removeClass('active');
+                            $('.in-between-screen').removeClass('active-screen');
                             // $('body').removeClass('no-scroll');
                             // $("body").removeClass("filter-open");
                             $('html, body').animate({
@@ -892,7 +904,7 @@ $(function () {
 
                         $('.filter').on('click', function () {
                             $('.filter-menu-wrapper').addClass('show-filter');
-                            $('.in-between-screen').addClass('active');
+                            $('.in-between-screen').addClass('active-screen');
                             // $('body').addClass('no-scroll');
                     
                             $('.mm-wrapper').removeClass('active');
@@ -916,7 +928,7 @@ $(function () {
 
                         $('.submit-filter').on('click', function () {
                             $filterMenu.removeClass('show-filter');
-                            $('.in-between-screen').removeClass('active');
+                            $('.in-between-screen').removeClass('active-screen');
                             // $('body').removeClass('no-scroll');
                             // $("body").removeClass("filter-open");
                 
@@ -935,7 +947,7 @@ $(function () {
                     /************************/
                     $('.close-filter').on('click', function () {
                         $('.filter-menu-wrapper').removeClass('show-filter');
-                        $('.in-between-screen').removeClass('active');
+                        $('.in-between-screen').removeClass('active-screen');
                         // $('body').removeClass('no-scroll');
                         // $("body").removeClass("filter-open");
                         bodyScrollLock.clearAllBodyScrollLocks();
