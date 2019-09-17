@@ -31,14 +31,14 @@ $(function () {
 
 
     
-    var $megaMenu = $('.mm-wrapper');
+    // var $megaMenu = $('.mm-wrapper');
 
-    if ($megaMenu.hasClass('active')) {
-        console.log("active")
-        $('body').css('position', 'fixed');
-        $('body').css('overflow', 'hidden');
+    // if ($megaMenu.hasClass('active')) {
+    //     console.log("active")
+    //     $('body').css('position', 'fixed');
+    //     $('body').css('overflow', 'hidden');
 
-    }
+    // }
 
     $('#searchBar').modal({
         backdrop: false,
