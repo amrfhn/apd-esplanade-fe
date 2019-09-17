@@ -13,7 +13,7 @@ $(function () {
 
     //Homepage: Hide Scrollbar
     if (md.matches) {
-        if ($("#tabs-filter")[0]) {
+        if ($("#tabs-filter")[0] || $('.article-start').length > 0) {
             $('body').addClass('hidden-scrollbar')
         }
     }
@@ -267,14 +267,14 @@ $(function () {
         $('#genericPage').closest('main').addClass('custom-generic-page ');
         $('#genericPage').parent().closest('.container').addClass('m-auto');
         
-        if (md.matches) {
-            $('body').addClass('overflow-hidden');
-        }
+        // if (md.matches) {
+        //     $('body').addClass('overflow-hidden');
+        // }
 
-        if (xs.matches) {
-            $('body').removeClass('overflow-hidden');
+        // if (xs.matches) {
+        //     $('body').removeClass('overflow-hidden');
 
-        }
+        // }
     }
 
 
