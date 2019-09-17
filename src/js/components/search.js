@@ -1,5 +1,6 @@
 import VueLineClamp from 'vue-line-clamp';
 import URL from 'core-js/features/url'
+
 import URLSearchParams from 'core-js/features/url-search-params'
 
 $(function () {
@@ -20,6 +21,7 @@ $(function () {
             currPage: 1,
             pageSize: 10,
             searchSuggestion: [],
+            searchSuggestionFiltered: [],
             searchResult: {
                 total: 0,
                 result: [],
@@ -69,6 +71,33 @@ $(function () {
                 hideAll: function () {
                     $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more").hide();
                 },
+                boldSearchKeyword: function(str) {
+                    
+                    var searchMask = this.keyword.trim().split(' ');
+                    var newStr = str;
+                    searchMask.forEach(function(searchTerm) {
+                            var regEx = new RegExp(searchTerm, 'i');
+                            // str.substr(str.indexOf(this.keyword),this.keyword.length)
+                            
+                            var matched = newStr.matchAll(new RegExp(searchTerm, 'ig'));
+                            var splited = newStr.split(new RegExp(searchTerm, 'i'));
+                            // console.log('matched', splited)
+
+                            newStr = splited.reduce(function(str1, item, index) {
+                                var matchedValue = matched.next();
+                                return str1 += item + (matchedValue.done ? '' : '<>' + matchedValue.value[0] + '</>')
+                            }, '');
+                    })
+                  
+                    newStr = newStr.replace(/<>/g, '<strong class="font-weight-bolder">');
+                    return newStr.replace(/<\/>/g, '</strong>');
+                    // var replaceMask = '<span class="font-weight-bolder">' + str.substr(str.indexOf(this.keyword),this.keyword.length) + '</span>'
+                    
+                    
+
+                    // return str.replace(regEx, replaceMask)
+                    // return str.replace(this.keyword,'<span class="font-weight-bolder">' + this.keyword + '</span>')
+                },
                 fetchSuggestKey: function () {
                     var url = host + "/sitecore/api/offstage/" + this.content + '/' + this.field
                     var _this = this
@@ -86,6 +115,10 @@ $(function () {
                     })
                 },
                 filteredSuggestion: function () {
+                    var searching = null;
+                    clearInterval(searching);
+
+
                     // var value = $('#search-input').val().toLowerCase();
 
                     // var newVal = value.split(" ")
@@ -156,49 +189,60 @@ $(function () {
                     // }
 
                     // -------------------- REGEX SEARCH --------------------
+                    var _this =this;
+                    searching = setTimeout(function() {
 
-                    if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
-                        $(".search-suggestion").show();
 
-                        // Declare variables
-                        var input = document.getElementById('search-input'),
-                            filter = input.value,
-                            ul = document.getElementById('search-suggestion-list'),
-                            lis = ul.getElementsByTagName('li'),
-                            searchTerms = filter.match(/[a-z0-9]+/gi),
-                            re, i, li, span;
+                        if (_this.keyword.length > 2) {
+                            $(".search-suggestion").show();
 
-                        if (searchTerms) {
-                            searchTerms = searchTerms.map(function (term) {
-                                return '(?=.*' + term + ')';
-                            });
+                            // Declare variables
+                            var input = document.getElementById('search-input'),
+                                filter = input.value,
+                                ul = document.getElementById('search-suggestion-list'),
+                                lis = ul.getElementsByTagName('li'),
+                                searchTerms = filter.match(/[a-z0-9]+/gi),
+                                re, i, li, span;
 
-                            re = new RegExp(searchTerms.join(''), 'i');
-                        } else {
-                            re = /./;
-                        }
+                            if (searchTerms) {
+                                searchTerms = searchTerms.map(function (term) {
+                                    return '(?=.*' + term + ')';
+                                });
 
-                        // Loop through all list items, and hide those who don't match the search query
-                        for (i = 0; i < lis.length; i++) {
-                            li = lis[i];
-                            span = li.firstChild;
-
-                            if (re.test(span.innerHTML)) {
-                                li.style.display = '';
+                                re = new RegExp(searchTerms.join(''), 'i');
                             } else {
-                                li.style.display = 'none';
+                                re = /./;
                             }
-                        }
 
-                        // $('.search-suggestion-list li').mark(filter);
 
-                        if($('.search-suggestion-list li').length === $('.search-suggestion-list li:hidden').length) {
+                                
+                            _this.searchSuggestionFiltered = _this.searchSuggestion.filter(function(suggestion) {
+                                return re.test(suggestion)  
+                            })
+
+                            // Loop through all list items, and hide those who don't match the search query
+                            // for (i = 0; i < lis.length; i++) {
+                            //     li = lis[i];
+                            //     span = li.firstChild;
+
+                            //     if (re.test(span.innerText)) {
+                            //         li.style.display = '';
+                            //     } else {
+                            //         li.style.display = 'none';
+                            //     }
+                            // }
+
+                            // // $('.search-suggestion-list li').mark(filter);
+
+                            if($('.search-suggestion-list').children().length == 0) {
+                                $(".search-suggestion").hide();
+                            }
+                            
+                        } else {
                             $(".search-suggestion").hide();
                         }
-                        
-                    } else {
-                        $(".search-suggestion").hide();
-                    }
+                    },100)
+
                 },
                 searchHighlight: function (string) {
                     $(".search-suggestion-list li.match").each(function () {
@@ -248,6 +292,7 @@ $(function () {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
 
+                        $(".search-suggestion").hide();
 
                         if (_this.searchResult.result.length == 0) {
                             _this.hideAll();
@@ -299,7 +344,7 @@ $(function () {
                     var myParams = urlParams.get('keyword')
 
                     if (currentUrl.indexOf("keyword") > -1) {
-                        console.log('showwwwwwwwwwwww')
+                        // console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
                         $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5', 'left' : '0' });
 
@@ -318,7 +363,7 @@ $(function () {
                     var query_string = url.search;
                     var urlParams = new URLSearchParams(query_string);
 
-                    console.log('check keyword')
+                    // console.log('check keyword')
 
                     if (currentUrl.indexOf("keyword") < -1 && this.keyword.length > 0) {
                         urlParams.append('keyword', this.keyword)

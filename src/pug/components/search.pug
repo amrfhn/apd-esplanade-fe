@@ -2,7 +2,7 @@
 .col-12.pb-20
     #closeSearch
         img(src="./assets/microsites/offstage/img/icons/Close.svg" @click="closeSearch()").close
-    form.search-wrapper.needs-validation(autocomplete="off" novalidate @submit.prevent="submittedSearch")
+    form.search-wrapper(autocomplete="off" novalidate @submit.prevent="submittedSearch")
         .form-row.pb-20.align-items-end
             .col-12.pr-0
                 label(for="validationServer01") Search: 
@@ -21,8 +21,8 @@
         p.font-12 Search Suggestion:
         
         ul#search-suggestion-list.search-suggestion-list.bt-2(body-scroll-lock-ignore)
-            li(v-for="suggestion in searchSuggestion" @click="selectedSuggestion(event)") 
-                span {{suggestion}}
+            li(v-for="suggestion in searchSuggestionFiltered" @click="selectedSuggestion(event)") 
+                span(v-html="boldSearchKeyword(suggestion)")
 //- END: Search Suggestion
    
 
