@@ -266,7 +266,8 @@ $(function () {
                 },
                 submittedSearch: function (e) {
                     // e.preventDefault();
-                    $('#submittedSearch').blur();
+                    console.log('submitttt')
+                    $('#search-input').blur();
                     this.hideAll();
                     this.resetFilter();
                     this.updateUrlParam();
@@ -277,6 +278,7 @@ $(function () {
                     console.log('getting result...')
 
                     this.hideAll();
+                    $('.search-suggestion').hide();
                     $('#search-spinner').show();
 
                     this.updateFilter();
