@@ -5,10 +5,10 @@
 }
 
 .hidden-scrollbar {
-    -ms-overflow-style: none; 
+    -ms-overflow-style: none !important; 
     
     &::-webkit-scrollbar {
-        display: none;
+        display: none !important;
     }
 }
 
