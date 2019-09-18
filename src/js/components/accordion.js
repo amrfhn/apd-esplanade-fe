@@ -1,4 +1,5 @@
 $(function () {
+    'use strict'
     // Add minus icon for collapse element which is open by default
     $(".collapse.show").each(function () {
         $(this).prev("a").find(".icon").addClass("icon-minus").removeClass("icon-plus");
@@ -10,4 +11,12 @@ $(function () {
     }).on('hidden.bs.collapse', function () {
         $(this).prev("a").find(".icon").removeClass("icon-minus").addClass("icon-plus");
     });
+
+    //disable click if plus icon has class d-none
+    $(".click-accordion").each(function () {
+        if ($(this).find('.icon-plus').hasClass('d-none')) {
+            $(this).attr('data-toggle', 'false');
+        }
+    });
 });
+

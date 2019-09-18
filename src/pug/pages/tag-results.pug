@@ -16,29 +16,36 @@ block content
                     include ../components/loading-screen/to-onstage.pug
                 .loading-screen#offstageLoading
                     include ../components/loading-screen/loading-screen.pug
-        
-        .row.py-25
+
+        //- .row.py-25
             .col-12
                 .tag-error-message.d-none.mt-50
-                    p.bt-1 Something went wrong. We are not able to load results.         
-        
+                    p.bt-1 Something went wrong. We are not able to load results. 
+        .row.no-gutters.px-3.px-md-4.tab-content#tabContent
+            .col-12.py-2.mx-auto
+                div#spinner.spinner-load
+                    //- img.spinner-icon(src="/assets/microsites/offstage/img/icons/Loading.svg")
+                    img.spinner-icon(src="/assets/microsites/offstage/img/gif/offstage-reverse.gif")
+                    p.spinner-message.bt-1 Yeah, it's a slow build-up - but we promise it will be worth the wait!
+
+
         .row.py-20.tag-results.d-none
             .col-12
                 .tagged-in.pt-5.py-2
                     h4.title.text-transform-none TAGGED IN
                 .header-wrapper.pb-3
-                     h1.font-weight-bolder.title.text-transform-none {{keyword}}
+                    h1.font-weight-bolder.title.text-transform-none {{keyword}}
 
         .row.tag-results.d-none
             .col-12(v-for="result in results")
                 include ../components/tag-results.pug
-            
+
             .col-12.pt-3.d-flex.justify-content-center
                 button.btn.btn-outline-primary#loadMore(type="button" @click="loadMoreResults()") Load More
-        
+
     .container-fluid#newsletter
         include ../components/newsletter.pug
-    
+
 block footer
     .container-fluid
         .row
