@@ -16,6 +16,7 @@ $(function () {
     $(".click-accordion").each(function () {
         if ($(this).find('.icon-plus').hasClass('d-none')) {
             $(this).attr('data-toggle', 'false');
+            $(this).find('.card-header').css('cursor', 'default');
         }
     });
 });

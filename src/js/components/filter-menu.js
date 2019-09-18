@@ -3,6 +3,8 @@ $(function () {
     var $filterMenu = $('.filter-menu-wrapper');
 
     var bodyScrollLock = require('body-scroll-lock');
+    var xs = window.matchMedia('(max-width: 768px)');
+
 
     $('.in-between-screen').on('click', function () {
         $filterMenu.removeClass('show-filter');
@@ -13,6 +15,10 @@ $(function () {
         $('.search').fadeOut('fast');
 
         bodyScrollLock.clearAllBodyScrollLocks();
+
+        if(xs.matches) {
+            $('body').removeClass('position-fixed')
+        }
     })
 
     if ($('.in-between-screen').hasClass('active-screen')) {
