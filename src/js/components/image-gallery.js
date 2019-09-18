@@ -5,7 +5,7 @@ $(function () {
         var _this = $(this);
 
         var slider = "#" + $(item).attr('id');
-        var fancyboxSelector = slider + ' .slick-slide:not(.slick-cloned) a'
+        var fancyboxSelector = slider + ' .slick-slide:not(.slick-cloned) a.popup-image'
 
         // fancybox
         $().fancybox({
