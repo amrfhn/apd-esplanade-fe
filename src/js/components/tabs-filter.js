@@ -454,6 +454,13 @@ $(function () {
 
                     // });
                 },
+                genreTabActive: function () {
+                    var category_id = this.category; 
+
+                    $('.genre-tabs').addClass('d-none');
+                    $('#genre-tabs-'+category_id).removeClass('d-none');
+                    
+                },
                 resetGenre: function () {
                     var _this = this;
                     var catId = _this.category;
@@ -677,6 +684,9 @@ $(function () {
                     var $burgerMenu = $('#hamb');
                     var $megaMenu = $('.mm-wrapper');
                     var $filterMenu = $('.filter-menu-wrapper');
+
+
+                    _this.genreTabActive();
 
                     $('#spinner').addClass('d-none')
 

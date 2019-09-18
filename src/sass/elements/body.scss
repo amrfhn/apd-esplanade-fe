@@ -7,8 +7,10 @@
 .hidden-scrollbar {
     -ms-overflow-style: none !important; 
     
+    
     &::-webkit-scrollbar {
         display: none !important;
+        width:0;
     }
   }
 

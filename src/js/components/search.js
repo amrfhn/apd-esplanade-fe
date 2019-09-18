@@ -427,7 +427,8 @@ $(function () {
 
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
-                    $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
+                    $('.in-between-screen').click();
+                    // $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                     // $('body').removeClass('no-scroll');
                     this.hideAll();
                    
