@@ -685,7 +685,6 @@ $(function () {
                     var $megaMenu = $('.mm-wrapper');
                     var $filterMenu = $('.filter-menu-wrapper');
 
-
                     _this.genreTabActive();
 
                     $('#spinner').addClass('d-none')
@@ -838,6 +837,10 @@ $(function () {
                               }
                             },
                         });
+
+                        if(xs.matches) {
+                            $('body').addClass('position-fixed')
+                        }
                     })
                     $('.close-btn-x').on('click', function () {
                         $megaMenu.removeClass('active');
@@ -845,6 +848,10 @@ $(function () {
                         // $('body').removeClass('no-scroll');
                         // $('body').removeClass('set-fixed');
                         bodyScrollLock.clearAllBodyScrollLocks();
+
+                        if(xs.matches) {
+                            $('body').removeClass('position-fixed')
+                        }
                     })
 
 
@@ -894,6 +901,7 @@ $(function () {
                                   }
                                 },
                             });
+                            
                         });
 
                         $('.submit-filter').on('click', function () {
