@@ -46,9 +46,11 @@
         width: 60px; 
         border-top: 4px solid black;
     }
+    
     .title{
         text-transform: none !important;
     }
+    
     .accordion-header-inner{
         width: calc(100% - 20px);
     }

@@ -5,7 +5,7 @@ $(function () {
         var _this = $(this);
 
         var slider = "#" + $(item).attr('id');
-        var fancyboxSelector = slider + ' .slick-slide:not(.slick-cloned) a'
+        var fancyboxSelector = slider + ' .slick-slide:not(.slick-cloned) a.popup-image'
 
         // fancybox
         $().fancybox({
@@ -31,10 +31,32 @@ $(function () {
                     '<span class="icon esplanade-icon-Next cust-icon arrow-light">' +
                     "</button>",
             },
+            caption: function (instance, item){
+                var caption = $(this).data('caption')
+
+                if ( item.type === 'image' ) {
+                    caption = (caption.length ? caption : ' ') ;
+                }
+        
+                return caption;
+            },
+            // beforeLoad: function() {
+            //     var el, id = $(this.element).data('title-id');
+    
+            //     if (id) {
+            //         el = $('#' + id);
+                
+            //         if (el.length) {
+            //             this.title = el.html();
+            //         }
+            //     }
+            // },
             afterLoad: function (instance, current) {
                 if (instance.group.length == 1) {
                     $('.fancybox-infobar, .fancybox-navigation').hide();
                 }
+
+                console.info( instance.$refs );
             },
             afterShow: function (instance, current) {
                 current.opts.$orig.closest(".slick-initialized").slick('slickGoTo', parseInt(current.index), true);
