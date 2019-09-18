@@ -4,26 +4,22 @@ $(function () {
     var bodyScrollLock = require('body-scroll-lock');
     var disableBodyScroll = bodyScrollLock.disableBodyScroll;
 
+
     $burgerMenu.on('click', function () {
         $megaMenu.addClass('active');
         $('.in-between-screen').addClass('active-screen');
-        // $('body').addClass('no-scroll');
 
-        // $('body').css('position', 'fixed');
+        disableBodyScroll($megaMenu, {
+            allowTouchMove: el => {
+                while (el && el !== document.body) {
+                    if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                        return true
+                    }
 
-
-
-        // disableBodyScroll($megaMenu, {
-        //     allowTouchMove: el => {
-        //         while (el && el !== document.body) {
-        //             if (el.getAttribute('body-scroll-lock-ignore') !== null) {
-        //                 return true
-        //             }
-
-        //             el = el.parentNode
-        //         }
-        //     },
-        // });
+                    el = el.parentNode
+                }
+            },
+        });
 
     })
 
@@ -36,7 +32,7 @@ $(function () {
 
         bodyScrollLock.clearAllBodyScrollLocks();
         // $('body').css('position', 'static');
-        $('body').css('overflow-y', 'auto');
+        // $('body').css('overflow-y', 'auto');
     })
 
 
