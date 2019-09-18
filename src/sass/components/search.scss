@@ -63,7 +63,7 @@
 
     @media (min-width: 768px) {
       position: relative;
-      display: flex;
+      display: inline-block;
       padding: 0;
       width: 100%;
       box-shadow: none;
@@ -73,6 +73,7 @@
       .form-check {
         background: $primary;
         color: $white;
+        float: left;
 
         label.form-check-label {
           &::before {
