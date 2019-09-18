@@ -12,8 +12,8 @@ $(function () {
         $(this).prev("a").find(".icon").removeClass("icon-minus").addClass("icon-plus");
     });
 
-
-    $(".acknowledgement-accordion").each(function () {
+    //disable click if plus icon has class d-none
+    $(".click-accordion").each(function () {
         if ($(this).find('.icon-plus').hasClass('d-none')) {
             $(this).attr('data-toggle', 'false');
         }
