@@ -46,11 +46,9 @@ $(function () {
             mounted: function () {
                 var _this = this;
 
-
                 this.checkUrl();
                 this.fetchResults();
                 $('#offstageLoading').fadeOut(1000);
-
 
             },
 
@@ -65,13 +63,10 @@ $(function () {
                     if(currUrl.indexOf('tagcloud') > -1){
                         var tagValue = url.searchParams.get('tagcloud');
                         data.tag = tagValue;
-                        // $('#offstageLoading').fadeIn(1000);
                         $('.tag-error-message').removeClass('d-block').addClass('d-none');
                         $('#tagResult').closest('main').addClass('custom-tag-result');
 
                     } else {
-                        // $('#offstageLoading').fadeIn(1000);
-                        // $('#offstageLoading').fadeOut(1000);
                         $('.tag-error-message').addClass('d-block').removeClass('d-none');
                         $('.tagged-in').removeClass('d-block').addClass('d-none');
                         $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
@@ -79,12 +74,9 @@ $(function () {
                         $('#tagResult').closest('main').addClass('custom-tag-result');
                         $('#tagResult').parent().closest('.container').addClass('m-auto');
                         $('body').addClass('overflow-hidden');
+                        this.hideLoader();
 
-                        if (xs.matches) {
-                            $('body').removeClass('overflow-hidden');
-
-                        }
-
+                        $('body').removeClass('overflow-hidden');
                     }
 
                 },
