@@ -144,52 +144,8 @@ $(function () {
                     //     $(".search-suggestion").hide();
                     // }
 
-
-                    // -------------------- MARK.JS --------------------
-                    // var $input = $('#search-input input'),
-                    //     $context = $('.search-suggestion-list li'),
-                    //     term = $('#search-input').val();
-
-                    // if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
-                    //     $(".search-suggestion").show();
-                    //     $context.show().unmark();
-                    //     if (term) {
-                    //         $context.mark(term, {
-                    //             "element": "mark",
-                    //             "className": "hightlight",
-                    //             separateWordSearch: true,
-                    //             acrossElements: false,
-                    //             done: function (counter) {
-                    //                 $context.not(":has(mark)").hide();
-                    //                 var words = term.split(' ')
-                    //                 // console.log('foundTerm', words.length)
-
-                    //                 $context.each(function(){
-                    //                     var mark = $(this).find('span').find('mark').text().toLowerCase()
-
-                    //                     // console.log(words)
-
-                    //                     // mark.filter(function(el){
-                    //                     //     console.log("here")
-                    //                     //     return words.indexof(el) > 0
-                    //                     // })
-                    //                     // console.log($context.has('mark').text())
-
-                    //                     var highlight = $(this).has('mark').text()
-                    //                     // console.log(highlight)
-                    //                     // if($.inArray(mark, words) != '-1'){
-                    //                     //     alert(mark + 'in the array')
-                    //                     // }
-                    //                 })
-                    //             }
-                    //         })
-                    //     }
-                    // } else {
-                    //     $(".search-suggestion").hide();
-                    // }
-
                     // -------------------- REGEX SEARCH --------------------
-                    var _this =this;
+                    var _this = this;
                     searching = setTimeout(function() {
 
 
