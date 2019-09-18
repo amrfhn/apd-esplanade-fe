@@ -13,7 +13,7 @@ $(function () {
 
     //Homepage: Hide Scrollbar
     if (md.matches) {
-        if ($("#tabs-filter")[0] || $('.article-start').length > 0) {
+        if ($("#tabs-filter")[0]) {
             $('body').addClass('hidden-scrollbar')
         }
     }

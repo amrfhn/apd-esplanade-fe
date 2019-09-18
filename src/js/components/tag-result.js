@@ -49,6 +49,8 @@ $(function () {
 
                 this.checkUrl();
                 this.fetchResults();
+                $('#offstageLoading').fadeOut(1000);
+
 
             },
 
@@ -113,7 +115,7 @@ $(function () {
                         }
 
                         //hide loading screen
-                        // $('#offstageLoading').fadeOut(1000);
+                        $('#offstageLoading').fadeOut(1000);
                         // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
                         console.log(_this.category)
                         // if () {
