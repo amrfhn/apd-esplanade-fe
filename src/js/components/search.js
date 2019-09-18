@@ -194,6 +194,7 @@ $(function () {
 
 
                         if (_this.keyword.length > 2) {
+                            console.log('search keyword')
                             $(".search-suggestion").show();
 
                             // Declare variables
@@ -265,6 +266,8 @@ $(function () {
                 },
                 submittedSearch: function (e) {
                     // e.preventDefault();
+                    console.log('submitttt')
+                    $('#search-input').blur();
                     this.hideAll();
                     this.resetFilter();
                     this.updateUrlParam();
@@ -273,11 +276,12 @@ $(function () {
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-                    
-                    this.updateFilter();
-                    $('#search-spinner').show();
-                    $(".search-suggestion").hide();
 
+                    this.hideAll();
+                    $('.search-suggestion').hide();
+                    $('#search-spinner').show();
+
+                    this.updateFilter();
                     this.currPage = 1
                     var url = host + "/sitecore/api/offstage/" + this.content + '/articles/' + this.currPage + '/' + this.pageSize
                     var _this = this
@@ -292,7 +296,7 @@ $(function () {
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
 
-                        $(".search-suggestion").hide();
+                        // $(".search-suggestion").hide();
 
                         if (_this.searchResult.result.length == 0) {
                             _this.hideAll();
@@ -310,6 +314,7 @@ $(function () {
                         }
                     }).fail(function () {
                         $('#search-spinner').hide();
+                        $(".search-suggestion").hide();
                         console.log('update fail')
                     })
                 },
@@ -328,14 +333,11 @@ $(function () {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
-                            console.log('result', data )
-                            console.log(updatedResult)
-
                             if( updatedResult.length == data.total ) {
                                 $('.result-more').hide();
                             }
 
-                        } else if (data.result.length < 10 ) {
+                        } else if (data.result.length < 10) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
@@ -353,7 +355,7 @@ $(function () {
                     if (currentUrl.indexOf("keyword") > -1) {
                         // console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
-                        $('.in-between-screen').addClass('active').css({ 'background-color' : 'black', 'opacity' : '.5', 'left' : '0' });
+                        $('.in-between-screen').addClass('active-screen');
 
                         var $text = $('#search-input')
 
@@ -423,21 +425,19 @@ $(function () {
                     $('.search-wrapper').reset();
                 },
                 closeSearch: function () {
-                    var bodyScrollLock = require('body-scroll-lock');
 
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
                     $('.in-between-screen').click();
-                    // $('.in-between-screen').removeClass('active').css({ 'background-color': '', 'opacity': '' });
                     // $('body').removeClass('no-scroll');
                     this.hideAll();
                    
-                    bodyScrollLock.clearAllBodyScrollLocks();
-
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
                     this.removeKeyword();
+
+                    // bodyScrollLock.clearAllBodyScrollLocks();
                 },
                 resetFilter: function () {
                     //reset all filter uncheck
