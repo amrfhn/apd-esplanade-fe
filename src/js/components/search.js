@@ -328,7 +328,14 @@ $(function () {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
-                        } else if (data.result.length < 10) {
+                            console.log('result', data )
+                            console.log(updatedResult)
+
+                            if( updatedResult.length == data.total ) {
+                                $('.result-more').hide();
+                            }
+
+                        } else if (data.result.length < 10 ) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
