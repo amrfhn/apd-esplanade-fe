@@ -67,6 +67,8 @@ $(function () {
                         data.tag = tagValue;
                         // $('#offstageLoading').fadeIn(1000);
                         $('.tag-error-message').removeClass('d-block').addClass('d-none');
+                        $('#tagResult').closest('main').addClass('custom-tag-result');
+
                     } else {
                         // $('#offstageLoading').fadeIn(1000);
                         // $('#offstageLoading').fadeOut(1000);
@@ -115,12 +117,9 @@ $(function () {
                         }
 
                         //hide loading screen
-                        $('#offstageLoading').fadeOut(1000);
-                        // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
-                        console.log(_this.category)
-                        // if () {
+                        _this.hideLoader();
 
-                        // }
+                        $('#tagResult').closest('main').removeClass('custom-tag-result');
                     })
                 },
 
@@ -130,6 +129,9 @@ $(function () {
                     var offset = 10;
 
                     this.pageNum += 1;
+                    _this.showLoader();
+                    $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
+
 
                     var loadUrl = host + '/sitecore/api/offstage/tagcloud/results/' + this.tag + '/' + this.pageNum + '/' + offset;
 
@@ -145,16 +147,25 @@ $(function () {
 
                         if (data.TagCloudResult.length < offset || data.TagCloudResult.length == 0) {
                             $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
+                        } else {
+                            $('#loadMore').parent().removeClass('d-none').addClass('d-flex');
                         }
 
-                        // if($('.offset-menu').height() < $(window).height()){
-                        //     $('#tagResult').addClass('vh-100').removeClass('h-auto');
-                        // } else {
-                        //     $('#tagResult').addClass('h-auto').removeClass('vh-100');
-                        // }
+                        _this.hideLoader();
 
                         _this.fetchingData = false;
                     })
+                },
+                showLoader: function () {
+                    var $loader = $('#loadContainer');
+
+                    $loader.fadeIn('1000');
+                },
+
+                hideLoader: function () {
+                    var $loader = $('#loadContainer');
+
+                    $loader.fadeOut('1000');
                 }
             },
 
