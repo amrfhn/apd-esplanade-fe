@@ -41,13 +41,17 @@ $(function () {
             data: data,
 
             mounted: function () {
+                this.setMinHeight();
+
                 this.checkMetatUrl();
+
                 this.checkUrl();
 
-                this.setMinHeight();
                 
                 this.fetchResults();
-                $('#offstageLoading').fadeOut(1000);
+            },
+
+            updated: function () {
             },
 
             methods: {
@@ -66,20 +70,22 @@ $(function () {
                 },
 
                 checkUrl: function (){
+                    var _this = this;
 
                     if(currUrl.indexOf('tagcloud') > -1){
                         var tagValue = url.searchParams.get('tagcloud');
                         data.tag = tagValue;
-                        $('.tag-error-message').removeClass('d-block').addClass('d-none');
+                        // $('.tag-error-message').removeClass('d-block').addClass('d-none');
 
                     } else {
-                        $('.tag-error-message').addClass('d-block').removeClass('d-none');
+                        this.hideLoader();
+
+                        $('.tag-error-message').fadeIn('200');
                         $('.tagged-in').removeClass('d-block').addClass('d-none');
                         $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
                         $('#tagResult').parent().closest('.container').addClass('m-auto');
                         $('body').addClass('overflow-hidden');
 
-                        this.hideLoader();
 
                         $('body').removeClass('overflow-hidden');
                     }
