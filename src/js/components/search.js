@@ -75,24 +75,26 @@ $(function () {
                     $(".search-suggestion").hide();
                 },
                 boldSearchKeyword: function(str) {
+                    console.log('bold')
                     
                     var searchMask = this.keyword.trim().split(' ');
                     var newStr = str;
-                    searchMask.forEach(function(searchTerm) {
-                            var regEx = new RegExp(searchTerm, 'i');
-                            // str.substr(str.indexOf(this.keyword),this.keyword.length)
+                    // searchMask.forEach(function(searchTerm) {
+                    //         var regEx = new RegExp(searchTerm, 'i');
+                    //         // str.substr(str.indexOf(this.keyword),this.keyword.length)
                             
-                            var matched = newStr.match(new RegExp(searchTerm, 'ig'));
-                            var splited = newStr.split(new RegExp(searchTerm, 'i'));
-                            console.log('matched', matched)
+                    //         var matched = newStr.match(new RegExp(searchTerm, 'ig'));
+                    //         var splited = newStr.split(new RegExp(searchTerm, 'i'));
+                    //         // console.log('matched', matched)
 
-                            newStr = splited.reduce(function(str1, item, index) {
-                                // var matchedValue = newArray[index]
-                                var matchedValue = matched[index];
-                                console.log(matchedValue, index)
-                                return str1 += item + (!matchedValue ? '' : '<>' + matchedValue + '</>')
-                            }, '');
-                    })
+                    //         newStr = splited.reduce(function(str1, item, index) {
+                    //             // var matchedValue = newArray[index]
+                    //             var matchedValue = matched[index];
+                    //             console.log('matchedValue', matchedValue)
+                    //             console.log('index', index)
+                    //             return str1 += item + (!matchedValue ? '' : '<>' + matchedValue + '</>')
+                    //         }, '');
+                    // })
                   
                     newStr = newStr.replace(/<>/g, '<strong class="font-weight-bolder">');
                     return newStr.replace(/<\/>/g, '</strong>');
@@ -217,6 +219,7 @@ $(function () {
                     })
                 },
                 selectedSuggestion: function (event) {
+                    // $('#search-input').blur();
                     var $text = $('#search-input')
                     var $selectedKey = event.target.textContent;
 
@@ -254,7 +257,7 @@ $(function () {
                         dataType: "json",
                         data: decodeURIComponent($.param(resultParams))
                     }).done(function (data) {
-
+                        console.log('1')
                         
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result

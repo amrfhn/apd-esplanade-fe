@@ -8,7 +8,7 @@
                 label(for="validationServer01") Search: 
 
                 //- .d-flex
-                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG"  @input="filteredSuggestion()" @keyup.enter="submittedSearch" data-content="suggestions" required)
+                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG"  @keyup="filteredSuggestion()" @keyup.enter="submittedSearch" data-content="suggestions" required)
                 button(type="submit").search-submit.btn.bg-white.px-0
                     img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 
