@@ -18,6 +18,7 @@ import '../sass/main.scss'
 
 /* Components
 // ::::::::::::: */
+import './components/ga-tracking.js'
 import './components/form.js'
 import './components/tabs-filter.js'
 import './components/search.js'

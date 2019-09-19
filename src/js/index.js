@@ -240,24 +240,6 @@ $(function () {
 
     }
 
-    //to force page and network reload when click on browser back button
-    // $(window).on('popstate', function () {
-    //     location.reload(true);
-    // });
-
-    //hide transition when window finish load
-    // if ($('#readSection').length > 0 || $('.article-start').length > 0 || $('.error-start').length > 0) {
-    //     // $(window).on("load", function () {
-    //     $('#offstageLoading').css('display', 'none');
-    //         // $('#offstageLoading').addClass('d-none')
-    //     // });
-    // }
-
-    //gtm
-    if ($('#whats-on-click').length > 0) {
-        let eventTitle = $('#whats-on-click').attr('data-tracking')
-    }
-
     //generic page footer to bottom
     if ($('#genericPage'.length > 0) && $('#tagResult').length < 1) {
         $('#genericPage').closest('main').addClass('custom-generic-page ');
