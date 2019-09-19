@@ -82,13 +82,15 @@ $(function () {
                             var regEx = new RegExp(searchTerm, 'i');
                             // str.substr(str.indexOf(this.keyword),this.keyword.length)
                             
-                            var matched = newStr.matchAll(new RegExp(searchTerm, 'ig'));
+                            var matched = newStr.match(new RegExp(searchTerm, 'ig'));
                             var splited = newStr.split(new RegExp(searchTerm, 'i'));
-                            // console.log('matched', splited)
+                            console.log('matched', matched)
 
                             newStr = splited.reduce(function(str1, item, index) {
-                                var matchedValue = matched.next();
-                                return str1 += item + (matchedValue.done ? '' : '<>' + matchedValue.value[0] + '</>')
+                                // var matchedValue = newArray[index]
+                                var matchedValue = matched[index];
+                                console.log(matchedValue, index)
+                                return str1 += item + (!matchedValue ? '' : '<>' + matchedValue + '</>')
                             }, '');
                     })
                   
