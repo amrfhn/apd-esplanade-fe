@@ -254,29 +254,15 @@ $(function () {
     // }
 
     //gtm
-    $('#whats-on-button').on('click', function () {
-        var action = 'whats.on.click';
-        var title = 'Whats On CTA Button Clicked';
-        var value = $(this).data('event-title');
-        var var_name = 'whats.on.click';
-        _gaq.push([var_name, action, title, value]);
-    });
-
-
-    if($('#genericPage'.length > 0) && $('#tagResult').length < 1) {
-        $('#genericPage').closest('main').addClass('custom-generic-page ');
-        $('#genericPage').parent().closest('.container').addClass('m-auto');
-        
-        // if (md.matches) {
-        //     $('body').addClass('overflow-hidden');
-        // }
-
-        // if (xs.matches) {
-        //     $('body').removeClass('overflow-hidden');
-
-        // }
+    if ($('#whats-on-click').length > 0) {
+        let eventTitle = $('#whats-on-click').attr('data-tracking')
     }
 
+    //generic page footer to bottom
+    if ($('#genericPage'.length > 0) && $('#tagResult').length < 1) {
+        $('#genericPage').closest('main').addClass('custom-generic-page ');
+        $('#genericPage').parent().closest('.container').addClass('m-auto');
+    }
 
 })
 
