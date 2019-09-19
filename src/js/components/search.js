@@ -69,7 +69,7 @@ $(function () {
                     }
                 },
                 hideAll: function () {
-                    $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more").hide();
+                    $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more, .result-more-loading").hide();
                 },
                 boldSearchKeyword: function(str) {
                     
@@ -283,8 +283,15 @@ $(function () {
                         type: "GET",
                         url: updateUrl,
                         dataType: "json",
-                        data: resultParams
+                        data: resultParams,
+                        beforeSend: function(){
+                            $('.result-more').hide();
+                            $('.result-more-loading').fadeIn('fast');
+                        }
                     }).done(function (data) {
+                        $('.result-more-loading').fadeOut('fast');
+                        $('.result-more').show();
+
                         if (data.result.length > 0 && data.result.length == 10) {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
