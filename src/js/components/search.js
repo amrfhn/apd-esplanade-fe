@@ -71,6 +71,9 @@ $(function () {
                 hideAll: function () {
                     $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more, .result-more-loading").hide();
                 },
+                hideSuggestion: function(){
+                    $(".search-suggestion").hide();
+                },
                 boldSearchKeyword: function(str) {
                     
                     var searchMask = this.keyword.trim().split(' ');
@@ -249,9 +252,11 @@ $(function () {
                         dataType: "json",
                         data: decodeURIComponent($.param(resultParams))
                     }).done(function (data) {
+
+                        
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
-
+                        
                         // $(".search-suggestion").hide();
 
                         if (_this.searchResult.result.length == 0) {
@@ -287,9 +292,11 @@ $(function () {
                         beforeSend: function(){
                             $('.result-more').hide();
                             $('.result-more-loading').fadeIn('fast');
+                        },
+                        complete:function(data){
+                            $('.result-more-loading').fadeOut('fast');
                         }
                     }).done(function (data) {
-                        $('.result-more-loading').fadeOut('fast');
                         $('.result-more').show();
 
                         if (data.result.length > 0 && data.result.length == 10) {
@@ -373,7 +380,7 @@ $(function () {
                     $('.no-result').hide();
                     $('.total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .result-more').show();
 
-                    if (this.searchResult.result.length < 10) {
+                    if (this.searchResult.total <= 10) {
                         $('.result-more').hide();
                     }
                 },
