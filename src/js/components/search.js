@@ -71,6 +71,9 @@ $(function () {
                 hideAll: function () {
                     $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more, .result-more-loading").hide();
                 },
+                hideSuggestion: function(){
+                    $(".search-suggestion").hide();
+                },
                 boldSearchKeyword: function(str) {
                     
                     var searchMask = this.keyword.trim().split(' ');
@@ -79,13 +82,15 @@ $(function () {
                             var regEx = new RegExp(searchTerm, 'i');
                             // str.substr(str.indexOf(this.keyword),this.keyword.length)
                             
-                            var matched = newStr.matchAll(new RegExp(searchTerm, 'ig'));
+                            var matched = newStr.match(new RegExp(searchTerm, 'ig'));
                             var splited = newStr.split(new RegExp(searchTerm, 'i'));
-                            // console.log('matched', splited)
+                            console.log('matched', matched)
 
                             newStr = splited.reduce(function(str1, item, index) {
-                                var matchedValue = matched.next();
-                                return str1 += item + (matchedValue.done ? '' : '<>' + matchedValue.value[0] + '</>')
+                                // var matchedValue = newArray[index]
+                                var matchedValue = matched[index];
+                                console.log(matchedValue, index)
+                                return str1 += item + (!matchedValue ? '' : '<>' + matchedValue + '</>')
                             }, '');
                     })
                   
@@ -249,9 +254,11 @@ $(function () {
                         dataType: "json",
                         data: decodeURIComponent($.param(resultParams))
                     }).done(function (data) {
+
+                        
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
-
+                        
                         // $(".search-suggestion").hide();
 
                         if (_this.searchResult.result.length == 0) {
@@ -287,9 +294,11 @@ $(function () {
                         beforeSend: function(){
                             $('.result-more').hide();
                             $('.result-more-loading').fadeIn('fast');
+                        },
+                        complete:function(data){
+                            $('.result-more-loading').fadeOut('fast');
                         }
                     }).done(function (data) {
-                        $('.result-more-loading').fadeOut('fast');
                         $('.result-more').show();
 
                         if (data.result.length > 0 && data.result.length == 10) {
@@ -373,7 +382,7 @@ $(function () {
                     $('.no-result').hide();
                     $('.total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .result-more').show();
 
-                    if (this.searchResult.result.length < 10) {
+                    if (this.searchResult.total <= 10) {
                         $('.result-more').hide();
                     }
                 },
