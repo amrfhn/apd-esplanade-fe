@@ -29,10 +29,7 @@ $(function () {
         }
 
         var params = {
-            'header': '',
-            'contentType': '',
-            'date': '',
-
+            'tagResults': '',
         }
 
         var url = new URL(currUrl);
@@ -52,10 +49,6 @@ $(function () {
 
             },
 
-            updated: function () {
-                
-            },
-
             methods: {
 
                 checkUrl: function (){
@@ -70,10 +63,18 @@ $(function () {
                         $('.tag-error-message').addClass('d-block').removeClass('d-none');
                         $('.tagged-in').removeClass('d-block').addClass('d-none');
                         $('#loadMore').parent().addClass('d-none').removeClass('d-flex');
-                        // $('#tagResult').addClass('vh-100').removeClass('h-auto');
                         $('#tagResult').closest('main').addClass('custom-tag-result');
                         $('#tagResult').parent().closest('.container').addClass('m-auto');
                         $('body').addClass('overflow-hidden');
+                        
+                        if ($('.newsletter').length > 0) {
+                            var newsletter_height = $('.newsletter').outerHeight();
+                            var footer_height = $('footer').outerHeight();
+                            var outerNewsletterHeight = window.innerHeight - newsletter_height - footer_height;
+
+                            $('#genericPage').css('min-height', outerNewsletterHeight);
+                        }
+
                         this.hideLoader();
 
                         $('body').removeClass('overflow-hidden');
