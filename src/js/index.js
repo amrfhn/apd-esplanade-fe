@@ -240,43 +240,11 @@ $(function () {
 
     }
 
-    //to force page and network reload when click on browser back button
-    // $(window).on('popstate', function () {
-    //     location.reload(true);
-    // });
-
-    //hide transition when window finish load
-    // if ($('#readSection').length > 0 || $('.article-start').length > 0 || $('.error-start').length > 0) {
-    //     // $(window).on("load", function () {
-    //     $('#offstageLoading').css('display', 'none');
-    //         // $('#offstageLoading').addClass('d-none')
-    //     // });
-    // }
-
-    //gtm
-    $('#whats-on-button').on('click', function () {
-        var action = 'whats.on.click';
-        var title = 'Whats On CTA Button Clicked';
-        var value = $(this).data('event-title');
-        var var_name = 'whats.on.click';
-        _gaq.push([var_name, action, title, value]);
-    });
-
-
-    if($('#genericPage'.length > 0) && $('#tagResult').length < 1) {
+    //generic page footer to bottom
+    if ($('#genericPage'.length > 0) && $('#tagResult').length < 1) {
         $('#genericPage').closest('main').addClass('custom-generic-page ');
         $('#genericPage').parent().closest('.container').addClass('m-auto');
-        
-        // if (md.matches) {
-        //     $('body').addClass('overflow-hidden');
-        // }
-
-        // if (xs.matches) {
-        //     $('body').removeClass('overflow-hidden');
-
-        // }
     }
-
 
 })
 
