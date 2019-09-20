@@ -55,9 +55,10 @@ $(function () {
                 this.fetchSuggestKey();
                 this.checkUrlParam();
 
-                $('.in-between-screen').on('click', function(){
+                $('.in-between-screen').on('click', function () {
                     _this.closeSearch();
                 })
+
             },
             methods: {
                 checkMetatUrl: function () {
@@ -76,24 +77,21 @@ $(function () {
                 hideAll: function () {
                     $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more, .result-more-loading").hide();
                 },
-                hideSuggestion: function(event){
-                    console.log('hide')
+                hideSuggestion: function (event) {
                     $(".search-suggestion").hide();
 
-                    console.log(event)
-                    if(!$(event.target).closest(".search-suggestion").length){
+                    if (!$(event.target).closest(".search-suggestion").length) {
                         $(".search-suggestion").slideUp("fast");
                     }
                 },
-                boldSearchKeyword: function(str) {
-                    console.log('bold')
-                    
+                boldSearchKeyword: function (str) {
+
                     var searchMask = this.keyword.trim().split(' ');
                     var newStr = str;
                     // searchMask.forEach(function(searchTerm) {
                     //         var regEx = new RegExp(searchTerm, 'i');
                     //         // str.substr(str.indexOf(this.keyword),this.keyword.length)
-                            
+
                     //         var matched = newStr.match(new RegExp(searchTerm, 'ig'));
                     //         var splited = newStr.split(new RegExp(searchTerm, 'i'));
                     //         // console.log('matched', matched)
@@ -106,12 +104,12 @@ $(function () {
                     //             return str1 += item + (!matchedValue ? '' : '<>' + matchedValue + '</>')
                     //         }, '');
                     // })
-                  
+
                     newStr = newStr.replace(/<>/g, '<strong class="font-weight-bolder">');
                     return newStr.replace(/<\/>/g, '</strong>');
                     // var replaceMask = '<span class="font-weight-bolder">' + str.substr(str.indexOf(this.keyword),this.keyword.length) + '</span>'
-                    
-                    
+
+
 
                     // return str.replace(regEx, replaceMask)
                     // return str.replace(this.keyword,'<span class="font-weight-bolder">' + this.keyword + '</span>')
@@ -164,7 +162,7 @@ $(function () {
 
                     // -------------------- REGEX SEARCH --------------------
                     var _this = this;
-                    searching = setTimeout(function() {
+                    searching = setTimeout(function () {
 
 
                         if (_this.keyword.length > 2) {
@@ -190,9 +188,8 @@ $(function () {
                             }
 
 
-                                
-                            _this.searchSuggestionFiltered = _this.searchSuggestion.filter(function(suggestion) {
-                                return re.test(suggestion)  
+                            _this.searchSuggestionFiltered = _this.searchSuggestion.filter(function (suggestion) {
+                                return re.test(suggestion)
                             })
 
                             // Loop through all list items, and hide those who don't match the search query
@@ -209,14 +206,18 @@ $(function () {
 
                             // // $('.search-suggestion-list li').mark(filter);
 
-                            if($('.search-suggestion-list').children().length == 0) {
+                            // console.log($('.search-suggestion-list li').length);
+
+                            if ($('.search-suggestion-list li').length == 0) {
                                 $(".search-suggestion").hide();
                             }
-                            
+
                         } else {
                             $(".search-suggestion").hide();
                         }
-                    },100)
+                    }, 100)
+
+                    console.log('searchSuggestionFiltered', this.searchSuggestionFiltered)
 
                 },
                 searchHighlight: function (string) {
@@ -241,7 +242,7 @@ $(function () {
                 },
                 submittedSearch: function (e) {
                     // e.preventDefault();
-                    console.log('submitttt')
+                    console.log('submit')
                     $('#search-input').blur();
                     this.hideAll();
                     this.resetFilter();
@@ -268,11 +269,10 @@ $(function () {
                         dataType: "json",
                         data: decodeURIComponent($.param(resultParams))
                     }).done(function (data) {
-                        console.log('1')
-                        
+
                         _this.searchResult.total = data.total
                         _this.searchResult.result = data.result
-                        
+
                         // $(".search-suggestion").hide();
 
                         if (_this.searchResult.result.length == 0) {
@@ -305,11 +305,11 @@ $(function () {
                         url: updateUrl,
                         dataType: "json",
                         data: resultParams,
-                        beforeSend: function(){
+                        beforeSend: function () {
                             $('.result-more').hide();
                             $('.result-more-loading').fadeIn('fast');
                         },
-                        complete:function(data){
+                        complete: function (data) {
                             $('.result-more-loading').fadeOut('fast');
                         }
                     }).done(function (data) {
@@ -319,7 +319,7 @@ $(function () {
                             var updatedResult = _this.searchResult.result.concat(data.result);
                             _this.searchResult.result = updatedResult;
 
-                            if( updatedResult.length == data.total ) {
+                            if (updatedResult.length == data.total) {
                                 $('.result-more').hide();
                             }
 
@@ -417,7 +417,7 @@ $(function () {
                     $('.in-between-screen').removeClass('active-darkscreen');
                     // $('body').removeClass('no-scroll');
                     this.hideAll();
-                   
+
                     this.keyword = ""
                     $('.search-wrapper')[0].reset();
                     $('.search-wrapper').removeClass('was-validated');
