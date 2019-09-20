@@ -739,6 +739,7 @@ $(function () {
                     /************************/
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (!$(this).parent().hasClass('active')) {
+                            $('in-between-screen').removeClass('active-screen'); 
                             $('.mm-content-item').find('.nav-item').removeClass('active');
                             $(this).parent().addClass('active');
 
