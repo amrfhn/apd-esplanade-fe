@@ -45,7 +45,7 @@ mixin header(navbar)
                         img.search-icon-mobile.d-block.d-md-none(src="./assets/microsites/offstage/img/icons/Search/White.svg")
                         img.search-icon.d-none.d-md-block(src="./assets/microsites/offstage/img/icons/Search/Black.svg")            
 
-            .row#search.search.pt-25.px-md-25(data-content="search")        
+            .row#search.search.pt-25.px-md-25(data-content="search" @click="hideSuggestion(event)")
                 include ../components/search.pug
 
             .row
