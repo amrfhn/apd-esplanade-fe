@@ -6,7 +6,8 @@ $(function () {
     var xs = window.matchMedia('(max-width: 768px)');
 
 
-    $('.in-between-screen').on('click', function () {
+    $('.in-between-screen').on('click', function (e) {
+        e.preventDefault()
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active-screen').removeClass('active-darkscreen');
         $('body').removeClass('no-scroll');

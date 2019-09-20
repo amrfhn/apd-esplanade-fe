@@ -34,7 +34,7 @@ module.exports = [{
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: "./assets/microsites/offstage/js/bundle.js",
+        filename: "./assets/microsites/offstage/js/bundle.[contentHash].js",
     },
     devServer: {
         disableHostCheck: true,

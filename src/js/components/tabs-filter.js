@@ -301,7 +301,8 @@ $(function () {
                             $(megaMenuItem[i]).parent().addClass('active');
                         }
                     }
-                    //append params on current url
+                    //append params on current url 
+                    console.log(newUrl)
                     window.history.pushState({ path: currUrl }, '', newUrl);
 
                     currUrl = newUrl;
@@ -357,6 +358,7 @@ $(function () {
                         var newUrl = url.toString();
                     }
                     //append params on current url
+                    console.log(newUrl)
                     window.history.pushState({ path: newUrl }, '', newUrl);
 
 
@@ -738,8 +740,9 @@ $(function () {
                     //genre in burger menu on click
                     /************************/
                     $('a.nav-link.megamenu-genre').on('click', function () {
+                        
                         if (!$(this).parent().hasClass('active')) {
-                            $('in-between-screen').removeClass('active-screen'); 
+                            $('in-between-screen').click(); 
                             $('.mm-content-item').find('.nav-item').removeClass('active');
                             $(this).parent().addClass('active');
 
@@ -772,6 +775,7 @@ $(function () {
                             }
 
                             //append params on current url
+                            console.log(newUrl)
                             window.history.pushState({ path: newUrl }, '', newUrl);
 
                             var dataKey = $(this).data('key');

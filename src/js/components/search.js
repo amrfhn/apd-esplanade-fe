@@ -370,7 +370,7 @@ $(function () {
                         url.search = urlParams.toString();
                         var newUrl = url.toString();
                     }
-
+                    // console.log(newUrl)
                     window.history.pushState({ path: currentUrl }, '', newUrl);
                 },
                 removeKeyword: function () {
@@ -384,8 +384,12 @@ $(function () {
                         url.search = urlParams.toString();
                         var newUrl = url.toString();
                     }
+                    console.log(newUrl + "sss")
 
-                    window.history.pushState({ path: currentUrl }, '', newUrl);
+                    //fix undefined in ie
+                    if (newUrl) {
+                        window.history.pushState({ path: currentUrl }, '', newUrl);
+                    }
                 },
                 moreResult: function () {
                     this.updateResultData();
