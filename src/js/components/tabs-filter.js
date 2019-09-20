@@ -359,6 +359,8 @@ $(function () {
                     //append params on current url
                     window.history.pushState({ path: newUrl }, '', newUrl);
 
+
+
                 },
                 genreArrow: function () {
                     var _this = this;
@@ -372,7 +374,7 @@ $(function () {
                             if (!$('.wrapper-' + catId).hasHScrollBar()) {
                                 $('#goBack-' + catId).addClass('d-none');
                                 $('#goAfter-' + catId).addClass('d-none');
-                            }
+                            } 
                         }
 
                         $('#goBack-' + catId).on('click', function () {
@@ -476,6 +478,19 @@ $(function () {
                         scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-' + catId).outerWidth()
                     }, 2000);
 
+                    jQuery.fn.hasHScrollBar = function () {
+                        return this.get(0).scrollWidth > this.innerWidth();
+                    }
+                    if ($('#genre-tabs-' + catId).length > 0) {
+                        if ($('.wrapper-' + catId).length >= 1) {
+                            if (!$('.wrapper-' + catId).hasHScrollBar()) {
+                                $('#goBack-' + catId).addClass('d-none');
+                                $('#goAfter-' + catId).addClass('d-none');
+                            } else {
+                                $('#goAfter-' + catId).removeClass('d-none');
+                            }
+                        }
+                    }
                 },
                 applyFilter: function () {
                     var _this = this;

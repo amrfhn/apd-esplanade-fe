@@ -6,6 +6,8 @@ $(function () {
 
 
     $burgerMenu.on('click', function () {
+        $('body').addClass('replace-scrollbar')
+        
         $megaMenu.addClass('active');
         $('.in-between-screen').addClass('active-screen');
 
@@ -21,12 +23,15 @@ $(function () {
             },
         });
 
+
     })
 
     
     $('.close-btn-x').on('click', function () {
         $megaMenu.removeClass('active');
         $('.in-between-screen').removeClass('active-screen');
+        $('body').removeClass('replace-scrollbar')
+
         // $('body').removeClass('no-scroll');
         // $('body').removeClass('set-fixed');
 
