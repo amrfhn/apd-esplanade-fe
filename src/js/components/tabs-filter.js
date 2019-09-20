@@ -81,7 +81,6 @@ $(function () {
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 this.initialize();
-                this.onPopState();
 
             },
             updated: function () {
@@ -697,11 +696,6 @@ $(function () {
                     $.each($(".card-body"), function () {
                         $(this).css("height", tallest + "px");
                     });
-                },
-                onPopState: function () {
-                    window.onpopstate = function(event) {
-                        history.back();
-                    };
                 },
                 scrollIntoTileTop: function () {
                     $('html,body').animate({ scrollTop: 0 }, 200, 'linear');
