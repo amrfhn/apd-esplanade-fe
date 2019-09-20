@@ -16,10 +16,11 @@ mixin heroBanner(icon, imgSrc, video720, video450,  img720, img450)
             .thumbnail-holder(data-desktop-image="123" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover; height: 450px") 
     
     if img720
-        .thumbnail-holder-portrait(data-desktop-image="https://via.placeholder.com/310x200" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover;")
-        
+        .thumbnail-holder-portrait.d-none.d-md-block(data-desktop-image="https://via.placeholder.com/310x200" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover;")
+        .thumbnail-holder-potrait.d-md-none
+            img.potrait-image-mobile.w-100.h-100(src="http://stg.esplanade.growthopsapp.com/offstage/arts/-/media/Offstage-Microsite/Explore-The-Arts/The-Lady-and-the-Clown/lady-and-clown1000x1000.jpg?mw=1920&hash=6087D81432AAFD8900E64B61ECEB6311D4A04C62")  
         
     if img450
         .thumbnail-holder-landscape.d-none.d-md-block(data-desktop-image="https://via.placeholder.com/310x200" data-mobile-image="312" style="background: url("+imgSrc+") no-repeat center center; background-size: cover;") 
         .thumbnail-holder-landscape.d-md-none
-            img.potrait-image-mobile.w-100.h-100(src="https://via.placeholder.com/310x200")  
+            img.potrait-image-mobile.w-100.h-100(src="https://via.placeholder.com/310x200")

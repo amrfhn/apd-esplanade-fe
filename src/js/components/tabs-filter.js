@@ -912,26 +912,27 @@ $(function () {
 
                             if ($('.filter-bar').hasClass("stick")) {
                             } else {
-                                $('html, body').animate({
+                                $('html, body').stop().animate({
                                     scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
                                 }, 360, function () {
                                     $('.filter-bar').addClass("stick");
+                                    // $('.tab-content').addClass('position-fixed')
                                 });
                             }
                             $filterMenu.addClass('show-filter');
 
                             //body-scroll-lock
-                            disableBodyScroll($filterMenu, {
-                                allowTouchMove: el => {
-                                  while (el && el !== document.body) {
-                                    if (el.getAttribute('body-scroll-lock-ignore') !== null) {
-                                      return true
-                                    }
+                            // disableBodyScroll($filterMenu, {
+                            //     allowTouchMove: el => {
+                            //       while (el && el !== document.body) {
+                            //         if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                            //           return true
+                            //         }
                               
-                                    el = el.parentNode
-                                  }
-                                },
-                            });
+                            //         el = el.parentNode
+                            //       }
+                            //     },
+                            // });
                             
                         });
 
