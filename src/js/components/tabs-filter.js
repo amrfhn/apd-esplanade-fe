@@ -726,7 +726,7 @@ $(function () {
                     /************************/
                     $btnSearch.on('click', function () {
                         $('.search').fadeIn('fast');
-                        $('.in-between-screen').addClass('active-screen').css({ 'background-color': 'black', 'opacity': '.5' });
+                        $('.in-between-screen').addClass('active-darkscreen');
                         $('body').addClass('no-scroll');
                     })
 

@@ -1,5 +1,6 @@
 .in-between-screen{
     position: fixed;
+    left: 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -36,11 +37,23 @@
         background: linear-gradient(0deg, rgba(0,0,0,0.8), rgba(0,0,0,.8));
     }
 }
-.active-screen{
+.active-darkscreen{
     z-index: 99998;
     visibility: visible;
     background-color: black; 
     opacity: 0.5 !important; 
+    left: 0px;
+
+    .background{
+        opacity: .95;
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+
+.active-screen{
+    z-index: 99998;
+    visibility: visible;
     left: 0px;
 
     .background{
