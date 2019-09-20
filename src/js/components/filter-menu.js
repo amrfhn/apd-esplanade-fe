@@ -8,7 +8,7 @@ $(function () {
 
     $('.in-between-screen').on('click', function () {
         $filterMenu.removeClass('show-filter');
-        $('.in-between-screen').removeClass('active-screen');
+        $('.in-between-screen').removeClass('active-screen').removeClass('active-darkscreen');
         $('body').removeClass('no-scroll');
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');

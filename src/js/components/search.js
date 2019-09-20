@@ -341,7 +341,7 @@ $(function () {
                     if (currentUrl.indexOf("keyword") > -1) {
                         // console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
-                        $('.in-between-screen').addClass('active-screen');
+                        $('.in-between-screen').addClass('active-darkscreen');
 
                         var $text = $('#search-input')
 
@@ -414,7 +414,7 @@ $(function () {
 
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
-                    $('.in-between-screen').removeClass('active-screen');
+                    $('.in-between-screen').removeClass('active-darkscreen');
                     // $('body').removeClass('no-scroll');
                     this.hideAll();
 
