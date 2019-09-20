@@ -2,13 +2,13 @@
 .col-12.pb-20
     #closeSearch
         img(src="./assets/microsites/offstage/img/icons/Close.svg" @click="closeSearch()").close
-    form.search-wrapper(autocomplete="off" novalidate @submit.prevent="submittedSearch" @keyup.esc="hideSuggestion()")
+    form.search-wrapper(autocomplete="off" novalidate @submit.prevent="submittedSearch")
         .form-row.pb-20.align-items-end
             .col-12.pr-0
                 label(for="validationServer01") Search: 
 
                 //- .d-flex
-                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG"  @keyup="filteredSuggestion()" @keyup.enter="submittedSearch" data-content="suggestions" required)
+                input#search-input.form-control(v-model="keyword" type="text" placeholder="Ask us all about arts in SG"  @input="filteredSuggestion()" @keyup.esc="hideSuggestion()" @keyup.enter="submittedSearch" data-content="suggestions" required)
                 button(type="submit").search-submit.btn.bg-white.px-0
                     img(src="./assets/microsites/offstage/img/icons/Search/Black.svg") 
 

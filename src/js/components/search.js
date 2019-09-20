@@ -43,6 +43,7 @@ $(function () {
             el: "#search",
             data: data,
             mounted: function () {
+                var _this = this
 
                 this.checkMetatUrl();
                 this.hideAll();
@@ -53,6 +54,10 @@ $(function () {
 
                 this.fetchSuggestKey();
                 this.checkUrlParam();
+
+                $('.in-between-screen').on('click', function(){
+                    _this.closeSearch();
+                })
             },
             methods: {
                 checkMetatUrl: function () {
@@ -71,8 +76,14 @@ $(function () {
                 hideAll: function () {
                     $(".search-suggestion, #search-spinner, .total-result-wrapper, .search-filter, .search-filter-btn, .search-result, .no-result, .result-more, .result-more-loading").hide();
                 },
-                hideSuggestion: function(){
+                hideSuggestion: function(event){
+                    console.log('hide')
                     $(".search-suggestion").hide();
+
+                    console.log(event)
+                    if(!$(event.target).closest(".search-suggestion").length){
+                        $(".search-suggestion").slideUp("fast");
+                    }
                 },
                 boldSearchKeyword: function(str) {
                     console.log('bold')
@@ -403,7 +414,7 @@ $(function () {
 
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
-                    $('.in-between-screen').click();
+                    $('.in-between-screen').removeClass('active-screen');
                     // $('body').removeClass('no-scroll');
                     this.hideAll();
                    
