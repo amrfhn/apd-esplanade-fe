@@ -307,8 +307,9 @@ $(function () {
 
                     currUrl = newUrl;
 
-
                     this.fetchData();
+                    this.scrollIntoTileTop();
+
 
                 },
                 filterCategory: function (id) {
@@ -701,6 +702,9 @@ $(function () {
                     window.onpopstate = function(event) {
                         history.back();
                     };
+                },
+                scrollIntoTileTop: function () {
+                    $('html,body').animate({ scrollTop: 0 }, 200, 'linear');
                 },
                 initialize: function () {
                     var _this = this;
