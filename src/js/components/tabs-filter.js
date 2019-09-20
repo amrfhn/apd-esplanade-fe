@@ -374,7 +374,13 @@ $(function () {
                             if (!$('.wrapper-' + catId).hasHScrollBar()) {
                                 $('#goBack-' + catId).addClass('d-none');
                                 $('#goAfter-' + catId).addClass('d-none');
-                            } 
+                            } else {
+                                if (md.matches) {
+                                    setTimeout(function () {
+                                        $('#goAfter-' + catId).addClass('d-block').removeClass('d-none');
+                                    },300)
+                                }
+                            }
                         }
 
                         $('#goBack-' + catId).on('click', function () {
