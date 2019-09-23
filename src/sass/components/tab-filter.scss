@@ -13,7 +13,7 @@
             width: 100%;
             box-shadow: -1px 5px 8px -5px rgba(0, 0, 0, 0.5);
 
-            @media(min-width:768px){
+            @include media-breakpoint-up(lg){
                 width: calc(100vw / 2);
                 // width: calc(100vw / 2 - 9px);
                 box-shadow: none;
