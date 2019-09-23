@@ -701,7 +701,16 @@ $(function () {
                     });
                 },
                 scrollIntoTileTop: function () {
-                    $('html,body').animate({ scrollTop: 0 }, 200, 'linear');
+                    if(xs.matches) {
+                        $('html, body').animate({
+                            scrollTop: $(".tab-content").offset().top
+                        }, 360);
+                    }
+                    
+                    if(md.matches) {
+                        $('html,body').animate({ scrollTop: 0 }, 200, 'linear');
+                    } 
+                    
                 },
                 initialize: function () {
                     var _this = this;
