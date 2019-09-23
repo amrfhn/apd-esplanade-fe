@@ -7,7 +7,7 @@
         img.card-img-top(:src='filter.Thumbnail')
     
         .border.border-top-0.text-left.position-relative 
-            span.card-label.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute(:class="[filter.ContentType.Value.length == 0 || filter.ContentType.Icon == 0 ? 'd-none': 'd-block']") {{filter.ContentType.Value}}
+            span.card-label.p-1.px-3.bg-primary.text-white.font-12.text-uppercase.position-absolute(:class="[filter.ContentType.Value.length == 0 ? 'd-none': 'd-block']") {{filter.ContentType.Value}}
 
             .card-body.text-center.pt-5
                 div

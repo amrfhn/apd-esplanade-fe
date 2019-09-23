@@ -9,7 +9,7 @@ $(function () {
             // asNavFor: '.video-carousel-nav',
             responsive: [
                 {
-                    breakpoint: 767,
+                    breakpoint: 991,
                     settings: 'unslick'
                 }
             ]
