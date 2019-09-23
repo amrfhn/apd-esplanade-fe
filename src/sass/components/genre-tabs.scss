@@ -124,7 +124,7 @@
 
       #goAfter-explorethearchives, #goAfter-researchtheartists {
         right: 0;
-        left: unset;
+        left: auto;
         display: none;
         @media (min-width: 768px) {
           display: block;
