@@ -29,7 +29,7 @@ $(function () {
     
     $('.close-btn-x').on('click', function () {
         $megaMenu.removeClass('active');
-        $('.in-between-screen').removeClass('active-screen');
+        $('.in-between-screen').click();
         // $('body').removeClass('replace-scrollbar')
 
         // $('body').removeClass('no-scroll');
@@ -104,6 +104,8 @@ $(function () {
 
     $('a.nav-link.megamenu-genre').on('click', function () {
         $('.loading-screen').css('display', 'block');
+        $('.in-between-screen').removeClass('active-screen'); 
+
     })
 
     // var $menuBrowseBy =  $('.megamenu-browseby')
