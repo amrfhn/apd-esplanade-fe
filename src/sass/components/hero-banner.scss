@@ -1,7 +1,7 @@
 .hero-banner-icon-wrapper {
     padding-bottom: 24px;
 
-    @media(min-width: 768px) {
+    @include media-breakpoint-up(lg) {
         float: left;       
         padding-bottom: 10px; 
     }
@@ -23,7 +23,7 @@
 
 .thumbnail-holder-landscape {
     height: 100%;
-    @media (min-width:768px) {
+    @include media-breakpoint-up(lg) {
         height: 60vh;
     }
 }
@@ -35,7 +35,7 @@
          width: 71px;
          height: 71px;
 
-         @media(min-width: 768px){
+         @include media-breakpoint-up(lg){
             width: 84px;
             height: 84px;             
          }
