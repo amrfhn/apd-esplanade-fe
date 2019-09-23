@@ -47,12 +47,12 @@
   }
 
   .card-title {
-    width: 100%;
+    // width: 100%;
     word-break: break-word;
     -ms-word-break: normal;
 
     @media (min-width:768px){
-      max-width: 251px;
+      // max-width: 251px;
     }
   }
 
@@ -60,6 +60,11 @@
     line-height: 20px;
     word-break: break-word;
     -ms-word-break: normal;
+    width: auto;
+    margin: auto;
+    @media (min-width:768px){
+      max-width: 251px;
+    }
   }
 
   .card-img-top {
