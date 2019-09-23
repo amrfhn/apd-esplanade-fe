@@ -3,9 +3,11 @@
     height: auto;
     padding-left: 40px;
     padding-bottom: 20px;
-
+    
     p {
-      max-width: 300px;
+      @include media-breakpoint-up(lg) { 
+        max-width: 300px;    
+      }
     }
 
     &:before {
@@ -36,8 +38,11 @@
     padding-bottom: 20px;
 
     p {
-      max-width: 300px;
       float: left;
+
+      @include media-breakpoint-up(lg) { 
+        max-width: 300px;    
+      }
     }
 
     &:before {
@@ -47,7 +52,7 @@
       top: 0px;
       left: -1px;
       height: 100%;
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(lg) {
         left: inherit;
         right: 0px;
       }
@@ -63,13 +68,13 @@
       left: -8px;
       position: absolute;
 
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(lg) {
         left: inherit;
         right: -8px;
       }
     }
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       height: auto;
       text-align: right;
       padding-right: 40px;
