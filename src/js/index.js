@@ -6,7 +6,6 @@ $(function () {
     var md = window.matchMedia('(min-width: 769px)');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
 
-
     //hide loading screen
     // $('#offstageLoading').fadeOut();
     // setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);

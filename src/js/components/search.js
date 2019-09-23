@@ -423,7 +423,8 @@ $(function () {
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
                     $('.in-between-screen').removeClass('active-darkscreen');
-                    // $('body').removeClass('no-scroll');
+                    $('.in-between-screen').click();
+                    $('body').removeClass('no-scroll');
                     this.hideAll();
 
                     this.keyword = ""

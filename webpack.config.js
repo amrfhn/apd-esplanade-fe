@@ -69,6 +69,7 @@ module.exports = [{
             { from: './src/img', to: './assets/microsites/offstage/img' },
             { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
             { from: './src/js/vendors', to: './assets/microsites/offstage/js/vendors'},
+            { from: './src/js/gtm.js', to: './assets/microsites/offstage/js/gtm.js'}
         ]),
     ].concat(htmlPlugins),
     module: {
@@ -155,6 +156,8 @@ module.exports = [{
             { from: './src/img', to: './assets/microsites/offstage/img' },
             { from: './src/fonts', to: './assets/microsites/offstage/fonts' },
             { from: './src/js/vendors', to: './assets/microsites/offstage/js/vendors'},
+            { from: './src/js/gtm.js', to: './assets/microsites/offstage/js/gtm.js'}
+
         ]),
     ].concat(htmlPlugins),
     module: {
