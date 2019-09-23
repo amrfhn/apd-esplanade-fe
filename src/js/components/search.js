@@ -60,6 +60,16 @@ $(function () {
                 })
 
             },
+            watch: {
+                searchSuggestionFiltered: {
+                    handler: function(){
+                        if (this.searchSuggestionFiltered.length == 0) {
+                            $(".search-suggestion").hide();
+                        }
+                    },
+                    deep: true, 
+                }
+            },
             methods: {
                 checkMetatUrl: function () {
                     let metaUrl = $('meta');
@@ -208,17 +218,11 @@ $(function () {
 
                             // console.log($('.search-suggestion-list li').length);
 
-                            if ($('.search-suggestion-list li').length == 0) {
-                                $(".search-suggestion").hide();
-                            }
 
                         } else {
                             $(".search-suggestion").hide();
                         }
                     }, 100)
-
-                    console.log('searchSuggestionFiltered', this.searchSuggestionFiltered)
-
                 },
                 searchHighlight: function (string) {
                     $(".search-suggestion-list li.match").each(function () {
