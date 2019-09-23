@@ -6,10 +6,10 @@ $(function (){
         var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
         
         $('.progress-wrapper').each(function () {
-            if(width <= 768) {
+            if(width <= 960) {
                 target = '.progress-wrapper.d-block';
             } 
-            if(width > 768) {
+            if(width > 960) {
                 target = '.progress-wrapper.d-md-block';
             }
         })

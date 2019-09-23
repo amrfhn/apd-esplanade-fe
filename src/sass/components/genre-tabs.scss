@@ -4,7 +4,7 @@
   .genre-tabs-container {
     width: 100%;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       width: calc(100vw / 2 - 153px);
     }
 
@@ -14,7 +14,7 @@
     .genre-tabs {
       // padding:0 10px;
       padding-left: 2px;
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(lg) {
         // padding:0 60px;
         // padding-left: 35px;
       }

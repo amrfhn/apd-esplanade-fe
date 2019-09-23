@@ -7,7 +7,7 @@
   // position: fixed;
   position: absolute;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(lg) {
     position: fixed;
   }
 
@@ -16,7 +16,7 @@
     .nav-bar {
       height: 68px;
 
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(lg) {
         height: 75px;
       }
       .hamb {
@@ -35,7 +35,7 @@
           margin: 15px 0px 10px 20px;
         }
         
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
           margin: 14px 0px 10px 40px;
           width: 34px;
         }
@@ -120,7 +120,7 @@
         padding-top: 18px;
         justify-content: center;
 
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
           flex-direction: row;
           align-items: center;
           margin-left: 100px;
@@ -132,7 +132,7 @@
           .logo {
             height: 35px;
 
-            @media (min-width: 768px) {
+            @include media-breakpoint-up(lg) {
               height: 45px;
             }
           }
@@ -146,7 +146,7 @@
           }
           
 
-          @media (min-width: 768px) {
+          @include media-breakpoint-up(lg) {
             padding-left: 36px;
             margin-top: -7px;
             margin-left: 0;
@@ -155,7 +155,7 @@
           .logo {
             height: 9px;
 
-            @media (min-width: 768px) {
+            @include media-breakpoint-up(lg) {
               height: 12px;
             }
           }
@@ -199,7 +199,7 @@
     .hide-sidenav {
       display: none;
 
-      @media (min-width: 768px) {
+      @include media-breakpoint-up(lg) {
         display: block;
       }
     }
@@ -208,14 +208,14 @@
         img.search-icon-mobile {
           display: block;
 
-          @media (min-width: 768px) {
+          @include media-breakpoint-up(lg) {
             display: none;
           }
         }
         img.search-icon {
           display: none;
 
-          @media (min-width: 769px) {
+          @include media-breakpoint-up(lg) {
             display: block;
           }
         }
@@ -244,7 +244,7 @@
     //         height: 9px !important;
     //     }
     // }
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       position: relative;
     }
   }

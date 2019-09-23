@@ -17,7 +17,7 @@
     position: relative;
     height: 0px;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       height: 150px;
     }
   }

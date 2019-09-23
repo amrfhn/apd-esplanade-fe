@@ -61,7 +61,7 @@
     z-index: 1;
     transition: 0.3s ease-out;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       position: relative;
       display: inline-block;
       padding: 0;
@@ -112,7 +112,7 @@
     padding: 0 20px;
     box-shadow: 0px 15px 20px -5px rgba(0, 0, 0, 0.6);
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       padding: 0 45px;
     }
   }
@@ -197,7 +197,7 @@
     overflow-y: auto;
     max-height: calc(100vh - 230px);
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       max-height: calc(100vh - 279px);
     }
 
@@ -326,7 +326,7 @@
     right: 0px;
   }
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(lg) {
     top: 0;
   }
 }
@@ -337,7 +337,7 @@
   right: 15px;
   top: 20px;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(lg) {
     position: fixed;
     z-index: 99997;
     right: 30px;
@@ -350,7 +350,7 @@
   right: 15px;
   top: 20px;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(lg) {
     position: fixed;
     z-index: 100;
     right: 30px;

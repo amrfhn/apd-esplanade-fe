@@ -13,6 +13,7 @@ $(function () {
 
         var xs = window.matchMedia('(max-width: 768px)');
         var md = window.matchMedia('(min-width: 769px)');
+        var lg = window.matchMedia('(max-width: 960px)');
 
         // var host = window.location.origin
         // var host =  window.location.protocol + "//" + window.location.hostname;
@@ -889,7 +890,7 @@ $(function () {
                     // filter menu functions
                     /************************/
                     //only for mobile sticky
-                    if (xs.matches) {
+                    if (lg.matches) {
                         $('.filter-bar').removeClass("stick");
                         let mobileHeight = $(document).height() + 50;
                         $(document).on('scroll', function () {

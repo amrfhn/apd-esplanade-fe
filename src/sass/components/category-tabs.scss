@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
 
-  @media (min-width: 768px) {
+  @include media-breakpoint-up(lg) {
     width: calc(100vw / 2 - 107px);
   }
   // @media(min-width:1440px){
