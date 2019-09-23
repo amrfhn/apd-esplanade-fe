@@ -124,7 +124,7 @@
 
       #goAfter-explorethearchives, #goAfter-researchtheartists {
         right: 0;
-        left: unset;
+        left: auto;
         display: none;
         @include media-breakpoint-up(lg) {
           display: block;
