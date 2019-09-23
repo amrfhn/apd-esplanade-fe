@@ -740,9 +740,9 @@ $(function () {
                     //genre in burger menu on click
                     /************************/
                     $('a.nav-link.megamenu-genre').on('click', function () {
+                        $('.in-between-screen').click(); 
                         
                         if (!$(this).parent().hasClass('active')) {
-                            $('in-between-screen').click(); 
                             $('.mm-content-item').find('.nav-item').removeClass('active');
                             $(this).parent().addClass('active');
 
