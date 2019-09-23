@@ -100,7 +100,7 @@
         }
       }
       .btn-icon {
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
           position: absolute;
           top: -7px;
         }
@@ -114,7 +114,7 @@
       #goAfter-explorethearts, #goAfter-knowtheartists,  #goAfter-studentguides,  #goAfter-educatorresources  {
         right: 7px;
         display: none;
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
           // display: block;
         }
         @media (min-width: 1367px) {
@@ -126,7 +126,7 @@
         right: 0;
         left: unset;
         display: none;
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
           display: block;
         }
         @media (min-width: 1367px) {
@@ -137,7 +137,7 @@
       .show-arrow {
         display: none;
 
-        @media (min-width: 768px) {
+        @include media-breakpoint-up(lg) {
           display: block;
           background: $white;
         }
@@ -148,7 +148,7 @@
   #tabResearchers {
     width: 100%;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint-up(lg) {
       width: calc(100vw / 2 - 100px);
     }
   }
