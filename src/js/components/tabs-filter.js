@@ -202,7 +202,7 @@ $(function () {
                         var carouselMobileImage = $(this).attr('data-mobile-image')
                         var carouselDesktopImage = $(this).attr('data-desktop-image')
 
-                        if (xs.matches) {
+                        if (lg.matches) {
                             if (carouselMobileImage !== "") {
                                 $(this).css('background-image', 'url("' + carouselMobileImage + '")')
                             } else {
@@ -869,7 +869,7 @@ $(function () {
                             },
                         });
 
-                        if(xs.matches) {
+                        if(lg.matches) {
                             $('body').addClass('position-fixed')
                         }
                     })
@@ -880,7 +880,7 @@ $(function () {
                         // $('body').removeClass('set-fixed');
                         bodyScrollLock.clearAllBodyScrollLocks();
 
-                        if(xs.matches) {
+                        if(lg.matches) {
                             $('body').removeClass('position-fixed')
                         }
                     })
