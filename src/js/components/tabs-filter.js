@@ -906,6 +906,7 @@ $(function () {
                             let filterScrollPos = $(this).scrollTop();
                             if (filterScrollPos >= mobileHeight) {
                                 $('.filter-bar').addClass("stick");
+                                
                                 //$('.tabfil-container').addClass("bar-height");
                                 $('.tab-content .bar-height').css("height", "150px");
                             } else {
@@ -944,18 +945,19 @@ $(function () {
                         });
 
                         $('.submit-filter').on('click', function () {
+                            //body-scroll-lock
+                            bodyScrollLock.clearAllBodyScrollLocks();
+
+                            $('.filter-bar').closest('.container-fluid').removeClass("stick");
                             $filterMenu.removeClass('show-filter');
                             $('.in-between-screen').removeClass('active-screen');
+
                             // $('body').removeClass('no-scroll');
                             // $("body").removeClass("filter-open");
                             $('html, body').animate({
-                                scrollTop: $(".tab-content").offset().top
+                                scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
                             }, 360);
-                            
-                            $('.filter-bar').closest('.container-fluid').removeClass("stick");
 
-                            //body-scroll-lock
-                            bodyScrollLock.clearAllBodyScrollLocks();
                         });
                     }
 
@@ -991,9 +993,11 @@ $(function () {
                             // $('body').removeClass('no-scroll');
                             // $("body").removeClass("filter-open");
                 
-                            $('html, body').animate({
-                                scrollTop: $(".tab-content").offset().top
-                            }, 360);
+                            $('html, body').stop().animate({
+                                scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+                            }, 360, function () {
+                                $('.filter-bar').closest('.container-fluid').removeClass("stick");
+                            });
 
                             bodyScrollLock.clearAllBodyScrollLocks();
 
@@ -1005,18 +1009,18 @@ $(function () {
                     //close filter menu and enable body scroll
                     /************************/
                     $('.close-filter').on('click', function () {
-                        $('.filter-menu-wrapper').removeClass('show-filter');
-                        $('.in-between-screen').removeClass('active-screen');
-                        // $('body').removeClass('no-scroll');
-                        // $("body").removeClass("filter-open");
-                        $('html, body').animate({
-                            scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
-                        }, 1500, function(){
-                            $('.filter-bar').closest('.container-fluid').removeClass("stick");
-                        });
+                         //body-scroll-lock
+                         bodyScrollLock.clearAllBodyScrollLocks();
 
+                         $('.filter-bar').closest('.container-fluid').removeClass("stick");
+                         $filterMenu.removeClass('show-filter');
+                         $('.in-between-screen').removeClass('active-screen');
 
-                        bodyScrollLock.clearAllBodyScrollLocks();
+                         // $('body').removeClass('no-scroll');
+                         // $("body").removeClass("filter-open");
+                         $('html, body').animate({
+                             scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+                         }, 360);
                     })
 
                     //category on click scroller arrow and initialize outer width func
