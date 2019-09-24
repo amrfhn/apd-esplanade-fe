@@ -1009,18 +1009,32 @@ $(function () {
                     //close filter menu and enable body scroll
                     /************************/
                     $('.close-filter').on('click', function () {
+                        var homepageFilter = $('.filter-bar').closest('.container-fluid')
+
                          //body-scroll-lock
                          bodyScrollLock.clearAllBodyScrollLocks();
-
+                        
                          $('.filter-bar').closest('.container-fluid').removeClass("stick");
+                         
                          $filterMenu.removeClass('show-filter');
                          $('.in-between-screen').removeClass('active-screen');
 
                          // $('body').removeClass('no-scroll');
                          // $("body").removeClass("filter-open");
-                         $('html, body').animate({
-                             scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
-                         }, 360);
+                        if ($('.filter-bar').hasClass('stick')) {
+                            $(homepageFilter).addClass('position-relative')
+                            $(homepageFilter).animate({
+                                top: "0px"
+                            }, 360);
+                        } else {
+                            $('.tab-content').addClass('position-relative')
+
+                            $('.tab-content').animate({
+                                top: "0px"
+                            }, 360);
+                        }
+
+                         
                     })
 
                     //category on click scroller arrow and initialize outer width func

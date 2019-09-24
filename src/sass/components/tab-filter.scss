@@ -7,7 +7,7 @@
         }
        
         .stick{ 
-            position: fixed;
+            position: fixed !important;
             top: 0;
             z-index: 999;
             width: 100%;
@@ -23,12 +23,6 @@
                 padding-bottom: 20px;
             }
 
-        }
-
-        .fixed-div {
-            position: fixed;
-            top: 139px;
-            left: 0;
         }
     }
 }

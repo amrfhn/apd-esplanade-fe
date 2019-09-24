@@ -24,10 +24,16 @@ $(function () {
            
             var homepageFilter = $('.filter-bar').closest('.container-fluid')
             if ($('.filter-bar').length > 0){
-                if (homepageFilter.hasClass('stick')){
-                    homepageFilter.removeClass("stick");
-                    $('html, body').animate({
-                        scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
+                if ($('.filter-bar').hasClass('stick')) {
+                    $(homepageFilter).addClass('position-relative')
+                    $(homepageFilter).animate({
+                        top: "0px"
+                    }, 360);
+                } else {
+                    $('.tab-content').addClass('position-relative')
+
+                    $('.tab-content').animate({
+                        top: "0px"
                     }, 360);
                 }
             }
