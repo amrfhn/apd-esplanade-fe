@@ -921,6 +921,8 @@ $(function () {
                             $('.in-between-screen').addClass('active-screen');
 
                             if ($('.filter-bar').hasClass("stick")) {
+                                $('.filter-bar').closest('.container-fluid').addClass("stick");
+
                             } else {
                                 $('html, body').stop().animate({
                                     scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
@@ -1018,23 +1020,6 @@ $(function () {
                          
                          $filterMenu.removeClass('show-filter');
                          $('.in-between-screen').removeClass('active-screen');
-
-                         // $('body').removeClass('no-scroll');
-                         // $("body").removeClass("filter-open");
-                        if ($('.filter-bar').hasClass('stick')) {
-                            $(homepageFilter).addClass('position-relative')
-                            $(homepageFilter).animate({
-                                top: "0px"
-                            }, 360);
-                        } else {
-                            $('.tab-content').addClass('position-relative')
-
-                            $('.tab-content').animate({
-                                top: "0px"
-                            }, 360);
-                        }
-
-                         
                     })
 
                     //category on click scroller arrow and initialize outer width func

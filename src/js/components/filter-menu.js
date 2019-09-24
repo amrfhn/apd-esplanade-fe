@@ -16,26 +16,13 @@ $(function () {
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
         $('.search').fadeOut('fast');
-        // $('.filter-bar').closest('.container-fluid').removeClass("stick");
-
 
         if(xs.matches) {
             $('body').removeClass('position-fixed')
            
             var homepageFilter = $('.filter-bar').closest('.container-fluid')
             if ($('.filter-bar').length > 0){
-                if ($('.filter-bar').hasClass('stick')) {
-                    $(homepageFilter).addClass('position-relative')
-                    $(homepageFilter).animate({
-                        top: "0px"
-                    }, 360);
-                } else {
-                    $('.tab-content').addClass('position-relative')
-
-                    $('.tab-content').animate({
-                        top: "0px"
-                    }, 360);
-                }
+                homepageFilter.removeClass('stick')
             }
             
         } else {
