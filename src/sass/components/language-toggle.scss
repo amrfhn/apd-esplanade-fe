@@ -7,9 +7,9 @@
     text-align: center;
     width: calc(100vw / 4.5);
     height: 40px;
-    padding: 8px 30px;
+    padding: 8px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 992px) {
       width: unset;
     }
   }
