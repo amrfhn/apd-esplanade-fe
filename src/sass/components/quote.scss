@@ -4,7 +4,7 @@
     font-family: 'Libre Baskerville', serif;   
     text-align: center;
 
-    @media(min-width: 768px) {
+    @media (min-width: 992px) {
         width: 80%;
     }
 
@@ -16,7 +16,7 @@
         line-height: 0.7;
         padding: 10px;
 
-        @media (min-width: 768px) {
+        @media (min-width: 992px) {
             font-size: 190px;
             height: 40px;
             line-height: 0.85;
@@ -32,7 +32,7 @@
         padding: 10px;
         margin-bottom: 45px;
 
-        @media (min-width: 768px) {
+       @media (min-width: 992px) {
             line-height: .85;
             font-size: 190px;
             margin-bottom: 30px;
@@ -49,7 +49,7 @@
         font-family: 'Libre Baskerville', serif !important;   
         padding: 5px;
 
-        @media (min-width: 768px) {
+       @media (min-width: 992px) {
             width: 85%;
             line-height: 42px;
         }
