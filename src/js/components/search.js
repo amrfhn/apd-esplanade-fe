@@ -39,6 +39,9 @@ $(function () {
             "filter": ""
         }
 
+        var bodyScrollLock = require('body-scroll-lock');
+
+
         var searchFilter = new Vue({
             el: "#search",
             data: data,
@@ -423,7 +426,7 @@ $(function () {
                     $('.search').fadeOut('fast');
                     $('#btnSearch').prop('disabled', false);
                     $('.in-between-screen').removeClass('active-darkscreen');
-                    $('.in-between-screen').click();
+                    // $('.in-between-screen').click();
                     $('body').removeClass('no-scroll');
                     this.hideAll();
 
@@ -432,7 +435,7 @@ $(function () {
                     $('.search-wrapper').removeClass('was-validated');
                     this.removeKeyword();
 
-                    // bodyScrollLock.clearAllBodyScrollLocks();
+                    bodyScrollLock.clearAllBodyScrollLocks();
                 },
                 resetFilter: function () {
                     //reset all filter uncheck
