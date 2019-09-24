@@ -104,12 +104,17 @@
           position: absolute;
           top: -7px;
         }
+        
       }
       .prev {
         display: none;
       }
       #goBack-explorethearts, #goBack-knowtheartists,  #goBack-studentguides,  #goBack-educatorresources, #goBack-explorethearchives, #goAfter-researchtheartists  {
         left: 0;
+        &:active {
+          margin-left: -3px;
+          transition: all;
+        }
       }
       #goAfter-explorethearts, #goAfter-knowtheartists,  #goAfter-studentguides,  #goAfter-educatorresources  {
         right: 7px;
@@ -119,6 +124,11 @@
         }
         @media (min-width: 1367px) {
           right: -10px;
+        }
+
+        &:active {
+          margin-right: -3px;
+          transition: all;
         }
       }
 
@@ -131,6 +141,11 @@
         }
         @media (min-width: 1367px) {
           right: -10px;
+        }
+
+        &:active {
+          margin-right: -3px;
+          transition: all;
         }
       }
 
