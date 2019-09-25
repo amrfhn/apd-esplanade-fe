@@ -245,6 +245,13 @@ $(function () {
         $('#genericPage').parent().closest('.container').addClass('m-auto');
     }
 
+    //landing page footer to bottom
+    if ($('#landingPage'.length > 0) && $('#tagResult').length < 1) {
+        $('#landingPage').closest('main').addClass('custom-generic-page ');
+        $('#landingPage').parent().closest('.container').addClass('m-auto');
+    }
+
+
 })
 
 function clampText() {
