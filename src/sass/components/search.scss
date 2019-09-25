@@ -8,6 +8,15 @@
   left: 20px;
   display: none;
 
+  .display-placeholder-ie {
+    position: absolute;
+    pointer-events: none;
+    padding: 6px 0px; 
+    color: #6d767e; 
+    // border: 1px solid red; 
+    font-size: 22px; 
+  }
+
   #closeSearch {
     width: 100%;
     height: 25px;
@@ -152,7 +161,6 @@
       a {
         color: $primary;
         text-decoration: none;
-
       }
 
       em {
@@ -255,10 +263,10 @@
 
   #search-spinner {
     position: absolute;
-    width: 100vw; 
+    width: 100vw;
     height: 100%;
     left: 0;
-    z-index: 3; 
+    z-index: 3;
     background: $white;
     display: flex;
     justify-content: center;

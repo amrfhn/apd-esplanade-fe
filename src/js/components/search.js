@@ -15,6 +15,7 @@ $(function () {
 
 
         var data = {
+            placeholderIE: true,
             content: "",
             field: "",
             keyword: "",
@@ -40,7 +41,7 @@ $(function () {
         }
 
         var bodyScrollLock = require('body-scroll-lock');
-
+        var isIE = /*@cc_on!@*/false || !!document.documentMode;
 
         var searchFilter = new Vue({
             el: "#search",
@@ -62,15 +63,21 @@ $(function () {
                     _this.closeSearch();
                 })
 
+                // Internet Explorer 6-11
+
+
+                if (!isIE) {
+                    this.placeholderIE = false;
+                }
             },
             watch: {
                 searchSuggestionFiltered: {
-                    handler: function(){
+                    handler: function () {
                         if (this.searchSuggestionFiltered.length == 0) {
                             $(".search-suggestion").hide();
                         }
                     },
-                    deep: true, 
+                    deep: true,
                 }
             },
             methods: {
@@ -95,6 +102,7 @@ $(function () {
 
                     if (!$(event.target).closest(".search-suggestion").length) {
                         $(".search-suggestion").slideUp("fast");
+                        this.placeholderIE == false;
                     }
                 },
                 boldSearchKeyword: function (str) {
@@ -226,6 +234,14 @@ $(function () {
                             $(".search-suggestion").hide();
                         }
                     }, 100)
+
+                    if (isIE) {
+                        if (this.keyword.length > 0) {
+                            this.placeholderIE = false;
+                        } else {
+                            this.placeholderIE = true;
+                        }
+                    }
                 },
                 searchHighlight: function (string) {
                     $(".search-suggestion-list li.match").each(function () {
@@ -253,13 +269,15 @@ $(function () {
                     $('#search-input').blur();
                     this.hideAll();
                     this.resetFilter();
+                    this.placeholderIE = false;
                     this.updateUrlParam();
                     this.fetchResultData();
+
                     return false;
                 },
                 fetchResultData: function (e) {
                     console.log('getting result...')
-
+                    
                     this.hideAll();
                     $('.search-suggestion').hide();
                     $('#search-spinner').show();
@@ -436,6 +454,10 @@ $(function () {
                     this.removeKeyword();
 
                     bodyScrollLock.clearAllBodyScrollLocks();
+
+                    if (isIE) {
+                       this.placeholderIE = true 
+                    }
                 },
                 resetFilter: function () {
                     //reset all filter uncheck
