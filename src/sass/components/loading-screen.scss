@@ -70,10 +70,11 @@
 
 .load-gif {
   width: 250px;
-  height: 250px;
+  height: auto;
   @media (min-width:768px){
     width: 350px;
-    height: 350px;
+    max-height: 300px;
+    height: 100%;
   }
 }
 
@@ -89,7 +90,8 @@
     height: auto;
     @media (min-width:768px){
       width: 350px;
-      height: auto;
+      max-height: 300px;
+      height: 100%;
     }
   }
 }
