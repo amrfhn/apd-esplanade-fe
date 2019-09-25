@@ -1,3 +1,7 @@
+body {
+    -ms-overflow-x: hidden;
+}
+
 * {
     &:focus {
         outline: 0 !important
