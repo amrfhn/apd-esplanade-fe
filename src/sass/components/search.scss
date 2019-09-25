@@ -102,6 +102,10 @@
   .show-filter {
     right: 0;
     transition: 0.3s ease-out;
+
+    @include media-breakpoint-up(md) {
+      right: -25px;
+    }
   }
 
   .search-suggestion {
