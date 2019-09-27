@@ -10,7 +10,7 @@ $(function (){
                 target = '.progress-wrapper.d-block';
             } 
             if(width > 960) {
-                target = '.progress-wrapper.d-md-block';
+                target = '.progress-wrapper.d-lg-block';
             }
         })
 
