@@ -292,7 +292,7 @@ $(function () {
                         type: "GET",
                         url: url,
                         dataType: "json",
-                        data: decodeURIComponent($.param(resultParams))
+                        data: $.param(resultParams)
                     }).done(function (data) {
 
                         _this.searchResult.total = data.total

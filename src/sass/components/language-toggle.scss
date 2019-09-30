@@ -5,12 +5,12 @@
     border: 1px solid $primary;
     border-radius: 0;
     text-align: center;
-    width: calc(100vw / 4.5);
+    min-width: calc(100vw / 4.5);
     height: 40px;
     padding: 8px;
 
     @media (min-width: 992px) {
-      width: 48px;
+      min-width: 48px;
     }
   }
 
