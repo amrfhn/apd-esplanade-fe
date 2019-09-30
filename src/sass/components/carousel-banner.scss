@@ -45,61 +45,71 @@
         .content-type {
           color: #fff;
         }
-        // .banner-navigation{
-        //   display: flex;
-        //   .arrows-wrapper {
-        //     .custom-btn {
-        //       border: 0;
-        //       background: none;
-        //       padding: 3px 5px 0 5px;
-  
-        //       img.cus-control {
-        //         width: 100%;
-        //         position: relative;
-        //         top: 0;
-        //         left: 0;
-        //         background: none;
-        //       }
-              
-        //       .cust-icon {
-        //         background-color: transparent;
-        //         border-radius: 100%;
-        //         width: 37px;
-        //         font-weight: bold;
-        //         height: 37px;
-        //         font-size: 23px;
-        //         padding: 20px 20px;
-        //         text-align: center;
-        //         display: flex;
-        //         justify-content: center;
-        //         align-items: center;
-        //       }
-        //       .arrow-black{
-        //         color: $primary;
-        //         border: 3px solid;
-        //         border-color: $primary; 
-        //         &:hover{
-        //           background-color: $primary;
-        //           color: $white;
-        //           transition: all 0.25s ease-in;
-        //           border: 3px solid $primary;
-        //         }             
-        //       }
-        //       .arrow-light{
-        //         color: $white;
-        //         border: 3px solid;
-        //         border-color: $white; 
-        //         &:hover{
-        //           background-color: $white;
-        //           color: $primary;
-        //           transition: all 0.25s ease-in;
-        //           border: 3px solid $white;
-        //         }             
-        //       }
-        //     }
-        //   }
+        // .banner-navigation {
+          //   display: flex;
+          //   .arrows-wrapper {
+          //     .custom-btn {
+          //       border: 0;
+          //       background: none;
+          //       padding: 3px 5px 0 5px;
+
+          //       img.cus-control {
+          //         width: 100%;
+          //         position: relative;
+          //         top: 0;
+          //         left: 0;
+          //         background: none;
+          //       }
+
+          //       .cust-icon {
+          //         background-color: transparent;
+          //         border-radius: 100%;
+          //         width: 37px;
+          //         font-weight: bold;
+          //         height: 37px;
+          //         font-size: 23px;
+          //         padding: 20px 20px;
+          //         text-align: center;
+          //         display: flex;
+          //         justify-content: center;
+          //         align-items: center;
+          //       }
+          // .arrow-black {
+          //   color: $primary;
+          //   border-color: $primary;
+          //   border: 1.5px solid !important;
+          //   border: 1.5px solid $primary;
+          //   text-decoration: none;
+          //   &:hover {
+          //     background-color: $primary;
+          //     color: $white !important;
+          //     border: 1.5px solid $primary !important;
+          //     border-color: $primary !important;
+          //     box-shadow: inset 450px 0 0 0 $primary;
+          //     transition: all 0.25s ease-in;
+          //     text-decoration: none;
+          //   }
+          // }
+          // .arrow-light {
+          //   color: $white;
+          //   border-color: $white;
+          //   border: 1.5px solid !important;
+          //   border: 1.5px solid $white;
+          //   text-decoration: none;
+
+          //   &:hover {
+          //     background-color: $white;
+          //     color: $primary;
+          //     border: 1.5px solid $white !important;
+          //     border-color: $white !important;
+          //     box-shadow: inset 450px 0 0 0 $white;
+          //     transition: all 0.25s ease-in;
+          //     text-decoration: none;
+          //   }
+          // }
+          // }
+          // }
         // }
-        
 
         .slide-count-wrap {
           position: relative;
@@ -120,7 +130,7 @@
         }
       }
       .pos-mid {
-        top: calc(100vh/3);
+        top: calc(100vh / 3);
       }
       .pos-top {
         top: 70px;

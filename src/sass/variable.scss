@@ -273,8 +273,9 @@ p {
   text-decoration: none;
   &:hover{
       background-color: $primary;
-      color: $white;
+      color: $white !important;
       border: 1.5px solid $primary !important;
+      border-color: $primary !important;
       box-shadow: inset 450px 0 0 0 $primary;
       transition: all 0.25s ease-in;
       text-decoration: none;
@@ -294,6 +295,7 @@ p {
       background-color: $white;
       color: $primary;
       border:1.5px solid $white !important;
+      border-color: $white !important;
       box-shadow: inset 450px 0 0 0 $white;
       transition: all 0.25s ease-in;
       text-decoration: none;

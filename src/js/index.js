@@ -125,25 +125,6 @@ $(function () {
         }
     });
 
-
-    // $('a').on('click', function (e) {
-    //     if ($(this).attr('href')) {
-    //         let redirectUrl = $(this).attr('href');
-    //         let toOffStageScreen = $('#animationToOffStage')
-
-    //         if ($(this).attr('href').includes('esplanade.com') && $(this).attr('href').includes('offstage')) {
-    //             e.preventDefault();
-    //             toOffStageScreen.removeClass('d-none').addClass('d-block')
-    //             // toOnStageScreen.addClass('active')
-    //             setTimeout(function () {
-    //                 location.href = redirectUrl
-    //             }, redirectTime);
-    //         } else {
-    //             e.currentTarget.click();
-    //         }
-    //     }
-    // });
-
     // solution: set flag, not to display back button if user browse details page from external
     if (sessionStorage.getItem('pageBrowsed') && document.referrer !== "") {
         var backBtn = $('.nav.back');
