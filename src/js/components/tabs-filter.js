@@ -294,11 +294,13 @@ $(function () {
                         var newUrl = url.toString();
                     }
 
+                    var catId = this.category;
+
                     $('.mm-content-item').find('.megamenu-genre').parent().removeClass('active');
                     var megaMenuItem = $('.mm-content-item').find('.megamenu-genre');
-
+                    
                     for (var i = 0, len = megaMenuItem.length; i < len; i++) {
-                        if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre) {
+                        if ($(megaMenuItem[i]).attr('data-key') == currUrlParams.genre && catId === 'explorethearts') {
                             $(megaMenuItem[i]).parent().addClass('active');
                         }
                     }
