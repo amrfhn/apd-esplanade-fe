@@ -86,7 +86,6 @@ $(function () {
             },
             updated: function () {
                 var _this = this;
-
                 _this.bgSwitcher();
 
                 setTimeout(function (){
@@ -98,12 +97,15 @@ $(function () {
 
                 _this.bannerCount = data.banners.length;
 
-                if (_this.bannerCount > 1) {
-                    _this.slick();
-                    $('.banner-content').find('.banner-navigation').addClass('d-flex').removeClass('d-none');
-                } else {
-                    $('.banner-content').find('.banner-navigation').addClass('d-none').removeClass('d-flex');
+                if ( !$('.carousel-banner').hasClass('slick-initialized')) {
+                    if (_this.bannerCount > 1) {
+                        _this.slick();
+                        $('.banner-content').find('.banner-navigation').addClass('d-flex').removeClass('d-none');
+                    } else {
+                        $('.banner-content').find('.banner-navigation').addClass('d-none').removeClass('d-flex');
+                    }
                 }
+                
 
                 //show banner cta button
                 $('.banner-content').each(function () {
@@ -199,32 +201,35 @@ $(function () {
 
                     $('.banner-bg').each(function () {
 
-                        var carouselMobileImage = $(this).attr('data-mobile-image')
-                        var carouselDesktopImage = $(this).attr('data-desktop-image')
-
-                        if (lg.matches) {
-                            if (carouselMobileImage !== "") {
-                                $(this).css('background-image', 'url("' + carouselMobileImage + '")')
-                            } else {
+                        if (!$(this).parent().parent().hasClass('slick-cloned')) {
+                            var carouselMobileImage = $(this).attr('data-mobile-image')
+                            var carouselDesktopImage = $(this).attr('data-desktop-image')
+    
+                            if (lg.matches) {
+                                if (carouselMobileImage !== "") {
+                                    $(this).css('background-image', 'url("' + carouselMobileImage + '")')
+                                } else {
+                                    $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
+                                }
+    
+                            }
+                            if (md.matches) {
                                 $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                             }
-
+    
+    
+                            _this.contentColor = data.banners[bannerIndex].Content.Colour
+    
+                            if (_this.contentColor == '#000000') {
+                                $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-light').addClass('btn-outline-primary');
+                                $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-light').addClass('arrow-black');
+                            } else {
+                                $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-primary').addClass('btn-outline-light');
+                                $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-black').addClass('arrow-light');
+                            }
+                            bannerIndex++;
                         }
-                        if (md.matches) {
-                            $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
-                        }
-
-
-                        _this.contentColor = data.banners[bannerIndex].Content.Colour
-
-                        if (_this.contentColor == '#000000') {
-                            $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-light').addClass('btn-outline-primary');
-                            $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-light').addClass('arrow-black');
-                        } else {
-                            $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-primary').addClass('btn-outline-light');
-                            $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-black').addClass('arrow-light');
-                        }
-                        bannerIndex++;
+                        
                     });
 
                 },
