@@ -17,17 +17,17 @@ $(function () {
         $('.mm-wrapper').removeClass('active');
         $('.search').fadeOut('fast');
 
-        if(xs.matches) {
-            $('body').removeClass('position-fixed')
+        // if(xs.matches) {
+        //     $('body').removeClass('position-fixed')
            
-            var homepageFilter = $('.filter-bar').closest('.container-fluid')
-            if ($('.filter-bar').length > 0){
-                homepageFilter.removeClass('stick')
-            }
+        //     var homepageFilter = $('.filter-bar').closest('.container-fluid')
+        //     if ($('.filter-bar').length > 0){
+        //         homepageFilter.removeClass('stick')
+        //     }
             
-        } else {
-            $('.filter-bar').closest('.container-fluid').removeClass("stick");
-        }
+        // } else {
+        //     $('.filter-bar').closest('.container-fluid').removeClass("stick");
+        // }
     })
 
     if ($('.in-between-screen').hasClass('active-screen')) {
