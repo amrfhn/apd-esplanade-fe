@@ -1022,6 +1022,14 @@ $(function () {
 
                          //body-scroll-lock
                          bodyScrollLock.clearAllBodyScrollLocks();
+
+                         if (lg.matches) {
+                            $('html, body').animate({
+                                scrollTop: ($(".tabfil-container").offset().top)
+                            }, 400, function () {
+                                $('.filter-bar').closest('.container-fluid').removeClass("stick");
+                            });
+                         }
                         
                          $('.filter-bar').closest('.container-fluid').removeClass("stick");
                          
