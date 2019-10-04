@@ -318,17 +318,20 @@ $(function () {
                     this.fetchData();
                     this.scrollIntoTileTop();
 
-
                 },
-                filterCategory: function (id) {
+                filterCategory: function (id, genre = 'all') {
                     this.category = id;
                     // change genre filter
+                   
                     $('.genre-tabs').addClass('d-none');
                     $('#genre-tabs-' + id).removeClass('d-none');
                     // change side filter 
                     $('.filter-menu-content').addClass('d-none');
                     $('#filter-menu-content-' + id).removeClass('d-none');
-                    this.resetGenre()
+
+                    if (genre == 'all') {
+                        this.resetGenre()
+                    } 
                     // this.genreArrow();
 
                     // reset all side filter checkboxes and radios
@@ -340,7 +343,7 @@ $(function () {
 
                     //reset genre to ALL
                     searchParams.delete('genre');
-                    searchParams.append('genre', 'all')
+                    searchParams.append('genre', genre)
 
                     //hide loading screen
                     $('#offstageLoading').fadeIn(1000);
@@ -384,11 +387,17 @@ $(function () {
                             if (!$('.wrapper-' + catId).hasHScrollBar()) {
                                 $('#goBack-' + catId).addClass('d-none');
                                 $('#goAfter-' + catId).addClass('d-none');
+                                if (lg.matches) {
+                                    $('.wrapper-' + catId).addClass('box-shadow-none').removeClass('box-shadow-left').removeClass('box-shadow-right');
+                                }
                             } else {
                                 if (md.matches) {
                                     setTimeout(function () {
                                         $('#goAfter-' + catId).addClass('d-block').removeClass('d-none');
                                     },300)
+                                } 
+                                if (lg.matches) {
+                                    $('.wrapper-' + catId).addClass('box-shadow-right');
                                 }
                             }
                         }
@@ -410,6 +419,10 @@ $(function () {
                                 // console.log(maxScrollLeft)
                                 $('#goAfter-' + catId).addClass('d-none');
                                 $('#goAfter-' + catId).removeClass('d-block');
+
+                                if (lg.matches) {
+                                    $('.wrapper-' + catId).removeClass('box-shadow-right');
+                                }
                             }
                             if ($('.wrapper-' + catId).scrollLeft() < maxScrollLeft) {
                                 $('#goAfter-' + catId).addClass('d-block');
@@ -426,9 +439,17 @@ $(function () {
                             var $goBack = $('#goBack-' + catId)
                             if ($(this).scrollLeft() < 1) {
                                 $goBack.removeClass('show-arrow');
+                                // $('.wrapper-' + catId).removeClass('box-shadow-left');
+
                             }
                             if ($(this).scrollLeft() > 0) {
                                 $goBack.addClass('show-arrow');
+                                
+                                if (lg.matches) {
+                                    $('.wrapper-' + catId).addClass('box-shadow-right');
+                                    // $('.wrapper-' + catId).addClass('box-shadow-left');
+
+                                }
                             }
                             // console.log($(this).scrollLeft())
 
@@ -440,9 +461,20 @@ $(function () {
 
                             if (scrollWidth - newScrollLeft - width == offset) {
                                 $('#goBack-' + catId).addClass('show-arrow');
+                                // if (lg.matches) {
+                                //     $('.wrapper-' + catId).addClass('box-shadow-left');
+                                // }
                             }
                             if (newScrollLeft === 0) {
                                 $('#goAfter-' + catId).addClass('show-arrow');
+                                
+                            }
+
+                            var maxScroll = $('.wrapper-' + catId).get(0).scrollWidth - $('.wrapper-' + catId).get(0).clientWidth;
+                            if ($('.wrapper-' + catId).scrollLeft() >= maxScroll) {
+                                if (lg.matches) {
+                                    $('.wrapper-' + catId).removeClass('box-shadow-right');
+                                }
                             }
 
                             scrollLeftPrev = newScrollLeft;
@@ -589,7 +621,7 @@ $(function () {
                     // var searchParams = new URLSearchParams(query_string);
                     
                     var fetchdata = false;
-                    if (currUrl.indexOf('genre') > -1) {
+                    if (currUrl.indexOf('genre') > 0) {
                         var url = new URL(currUrl);
                         var query_string = url.search;
                         var searchParams = new URLSearchParams(query_string);
@@ -825,14 +857,19 @@ $(function () {
                         }
 
                         // $('#' + categoryValue).click();
-                        _this.filterCategory(categoryValue);
+                        _this.filterCategory(categoryValue, genreValue);
 
                         $('.list-act').find('.nav-link').removeClass('active');
                         $('.list-act').find('#' + categoryValue).addClass('active');
+                        
+                        let filterIcon = $('.genre-filter').find('img');
+                        filterIcon.attr('src', '/assets/microsites/offstage/img/icons/Filter.svg');
 
 
                         $('#genre-tabs-' + categoryValue + ' .nav').find('#' + genreValue).click();
-                        _this.filterGenre(genreValue);
+                        if (genreValue != 'all') {
+                            _this.filterGenre(genreValue);
+                        }
 
                         $('.genre-tabs .wrapper-' + cat_id).animate({
                             scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-' + cat_id).outerWidth()

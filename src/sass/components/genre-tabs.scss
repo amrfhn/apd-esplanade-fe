@@ -158,6 +158,26 @@
         }
       }
     }
+
+    .box-shadow-right {
+      @media(max-width: 960px) {
+        box-shadow: 10px -3px 8px -10px rgba(0, 0, 0, 0.4);
+
+      }
+    }
+
+    .box-shadow-left {
+      @media(max-width: 960px) {
+        box-shadow: -10px 0px 8px -10px rgba(0, 0, 0, 0.5);
+
+      }
+    }
+    .box-shadow-none {
+      @media(max-width: 960px) {
+        box-shadow: none !important;
+
+      }
+    }
   }
 
   #tabResearchers {
