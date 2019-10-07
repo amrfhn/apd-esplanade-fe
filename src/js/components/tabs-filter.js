@@ -77,9 +77,8 @@ $(function () {
 
                 // $('#offstageLoading').addClass('d-block').removeClass('d-none');
                 //hide loading screen
-
                 $('#offstageLoading').fadeIn(200);
-                $('.throbber').fadeIn(100);
+                $('.throbber').css('display', 'block');
 
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
