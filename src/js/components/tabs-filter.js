@@ -11,9 +11,9 @@ $(function () {
         //     importCss: true
         // })
 
-        var xs = window.matchMedia('(max-width: 768px)');
-        var md = window.matchMedia('(min-width: 769px)');
-        var lg = window.matchMedia('(max-width: 960px)');
+        // var xs = window.matchMedia('(max-width: 768px)');
+        var xlg = window.matchMedia('(min-width: 1025px)');
+        var lg = window.matchMedia('(max-width: 1024px)');
 
         // var host = window.location.origin
         // var host =  window.location.protocol + "//" + window.location.hostname;
@@ -160,11 +160,11 @@ $(function () {
                 updateData: function (data) {
                     var offset = 0;
 
-                    if (xs.matches) {
+                    if (lg.matches) {
                         offset = 3;
                         this.loadPage += 1;
                     }
-                    if (md.matches) {
+                    if (xlg.matches) {
                         offset = 6
                         this.loadPage += 1;
                     }
@@ -220,7 +220,7 @@ $(function () {
                                 }
     
                             }
-                            if (md.matches) {
+                            if (xlg.matches) {
                                 $(this).css('background-image', 'url("' + carouselDesktopImage + '")')
                             }
     
@@ -396,7 +396,7 @@ $(function () {
                                     $('.wrapper-' + catId).addClass('box-shadow-none').removeClass('box-shadow-left').removeClass('box-shadow-right');
                                 }
                             } else {
-                                if (md.matches) {
+                                if (xlg.matches) {
                                     setTimeout(function () {
                                         $('#goAfter-' + catId).addClass('d-block').removeClass('d-none');
                                     },300)
@@ -734,13 +734,13 @@ $(function () {
                     });
                 },
                 scrollIntoTileTop: function () {
-                    if(xs.matches) {
+                    if(lg.matches) {
                         $('html, body').animate({
                             scrollTop: $(".tab-content").offset().top
                         }, 360);
                     }
                     
-                    if(md.matches) {
+                    if(xlg.matches) {
                         $('html,body').animate({ scrollTop: 0 }, 200, 'linear');
                     } 
                     
@@ -1001,7 +1001,7 @@ $(function () {
                         });
                     }
 
-                    if (md.matches) {
+                    if (xlg.matches) {
 
                         $('.filter').on('click', function () {
                             $('.filter-menu-wrapper').addClass('show-filter');

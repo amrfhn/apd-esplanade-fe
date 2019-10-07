@@ -4,7 +4,7 @@
   .genre-tabs-container {
     width: 100%;
 
-    @include media-breakpoint-up(lg) {
+    @media(min-width:1025px) {
       width: calc(100vw / 2 - 153px);
     }
 
@@ -152,7 +152,7 @@
       .show-arrow {
         display: none;
 
-        @include media-breakpoint-up(lg) {
+        @media(min-width:1025px) {
           display: block;
           background: $white;
         }

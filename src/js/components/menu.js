@@ -9,7 +9,7 @@ $(function () {
         // $('body').addClass('replace-scrollbar')
         
         $megaMenu.addClass('active');
-        $('main').addClass('padding-right-main');
+        
 
         $('.in-between-screen').addClass('active-screen');
 
@@ -24,13 +24,11 @@ $(function () {
                 }
             },
         });
-
-
     })
 
     
     $('.close-btn-x').on('click', function () {
-        $('main').removeClass('padding-right-main');
+        
 
         $megaMenu.removeClass('active');
         $('.in-between-screen').click();
@@ -40,8 +38,7 @@ $(function () {
         // $('body').removeClass('set-fixed');
 
         bodyScrollLock.clearAllBodyScrollLocks();
-        // $('body').css('position', 'static');
-        // $('body').css('overflow-y', 'auto');
+        $('body').css('overflow', 'auto');
     })
 
 
