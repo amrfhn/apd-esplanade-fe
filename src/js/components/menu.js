@@ -9,6 +9,8 @@ $(function () {
         // $('body').addClass('replace-scrollbar')
         
         $megaMenu.addClass('active');
+        $('main').addClass('padding-right-main');
+
         $('.in-between-screen').addClass('active-screen');
 
         disableBodyScroll($megaMenu, {
@@ -28,6 +30,8 @@ $(function () {
 
     
     $('.close-btn-x').on('click', function () {
+        $('main').removeClass('padding-right-main');
+
         $megaMenu.removeClass('active');
         $('.in-between-screen').click();
         // $('body').removeClass('replace-scrollbar')

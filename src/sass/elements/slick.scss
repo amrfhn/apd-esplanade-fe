@@ -25,6 +25,10 @@
   }
 }
 
+.arrows-wrapper {
+  display: flex;
+}
+
 //arrow
 .banner-navigation {
   display: flex;
@@ -42,20 +46,20 @@
     left: 0;
     background: none;
   }
-
-  .cust-icon {
-    background-color: transparent;
-    border-radius: 100%;
-    width: 37px;
-    font-weight: bold;
-    height: 37px;
-    font-size: 15px;
-    padding: 12px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+}
+.cust-icon {
+  background-color: transparent;
+  border-radius: 100% !important;
+  width: 37px;
+  font-weight: bold;
+  height: 37px;
+  font-size: 15px;
+  padding: 12px;
+  margin-right: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //*** DO NOT REMOVE IMPORTANT OR IT WILL EFFECT ON HOMEPAGE BANNER **//
@@ -92,6 +96,17 @@
       transition: all 0.25s ease-in;
       text-decoration: none;
     }
+  }
+}
+
+.slick-arrow-font {
+  margin-top: -2px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.icon-font-white {
+  &:hover {
+    color: #fff !important;
   }
 }
 

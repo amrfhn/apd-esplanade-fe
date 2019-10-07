@@ -77,8 +77,10 @@ $(function () {
 
                 // $('#offstageLoading').addClass('d-block').removeClass('d-none');
                 //hide loading screen
-                $('#offstageLoading').fadeIn()
-                
+
+                $('#offstageLoading').fadeIn(200);
+                $('.throbber').fadeIn(100);
+
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 this.initialize();
@@ -223,9 +225,12 @@ $(function () {
                             if (_this.contentColor == '#000000') {
                                 $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-light').addClass('btn-outline-primary');
                                 $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-light').addClass('arrow-black');
+
                             } else {
                                 $(this).find('.banner-content').find('.btn-carousel').removeClass('btn-outline-primary').addClass('btn-outline-light');
                                 $(this).find('.banner-content').find('.cust-icon').removeClass('arrow-black').addClass('arrow-light');
+                                // $(this).find('.banner-content').find('.slick-arrow-font').removeClass('arrow-black').addClass('arrow-light');
+
                             }
                             bannerIndex++;
                         }
@@ -658,8 +663,9 @@ $(function () {
                             data.filters = data.Articles
                             var $messageContainer = $('#emptyData');
                             var emptyMessage = $messageContainer.find('.message')
-    
+
                             $('#offstageLoading').fadeOut(1000);
+
                             // $('#offstageLoading').addClass('d-none').removeClass('d-block');
                             
                             
