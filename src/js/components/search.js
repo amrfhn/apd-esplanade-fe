@@ -88,7 +88,6 @@ $(function () {
                         if ($(metaUrl[i]).attr('property') == 'site_domain' && currentUrl.indexOf('localhost') === -1) {
                             var currDomain = $(metaUrl[i]).attr('content');
                             host = currDomain;
-                            // console.log('current Host from meta:', host)
                         } else {
                             host = 'http://dev.esplanade.growthopsapp.com';
                         }
@@ -115,13 +114,10 @@ $(function () {
 
                     //         var matched = newStr.match(new RegExp(searchTerm, 'ig'));
                     //         var splited = newStr.split(new RegExp(searchTerm, 'i'));
-                    //         // console.log('matched', matched)
 
                     //         newStr = splited.reduce(function(str1, item, index) {
                     //             // var matchedValue = newArray[index]
                     //             var matchedValue = matched[index];
-                    //             console.log('matchedValue', matchedValue)
-                    //             console.log('index', index)
                     //             return str1 += item + (!matchedValue ? '' : '<>' + matchedValue + '</>')
                     //         }, '');
                     // })
@@ -160,7 +156,6 @@ $(function () {
 
                     // var newVal = value.split(" ")
 
-                    // console.log(newVal);
 
                     // // Filter List
                     // if (this.keyword.length > 2 && this.searchSuggestion.length > 0) {
@@ -187,7 +182,6 @@ $(function () {
 
 
                         if (_this.keyword.length > 2) {
-                            console.log('search keyword')
                             $(".search-suggestion").show();
 
                             // Declare variables
@@ -227,7 +221,6 @@ $(function () {
 
                             // // $('.search-suggestion-list li').mark(filter);
 
-                            // console.log($('.search-suggestion-list li').length);
 
 
                         } else {
@@ -265,7 +258,6 @@ $(function () {
                 },
                 submittedSearch: function (e) {
                     // e.preventDefault();
-                    console.log('submit')
                     $('#search-input').blur();
                     this.hideAll();
                     this.resetFilter();
@@ -276,7 +268,6 @@ $(function () {
                     return false;
                 },
                 fetchResultData: function (e) {
-                    console.log('getting result...')
                     
                     this.hideAll();
                     $('.search-suggestion').hide();
@@ -317,7 +308,6 @@ $(function () {
                     }).fail(function () {
                         $('#search-spinner').hide();
                         $(".search-suggestion").hide();
-                        console.log('update fail')
                     })
                 },
                 updateResultData: function () {
@@ -364,7 +354,6 @@ $(function () {
                     var myParams = urlParams.get('keyword')
 
                     if (currentUrl.indexOf("keyword") > -1) {
-                        // console.log('showwwwwwwwwwwww')
                         $('.search').fadeIn('slow');
                         $('.in-between-screen').addClass('active-darkscreen');
 
@@ -383,7 +372,6 @@ $(function () {
                     var query_string = url.search;
                     var urlParams = new URLSearchParams(query_string);
 
-                    // console.log('check keyword')
 
                     if (currentUrl.indexOf("keyword") < -1 && this.keyword.length > 0) {
                         urlParams.append('keyword', this.keyword)
@@ -395,7 +383,6 @@ $(function () {
                         url.search = urlParams.toString();
                         var newUrl = url.toString();
                     }
-                    // console.log(newUrl)
                     window.history.pushState({ path: currentUrl }, '', newUrl);
                 },
                 removeKeyword: function () {
@@ -409,7 +396,6 @@ $(function () {
                         url.search = urlParams.toString();
                         var newUrl = url.toString();
                     }
-                    console.log(newUrl + "sss")
 
                     //fix undefined in ie
                     if (newUrl) {

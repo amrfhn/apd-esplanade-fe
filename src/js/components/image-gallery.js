@@ -95,10 +95,8 @@ $(function () {
         });
 
         slider.on('swipe', function (event, slick, direction) {
-            console.log(direction);
             getIndex();
 
-            console.log(slick)
             // left
             $(this).find('.slick-current a').click();
         });

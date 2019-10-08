@@ -42,8 +42,6 @@ $(function () {
             var goToSingleSlide = $(this).data('slick-index');
 
             // $(this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
-            console.log('onclick')
-            console.log(goToSingleSlide)
             $(_this).find('.video-carousel').slick('slickGoTo', goToSingleSlide);
         });
 

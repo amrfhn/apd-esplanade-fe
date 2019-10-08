@@ -90,7 +90,6 @@ $(function () {
     })
 
     // var homeUrl = (window.location.href = "/")
-    // console.log(homeUrl)
     $('a.nav-link.megamenu-genre').on('click', function () {
 
         $('.mm-content-item').find('.nav-item').removeClass('active');
