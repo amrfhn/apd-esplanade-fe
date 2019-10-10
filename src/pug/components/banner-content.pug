@@ -1,13 +1,13 @@
-.banner-content(v-bind-class='banner.Content.ContentPosition')
+.banner-content(v-bind:class="banner.Content.ContentPosition")
     h4.font-16.content-type(v-bind:style="{color: banner.Content.Colour}") {{banner.ContentType}}
-    h1.title-banner.clamp-3(v-line-clamp:20="3" data-clamp="3") {{banner.Content.Title}}
-    p.description.mt-2.clamp-2(v-line-clamp:20="2" data-clamp="2" v-bind:style="{color: banner.Content.Colour}") {{banner.subTitle}}
-    a.btn.btn-carousel.btn-outline-light.mt-2.d-none(:href='banner.pageUrl') FIND OUT MORE
+    h1.title-banner.clamp-3(data-clamp="3" v-bind:style="{color: banner.Content.Colour}") {{banner.Content.Title}}
+    p.description.mt-2.clamp-2(data-clamp="2" v-bind:style="{color: banner.Content.Colour}") {{banner.Content.SubTitle}}
+    a.btn.btn-carousel.btn-outline-light.mt-2.d-none(:href='banner.pageUrl' v-bind:style="[banner.Content.Colour!=='#FFFFFF'?{color: banner.Content.Colour}:{}]") FIND OUT MORE
     .banner-navigation.mt-md-5.mt-4.d-none
         .arrows-wrapper
-            button.btn.prev-slide.custom-btn
-                span.icon.esplanade-icon-Previous.cust-icon.arrow-light
+            button.btn.prev-slide.custom-btn.cust-icon.arrow-light.slick-arrow(v-bind:style="[banner.Content.Colour!=='#FFFFFF'?{color: banner.Content.Colour}:{},{borderColor: banner.Content.Colour}]")
+                span.icon.esplanade-icon-Previous.slick-arrow-font
                 //- img.cus-control.a-left.control-c.prev.slick-prev.h-25(src='./assets/microsites/offstage/img/icons/Left-White.svg')
-            button.btn.next-slide.custom-btn
-                span.icon.esplanade-icon-Next.cust-icon.arrow-black
+            button.btn.next-slide.custom-btn.cust-icon.arrow-light.slick-arrow(v-bind:style="[banner.Content.Colour!=='#FFFFFF'?{color: banner.Content.Colour}:{},{borderColor: banner.Content.Colour}]")
+                span.icon.esplanade-icon-Next.slick-arrow-font
         p.slide-count-wrap(v-bind:style="{color: banner.Content.Colour}") {{banner.Index}} / {{totalBanners}}

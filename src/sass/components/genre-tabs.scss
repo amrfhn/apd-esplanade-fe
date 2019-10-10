@@ -184,7 +184,7 @@
     width: 100%;
 
     @include media-breakpoint-up(lg) {
-      width: calc(100vw / 2 - 100px);
+      width: calc(100vw / 2 - 95px);
     }
   }
 }
