@@ -291,18 +291,22 @@ $(function () {
                     let genreId = key;
                     currUrlParams.genre = genreId;
 
-                    if (currUrl.indexOf("genre") < -1) {
-                        // currUrl += separator+"genre=" + currUrlParams.genre;
-                        searchParams.append('genre', currUrlParams.genre)
-                        searchParams.sort();
-                        url.search = searchParams.toString();
-                        var newUrl = url.toString();
+                    if (window.location.href.indexOf("schools") > -1) {
+                       
                     } else {
-                        searchParams.delete('genre');
-                        searchParams.append('genre', currUrlParams.genre)
-                        searchParams.sort();
-                        url.search = searchParams.toString();
-                        var newUrl = url.toString();
+                        if (currUrl.indexOf("genre") < -1) {
+                            // currUrl += separator+"genre=" + currUrlParams.genre;
+                            searchParams.append('genre', currUrlParams.genre)
+                            searchParams.sort();
+                            url.search = searchParams.toString();
+                            var newUrl = url.toString();
+                        } else {
+                            searchParams.delete('genre');
+                            searchParams.append('genre', currUrlParams.genre)
+                            searchParams.sort();
+                            url.search = searchParams.toString();
+                            var newUrl = url.toString();
+                        }
                     }
 
                     var catId = this.category;
@@ -812,32 +816,32 @@ $(function () {
                             // reset all side filter checkboxes and radios
                             $('.filter-menu-content [type="checkbox"]').prop('checked', false);
 
-                            if ($('#offstageLoading').css('display') == 'none') {
+                            if (window.location.href.indexOf("schools") > -1) {
+
+                            } else {
                                 if (currUrl.indexOf('category') < -1) {
-                                    console.log('append 1')
                                     searchParams.append('category', 'explorethearts');
                                     searchParams.sort();
                                     url.search = searchParams.toString();
                                     var newUrl = url.toString();
                                 } else {
-                                    console.log('append 2')
                                     searchParams.delete('category');
                                     searchParams.append('category', 'explorethearts');
                                     searchParams.sort();
                                     url.search = searchParams.toString();
                                     var newUrl = url.toString();
                                 }
+
+                                //append params on current url
+                                window.history.pushState({ path: newUrl }, '', newUrl);
+
+                                var dataKey = $(this).data('key');
+                                // $('#genre-tabs-explorethearts').find('#' + dataKey).click();
+                                // this.category = 'explorethearts';
+
+                                _this.filterGenre(dataKey);
+                                // _this.checkActiveGenre();
                             }
-
-                            //append params on current url
-                            window.history.pushState({ path: newUrl }, '', newUrl);
-
-                            var dataKey = $(this).data('key');
-                            // $('#genre-tabs-explorethearts').find('#' + dataKey).click();
-                            // this.category = 'explorethearts';
-
-                            _this.filterGenre(dataKey);
-                            // _this.checkActiveGenre();
 
 
                             $('.genre-tabs .wrapper-explorethearts').animate({
