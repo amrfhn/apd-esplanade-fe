@@ -669,7 +669,7 @@ $(function () {
                             if (data.filters.length < 1) {
                                 // test.text('Too Bad.. No result found');
                                 emptyMessage.removeClass('d-none').addClass('d-block');
-                                $('#spinner').addClass('d-none');
+                                $('#spinner').addClass('d-none').removeClass('d-block');
                             } else {
                                 emptyMessage.removeClass('d-block').addClass('d-none');
                                 // $('#spinner').removeClass('d-none');
