@@ -841,6 +841,7 @@ $(function () {
 
                                 _this.filterGenre(dataKey);
                                 // _this.checkActiveGenre();
+                                $('.close-icon').click();
                             }
 
 

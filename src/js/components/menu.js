@@ -103,7 +103,8 @@ $(function () {
 
 
     $('a.nav-link.megamenu-genre').on('click', function () {
-        $('.loading-screen').css('display', 'block');
+        // $('.loading-screen').css('display', 'block');
+        $('.close-icon').click();
         $('.in-between-screen').removeClass('active-screen'); 
 
     })
