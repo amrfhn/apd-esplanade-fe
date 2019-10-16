@@ -387,7 +387,7 @@ $(function () {
                     jQuery.fn.hasHScrollBar = function () {
                         return this.get(0).scrollWidth > this.innerWidth();
                     }
-                    var maxScrollLeft = $('.wrapper-' + catId).get(0).scrollWidth - $('.wrapper-' + catId).get(0).clientWidth - 20;
+                    var maxScrollLeft = $('.wrapper-' + catId).get(0).scrollWidth - $('.wrapper-' + catId).get(0).clientWidth - 10;
 
                     if ($('#genre-tabs-' + catId).length > 0) {
                         if ($('.wrapper-' + catId).length >= 1) {
