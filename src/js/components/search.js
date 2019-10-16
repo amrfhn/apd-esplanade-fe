@@ -423,7 +423,7 @@ $(function () {
                 },
                 closeFilter: function () {
                     $('.search-filter').removeClass('show-filter');
-                    $('.search-wrapper').reset();
+                    // $('.search-wrapper').reset();
                 },
                 closeSearch: function () {
 

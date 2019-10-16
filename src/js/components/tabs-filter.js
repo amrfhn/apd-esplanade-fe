@@ -291,9 +291,9 @@ $(function () {
                     let genreId = key;
                     currUrlParams.genre = genreId;
 
-                    if (window.location.href.indexOf("schools") > -1) {
-                       
-                    } else {
+                    // if (window.location.href.indexOf("schools") > -1) {
+                        
+                    // } else {
                         if (currUrl.indexOf("genre") < -1) {
                             // currUrl += separator+"genre=" + currUrlParams.genre;
                             searchParams.append('genre', currUrlParams.genre)
@@ -307,7 +307,7 @@ $(function () {
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
                         }
-                    }
+                    // }
 
                     var catId = this.category;
 
@@ -794,65 +794,70 @@ $(function () {
                     /************************/
                     //genre in burger menu on click
                     /************************/
+                    
                     $('a.nav-link.megamenu-genre').on('click', function () {
-                        $('.in-between-screen').click();
+                        if (currUrl.indexOf("arts") > -1) {
+                            $('.in-between-screen').click();
 
-                        if (!$(this).parent().hasClass('active')) {
-                            $('.mm-content-item').find('.nav-item').removeClass('active');
-                            $(this).parent().addClass('active');
-
-                            _this.category = 'explorethearts';
-                            $('.list-act').find('#knowtheartists').removeClass('active')
-                            var activeCategory = $('.list-act').find('#explorethearts');
-                            activeCategory.addClass('active')
-
-                            // change genre filter
-                            $('.genre-tabs').addClass('d-none');
-                            $('#genre-tabs-explorethearts').removeClass('d-none');
-                            // change side filter 
-                            $('.filter-menu-content').addClass('d-none');
-                            $('#filter-menu-content-explorethearts').removeClass('d-none');
-
-                            // reset all side filter checkboxes and radios
-                            $('.filter-menu-content [type="checkbox"]').prop('checked', false);
-
-                            if (window.location.href.indexOf("schools") > -1) {
-
-                            } else {
-                                if (currUrl.indexOf('category') < -1) {
-                                    searchParams.append('category', 'explorethearts');
-                                    searchParams.sort();
-                                    url.search = searchParams.toString();
-                                    var newUrl = url.toString();
-                                } else {
-                                    searchParams.delete('category');
-                                    searchParams.append('category', 'explorethearts');
-                                    searchParams.sort();
-                                    url.search = searchParams.toString();
-                                    var newUrl = url.toString();
-                                }
-
-                                //append params on current url
-                                window.history.pushState({ path: newUrl }, '', newUrl);
-
-                                var dataKey = $(this).data('key');
-                                // $('#genre-tabs-explorethearts').find('#' + dataKey).click();
-                                // this.category = 'explorethearts';
-
-                                _this.filterGenre(dataKey);
-                                // _this.checkActiveGenre();
-                                $('.close-icon').click();
+                            if (!$(this).parent().hasClass('active')) {
+                                $('.mm-content-item').find('.nav-item').removeClass('active');
+                                $(this).parent().addClass('active');
+    
+                                _this.category = 'explorethearts';
+                                $('.list-act').find('#knowtheartists').removeClass('active')
+                                var activeCategory = $('.list-act').find('#explorethearts');
+                                activeCategory.addClass('active')
+    
+                                // change genre filter
+                                $('.genre-tabs').addClass('d-none');
+                                $('#genre-tabs-explorethearts').removeClass('d-none');
+                                // change side filter 
+                                $('.filter-menu-content').addClass('d-none');
+                                $('#filter-menu-content-explorethearts').removeClass('d-none');
+    
+                                // reset all side filter checkboxes and radios
+                                $('.filter-menu-content [type="checkbox"]').prop('checked', false);
+    
+                                // if (window.location.href.indexOf("schools") > -1) {
+    
+                                // } else {
+                                    if (currUrl.indexOf('category') < -1) {
+                                        searchParams.append('category', 'explorethearts');
+                                        searchParams.sort();
+                                        url.search = searchParams.toString();
+                                        var newUrl = url.toString();
+                                    } else {
+                                        searchParams.delete('category');
+                                        searchParams.append('category', 'explorethearts');
+                                        searchParams.sort();
+                                        url.search = searchParams.toString();
+                                        var newUrl = url.toString();
+                                    }
+    
+                                    //append params on current url
+                                    window.history.pushState({ path: newUrl }, '', newUrl);
+    
+                                    var dataKey = $(this).data('key');
+                                    // $('#genre-tabs-explorethearts').find('#' + dataKey).click();
+                                    // this.category = 'explorethearts';
+    
+                                    _this.filterGenre(dataKey);
+                                    // _this.checkActiveGenre();
+                                    $('.close-icon').click();
+                                // }
+    
+    
+                                $('.genre-tabs .wrapper-explorethearts').animate({
+                                    scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-explorethearts').outerWidth()
+                                }, 2000, function () {
+                                    // _this.genreArrow();
+                                });
+    
+                                $('.mm-wrapper').removeClass('active');
                             }
-
-
-                            $('.genre-tabs .wrapper-explorethearts').animate({
-                                scrollLeft: $('.genre-tabs .active').position().left - $('#goBack-explorethearts').outerWidth()
-                            }, 2000, function () {
-                                // _this.genreArrow();
-                            });
-
-                            $('.mm-wrapper').removeClass('active');
                         }
+
+                        
                     })
 
                     /************************/
