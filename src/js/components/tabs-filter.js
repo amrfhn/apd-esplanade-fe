@@ -162,7 +162,12 @@ $(function () {
 
                     if (lg.matches) {
                         offset = 3;
-                        this.loadPage += 1;
+                        if (this.loadPage === 1) {
+                            this.loadPage += 2;
+                        } else {
+                            this.loadPage += 1;
+                        }
+                            
                     }
                     if (xlg.matches) {
                         offset = 6
