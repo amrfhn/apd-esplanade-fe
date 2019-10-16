@@ -929,38 +929,38 @@ $(function () {
                     // mega menu functions
                     /************************/
                     $burgerMenu.on('click', function () {
+                        // $('.carousel-banner').slick('slickPause');
                         $megaMenu.addClass('active');
                         $('.in-between-screen').addClass('active-screen');
                         // $('body').addClass('no-scroll');
-                        disableBodyScroll($megaMenu, {
-                            allowTouchMove: el => {
-                                while (el && el !== document.body) {
-                                    if (el.getAttribute('body-scroll-lock-ignore') !== null) {
-                                        return true
-                                    }
+                        // disableBodyScroll($megaMenu, {
+                        //     allowTouchMove: el => {
+                        //         while (el && el !== document.body) {
+                        //             if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+                        //                 return true
+                        //             }
 
-                                    el = el.parentNode
-                                }
-                            },
-                        });
+                        //             el = el.parentNode
+                        //         }
+                        //     },
+                        // });
 
-                        if (lg.matches) {
-                            $('body').addClass('position-fixed')
-                        }
+                        // if (lg.matches) {
+                        //     $('body').addClass('position-fixed')
+                        // }
                     })
                     $('.close-btn-x').on('click', function () {
                         $megaMenu.removeClass('active');
                         $('.in-between-screen').removeClass('active-screen');
                         // $('body').removeClass('no-scroll');
                         // $('body').removeClass('set-fixed');
-                        bodyScrollLock.clearAllBodyScrollLocks();
+                        // bodyScrollLock.clearAllBodyScrollLocks();
 
                         if (lg.matches) {
                             $('body').removeClass('position-fixed')
                         }
+                        // $('.carousel-banner').slick('slickPlay');
                     })
-
-
                     /************************/
                     // filter menu functions
                     /************************/
