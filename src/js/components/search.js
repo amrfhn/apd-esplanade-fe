@@ -40,7 +40,7 @@ $(function () {
             "filter": ""
         }
 
-        var bodyScrollLock = require('body-scroll-lock');
+        // var bodyScrollLock = require('body-scroll-lock');
         var isIE = /*@cc_on!@*/false || !!document.documentMode;
 
         var searchFilter = new Vue({
@@ -439,7 +439,7 @@ $(function () {
                     $('.search-wrapper').removeClass('was-validated');
                     this.removeKeyword();
 
-                    bodyScrollLock.clearAllBodyScrollLocks();
+                    // bodyScrollLock.clearAllBodyScrollLocks();
 
                     if (isIE) {
                        this.placeholderIE = true 

@@ -83,17 +83,17 @@ $(function () {
         $('#search-input').focus();
 
         //body scroll lock
-        disableBodyScroll($searchContainer, {
-            allowTouchMove: el => {
-                while (el && el !== document.body) {
-                    if (el.getAttribute('body-scroll-lock-ignore') !== null) {
-                        return true
-                    }
+        // disableBodyScroll($searchContainer, {
+        //     allowTouchMove: el => {
+        //         while (el && el !== document.body) {
+        //             if (el.getAttribute('body-scroll-lock-ignore') !== null) {
+        //                 return true
+        //             }
 
-                    el = el.parentNode
-                }
-            },
-        });
+        //             el = el.parentNode
+        //         }
+        //     },
+        // });
     })
     // $closeSearch.on('click', function () {
     //     $('.search').fadeOut('fast');
