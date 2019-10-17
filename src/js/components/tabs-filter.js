@@ -127,6 +127,8 @@ $(function () {
                     var dataFilters = _this.filters;
                     var checkScroll = false;
                     var spinner = $('#spinner');
+                    // spinner.removeClass('d-block').addClass('d-none');
+
 
                     var checkScrollOffset = 0;
 
@@ -147,7 +149,11 @@ $(function () {
                         window.onscroll = () => {
                             var bottomOfWindow = $(window).scrollTop() + $(window).height() > $(document).height() - 100;
                             if ($(".tab-content").length > 0 && bottomOfWindow && !this.fetchingData) {
-                                spinner.addClass('d-block').removeClass('d-none');
+                                
+                                if (data.filters.length > 1) {
+                                    spinner.addClass('d-block').removeClass('d-none');
+                                }
+
                                 this.updateData();
                             }
                         }
@@ -774,7 +780,7 @@ $(function () {
 
                     _this.genreTabActive();
 
-                    $('#spinner').addClass('d-none')
+                    $('#spinner').addClass('d-none').removeClass('d-block');
 
                     $('.mm-content a.filter').click(function () {
                         var dataKey = $(this).attr('data-key');
