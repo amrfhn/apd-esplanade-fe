@@ -207,10 +207,12 @@
   .search-result {
     display: none;
     overflow-y: auto;
-    max-height: calc(100vh - 230px);
+    max-height: calc(90vh - 230px);
+    padding-bottom: 30px;
 
     @include media-breakpoint-up(lg) {
       max-height: calc(100vh - 279px);
+      padding-bottom: 0px;
     }
 
     .result-card {

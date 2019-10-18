@@ -101,6 +101,11 @@ $(function () {
 
     })
 
+    //REMOVE D-NONE CLASS IN ADP
+    if ($('.sticky-footer').length < 1) {
+        $('footer').removeClass('d-none');
+    }
+
     //show animation when click - to on stage
     // let btnOnStage = $('#go-onstage')
     let redirectTime = '3000'
@@ -233,6 +238,9 @@ $(function () {
     }
 
 })
+
+
+
 
 function clampText() {
 

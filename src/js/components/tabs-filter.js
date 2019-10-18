@@ -77,7 +77,6 @@ $(function () {
                 setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                 this.initialize();
-
                 // this.onPopState();
             },
             updated: function () {
@@ -107,6 +106,13 @@ $(function () {
                     $(this).find('.btn-carousel').addClass('d-inline-block').removeClass('d-none');
                 })
 
+            },
+            created() {
+                // this.initialize();
+                // window.onpopstate = function (event) {
+                //     // this.fetchData();
+
+                // }
             },
             methods: {
                 checkMetatUrl: function () {
@@ -675,6 +681,9 @@ $(function () {
                             var $messageContainer = $('#emptyData');
                             var emptyMessage = $messageContainer.find('.message')
 
+                            $('.tabfil-container').removeClass('d-none');
+                            $('footer').removeClass('d-none');
+
                             $('#offstageLoading').fadeOut(1000);
 
                             // $('#offstageLoading').addClass('d-none').removeClass('d-block');
@@ -790,8 +799,7 @@ $(function () {
                         $('.custom-checkkbox [data-key=' + dataKey + '] ').prop('checked', true);
                         $('.mm-wrapper').removeClass('active');
                         $('.submit-filter').click();
-                    });
-
+                    });               
 
                     /************************/
                     // search button on click
@@ -808,6 +816,8 @@ $(function () {
                     
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (currUrl.indexOf("arts") > -1) {
+                            location.reload(false);
+
                             $('.in-between-screen').click();
 
                             if (!$(this).parent().hasClass('active')) {
