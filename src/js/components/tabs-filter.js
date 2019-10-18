@@ -306,7 +306,10 @@ $(function () {
                     setTimeout(function () { $('body').removeClass('overflow-hidden'); }, 1000);
 
                     let genreId = key;
+                    let categoryId = data.category;
+                    
                     currUrlParams.genre = genreId;
+                    currUrlParams.category = categoryId;
 
                     // if (window.location.href.indexOf("schools") > -1) {
                         
@@ -314,12 +317,15 @@ $(function () {
                         if (currUrl.indexOf("genre") < -1) {
                             // currUrl += separator+"genre=" + currUrlParams.genre;
                             searchParams.append('genre', currUrlParams.genre)
+                            searchParams.append('category', currUrlParams.category)
                             searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
                         } else {
                             searchParams.delete('genre');
                             searchParams.append('genre', currUrlParams.genre)
+                            searchParams.delete('category');
+                            searchParams.append('category', currUrlParams.category)
                             searchParams.sort();
                             url.search = searchParams.toString();
                             var newUrl = url.toString();
