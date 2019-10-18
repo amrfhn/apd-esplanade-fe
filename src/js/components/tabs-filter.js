@@ -681,14 +681,12 @@ $(function () {
                             var $messageContainer = $('#emptyData');
                             var emptyMessage = $messageContainer.find('.message')
 
-                            $('.tabfil-container').removeClass('d-none');
+                            // $('.tabfil-container').removeClass('d-none');
                             $('footer').removeClass('d-none');
 
                             $('#offstageLoading').fadeOut(1000);
 
                             // $('#offstageLoading').addClass('d-none').removeClass('d-block');
-
-
 
                             if (data.filters.length < 1) {
                                 // test.text('Too Bad.. No result found');
@@ -816,7 +814,7 @@ $(function () {
                     
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (currUrl.indexOf("arts") > -1) {
-                            location.reload(false);
+                            // location.reload(false);
 
                             $('.in-between-screen').click();
 
@@ -921,6 +919,15 @@ $(function () {
                     } else {
                         this.fetchData();
                     }
+
+                    /************************/
+                    //TO FORCE PAGE RELOAD WHEN BROWSER BACK BUTTON IS CLICKED
+                    /************************/
+                    window.onpopstate = function(e) {
+                        // this.fetchData();
+                        location.reload();
+                    };
+                    //
 
                     /************************/
                     //show animation when click - to on stage
