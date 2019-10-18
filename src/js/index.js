@@ -116,7 +116,7 @@ $(function () {
             let redirectUrl = $(this).attr('href');
             let toOnStageScreen = $('#animationToOnstage')
 
-            if (($(this).attr('href').includes('esplanade.com') || $(this).attr('href').startsWith("/")) && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
+            if (($(this).attr('href').includes('esplanade.com') && !$(this).attr('href').includes('mailto') || $(this).attr('href').startsWith("/")) && !$(this).attr('href').includes('offstage') && !$(this).hasClass('nav-item')) {
                 e.preventDefault();
                 toOnStageScreen.removeClass('d-none').addClass('d-block')
                 // toOnStageScreen.addClass('active')
