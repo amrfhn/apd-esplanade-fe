@@ -687,7 +687,7 @@ $(function () {
                             var $messageContainer = $('#emptyData');
                             var emptyMessage = $messageContainer.find('.message')
 
-                            // $('.tabfil-container').removeClass('d-none');
+                            $('.tabfil-container').css('opacity','1')
                             $('footer').removeClass('d-none');
 
                             $('#offstageLoading').fadeOut(1000);
@@ -929,6 +929,7 @@ $(function () {
                     /************************/
                     //TO FORCE PAGE RELOAD WHEN BROWSER BACK BUTTON IS CLICKED
                     /************************/
+                    // var docref =  document.referrer;
                     window.onpopstate = function(e) {
                         // this.fetchData();
                         location.reload();
