@@ -2,13 +2,10 @@ $(function () {
 
     var $filterMenu = $('.filter-menu-wrapper');
 
-    var bodyScrollLock = require('body-scroll-lock');
     var xs = window.matchMedia('(max-width: 768px)');
-
 
     $('.in-between-screen').on('click', function (e) {
         e.preventDefault()
-        bodyScrollLock.clearAllBodyScrollLocks();
 
         $filterMenu.removeClass('show-filter');
         $('.in-between-screen').removeClass('active-screen').removeClass('active-darkscreen');
