@@ -13,6 +13,8 @@ $(function () {
         $("body").removeClass("filter-open").removeClass('set-fixed');
         $('.mm-wrapper').removeClass('active');
         $('.search').fadeOut('fast');
+        $('body').css('overflow','');
+
 
         // if(xs.matches) {
         //     $('body').removeClass('position-fixed')

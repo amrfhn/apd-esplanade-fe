@@ -4,7 +4,7 @@ $(function () {
 
     $burgerMenu.on('click', function () {
         // $('body').addClass('replace-scrollbar')
-        
+        $('body').css('overflow','hidden');
         $megaMenu.addClass('active');
         
 
@@ -14,13 +14,12 @@ $(function () {
     
     $('.close-btn-x').on('click', function () {
         
+        $('body').css('overflow','');
 
         $megaMenu.removeClass('active');
         $('.in-between-screen').click();
         // $('body').removeClass('no-scroll');
         // $('body').removeClass('set-fixed');
-
-        $('body').css('overflow', 'auto');
     })
 
 
@@ -43,16 +42,19 @@ $(function () {
 
     });
 
-
     var $btnSearch = $('#btnSearch');
     var $searchContainer = $('#search-suggestion-list')
     // var $closeSearch = $('#closeSearch');
 
     $btnSearch.on('click', function () {
+        $('.mm-wrapper').removeClass('active');
+        $('.in-between-screen').removeClass('active-screen');
         $('.search').fadeIn('fast');
         $('.in-between-screen').addClass('active-darkscreen');
         // $('body').addClass('no-scroll'); 
         $('#search-input').focus();
+        $('body').css('overflow', '');
+
     })
 
     $('a.nav-link.megamenu-genre').on('click', function () {

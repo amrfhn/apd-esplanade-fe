@@ -807,9 +807,13 @@ $(function () {
                     // search button on click
                     /************************/
                     $btnSearch.on('click', function () {
+                        $('.mm-wrapper').removeClass('active');
                         $('.search').fadeIn('fast');
+                        $('.in-between-screen').removeClass('active-screen');
                         $('.in-between-screen').addClass('active-darkscreen');
                         $('body').addClass('no-scroll');
+                        $('body').css('overflow', '');
+                        
                     })
 
                     /************************/
@@ -819,6 +823,7 @@ $(function () {
                     $('a.nav-link.megamenu-genre').on('click', function () {
                         if (currUrl.indexOf("arts") > -1) {
                             // location.reload(false);
+                            $('body').css('overflow', '');
 
                             $('.in-between-screen').click();
 
@@ -965,6 +970,8 @@ $(function () {
                         // $('.carousel-banner').slick('slickPause');
                         $megaMenu.addClass('active');
                         $('.in-between-screen').addClass('active-screen');
+                        $('body').css('overflow', 'hidden');
+
                         // if (lg.matches) {
                         //     $('body').addClass('position-fixed')
                         // }
@@ -974,6 +981,8 @@ $(function () {
                         $('.in-between-screen').removeClass('active-screen');
                         // $('body').removeClass('no-scroll');
                         // $('body').removeClass('set-fixed');
+                        $('body').css('overflow', '');
+
 
                         if (lg.matches) {
                             $('body').removeClass('position-fixed')
@@ -1004,6 +1013,8 @@ $(function () {
                         $(".filter").click(function () {
                             $filterMenu.scrollTop(0)
                             $('.in-between-screen').addClass('active-screen');
+                            $('body').css('overflow', 'hidden');
+
 
                             if ($('.filter-bar').hasClass("stick")) {
                                 // $('.filter-bar').closest('.container-fluid').addClass("stick");
@@ -1023,6 +1034,9 @@ $(function () {
                             $('.filter-bar').closest('.container-fluid').removeClass("stick");
                             $filterMenu.removeClass('show-filter');
                             $('.in-between-screen').removeClass('active-screen');
+                            $('body').css('overflow', '');
+
+
 
                             // $('body').removeClass('no-scroll');
                             // $("body").removeClass("filter-open");
@@ -1039,6 +1053,8 @@ $(function () {
                             $('.filter-menu-wrapper').addClass('show-filter');
                             $('.in-between-screen').addClass('active-screen');
                             // $('body').addClass('no-scroll');
+                            $('body').css('overflow', 'hidden');
+
 
                             $('.mm-wrapper').removeClass('active');
 
@@ -1047,10 +1063,13 @@ $(function () {
                         })
 
                         $('.submit-filter').on('click', function () {
+                            $('body').removeClass('position-fixed');
                             $filterMenu.removeClass('show-filter');
                             $('.in-between-screen').removeClass('active-screen');
                             // $('body').removeClass('no-scroll');
                             // $("body").removeClass("filter-open");
+                            $('body').css('overflow','');
+
 
                             $('html, body').stop().animate({
                                 scrollTop: ($(".tab-content").offset().top) - ($('.filter-bar').height())
@@ -1071,6 +1090,8 @@ $(function () {
 
                         $filterMenu.removeClass('show-filter');
                         $('.in-between-screen').removeClass('active-screen');
+                        $('body').css('overflow','');
+
                     })
 
 
